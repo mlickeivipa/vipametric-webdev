@@ -1,0 +1,77 @@
+$color-white: #fff;
+$color-almost-white: #f7f7f7;
+$color-smokey-white: #f2f2f2;
+$color-cloud-grey: #e7e7e7;
+$color-lighter-grey: #ddd;
+$color-light-grey: #ccc;
+$color-grey: #aaa;
+$color-dark-grey: #999;
+$color-darker-grey: #777;
+$color-light-charcoal: #555;
+$color-charcoal: #333;
+$color-black: #000;
+
+$color-cornsilk: cornsilk;
+
+$color-blue-almost-white: #cdebfd;
+$color-light-blue: #519ecd;
+$color-blue: #3288bd;
+$color-dark-blue: #1a608a;
+$color-lighter-bluegrey: #baccd7;
+$color-light-bluegrey: #99a8b1;
+$color-bluegrey: #586771;
+$color-dark-bluegrey: #303641;
+
+$color-red-almost-white: #fdc7cd;
+$color-red: #d53e4f;
+
+$color-green-almost-white: #cdf7c7;
+$color-green: #68c266;
+$color-dark-green: #57944f;
+
+$color-gold-almost-white: #fdfdd3;
+$color-gold: #bdb149;
+
+$color-orange: #eda52f;
+
+$color-success-light: $color-green-almost-white;
+$color-success-dark: $color-dark-green;
+$color-error-light: $color-red-almost-white;
+$color-error-dark: $color-red;
+$color-info-light: $color-blue-almost-white;
+$color-info-dark: $color-dark-blue;
+$color-warning-light: $color-gold-almost-white;
+$color-warning-dark: $color-gold;
+
+$color-default-link: #00f;
+
+$color-btn-close: $color-error-dark;
+$color-btn-info: $color-blue;
+
+$color-default-site-font: $color-light-charcoal;
+$color-default-site-bg: $color-almost-white;
+
+$font-arial: Arial, Verdana, sans-serif;
+$font-open-sans: OpenSans, $font-arial;
+$font-open-sans-semi-bold: OpenSansSemiBold, $font-arial;
+$font-open-sans-bold: OpenSansBold, $font-arial;
+$font-open-sans-italic: OpenSansItalic, $font-arial;
+$font-open-sans-light: OpenSansLight, $font-arial;
+$font-glyph-lib: GlyphLib, sans-serif;
+$font-monospace: monospace;
+$font-georgia: Georgia, "Times New Roman", serif;
+
+$font-default-size: 14px;
+
+$html-entity-nbsp: "\a0";
+$html-entity-rarr: "\2192";
+
+$bp-mobile-landscape: (min-width: 480px);
+$bp-tablets-portrait: (min-width: 768px);
+$bp-tablets-landscape: (min-width: 1024px);
+$bp-desktop: (min-width: 1280px);
+$bp-desktop-wide: (min-width: 1400px);
+
+$spacing-default-between-buttons: 2px;
+
+$font-path: "/_fonts";

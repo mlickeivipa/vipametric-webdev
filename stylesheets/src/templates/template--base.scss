@@ -1,0 +1,184 @@
+@import "../libs/normalize";
+@import "../themes/theme--pernod";
+
+@include fontFace('OpenSans', '/OpenSans', 'opensans-regular-webfont');
+@include fontFace('OpenSansBold', '/OpenSans', 'opensans-bold-webfont');
+@include fontFace('OpenSansSemiBold', '/OpenSans', 'opensans-semibold-webfont');
+
+@include theme-structure($bg-body, $bg-accent, $color-contrast, $color-accent);
+
+body {
+  font-family: $font-open-sans;
+  font-size: $font-default-size;
+  color: $color-charcoal;
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+#e-column-0 {
+  padding: 15px 15px 80px;
+  position: relative;
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  #e-column-0 {
+    padding: 25px 25px 80px;
+  }
+}
+
+
+// Calendar
+body > .calendar {
+  border: 1px solid $color-accent;
+
+
+  td.button, td.name {
+    padding:5px;
+    text-align:center;
+    vertical-align: middle;
+    border:none;
+    cursor:pointer;
+
+    &.hilite {
+      border:none;
+    }
+  }
+
+  table {
+    margin: 0;
+    border:none;
+  }
+
+  thead {
+    border-top:1px solid lighten($bg-body, 5%);
+    border-left:1px solid lighten($bg-body, 5%);
+
+    .nav {
+      background:none;
+    }
+
+    tr {
+      background-color: $color-accent;
+    }
+
+    td.button,
+    td.title {
+      border:none;
+      background-color: $color-accent;
+      color:white;
+      text-align: center;
+      text-shadow:1px 1px 1px transparentize($color-black,0.5);
+    }
+
+    .daynames .name {
+      text-transform:uppercase;
+      border-bottom:1px solid lighten($bg-body, 5%);
+    }
+  }
+
+  tbody {
+
+    tr {
+      background-color: $color-white;
+    }
+
+    td.day {
+      border: none;
+      border-bottom: 1px solid lighten($bg-body, 5%);
+      padding: 5px;
+      cursor: pointer;
+      text-align: center;
+
+      &:not(.wn) {
+        border-left: 1px solid lighten($bg-body, 5%);
+      }
+
+      &.othermonth, &.othermonth.oweekend {
+        background-color: lighten($bg-body, 5%);
+        color: $color-light-charcoal;
+      }
+
+      &.weekend, &.weekend.othermonth {
+        color: $color-black;
+      }
+
+      &.today {
+        color: $color-accent;
+        font-weight: normal;
+        text-shadow: 1px 1px 1px transparentize($color-black, 0.85);
+      }
+
+      &.selected {
+        background-color: lighten($color-accent, 75%);
+        color: $color-accent;
+        font-weight: normal;
+      }
+
+      &.hilite {
+        background-color: lighten($bg-body, 15%);
+        font-weight: bold;
+      }
+    }
+  }
+
+  tfoot {
+    td.ttip {
+      border: none;
+      border-top:1px;
+      background-color:$color-accent;
+      color:$color-white;
+    }
+
+  }
+  .combo {
+    border: 1px solid $color-accent;
+    box-shadow: 2px 2px 3px transparentize($color-black, 0.8);
+    background-color: lighten($bg-body, 5%);
+    .label.hilite, .label.active {
+      background-color: lighten($bg-body, 7%);
+      border:none;
+    }
+  }
+}
+
+.message-container {
+  font-family: $font-open-sans-semi-bold;
+  color: $color-red;
+  margin-bottom: 15px;
+
+  &.permanent-messages {
+    @include contentbox;
+    border: 10px solid $color-accent;
+    font-family: $font-open-sans-semi-bold;
+    font-size: 16px;
+    color: $color-accent;
+  }
+
+  &.empty {
+    display: none;
+  }
+
+  @include breakpoint($bp-mobile-landscape) {
+    &.permanent-message {
+      padding: 25px;
+      margin: 25px 0;
+
+      &.empty {
+        display: none;
+      }
+    }
+  }
+}
+
+
+

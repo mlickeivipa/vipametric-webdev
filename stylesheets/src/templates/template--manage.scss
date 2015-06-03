@@ -1,0 +1,570 @@
+@import "../themes/theme--pernod";
+
+// Header area styles
+.logo {
+  padding: 10px 15px;
+  text-align: center;
+  p {
+    margin: 0;
+    img {
+      max-width: 250px;
+      height: auto;
+    }
+  }
+}
+
+.nav-plus {
+  position: relative;
+
+  .nav-collapse {
+    .nav-trigger {
+      display: block;
+      padding: 15px;
+      background-color: $color-accent;
+      box-shadow: 0 0 2px lighten($color-light-charcoal, 25%);
+      &:hover {
+        background-color: darken($color-accent, 5%);
+        cursor: pointer;
+      }
+      .line {
+        display: block;
+        content: "";
+        height: 2px;
+        width: 36px;
+        margin: 5px;
+        background-color: $color-contrast;
+      }
+    }
+  }
+
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    .mi {
+      border-bottom: 1px solid $bg-body;
+      &.last {
+        border-bottom: none;
+      }
+      .menuitemlabel {
+        color: $color-accent;
+        font-family: $font-open-sans-bold;
+        font-size: 16px;
+        text-transform: uppercase;
+        display: block;
+        padding: 10px 0;
+        &:hover {
+          text-decoration: none;
+          color: lighten($color-accent, 5%);
+        }
+      }
+
+      &.mi-active,
+      .menuitemlabel:hover {
+        .mil {
+          border-bottom: 1px solid $color-accent;
+        }
+      }
+    }
+  }
+
+  .logout {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .username {
+      display: none;
+    }
+
+    span.logout-url {
+      background: url(/_resources/dyn/files/21507z2032e2af/_fn/LogOut.png) no-repeat center center;
+      display: block;
+      overflow: hidden;
+      position: relative;
+      height: 36px;
+      width: 36px;
+
+      a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-indent: 4000em;
+      }
+    }
+  }
+}
+
+@include breakpoint($bp-desktop) {
+  header {
+    display: table;
+    width: 100%;
+  }
+
+  .logo {
+    text-align: left;
+  }
+
+  .logo,
+  .nav-plus {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .nav-plus {
+    text-align: right;
+
+    .nav-collapse {
+      .nav-trigger {
+        display: none;
+      }
+
+      .collapsible-shown {
+        display: block !important;
+      }
+    }
+
+    .menu .menu-t1 {
+      .mi {
+        display: inline-block;
+        vertical-align: middle;
+        border-bottom: none;
+
+        .menuitemlabel {
+          padding: 10px 25px 10px 0;
+        }
+      }
+    }
+
+    .nav-collapse,
+    .logout {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .logout {
+      position: relative;
+      padding: 5px 10px 5px 15px;
+      margin-right: 25px;
+    }
+  }
+}
+
+
+
+// Action clickables
+.header-actions,
+.footer-actions,
+.prop-header-actions,
+.prop-footer-actions {
+  display: block;
+  text-align: center;
+
+  a {
+    @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+    display: block;
+    width: 100%;
+
+    + a {
+      margin-top: 5px;
+    }
+  }
+
+  button {
+    display: block;
+    width: 100%;
+
+    + button {
+      margin-top: 5px;
+    }
+  }
+}
+
+.prop-header-actions,
+.prop-footer-actions {
+  margin-top: 5px;
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  .header-actions,
+  .footer-actions,
+  .prop-header-actions,
+  .prop-footer-actions {
+    text-align: right;
+    width: auto;
+
+    a {
+      display: inline-block;
+      vertical-align: top;
+      width: auto;
+
+      + a {
+        margin-top: 0;
+        margin-left: 15px;
+      }
+    }
+
+    button {
+      display: inline-block;
+      width: auto;
+
+      + button {
+        margin-top: 0;
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+// Add - clickables specific to the management/search pages
+a[title="Add Engagement"],
+a[title="Add User"]{
+  @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+  display: block;
+  text-align: center;
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  a[title="Add Engagement"],
+  a[title="Add User"]{
+    display: inline-block;
+    position: absolute;
+    top: 35px;
+    right: 25px;
+  }
+}
+
+
+// Generic Form & Management Styles
+label,
+.label,
+.label-component {
+  display: block;
+  @include label;
+}
+
+.label > label {
+  margin: 0;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+  @include input($bg-body);
+  display: block;
+  width: 100%;
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  textarea,
+  select {
+    width: auto;
+  }
+
+}
+
+input[type="checkbox"],
+label.tbl {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.rtb,
+.ctb {
+  display: block;
+}
+
+table {
+  width: 100%;
+
+  div.column-visibility button {
+    padding:0;
+    box-shadow: none;
+  }
+
+  button,
+  .btn {
+    font-size: 12px;
+    margin-right: 5px;
+    white-space: nowrap;
+  }
+
+  a + a {
+    margin-left: 5px;
+  }
+}
+
+
+// Content box styles
+.search-bar,
+.section {
+  @include contentbox;
+}
+
+
+// Search bar styles
+.search {
+  .constraints {
+    input,
+    select {
+      width: 100%;
+    }
+  }
+  .search-actions {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 3px;
+
+    button {
+      width: 100%;
+      display: block;
+      text-align: center;
+
+      + button {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .pager-top,
+  .pager-bottom {
+    text-align: center;
+
+    .controls {
+      a {
+        @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 10px);
+        font-family: $font-open-sans;
+        text-transform: none;
+        margin: 0 2px;
+      }
+
+      &.pages {
+        display: none;
+      }
+    }
+  }
+
+  .search-results-con {
+    display: block;
+    width: 100%;
+    overflow-y: hidden;
+    margin: 25px 0;
+    box-shadow: 0 0 2px lighten($color-light-charcoal, 25%);
+
+    table {
+      margin: 0;
+    }
+  }
+
+  .result-actions {
+    display: block;
+    margin-top: 15px;
+  }
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  .search {
+    .constraints {
+      input,
+      select {
+        width: auto;
+      }
+    }
+    .constraints,
+    .search-actions {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+
+    .search-actions {
+      button {
+        display: inline-block;
+        vertical-align: middle;
+        width: auto;
+
+        + button {
+          margin-top: 0;
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .pager-top,
+    .pager-bottom {
+      text-align: center;
+
+      .controls {
+
+        &.pages,
+        &.mp-controls{
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        a {
+          @include button($bg-accent, $bg-body, $color-accent, $size: 12px, $padding: 5px 10px);
+          font-family: $font-open-sans;
+          text-transform: none;
+          margin: 0 2px;
+        }
+
+        .selected-page {
+          @include button($color-accent, $bg-body, $color-contrast, $size: 12px, $padding: 5px 10px);
+          font-family: $font-open-sans;
+          text-transform: none;
+          margin: 0 2px;
+        }
+      }
+    }
+  }
+
+  .constraints .constraint,
+  .constraints .range-selector {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 25px;
+  }
+
+  .result-actions {
+    text-align: right;
+  }
+}
+
+.column-visibility-selector {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  input[type="checkbox"],
+  label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  label {
+    word-break: break-all;
+    font-size: 12px;
+  }
+}
+
+// Section Styles
+.section-header {
+  font-family: $font-open-sans-bold;
+  text-transform: uppercase;
+  font-size: 18px;
+
+  a {
+    @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+      display: block;
+      width: 100%;
+      text-align: center;
+  }
+}
+
+.sub-section {
+  position: relative;
+  padding-top: 5px;
+
+  &-header {
+    @include h3;
+    margin-left: 25px;
+
+    .metric-set-value-count {
+      display: none;
+      font-family: $font-open-sans;
+      padding-left: 5px;
+    }
+  }
+
+  button.btn.trigger {
+    padding: 0 5px;
+    height: 18px;
+    width: 20px;
+    position: absolute;
+    top: 7px;
+    left: 0;
+
+    &:after {
+      content: "+";
+      font-size: 18px;
+      line-height: 18px;
+    }
+  }
+
+  + .sub-section {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid $color-grey;
+
+    button.btn.trigger {
+      top: 10px;
+    }
+  }
+
+  .shown {
+    button.btn.trigger {
+      &:after {
+        content: "-";
+        line-height: 14px;
+      }
+    }
+  }
+}
+
+@include breakpoint ($bp-mobile-landscape) {
+  .section {
+
+    &-header {
+      a {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        width: auto;
+      }
+    }
+
+    .sub-section {
+      &-header {
+        a {
+          position: absolute;
+          top: 25px;
+          right: 25px;
+        }
+
+        .metric-set-value-count {
+          display: inline;
+          text-transform: none;
+        }
+      }
+
+      .prop-header-actions {
+        position: absolute;
+        top: 7px;
+        right: 0;
+      }
+
+      + .sub-section {
+        .prop-header-actions {
+          top: 10px;
+        }
+      }
+    }
+  }
+}
+
+.manage-users {
+  .search-results {
+    td.first-column {
+      min-width: 185px;
+    }
+  }
+}
+

@@ -1,0 +1,155 @@
+@import "../themes/theme--pernod";
+
+.vipametric,
+.dash-section,
+.dash_message {
+  @include contentbox;
+}
+
+.vipametric {
+  .param-wrapper {
+    margin-bottom: 15px;
+
+    input,
+    select {
+      width: 100%;
+    }
+  }
+}
+
+button.search-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  .vipametric {
+    .param-wrapper {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 50px;
+    }
+  }
+
+  button.search-button {
+    display: inline-block;
+    margin-top: 32px;
+    margin-right: 10px;
+    width: auto;
+  }
+}
+
+.reports-container {
+  margin-top: 10px;
+  .btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+// lining up buttons for the non-mobile view
+
+@include breakpoint($bp-mobile-landscape) {
+  .dashboard-params > div:first-child,
+  .dashboard-search {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .dashboard-params,
+  .reports-container {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .reports-container {
+    margin-top: 32px;
+  }
+}
+
+.dash-section {
+  &-header {
+    @include h2;
+  }
+
+  &.circular-chart-wrapper {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+      float: none;
+    }
+  }
+
+  .brand-totals {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .gauge-chart {
+    height: 200px;
+    width: 300px;
+    float: left;
+
+    .highcharts-yaxis-title {
+      @include h3;
+    }
+
+    .highcharts-yaxis-labels {
+      display: none;
+    }
+  }
+
+  .pie-chart {
+    height: 380px;
+  }
+
+  .table-wrapper {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  .dash-section {
+    .pie-chart {
+      display: inline-block;
+      vertical-align: middle;
+      width: 45%;
+      margin: 0 2.5%;
+    }
+  }
+}
+
+@include breakpoint($bp-desktop) {
+  .dash-section {
+    .pie-chart {
+      display: inline-block;
+      vertical-align: middle;
+      width: 20%;
+      margin: 0 2.5%;
+    }
+  }
+}
+
+.table-wrapper {
+  .legend {
+    display: none;
+  }
+}
+
+// No-Data dashboard-styles
+.no-data {
+  @include h3;
+  text-align: center;
+}
+
+//Faux miwt ajax loading box
+body > div.miwt-ajax-progress {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+

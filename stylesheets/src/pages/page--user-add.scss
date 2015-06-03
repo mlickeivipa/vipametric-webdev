@@ -1,0 +1,236 @@
+@import "../themes/theme--pernod";
+
+//edit user
+.edit-user {
+  .wrapper-header {
+    @include h1;
+  }
+
+  .header-actions,
+  .prop-header-actions,
+  .search .entity-actions {
+    margin-top: 15px;
+  }
+
+  .search .entity-actions a {
+    @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .prop-header {
+    .prop-header-title {
+      @include h2;
+      margin-right: 80px;
+    }
+  }
+}
+
+.member.prop-editor {
+  @include contentbox;
+
+  span.instructions {
+    display: block;
+    width: 100%;
+  }
+
+  .prop {
+    input,
+    select {
+      width: 100%;
+    }
+  }
+}
+
+.prop-header {
+  .prop-header-title {
+    @include h2;
+    margin-right: 80px;
+  }
+
+  .prop-header-actions {
+    display: block;
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 5px;
+    }
+  }
+}
+
+@include breakpoint($bp-mobile-landscape) {
+   .edit-user {
+     .header-actions,
+     .prop-header-actions,
+     .search .entity-actions {
+       position: absolute;
+       top: 15px;
+       right: 25px;
+       margin-top: 0;
+     }
+
+     .search .entity-actions a {
+       display: inline-block;
+       vertical-align: middle;
+       width: auto;
+
+       + a {
+         margin-left: 15px;
+       }
+     }
+   }
+
+  .member.prop-editor {
+    .prop {
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 15px;
+    }
+  }
+
+  .prop-header {
+    .prop-header-title {
+      @include h2;
+      margin-right: 80px;
+    }
+
+    .prop-header-actions {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      margin-top: 0;
+
+      .btn {
+        display: inline-block;
+        width: auto;
+        vertical-align: top;
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+//add user
+
+.add-user {
+  .check-login {
+    clear: both;
+    float: none;
+    @include contentbox;
+
+    .actions {
+      .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 5px;
+      }
+    }
+
+    input,
+    select {
+      width: 100%;
+    }
+  }
+
+  .btn.back {
+    width: 100%;
+    text-align: center;
+  }
+
+  .client-member-editor {
+    @include contentbox;
+
+    span.instructions {
+      display: block;
+      width: 100%;
+    }
+
+    .prop {
+      input,
+      select {
+        width: 100%;
+      }
+    }
+  }
+
+  .prop-header {
+    .prop-header-title {
+      @include h2;
+      margin-right: 80px;
+    }
+
+    .prop-header-actions {
+      display: block;
+
+      .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  .add-user {
+
+    .check-login {
+      .actions {
+        display: block;
+        width: 100%;
+        text-align: right;
+
+        .btn {
+          display: inline-block;
+          width: auto;
+          margin-left: 15px;
+        }
+      }
+
+      input,
+      select {
+        width: auto;
+      }
+    }
+
+    .btn.back {
+      width: auto;
+      margin: -15px 0 15px 0;
+      float: right;
+    }
+
+    .client-member-editor {
+
+      .prop {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 15px;
+      }
+    }
+
+    .prop-header {
+      .prop-header-title {
+        @include h2;
+        margin-right: 80px;
+      }
+
+      .prop-header-actions {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+
+        .btn {
+          display: inline-block;
+          width: auto;
+          vertical-align: top;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}

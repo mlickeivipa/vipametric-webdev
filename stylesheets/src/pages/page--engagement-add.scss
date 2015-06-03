@@ -1,0 +1,105 @@
+@import "../themes/theme--pernod";
+
+// add/edit engagements
+.add-engagement {
+  position: relative;
+
+  @include breakpoint($bp-mobile-landscape) {
+    .header-actions {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      button {
+        width: auto;
+      }
+    }
+  }
+}
+
+.wrapper-header {
+  @include h1;
+}
+
+
+.prop-header-title {
+  @include h2;
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  .prop-header-actions,
+  .prop-editor .entity-actions {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+}
+
+.add-engagement .sub-section-container,
+.add-engagement .metric-container {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 25px;
+}
+
+.principal-info button.btn,
+.prop-editor .actions a {
+  @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 0px 5px);
+}
+
+.add-engagement {
+  .vertical-label-component {
+    display: block;
+    @include label;
+  }
+  button.trigger {
+    display: none;
+  }
+}
+
+.prop-group {
+  &.radios {
+    .site-selection {
+      display: table-row;
+      span {
+        display: table-cell;
+        vertical-align: top;
+
+        input {
+          margin: 3px 5px 0 0;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  button + button,
+  a + a {
+    margin-left: 15px;
+  }
+
+  .prop-group.selection-editor {
+    .metric-container,
+    .address_form .part,
+    .address_lines div.address_line {
+      display: inline-block;
+      margin-right: 25px;
+    }
+
+    .address_form .part.address_container {
+      display: block;
+    }
+
+    .address_lines div.address_line.last {
+      margin-right: 0;
+    }
+
+    input,
+    select {
+      width: 225px;
+    }
+  }
+}
+
+

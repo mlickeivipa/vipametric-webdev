@@ -1,0 +1,81 @@
+@import "../themes/theme--pernod";
+
+@include login ($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
+
+
+#e-column-0 {
+  display: block;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: block;
+  margin: 40px auto 0;
+}
+
+.login {
+  display: block;
+  text-align: center;
+
+  .title,
+  label {
+    display: none;
+  }
+
+  input {
+    margin: 15px 0;
+    padding: 15px;
+    width: 285px;
+    text-align: center;
+  }
+}
+
+.logout {
+  .username {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  span.logout-url {
+    background: url(/_resources/dyn/files/21507z2032e2af/_fn/LogOut.png) no-repeat center center;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    position: relative;
+    height: 36px;
+    width: 36px;
+
+    a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-indent: 4000em;
+    }
+  }
+}
+
+// Styles for product specialist landing
+.td-director {
+  margin-top: 15px;
+
+  .prop-header {
+    @include h2;
+  }
+
+  label {
+    @include label;
+    display: block;
+  }
+
+  input {
+    @include input($bg-body);
+    width: 100%;
+  }
+
+  button {
+    margin-top: 15px;
+    width: 100%;
+  }
+}
