@@ -1,0 +1,10 @@
+.metric-container.required {
+    background-color: darkblue;
+    &.required-needed {
+        background-color: firebrick;
+    }
+}
+
+.metric-set-value-count.has-required-empty-fields {
+    background-color: firebrick;
+}

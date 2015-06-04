@@ -1,0 +1,169 @@
+/* ==========================================================================
+   Standard CSS for Basic Search UI
+   baiken@vipasolutions.com, sbenes
+   Updated July 25, 2014
+   ========================================================================== */
+
+/* Form Elements
+   ========================================================================== */
+.search-wrapper {
+  input,
+  select,
+  textarea {
+    border: 1px solid #B7B7B5;
+    padding: 2px;
+    margin: 2px;
+    font-family: Arial, Verdana, sans-serif;
+    &:focus {
+      background-color: #feffdd;
+    }
+  }
+  button,
+  input[type="submit"],
+  input[type="reset"],
+  .constraints a[data-features~="submit"] {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap;
+
+    background: #e5e5e3;
+
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    cursor: pointer;
+
+    padding: 4px 8px;
+    margin-right: 5px;
+    border: 1px solid #B7B7B5;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    -moz-text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    -ms-text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    -o-text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8) inset,
+    -1px -1px 0 rgba(0,0,0,0.05) inset;
+    -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8) inset,
+    -1px -1px 0 rgba(0,0,0,0.05) inset;
+    box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8) inset,
+    -1px -1px 0 rgba(0,0,0,0.05) inset;
+    &:hover  {
+      background-color: #DDDAAA;
+    }
+  }
+  button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  .miwt-table td button {
+    padding: 2px 6px;
+    font-size: 11px;
+  }
+}
+
+/* Search Bar
+   ========================================================================== */
+.search-bar {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #F9F9F7;
+  border: 1px dotted #CBC8B9;
+
+  .constraints,
+  .result-limit {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    padding: 10px;
+  }
+
+  .constraint {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    white-space: nowrap;
+    margin: 5px;
+    padding: 5px;
+    label {
+      display:block;
+    }
+  }
+  .search-actions {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    padding: 10px;
+  }
+}
+
+
+/* Actions
+   ========================================================================== */
+.search-wrapper {
+  .entity-actions,
+  .result-actions {
+    text-align: right;
+    display: block;
+    padding: 10px 0;
+  }
+}
+
+/* Results Table
+   ========================================================================== */
+.search-wrapper {
+  .miwt-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    thead th {
+      padding: 3px;
+      text-align: left;
+      background-color: #FAF9E2;
+      border-top: 1px solid #DDDAAA;
+      border-bottom: 3px solid #DDDAAA;
+      &.first {
+        border-left: 1px solid #DDDAAA;
+      }
+      &.last {
+        border-right: 1px solid #DDDAAA;
+      }
+      a {
+        text-decoration: none;
+        color: #5d5636;
+      }
+    }
+    tbody {
+      tr:hover td {
+        background-color: #feffdd;
+      }
+      td {
+        padding: 3px;
+        border-bottom: 1px dotted #ddd;
+      }
+      .even td {
+        background-color: #fff;
+      }
+      .odd td {
+        background-color: #F9F9F7;
+      }
+    }
+    td,
+    th {
+      &.last {
+        text-align: right;
+        padding-right: 10px;
+      }
+    }
+  }
+  td.actions-col {
+    width: 1%;
+    white-space: nowrap;
+  }
+}

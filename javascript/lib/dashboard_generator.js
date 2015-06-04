@@ -4,7 +4,7 @@ var createHtmlStructure = function () {
     }
     
     $(".dash-container").empty();
-    
+
     $(document.createElement("div")).addClass("dash-section").addClass("circular-chart-wrapper").appendTo(".dash-container");
     $(document.createElement("div")).addClass("dash-section-header").addClass("brand-totals-header").text("Brand Totals").appendTo("div.circular-chart-wrapper");
     $(document.createElement("div")).addClass("brand-totals").appendTo(".dash-section");
@@ -74,7 +74,7 @@ var gaugeOptions = {
             stops: [
                 [0.1, '#DF5353'], // red
                 [0.5, '#DDDF0D'], // yellow
-                [0.9, '#55BF3B'] // green
+                [0.9, '#55BF3B'] // green                               
             ],
             lineWidth: 0,
             minorTickInterval: null,
@@ -111,7 +111,7 @@ var semiCircleDonutOptions = {
         y: 50
     },
     tooltip: {
-        pointFormat: '{series.name}: <b>{point.y:.lf}</b>'
+        pointFormat: '<b>{point.y:.lf}</b>%'
     },
     plotOptions: {
         pie: {
@@ -133,7 +133,7 @@ var semiCircleDonutOptions = {
     series: [
         {
             type: 'pie',
-            name: 'Consumers',
+            name: 'Percent of Consumers',
             innerSize: '50%',
             data: []
         }
@@ -375,149 +375,158 @@ var createCharts = function () {
 };
 
 var updateChartsAndTables = function (chartData) {
-    var chart = $("div.bottle-sales").highcharts();
-    if (chart) {
-        chart.yAxis[0].setExtremes(0, chartData.brand_totals.bottle_sales.goal);
-        chart.series[0].points[0].update(chartData.brand_totals.bottle_sales.value);
-    }
+    var no_data = chartData.no_data;
     
-    chart = $("div.events-completed").highcharts();
-    if (chart) {
-        chart.yAxis[0].setExtremes(0, chartData.brand_totals.events_completed.goal);
-        chart.series[0].points[0].update(chartData.brand_totals.events_completed.value);
-    }
-    
-    chart = $("div.samples-given").highcharts();
-    if (chart) {
-        chart.yAxis[0].setExtremes(0, chartData.brand_totals.samples_given.goal);
-        chart.series[0].points[0].update(chartData.brand_totals.samples_given.value);
-    }
-    
-    chart = $("div.impressions").highcharts();
-    if (chart) {
-        chart.yAxis[0].setExtremes(0, chartData.brand_totals.impressions.goal);
-        chart.series[0].points[0].update(chartData.brand_totals.impressions.value);
-    }
-    
-    $("div.full-program-results").empty();
-    $("div.full-program-results").mrjsontable({
-        tableClass: "full-program-results-table",
-        pageSize: 10,
-        columns: [
-            new $.fn.mrjsontablecolumn({
-                heading: "Full Program Top Line Results",
-                data: "total_desc",
-                sortable: false
-            }),
-            new $.fn.mrjsontablecolumn({
-                heading: "To Date",
-                data: "total",
-                type: "int",
-                sortable: false
-            }),
-            new $.fn.mrjsontablecolumn({
-                heading: "Total Goal",
-                data: "goal",
-                type: "int",
-                sortable: false
-            }),
-            new $.fn.mrjsontablecolumn({
-                heading: "% to Goal",
-                data: "percent_to_goal",
-                type: "int",
-                sortable: false
-            })
-        ],
-        data: chartData.brand_totals.full_program_results
-    });
-    
-    if (chartData.price_matrix.length > 0) {
-        $("div.price-matrix").empty();
-        $(document.createElement("div")).addClass("dash-section-header").addClass("price-matrix-header").text("Price Matrix").appendTo("div.price-matrix");
-        $(chartData.price_matrix).each(function (index, tableData) {
-            var brand = tableData[0].brand.replace(" ", "").toLowerCase();
-            $(document.createElement("div")).addClass("price-matrix-table").addClass(brand).addClass("table-wrapper").appendTo("div.price-matrix");
-            $("div.price-matrix-table." + brand).mrjsontable({
-                tableClass: "price-matrix-table-" + brand,
-                pageSize: 10,
-                columns: [
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Brand(size 750ml)",
-                        data: "brand",
-                        sortable: false
-                    }),
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Reg Price",
-                        data: "reg_price",
-                        sortable: false
-                    }),
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Sales Price",
-                        data: "sales_price",
-                        sortable: false
-                    }),
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Reg Price Variance",
-                        data: "reg_price_variance",
-                        sortable: false
-                    }),
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Sales Price Variance",
-                        data: "sale_price_variance",
-                        sortable: false
-                    })
-                ],
-                data: tableData
+    if(no_data === false)
+    {
+        var chart = $("div.bottle-sales").highcharts();
+        if (chart) {
+            chart.yAxis[0].setExtremes(0, chartData.brand_totals.bottle_sales.goal);
+            chart.series[0].points[0].update(chartData.brand_totals.bottle_sales.value);
+        }
+
+        chart = $("div.events-completed").highcharts();
+        if (chart) {
+            chart.yAxis[0].setExtremes(0, chartData.brand_totals.events_completed.goal);
+            chart.series[0].points[0].update(chartData.brand_totals.events_completed.value);
+        }
+
+        chart = $("div.samples-given").highcharts();
+        if (chart) {
+            chart.yAxis[0].setExtremes(0, chartData.brand_totals.samples_given.goal);
+            chart.series[0].points[0].update(chartData.brand_totals.samples_given.value);
+        }
+
+        chart = $("div.impressions").highcharts();
+        if (chart) {
+            chart.yAxis[0].setExtremes(0, chartData.brand_totals.impressions.goal);
+            chart.series[0].points[0].update(chartData.brand_totals.impressions.value);
+        }
+
+        $("div.full-program-results").empty();
+        $("div.full-program-results").mrjsontable({
+            tableClass: "full-program-results-table",
+            pageSize: 10,
+            columns: [
+                new $.fn.mrjsontablecolumn({
+                    heading: "Full Program Top Line Results",
+                    data: "total_desc",
+                    sortable: false
+                }),
+                new $.fn.mrjsontablecolumn({
+                    heading: "To Date",
+                    data: "total",
+                    type: "int",
+                    sortable: false
+                }),
+                new $.fn.mrjsontablecolumn({
+                    heading: "Total Goal",
+                    data: "goal",
+                    type: "int",
+                    sortable: false
+                }),
+                new $.fn.mrjsontablecolumn({
+                    heading: "% to Goal",
+                    data: "percent_to_goal",
+                    type: "int",
+                    sortable: false
+                })
+            ],
+            data: chartData.brand_totals.full_program_results
+        });
+
+        if (chartData.price_matrix.length > 0) {
+            $("div.price-matrix").empty();
+            $(document.createElement("div")).addClass("dash-section-header").addClass("price-matrix-header").text("Price Matrix").appendTo("div.price-matrix");
+            $(chartData.price_matrix).each(function (index, tableData) {
+                var brand = tableData[0].brand.replace(" ", "").toLowerCase();
+                $(document.createElement("div")).addClass("price-matrix-table").addClass(brand).addClass("table-wrapper").appendTo("div.price-matrix");
+                $("div.price-matrix-table." + brand).mrjsontable({
+                    tableClass: "price-matrix-table-" + brand,
+                    pageSize: 10,
+                    columns: [
+                        new $.fn.mrjsontablecolumn({
+                            heading: "Brand(size 750ml)",
+                            data: "brand",
+                            sortable: false
+                        }),
+                        new $.fn.mrjsontablecolumn({
+                            heading: "Reg Price",
+                            data: "reg_price",
+                            sortable: false
+                        }),
+                        new $.fn.mrjsontablecolumn({
+                            heading: "Sales Price",
+                            data: "sales_price",
+                            sortable: false
+                        }),
+                        new $.fn.mrjsontablecolumn({
+                            heading: "Reg Price Variance",
+                            data: "reg_price_variance",
+                            sortable: false
+                        }),
+                        new $.fn.mrjsontablecolumn({
+                            heading: "Sales Price Variance",
+                            data: "sale_price_variance",
+                            sortable: false
+                        })
+                    ],
+                    data: tableData
+                });
             });
-        });
+        }
+
+        chart = $("div.consumer-demographics div.age").highcharts();
+        if (chart) {
+            chart.series[0].setData(chartData.consumer_demographics.age);
+        }
+
+        chart = $("div.consumer-demographics div.gender").highcharts();
+        if (chart) {
+            chart.series[0].setData(chartData.consumer_demographics.gender);
+        }
+
+        chart = $("div.consumer-demographics div.language").highcharts();
+        if (chart) {
+            chart.series[0].setData(chartData.consumer_demographics.language);
+        }
+
+        chart = $("div.consumer-demographics div.background").highcharts();
+        if (chart) {
+            chart.series[0].setData(chartData.consumer_demographics.background);
+        }
+
+        chart = $("div.consumer-purchase-motivators").highcharts();
+        if (chart) {
+            $(chart.series).each(function (index, series) {
+                series.remove();
+            });
+
+            $(chartData.consumer_purchase_motivators).each(function (index, seriesData) {
+                chart.addSeries({
+                    name: seriesData[0]
+                }).addPoint(seriesData[1]);
+            });
+        }
+
+        chart = $("div.right-account").highcharts();
+        if (chart) {
+            chart.series[0].setData(chartData.right_account);
+        }
     }
-    
-    chart = $("div.consumer-demographics div.age").highcharts();
-    if (chart) {
-        chart.series[0].setData(chartData.consumer_demographics.age);
-    }
-    
-    chart = $("div.consumer-demographics div.gender").highcharts();
-    if (chart) {
-        chart.series[0].setData(chartData.consumer_demographics.gender);
-    }
-    
-    chart = $("div.consumer-demographics div.language").highcharts();
-    if (chart) {
-        chart.series[0].setData(chartData.consumer_demographics.language);
-    }
-    
-    chart = $("div.consumer-demographics div.background").highcharts();
-    if (chart) {
-        chart.series[0].setData(chartData.consumer_demographics.background);
-    }
-    
-    chart = $("div.consumer-purchase-motivators").highcharts();
-    if (chart) {
-        $(chart.series).each(function (index, series) {
-            series.remove();
-        });
-        
-        $(chartData.consumer_purchase_motivators).each(function (index, seriesData) {
-            chart.addSeries({
-                name: seriesData[0]
-            }).addPoint(seriesData[1]);
-        });
-    }
-    
-    chart = $("div.right-account").highcharts();
-    if (chart) {
-        chart.series[0].setData(chartData.right_account);
+    else
+    {
+        noData();   
     }
 };
 
 var loadingDialog = function (show) {
     if ( show ) {
         $(document.createElement("div")).addClass("miwt-ajax-progress").addClass("dashboard-ajax-loading").html('<div class="label">'
-		+'Loading, Please Wait'
-		+'</div>'
+    +'Loading, Please Wait'
+    +'</div>'
         +'<div id="miwt-loading-message-503" style="display: none;">' + '' + '</div>'
-		+'<div class="progress-con"><span></span><progress></progress></div>')
+    +'<div class="progress-con"><span></span><progress></progress></div>')
         .css({
             position : 'fixed',
             display: 'block'

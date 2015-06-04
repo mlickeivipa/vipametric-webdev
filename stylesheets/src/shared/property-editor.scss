@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Basic Styles for Property Editor/Viewer
+   baiken@vipasolutions.com, sbenes
+   Updated July 25, 2014
+   ========================================================================== */
+
+/* Form Elements
+   ========================================================================== */
+.prop-wrapper {
+  input,
+  select,
+  textarea {
+    border: 1px solid #B7B7B5;
+    padding: 2px;
+    margin: 2px;
+    font-family: Arial, Verdana, sans-serif;
+    :focus {
+      background-color: #feffdd;
+    }
+  }
+  button,
+  input[type="submit"],
+  input[type="reset"],
+  .constraints a[data-features~="submit"] {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap;
+
+    background: #e5e5e3;
+
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    cursor: pointer;
+
+    padding: 4px 8px;
+    margin-right: 5px;
+    border: 1px solid #B7B7B5;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    -moz-text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    -ms-text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    -o-text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+    -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8) inset,
+    -1px -1px 0 rgba(0,0,0,0.05) inset;
+    -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8) inset,
+    -1px -1px 0 rgba(0,0,0,0.05) inset;
+    box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8) inset,
+    -1px -1px 0 rgba(0,0,0,0.05) inset;
+    &:hover {
+      background-color: #DDDAAA;
+    }
+  }
+  button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+
+/* Messages
+   ========================================================================== */
+.prop-wrapper {
+  .message-container {
+    margin: 15px 0;
+    .message {
+      text-align: center;
+      color: #D74300;
+      font-weight: bold;
+      background-color: #FFF7C2;
+      border: 2px solid #FFE180;
+      padding: 10px 15px;
+      &.error {
+        background-color: #FFD9DA;
+        border-color: #FFABAD;
+        color: #9E0013;
+      }
+    }
+  }
+}
+
+/* Content
+   ========================================================================== */
+.prop-wrapper {
+  .prop-header-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 1em 0;
+  }
+  .prop-group-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .prop {
+    margin-bottom: 10px;
+    padding: 5px;
+    > .label {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      width: 100px;
+      text-align: right;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    .prop > .val {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+    }
+  }
+  .actions {
+    margin: 10px 0;
+    text-align: right;
+    &.top {
+      display: none;
+    }
+  }
+  .user-entry-required label:after {
+    content: "*";
+    color: #ff0000;
+  }
+  .validation-error input[type="text"]{
+    border: 1px solid red;
+  }
+  .prop-viewer,
+  .prop-editor {
+    padding: 5px;
+  }
+}

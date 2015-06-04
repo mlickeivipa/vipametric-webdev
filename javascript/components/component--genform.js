@@ -2,7 +2,7 @@
  * Created by aokimi on 5/1/2015.
  */
 jQuery(function($){
-
+    
     function placeholderCheck() {
         var input = document.createElement('input');
 
