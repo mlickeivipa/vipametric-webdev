@@ -95,10 +95,6 @@ button.search-button {
     .highcharts-yaxis-title {
       @include h3;
     }
-
-    .highcharts-yaxis-labels {
-      display: none;
-    }
   }
 
   .pie-chart {
