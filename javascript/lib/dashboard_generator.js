@@ -5,9 +5,8 @@ var createHtmlStructure = function () {
     
     $(".dash-container").empty();
 
-    $(document.createElement("div")).addClass("dash-section").addClass("circular-chart-wrapper").appendTo(".dash-container");
-    $(document.createElement("div")).addClass("dash-section-header").addClass("brand-totals-header").text("Brand Totals").appendTo("div.circular-chart-wrapper");
-    $(document.createElement("div")).addClass("brand-totals").appendTo(".dash-section");
+    $(document.createElement("div")).addClass("dash-section").addClass("brand-totals").addClass("circular-chart-wrapper").appendTo(".dash-container");
+    $(document.createElement("div")).addClass("dash-section-header").addClass("brand-totals-header").text("Brand Totals").appendTo("div.brand-totals");
     $(document.createElement("div")).addClass("bottle-sales").addClass("gauge-chart").appendTo("div.brand-totals");
     $(document.createElement("div")).addClass("events-completed").addClass("gauge-chart").appendTo("div.brand-totals");
     $(document.createElement("div")).addClass("samples-given").addClass("gauge-chart").appendTo("div.brand-totals");
@@ -84,7 +83,8 @@ var gaugeOptions = {
                 y: -70
             },
             labels: {
-                y: 16
+                y: 16,
+                useHTML: true
             }
         },
 
