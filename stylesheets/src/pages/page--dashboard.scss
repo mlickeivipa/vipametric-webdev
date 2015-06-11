@@ -95,6 +95,17 @@ button.search-button {
     .highcharts-yaxis-title {
       @include h3;
     }
+
+    div.highcharts-yaxis-labels{
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      span:nth-child(even){
+        top: 163.75px !important;
+        left: 238px !important;
+      }
+    }
   }
 
   .pie-chart {
