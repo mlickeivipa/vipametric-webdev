@@ -317,7 +317,24 @@ table {
     select {
       width: 100%;
     }
+
+    .range-selector {
+      display: block;
+
+      .constraint-input,
+      .miwt-calendar {
+        display: block;
+        margin: 5px 0;
+      }
+
+      .miwt-calendar {
+        input {
+          width: auto;
+        }
+      }
+    }
   }
+
   .search-actions {
     display: block;
     margin-top: 15px;
@@ -397,6 +414,38 @@ table {
       }
     }
 
+    .constraints .constraint,
+    .constraints .range-selector {
+      display: inline-block;
+      vertical-align: bottom;
+      margin-right: 25px;
+    }
+
+    .constraints .range-selector {
+      .constraint-operator {
+        margin-right: 15px;
+      }
+
+      .constraint-operator,
+      .constraint-input {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .constraint-input {
+        margin: 0;
+
+        .miwt-calendar {
+          display: inline-block;
+          margin: 0;
+        }
+
+        .constraint-input-conjunction {
+          margin: 0 15px;
+        }
+      }
+    }
+
     .pager-top,
     .pager-bottom {
       text-align: center;
@@ -422,27 +471,6 @@ table {
           text-transform: none;
           margin: 0 2px;
         }
-      }
-    }
-  }
-
-  .constraints .constraint,
-  .constraints .range-selector {
-    display: inline-block;
-    vertical-align: bottom;
-    margin-right: 25px;
-  }
-
-  .constraints .range-selector {
-    .constraint-operator,
-    .constraint-input {
-      display: inline-block;
-      vertical-align: top;
-    }
-
-    .constraint-input {
-      .miwt-calendar {
-        margin: 25px;
       }
     }
   }
