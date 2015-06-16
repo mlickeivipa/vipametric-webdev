@@ -23,6 +23,12 @@ button.search-button {
   text-align: center;
 }
 
+.dashboard-param-label {
+  display: block;
+  font-family: OpenSansSemiBold, Arial, Verdana, sans-serif;
+  margin: 5px 0;
+}
+
 @include breakpoint($bp-mobile-landscape) {
   .vipametric {
     .param-wrapper {

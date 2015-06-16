@@ -433,6 +433,20 @@ table {
     margin-right: 25px;
   }
 
+  .constraints .range-selector {
+    .constraint-operator,
+    .constraint-input {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .constraint-input {
+      .miwt-calendar {
+        margin: 25px;
+      }
+    }
+  }
+
   .result-actions {
     text-align: right;
   }
