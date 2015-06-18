@@ -4,7 +4,7 @@ var createHtmlStructure = function () {
     }
     
     $(".dash-container").empty();
-
+    
     $(document.createElement("div")).addClass("dash-section").addClass("brand-totals").addClass("circular-chart-wrapper").appendTo(".dash-container");
     $(document.createElement("div")).addClass("dash-section-header").addClass("brand-totals-header").text("Brand Totals").appendTo("div.brand-totals");
     $(document.createElement("div")).addClass("bottle-sales").addClass("gauge-chart").appendTo("div.brand-totals");
@@ -75,6 +75,9 @@ var gaugeOptions = {
                 [0.5, '#DDDF0D'], // yellow
                 [0.9, '#55BF3B'] // green                               
             ],
+            tickPositioner: function () {
+             return [0,this.max];
+            },
             lineWidth: 0,
             minorTickInterval: null,
             tickPixelInterval: 400,
