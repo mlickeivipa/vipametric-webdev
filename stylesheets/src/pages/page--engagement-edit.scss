@@ -488,9 +488,22 @@ span.metric-bucket.value-component {
     margin: 0;
   }
 
-  .constraint {
+  .constraint,
+  .address_form {
     label {
       display: block;
+    }
+  }
+
+  .siteName {
+    display: block;
+    margin-right: 0;
+  }
+
+  .siteName,
+  .address_form {
+    input {
+      width: 100%;
     }
   }
 
@@ -505,6 +518,24 @@ span.metric-bucket.value-component {
 
     .prop-group {
       margin: 0;
+    }
+    .siteName,
+    .address_form {
+      input {
+        width: auto;
+      }
+    }
+
+    .address_form {
+      .part,
+      .address_container div.address_line {
+        display: inline-block;
+        margin-right: 50px;
+      }
+
+      .part.address_container {
+        display: block;
+      }
     }
   }
 }
