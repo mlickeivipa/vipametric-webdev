@@ -501,8 +501,10 @@ span.metric-bucket.value-component {
   }
 
   .siteName,
-  .address_form {
-    input {
+  .address_form,
+  .custom-fields {
+    input,
+    select {
       width: 100%;
     }
   }
@@ -520,9 +522,17 @@ span.metric-bucket.value-component {
       margin: 0;
     }
     .siteName,
-    .address_form {
-      input {
+    .address_form,
+    .custom-fields {
+      input,
+      select {
         width: auto;
+      }
+    }
+
+    .siteName {
+      input {
+        min-width: 230px;
       }
     }
 
@@ -535,6 +545,12 @@ span.metric-bucket.value-component {
 
       .part.address_container {
         display: block;
+      }
+    }
+
+    .custom-fields {
+      input {
+        max-width: 230px;
       }
     }
   }
