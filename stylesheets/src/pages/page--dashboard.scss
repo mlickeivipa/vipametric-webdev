@@ -41,14 +41,14 @@ button.search-button {
   button.search-button {
     display: inline-block;
     margin-top: 32px;
-    margin-right: 10px;
+    margin-right: 50px;
     width: auto;
   }
 }
 
 .reports-container {
-  margin-top: 10px;
   .btn {
+    margin-top: 10px;
     display: block;
     width: 100%;
   }
@@ -71,6 +71,15 @@ button.search-button {
 
   .reports-container {
     margin-top: 32px;
+    .btn {
+      margin-top: 0;
+    }
+    span.report {
+      display: inline-block;
+      + span.report {
+        margin-left: 50px;
+      }
+    }
   }
 }
 
