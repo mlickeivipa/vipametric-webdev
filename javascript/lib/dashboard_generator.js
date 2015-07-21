@@ -442,7 +442,7 @@ var updateChartsAndTables = function (chartData) {
             $("div.price-matrix").empty();
             $(document.createElement("div")).addClass("dash-section-header").addClass("price-matrix-header").text("Price Matrix").appendTo("div.price-matrix");
             $(chartData.price_matrix).each(function (index, tableData) {
-                var brand = tableData[0].brand.replace(" ", "").toLowerCase();
+                var brand = tableData[0].brand.replace(/[^\w\d\-]+/, "").toLowerCase();
                 $(document.createElement("div")).addClass("price-matrix-table").addClass(brand).addClass("table-wrapper").appendTo("div.price-matrix");
                 $("div.price-matrix-table." + brand).mrjsontable({
                     tableClass: "price-matrix-table-" + brand,
