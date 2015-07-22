@@ -548,12 +548,11 @@ var sendAjaxUpdateCharts = function () {
             url: url,
             contentType: "application/json",
             success: function (result, status, xhr) {
-                var json = JSON.parse(result);
                 createHtmlStructure();
     
                 createCharts();
                 
-                updateChartsAndTables(json);
+                updateChartsAndTables(result);
                 
                 loadingDialog(false)
             },
