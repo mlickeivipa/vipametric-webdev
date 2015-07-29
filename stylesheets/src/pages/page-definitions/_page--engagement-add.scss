@@ -1,4 +1,4 @@
-@import "../themes/theme--pernod";
+@import "../../config/base-import";
 
 // add/edit engagements
 .add-engagement {
@@ -101,10 +101,3 @@
     }
   }
 }
-
-// Custom fields - pernod only
-
-.custom-fields .AssignedTo input{
-  max-width: 225px;
-}
-
