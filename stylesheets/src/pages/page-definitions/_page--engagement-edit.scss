@@ -139,7 +139,7 @@
   }
 
   .value-component span{
-    color: $color-darker-grey;
+    color: $color-grey-77;
   }
 
   input[type="text"],
@@ -197,7 +197,7 @@
     min-width: 125px;
 
     .value-component {
-      border-bottom: 1px solid $color-darker-grey;
+      border-bottom: 1px solid $color-grey-77;
       min-width: 25px;
       min-height: 18px;
     }
@@ -217,7 +217,7 @@
 }
 
 span.metric-bucket.value-component {
-  border-bottom: 1px solid $color-darker-grey;
+  border-bottom: 1px solid $color-grey-77;
   min-width: 25px;
   min-height: 18px;
 }

@@ -1,14 +1,14 @@
 $color-white: #fff;
-$color-almost-white: #f7f7f7;
-$color-smokey-white: #f2f2f2;
-$color-cloud-grey: #e7e7e7;
-$color-lighter-grey: #ddd;
-$color-light-grey: #ccc;
-$color-grey: #aaa;
-$color-dark-grey: #999;
-$color-darker-grey: #777;
-$color-light-charcoal: #555;
-$color-charcoal: #333;
+$color-grey-f7: #f7f7f7;
+$color-grey-f2: #f2f2f2;
+$color-grey-e7: #e7e7e7;
+$color-grey-dd: #ddd;
+$color-grey-cc: #ccc;
+$color-grey-aa: #aaa;
+$color-grey-99: #999;
+$color-grey-77: #777;
+$color-grey-55: #555;
+$color-grey-33: #333;
 $color-black: #000;
 
 $color-cornsilk: cornsilk;
@@ -48,8 +48,8 @@ $color-default-link: #00f;
 $color-btn-close: $color-error-dark;
 $color-btn-info: $color-blue;
 
-$color-default-site-font: $color-light-charcoal;
-$color-default-site-bg: $color-almost-white;
+$color-default-site-font: $color-grey-55;
+$color-default-site-bg: $color-grey-f7;
 
 $font-arial: Arial, Verdana, sans-serif;
 $font-open-sans: OpenSans, $font-arial;

@@ -7,7 +7,7 @@
 
   #header {
     background-color: $theme-bg-sec;
-    box-shadow: 0 0 2px lighten($color-light-charcoal, 25%);
+    box-shadow: 0 0 2px lighten($color-grey-55, 25%);
   }
 
   #footer {
@@ -30,7 +30,7 @@
 
 @mixin button ($theme-accent, $theme-bg-sec, $theme-contrast, $size: 16px, $padding: 10px 15px) {
   background-color: $theme-accent;
-  box-shadow: 0 0 2px lighten($color-light-charcoal, 25%);
+  box-shadow: 0 0 2px lighten($color-grey-55, 25%);
   color: $theme-contrast;
   font-size: $size;
   font-family: $font-open-sans-semi-bold;
@@ -50,7 +50,7 @@
   table {
     margin: 25px 0;
     background-color: $theme-contrast;
-    box-shadow: 0 0 2px lighten($color-light-charcoal, 25%);
+    box-shadow: 0 0 2px lighten($color-grey-55, 25%);
 
     thead {
       background-color: $theme-accent;
@@ -83,12 +83,12 @@
 @mixin input ($theme-bg){
   padding: 5px;
   border: solid 1px $theme-bg;
-  box-shadow: inset 0 0 5px lighten($color-light-charcoal, 50%);
+  box-shadow: inset 0 0 5px lighten($color-grey-55, 50%);
 }
 
 @mixin contentbox {
   background-color: $color-white;
-  box-shadow: 0 0 2px lighten($color-light-charcoal, 25%);
+  box-shadow: 0 0 2px lighten($color-grey-55, 25%);
   position: relative;
   padding: 15px;
   margin: 15px 0;
