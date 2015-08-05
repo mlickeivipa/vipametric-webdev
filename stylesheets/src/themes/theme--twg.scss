@@ -1,0 +1,210 @@
+@import "../config/base-import";
+@import "../config/themes/twg";
+
+@include login ($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
+@include theme-structure($bg-body, $bg-accent, $color-contrast, $color-accent);
+
+
+h1 {
+  @include h1;
+}
+
+h3 {
+  @include h3;
+}
+
+
+// Calendar
+body > .calendar {
+  border: 1px solid $color-accent;
+
+  thead {
+    border-top:1px solid lighten($bg-body, 5%);
+    border-left:1px solid lighten($bg-body, 5%);
+
+    tr {
+      background-color: $color-accent;
+    }
+
+    td.button,
+    td.title {
+      background-color: $color-accent;
+    }
+
+    .daynames .name {
+      border-bottom:1px solid lighten($bg-body, 5%);
+    }
+  }
+
+  tbody {
+
+    td.day {
+      border: none;
+      border-bottom: 1px solid lighten($bg-body, 5%);
+      padding: 5px;
+      cursor: pointer;
+      text-align: center;
+
+      &:not(.wn) {
+        border-left: 1px solid lighten($bg-body, 5%);
+      }
+
+      &.othermonth, &.othermonth.oweekend {
+        background-color: lighten($bg-body, 5%);
+      }
+
+      &.today {
+        color: $color-accent;
+      }
+
+      &.selected {
+        background-color: lighten($color-accent, 75%);
+        color: $color-accent;
+      }
+
+      &.hilite {
+        background-color: lighten($bg-body, 15%);
+      }
+    }
+  }
+
+  tfoot {
+    td.ttip {
+      background-color:$color-accent;
+    }
+  }
+  .combo {
+    border: 1px solid $color-accent;
+    background-color: lighten($bg-body, 5%);
+    .label.hilite, .label.active {
+      background-color: lighten($bg-body, 7%);
+    }
+  }
+}
+
+.message-container {
+  color: $color-red;
+
+  &.permanent-messages {
+    @include contentbox;
+    color: $color-accent;
+  }
+}
+
+// Theme Manage
+.nav-plus {
+  .nav-collapse {
+    .nav-trigger {
+      background-color: $color-accent;
+      &:hover {
+        background-color: darken($color-accent, 5%);
+      }
+      .line {
+        background-color: $color-contrast;
+      }
+    }
+  }
+
+  .menu ul {
+    .mi {
+      border-bottom: 1px solid $bg-body;
+      .menuitemlabel {
+        color: $color-accent;
+        &:hover {
+          color: lighten($color-accent, 5%);
+        }
+      }
+
+      &.mi-active,
+      .menuitemlabel:hover {
+        .mil {
+          border-bottom: 1px solid $color-accent;
+        }
+      }
+    }
+  }
+}
+
+
+// Action clickables
+.header-actions,
+.footer-actions,
+.prop-header-actions,
+.prop-footer-actions {
+  a {
+    @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+  }
+}
+
+// Add - clickables specific to the management/search pages
+a[title="Add Engagement"],
+a[title="Add User"]{
+  @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+}
+
+// Generic Form & Management Styles
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+  @include input($bg-body);
+  display: block;
+  width: 100%;
+}
+
+// Content box styles
+.search-bar,
+.section {
+  @include contentbox;
+}
+
+
+// Search bar styles
+.search {
+
+  .pager-top,
+  .pager-bottom {
+
+    .controls {
+      a {
+        @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 10px);
+      }
+    }
+  }
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  .search {
+
+    .pager-top,
+    .pager-bottom {
+
+      .controls {
+
+        a {
+          @include button($bg-accent, $bg-body, $color-accent, $size: 12px, $padding: 5px 10px);
+        }
+
+        .selected-page {
+          @include button($color-accent, $bg-body, $color-contrast, $size: 12px, $padding: 5px 10px);
+        }
+      }
+    }
+  }
+}
+
+
+// Section Styles
+.section-header {
+  a {
+    @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+  }
+}
+
+.sub-section {
+  &-header {
+    @include h3;
+  }
+}
+

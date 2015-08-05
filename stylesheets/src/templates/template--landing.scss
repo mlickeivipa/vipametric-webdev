@@ -1,4 +1,4 @@
-@import "../themes/theme--pernod";
+@import "../themes/theme--standard";
 
 @include login ($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
 
@@ -23,13 +23,20 @@
     display: none;
   }
 
-  input {
+  input[type="text"],
+  input[type="number"],
+  input[type="password"] {
     margin: 15px 0;
     padding: 15px;
-    width: 285px;
     text-align: center;
   }
+
+  input.btn {
+    width: 300px;
+    padding: 15px;
+  }
 }
+
 
 .logout {
   .username {

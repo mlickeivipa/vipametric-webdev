@@ -1,0 +1,8 @@
+@import "../../config/themes/twg";
+
+@import "../page-definitions/page--engagement-add";
+
+// Custom fields - pernod only
+.custom-fields .AssignedTo input {
+	max-width: 225px;
+}
