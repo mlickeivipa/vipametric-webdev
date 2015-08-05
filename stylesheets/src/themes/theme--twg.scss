@@ -142,17 +142,6 @@ a[title="Add User"]{
   @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
 }
 
-// Generic Form & Management Styles
-input[type="text"],
-input[type="number"],
-input[type="password"],
-textarea,
-select {
-  @include input($bg-body);
-  display: block;
-  width: 100%;
-}
-
 // Content box styles
 .search-bar,
 .section {
