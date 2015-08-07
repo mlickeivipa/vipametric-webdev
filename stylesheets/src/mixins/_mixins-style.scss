@@ -109,6 +109,7 @@
 
       input {
         color: $theme-accent;
+        width: 100%;
 
         &:focus {
           background-color: lighten($theme-accent, 80%);
