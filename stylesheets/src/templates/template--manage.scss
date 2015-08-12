@@ -285,9 +285,11 @@ label.tbl {
 table {
   width: 100%;
 
-  div.column-visibility button {
-    padding:0;
-    box-shadow: none;
+  div.column-visibility {
+    button {
+      padding:0;
+      box-shadow: none;
+    }
   }
 
   button,
@@ -351,6 +353,13 @@ table {
     }
   }
 
+  .pager-search-results {
+    position: relative;
+    div.column-visibility {
+      position: inherit;
+    }
+  }
+
   .pager-top,
   .pager-bottom {
     text-align: center;
@@ -372,7 +381,7 @@ table {
   .search-results-con {
     display: block;
     width: 100%;
-    overflow-y: hidden;
+    overflow: auto;
     margin: 25px 0;
     box-shadow: 0 0 2px lighten($color-light-charcoal, 25%);
 
