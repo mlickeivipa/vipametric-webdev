@@ -157,6 +157,12 @@
     }
   }
 
+  .profile-selector {
+    .prop-wrapper.campaign {
+      position: relative;
+    }
+  }
+
   .prop-header {
     .prop-header-title {
       @include h2;
