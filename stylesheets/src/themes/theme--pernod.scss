@@ -4,6 +4,9 @@
 @include login ($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
 @include theme-structure($bg-body, $bg-accent, $color-contrast, $color-accent);
 
+body {
+	background-color: $color-grey-f7;
+}
 
 h1 {
   @include h1;

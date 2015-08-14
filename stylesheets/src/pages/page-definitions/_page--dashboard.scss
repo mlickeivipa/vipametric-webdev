@@ -7,6 +7,19 @@
 }
 
 .vipametric {
+  padding: 0;
+
+  .dashboard-params {
+    padding: 25px;
+    border-bottom: 1px solid $color-grey-e2;
+
+    button.search-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
   .param-wrapper {
     margin-bottom: 15px;
 
@@ -15,72 +28,78 @@
       width: 100%;
     }
   }
+
+  .reports-container {
+    padding: 25px;
+    background-color: $color-grey-f2;
+    border-top: 1px solid $color-white;
+
+    span.report {
+      display: block;
+
+      + span.report {
+        margin-top: 10px;
+      }
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @include breakpoint($bp-mobile-landscape) {
+    .dashboard-params {
+      button.search-button {
+        display: inline-block;
+        margin-top: 30px;
+        margin-right: 50px;
+        width: auto;
+      }
+    }
+
+    .param-wrapper {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 30px;
+
+      select {
+        max-width: 300px;
+      }
+    }
+
+
+    .dashboard-params > div:first-child,
+    .dashboard-search {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .reports-container {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      text-align: right;
+
+      span.report {
+        display: inline-block;
+        + span.report {
+          margin-top: 0;
+          margin-left: 30px;
+        }
+      }
+    }
+  }
 }
 
-button.search-button {
-  display: block;
-  width: 100%;
-  text-align: center;
+.dashboard-param {
+  display: inline-block;
+  line-height: 30px;
 }
 
 .dashboard-param-label {
   display: block;
   font-family: OpenSansSemiBold, Arial, Verdana, sans-serif;
   margin: 5px 0;
-}
-
-@include breakpoint($bp-mobile-landscape) {
-  .vipametric {
-    .param-wrapper {
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 50px;
-    }
-  }
-
-  button.search-button {
-    display: inline-block;
-    margin-top: 32px;
-    margin-right: 50px;
-    width: auto;
-  }
-}
-
-.reports-container {
-  .btn {
-    margin-top: 10px;
-    display: block;
-    width: 100%;
-  }
-}
-
-// lining up buttons for the non-mobile view
-
-@include breakpoint($bp-mobile-landscape) {
-  .dashboard-params > div:first-child,
-  .dashboard-search {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  .dashboard-params,
-  .reports-container {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  .reports-container {
-    margin-top: 32px;
-    .btn {
-      margin-top: 0;
-    }
-    span.report {
-      display: inline-block;
-      + span.report {
-        margin-left: 50px;
-      }
-    }
-  }
 }
 
 .dash-section {

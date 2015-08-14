@@ -1,4 +1,11 @@
-var createHtmlStructure = function () {
+var CSS_CLASS_SELECT_INIT = 'select2-init';
+
+var DEFAULT_SELECT_OPTIONS = {
+    theme: 'vm',
+    minimumResultsForSearch: 10
+};
+
+function createHtmlStructure() {
     if ($(".dash-container").length === 0 ) {
         $(document.createElement("div")).addClass("dash-container").appendTo("#e-column-0");
     }
@@ -32,16 +39,16 @@ var createHtmlStructure = function () {
     $(document.createElement("div")).addClass("consumer-purchase-motivators").addClass("column-chart").appendTo("div.consumer-purchase-motivators-wrapper");
     
     $(document.createElement("div")).addClass("right-account").addClass("pie-chart").appendTo("div.consumer-purchase-motivators-wrapper");
-};
+}
 
-var noData = function () {
+function noData() {
     if ($(".dash-container").length === 0 ) {
         $(document.createElement("div")).addClass("dash-container").appendTo("#e-column-0");
     }
     
     $(".dash-container").empty();
     $(document.createElement("div")).addClass("dash_message").addClass("no-data").text("Currently no Data").appendTo(".dash-container");
-};
+}
 
 var gaugeOptions = {
 
@@ -377,7 +384,7 @@ var createCharts = function () {
     }));
 };
 
-var updateChartsAndTables = function (chartData) {
+function updateChartsAndTables(chartData) {
     var no_data = chartData.no_data;
     
     if(no_data === false)
@@ -521,9 +528,9 @@ var updateChartsAndTables = function (chartData) {
     {
         noData();   
     }
-};
+}
 
-var loadingDialog = function (show) {
+function loadingDialog(show) {
     if ( show ) {
         $(document.createElement("div")).addClass("miwt-ajax-progress").addClass("dashboard-ajax-loading").html('<div class="label">'
     +'Loading, Please Wait'
@@ -540,8 +547,36 @@ var loadingDialog = function (show) {
     }
 }
 
-var sendAjaxUpdateCharts = function () {
-    loadingDialog(true)
+function destroySelectUpdates(context) {
+    var $con = $(context || document);
+
+    if (!$con.hasClass(CSS_CLASS_SELECT_INIT)) {
+        $con = $con.find('select').filter('.' + CSS_CLASS_SELECT_INIT);
+    }
+
+    if ($con.length) {
+        $con.removeClass(CSS_CLASS_SELECT_INIT).select2('destroy');
+    }
+}
+
+function initSelectUpdates(context) {
+    var $con = $(context || document);
+
+    if (!$con.is('select')) {
+        $con = $con.find('select');
+    }
+
+    if ($con.length && !($con.closest('.cke_dialog').length || $con.closest('tr[data-dnd-source-def]').length)) {
+        $con
+          .select2(DEFAULT_SELECT_OPTIONS)
+          .addClass(CSS_CLASS_SELECT_INIT)
+          .filter('[data-features~="watch"]')
+          .on('change', miwt.observerFormSubmit);
+    }
+}
+
+function sendAjaxUpdateCharts() {
+    loadingDialog(true);
     var url = $(location).attr('href');
     $.ajax(
         {
@@ -563,14 +598,33 @@ var sendAjaxUpdateCharts = function () {
             }
         }
     );
-};
+}
 
-$(function () {
+jQuery(function($) {
     noData();
     
     sendAjaxUpdateCharts();
-    
-    $(".search-button.dashboard-search").click(function () {
-        sendAjaxUpdateCharts();
+
+    $('.vipametric .miwt-form').each(function() {
+        var form = this;
+        var $form = $(form);
+
+        $form.find(".search-button.dashboard-search").on('click', function() {
+            sendAjaxUpdateCharts();
+        });
+
+        form.submit_options = {
+            preProcessNode: function(data) {
+                destroySelectUpdates(document.getElementById(data.refid));
+                return data.content;
+            },
+            postProcessNode: function(data) {
+                $.each(data, function(idx, d) {
+                    initSelectUpdates(d.node);
+                });
+            }
+        };
+
+        initSelectUpdates(form);
     });
 });
