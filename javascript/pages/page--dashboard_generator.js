@@ -1,10 +1,3 @@
-var CSS_CLASS_SELECT_INIT = 'select2-init';
-
-var DEFAULT_SELECT_OPTIONS = {
-    theme: 'vm',
-    minimumResultsForSearch: 10
-};
-
 function createHtmlStructure() {
     if ($(".dash-container").length === 0 ) {
         $(document.createElement("div")).addClass("dash-container").appendTo("#e-column-0");
@@ -197,7 +190,7 @@ var pieWithLegendOptions = {
     }
 };
 
-var createCharts = function () {
+function createCharts() {
     $("div.bottle-sales").highcharts(Highcharts.merge(gaugeOptions, {
         yAxis: {
             min: 0,
@@ -382,7 +375,7 @@ var createCharts = function () {
             }
         ]
     }));
-};
+}
 
 function updateChartsAndTables(chartData) {
     var no_data = chartData.no_data;
@@ -547,34 +540,6 @@ function loadingDialog(show) {
     }
 }
 
-function destroySelectUpdates(context) {
-    var $con = $(context || document);
-
-    if (!$con.hasClass(CSS_CLASS_SELECT_INIT)) {
-        $con = $con.find('select').filter('.' + CSS_CLASS_SELECT_INIT);
-    }
-
-    if ($con.length) {
-        $con.removeClass(CSS_CLASS_SELECT_INIT).select2('destroy');
-    }
-}
-
-function initSelectUpdates(context) {
-    var $con = $(context || document);
-
-    if (!$con.is('select')) {
-        $con = $con.find('select');
-    }
-
-    if ($con.length && !($con.closest('.cke_dialog').length || $con.closest('tr[data-dnd-source-def]').length)) {
-        $con
-          .select2(DEFAULT_SELECT_OPTIONS)
-          .addClass(CSS_CLASS_SELECT_INIT)
-          .filter('[data-features~="watch"]')
-          .on('change', miwt.observerFormSubmit);
-    }
-}
-
 function sendAjaxUpdateCharts() {
     loadingDialog(true);
     var url = $(location).attr('href');
@@ -605,26 +570,7 @@ jQuery(function($) {
     
     sendAjaxUpdateCharts();
 
-    $('.vipametric .miwt-form').each(function() {
-        var form = this;
-        var $form = $(form);
-
-        $form.find(".search-button.dashboard-search").on('click', function() {
-            sendAjaxUpdateCharts();
-        });
-
-        form.submit_options = {
-            preProcessNode: function(data) {
-                destroySelectUpdates(document.getElementById(data.refid));
-                return data.content;
-            },
-            postProcessNode: function(data) {
-                $.each(data, function(idx, d) {
-                    initSelectUpdates(d.node);
-                });
-            }
-        };
-
-        initSelectUpdates(form);
+    $('.vipametric .search-button.dashboard-search').on('click', function() {
+        sendAjaxUpdateCharts();
     });
 });

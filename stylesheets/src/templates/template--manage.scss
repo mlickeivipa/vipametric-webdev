@@ -251,6 +251,10 @@ table {
       select {
         width: auto;
       }
+
+      select {
+        max-width: 300px;
+      }
     }
     .constraints,
     .search-actions {
