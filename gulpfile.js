@@ -1,11 +1,18 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
+var clip = require('gulp-clip-empty-files');
+var del = require('del');
 
 gulp.task('default', ['styles']);
 
-gulp.task('styles', function () {
+gulp.task('styles:clean', function(callback) {
+	del(['./web/stylesheets/build/**'], callback);
+});
+
+gulp.task('styles:build', ['styles:clean'], function() {
 	return gulp.src('./stylesheets/src/**/*.scss')
+		.pipe(clip())
 		.pipe(sass({
 			outputStyle: 'expanded'
 		}))
@@ -15,3 +22,5 @@ gulp.task('styles', function () {
 		}))
 		.pipe(gulp.dest('./stylesheets/build'));
 });
+
+gulp.task('styles', ['styles:build']);
