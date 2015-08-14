@@ -14,6 +14,11 @@
     background-color: $theme-bg;
     text-align: center;
     padding: 15px;
+
+    &:empty {
+      display: none;
+    }
+
     p {
       margin: 0;
     }
