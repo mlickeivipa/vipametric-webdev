@@ -28,156 +28,172 @@ h3 {
 #e-column-0 {
   padding: 15px 15px 80px;
   position: relative;
-}
 
-@include breakpoint($bp-mobile-landscape) {
-  #e-column-0 {
+  @include breakpoint($bp-mobile-landscape) {
     padding: 25px 25px 80px;
   }
 }
 
+.l-header {
+  @include breakpoint($bp-desktop) {
+    padding: 10px $spacing-horizontal-desktop;
 
-// Calendar
-body > .calendar {
-  border: 1px solid $color-accent;
-
-
-  td.button, td.name {
-    padding:5px;
-    text-align:center;
-    vertical-align: middle;
-    border:none;
-    cursor:pointer;
-
-    &.hilite {
-      border:none;
-    }
-  }
-
-  table {
-    margin: 0;
-    border:none;
-  }
-
-  thead {
-    border-top:1px solid lighten($bg-body, 5%);
-    border-left:1px solid lighten($bg-body, 5%);
-
-    .nav {
-      background:none;
-    }
-
-    tr {
-      background-color: $color-accent;
-    }
-
-    td.button,
-    td.title {
-      border:none;
-      background-color: $color-accent;
-      color:white;
-      text-align: center;
-      text-shadow:1px 1px 1px transparentize($color-black,0.5);
-    }
-
-    .daynames .name {
-      text-transform:uppercase;
-      border-bottom:1px solid lighten($bg-body, 5%);
-    }
-  }
-
-  tbody {
-
-    tr {
-      background-color: $color-white;
-    }
-
-    td.day {
-      border: none;
-      border-bottom: 1px solid lighten($bg-body, 5%);
-      padding: 5px;
-      cursor: pointer;
-      text-align: center;
-
-      &:not(.wn) {
-        border-left: 1px solid lighten($bg-body, 5%);
-      }
-
-      &.othermonth, &.othermonth.oweekend {
-        background-color: lighten($bg-body, 5%);
-        color: $color-grey-55;
-      }
-
-      &.weekend, &.weekend.othermonth {
-        color: $color-black;
-      }
-
-      &.today {
-        color: $color-accent;
-        font-weight: normal;
-        text-shadow: 1px 1px 1px transparentize($color-black, 0.85);
-      }
-
-      &.selected {
-        background-color: lighten($color-accent, 75%);
-        color: $color-accent;
-        font-weight: normal;
-      }
-
-      &.hilite {
-        background-color: lighten($bg-body, 15%);
-        font-weight: bold;
-      }
-    }
-  }
-
-  tfoot {
-    td.ttip {
-      border: none;
-      border-top:1px;
-      background-color:$color-accent;
-      color:$color-white;
-    }
-
-  }
-  .combo {
-    border: 1px solid $color-accent;
-    box-shadow: 2px 2px 3px transparentize($color-black, 0.8);
-    background-color: lighten($bg-body, 5%);
-    .label.hilite, .label.active {
-      background-color: lighten($bg-body, 7%);
-      border:none;
+    .box-wc {
+      display: table;
+      width: 100%;
     }
   }
 }
 
-.message-container {
-  font-family: $font-open-sans-semi-bold;
-  color: $color-red;
-  margin-bottom: 15px;
+// Header area styles
+.logo {
+  padding: 0 15px;
+  text-align: center;
 
-  &.permanent-messages {
-    @include contentbox;
-    border: 10px solid $color-accent;
-    font-family: $font-open-sans-semi-bold;
-    font-size: 16px;
-    color: $color-accent;
+  img {
+    max-width: 250px;
+    height: auto;
   }
 
-  &.empty {
-    display: none;
+  @include breakpoint($bp-desktop) {
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.nav-plus {
+  position: relative;
+
+  .nav-collapse {
+    .nav-trigger {
+      display: block;
+      padding: 15px;
+      background-color: $color-accent;
+      box-shadow: 0 0 2px lighten($color-grey-55, 25%);
+      &:hover {
+        background-color: darken($color-accent, 5%);
+        cursor: pointer;
+      }
+      .line {
+        display: block;
+        content: "";
+        height: 2px;
+        width: 36px;
+        margin: 5px;
+        background-color: $color-contrast;
+      }
+    }
   }
 
-  @include breakpoint($bp-mobile-landscape) {
-    &.permanent-message {
-      padding: 25px;
-      margin: 25px 0;
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    .mi {
+      border-bottom: 1px solid $bg-body;
+      &.last {
+        border-bottom: none;
+      }
+      .menuitemlabel {
+        color: $color-accent;
+        font-family: $font-open-sans-bold;
+        font-size: 16px;
+        text-transform: uppercase;
+        display: block;
+        padding: 10px 0;
+        &:hover {
+          text-decoration: none;
+          color: lighten($color-accent, 5%);
+        }
+      }
 
-      &.empty {
+      &.mi-active,
+      .menuitemlabel:hover {
+        .mil {
+          border-bottom: 1px solid $color-accent;
+        }
+      }
+    }
+  }
+
+  .logout {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .username {
+      display: none;
+    }
+
+    span.logout-url {
+      background: url(/_resources/dyn/files/21507z2032e2af/_fn/LogOut.png) no-repeat center center;
+      display: block;
+      overflow: hidden;
+      position: relative;
+      height: 36px;
+      width: 36px;
+
+      a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-indent: 4000em;
+      }
+    }
+  }
+}
+
+@include breakpoint($bp-desktop) {
+
+  .logo,
+  .nav-plus {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .nav-plus {
+    text-align: right;
+
+    .nav-collapse {
+      .nav-trigger {
         display: none;
       }
+
+      .collapsible-shown {
+        display: block !important;
+      }
+    }
+
+    .menu .menu-t1 {
+      .mi {
+        display: inline-block;
+        vertical-align: middle;
+        border-bottom: none;
+
+        .menuitemlabel {
+          padding: 10px 25px 10px 0;
+        }
+      }
+    }
+
+    .nav-collapse,
+    .logout {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .logout {
+      position: relative;
+      padding: 5px 10px 5px 15px;
     }
   }
 }
 
+
+@import "../components/partials/calendar";
+@import "../components/partials/messages";
 

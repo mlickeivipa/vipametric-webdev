@@ -1,0 +1,28 @@
+.message-container {
+	font-family: $font-open-sans-semi-bold;
+	color: $color-red;
+	margin-bottom: 15px;
+
+	&.permanent-messages {
+		@include contentbox;
+		border: 10px solid $color-accent;
+		font-family: $font-open-sans-semi-bold;
+		font-size: 16px;
+		color: $color-accent;
+	}
+
+	&.empty {
+		display: none;
+	}
+
+	@include breakpoint($bp-mobile-landscape) {
+		&.permanent-message {
+			padding: 25px;
+			margin: 25px 0;
+
+			&.empty {
+				display: none;
+			}
+		}
+	}
+}

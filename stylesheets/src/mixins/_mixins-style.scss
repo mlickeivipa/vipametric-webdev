@@ -5,12 +5,12 @@
     background-color: $theme-bg;
   }
 
-  #header {
+  .l-header {
     background-color: $theme-bg-sec;
     box-shadow: 0 0 2px lighten($color-grey-55, 25%);
   }
 
-  #footer {
+  .l-footer {
     background-color: $theme-bg;
     text-align: center;
     padding: 15px;
@@ -141,7 +141,7 @@
         }
       }
     }
-    #footer {
+    .l-footer {
       box-shadow: inset 0 2px 1px $theme-bg-sec;
     }
   }
