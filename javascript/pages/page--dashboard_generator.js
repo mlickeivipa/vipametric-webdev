@@ -409,7 +409,7 @@ function updateChartsAndTables(chartData) {
         $("div.full-program-results").empty();
         $("div.full-program-results").mrjsontable({
             tableClass: "full-program-results-table",
-            pageSize: 10,
+            pageSize: 20,
             columns: [
                 new $.fn.mrjsontablecolumn({
                     heading: "Full Program Top Line Results",
