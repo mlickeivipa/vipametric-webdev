@@ -4,51 +4,12 @@
 @include login ($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
 @include theme-structure($bg-body, $bg-accent, $color-contrast, $color-accent);
 
-@include override-headings;
+@include override-table-theme;
+@include override-headings-theme;
 @include override-calendar-theme;
-
-.message-container {
-  color: $color-red;
-
-  &.permanent-messages {
-    @include contentbox;
-    color: $color-accent;
-  }
-}
-
-// Theme Manage
-.nav-plus {
-  .nav-collapse {
-    .nav-trigger {
-      background-color: $color-accent;
-      &:hover {
-        background-color: darken($color-accent, 5%);
-      }
-      .line {
-        background-color: $color-contrast;
-      }
-    }
-  }
-
-  .menu ul {
-    .mi {
-      border-bottom: 1px solid $bg-body;
-      .menuitemlabel {
-        color: $color-accent;
-        &:hover {
-          color: lighten($color-accent, 5%);
-        }
-      }
-
-      &.mi-active,
-      .menuitemlabel:hover {
-        .mil {
-          border-bottom: 1px solid $color-accent;
-        }
-      }
-    }
-  }
-}
+@include override-messages-theme;
+@include override-navigation-theme;
+@include override-button-theme;
 
 
 // Action clickables
@@ -67,13 +28,6 @@ a[title="Add User"]{
   @include button-base($color-accent, $bg-body, $color-contrast);
 }
 
-// Content box styles
-.search-bar,
-.section {
-  @include contentbox;
-}
-
-
 // Search bar styles
 .search {
 
@@ -86,16 +40,12 @@ a[title="Add User"]{
       }
     }
   }
-}
 
-@include breakpoint($bp-mobile-landscape) {
-  .search {
-
+  @include breakpoint($bp-mobile-landscape) {
     .pager-top,
     .pager-bottom {
 
       .controls {
-
         a {
           @include button-base($bg-accent, $bg-body, $color-accent, $size: 12px, $padding: 5px 10px);
         }
@@ -108,17 +58,9 @@ a[title="Add User"]{
   }
 }
 
-
 // Section Styles
 .section-header {
   a {
     @include button-base($color-accent, $bg-body, $color-contrast);
   }
 }
-
-.sub-section {
-  &-header {
-    @include h3;
-  }
-}
-

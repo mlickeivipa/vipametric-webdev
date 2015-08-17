@@ -1,0 +1,5 @@
+// Content box styles
+.search-bar,
+.section {
+	@include contentbox;
+}

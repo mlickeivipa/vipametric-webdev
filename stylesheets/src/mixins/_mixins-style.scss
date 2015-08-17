@@ -1,6 +1,10 @@
 @mixin button-override($color-bg: "", $color-text: "", $font-size: "", $padding: "") {
   @if ($color-bg != "") {
     background-color: $color-bg;
+
+    &:hover {
+      background-color: lighten($color-bg, 5%);
+    }
   }
   @if ($color-text != "") {
     color: $color-text;
@@ -123,7 +127,7 @@
 }
 
 // One big mixin for the interior page styles
-@mixin theme-structure ($theme-bg, $theme-bg-sec, $theme-contrast, $theme-accent){
+@mixin theme-structure($theme-bg, $theme-bg-sec, $theme-contrast, $theme-accent){
   body {
     background-color: $theme-bg;
   }
@@ -138,97 +142,5 @@
 
   a {
     color: $theme-accent;
-  }
-
-  //generic button styles for block buttons
-  .btn,
-  .cal button {
-    @include button-base($theme-accent, $theme-bg-sec, $theme-contrast);
-  }
-
-
-  //generic table styles, primarily for search results for engagements and users
-  .miwt-table {
-    background-color: $theme-contrast;
-
-    thead {
-      background-color: $theme-accent;
-      color: $theme-contrast;
-
-      a {
-        color: $theme-contrast;
-      }
-    }
-
-    tr:nth-child(even) {
-      background-color: lighten($theme-bg, 5%);
-    }
-  }
-}
-
-@mixin override-headings {
-  h1 {
-    color: $color-accent;
-  }
-
-  h3 {
-    color: $color-accent;
-  }
-}
-
-@mixin override-calendar-theme {
-  body > .calendar {
-    thead {
-      tr {
-        &:first-child {
-          td {
-            background-color: $color-accent;
-          }
-        }
-      }
-
-      td {
-        background-color: $color-accent;
-
-        &.button {
-          &:hover {
-            background-color: darken($color-accent, 10%);
-          }
-        }
-      }
-    }
-
-    .daynames {
-      td {
-        &.name {
-          color: $color-accent;
-        }
-      }
-    }
-
-    .daysrow {
-      td {
-        &.wn {
-          color: $color-accent;
-        }
-
-        &.today {
-          background-color: $color-accent;
-
-          &:hover {
-            background-color: darken($color-accent, 10%);
-          }
-        }
-
-        &.selected {
-          background-color: lighten($color-accent, 15%);
-
-          &:hover {
-            background-color: lighten($color-accent, 5%);
-          }
-        }
-      }
-    }
-
   }
 }

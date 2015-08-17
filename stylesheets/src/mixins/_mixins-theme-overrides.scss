@@ -1,0 +1,141 @@
+
+@mixin override-table-theme {
+	//generic table styles, primarily for search results for engagements and users
+	.miwt-table {
+		background-color: $color-contrast;
+
+		thead {
+			background-color: $color-accent;
+			color: $color-contrast;
+
+			a {
+				color: $color-contrast;
+			}
+		}
+
+		tr:nth-child(even) {
+			background-color: lighten($bg-body, 5%);
+		}
+	}
+}
+
+@mixin override-headings-theme {
+	h1 {
+		color: $color-accent;
+	}
+
+	h3 {
+		color: $color-accent;
+	}
+
+	.sub-section-header {
+		color: $color-accent;
+	}
+}
+
+@mixin override-calendar-theme {
+	body > .calendar {
+		thead {
+			tr {
+				&:first-child {
+					td {
+						background-color: $color-accent;
+					}
+				}
+			}
+
+			td {
+				background-color: $color-accent;
+
+				&.button {
+					&:hover {
+						background-color: darken($color-accent, 10%);
+					}
+				}
+			}
+		}
+
+		.daynames {
+			td {
+				&.name {
+					color: $color-accent;
+				}
+			}
+		}
+
+		.daysrow {
+			td {
+				&.wn {
+					color: $color-accent;
+				}
+
+				&.today {
+					background-color: $color-accent;
+
+					&:hover {
+						background-color: darken($color-accent, 10%);
+					}
+				}
+
+				&.selected {
+					background-color: lighten($color-accent, 15%);
+
+					&:hover {
+						background-color: lighten($color-accent, 5%);
+					}
+				}
+			}
+		}
+
+	}
+}
+
+@mixin override-messages-theme {
+	.message-container {
+		&.permanent-messages {
+			color: $color-accent;
+		}
+	}
+}
+
+@mixin override-navigation-theme {
+	.nav-plus {
+		.nav-collapse {
+			.nav-trigger {
+				background-color: $color-accent;
+				&:hover {
+					background-color: darken($color-accent, 5%);
+				}
+				.line {
+					background-color: $color-contrast;
+				}
+			}
+		}
+
+		.menu ul {
+			.mi {
+				border-bottom: 1px solid $bg-body;
+				.menuitemlabel {
+					color: $color-accent;
+					&:hover {
+						color: lighten($color-accent, 5%);
+					}
+				}
+
+				&.mi-active,
+				.menuitemlabel:hover {
+					.mil {
+						border-bottom: 1px solid $color-accent;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin override-button-theme {
+	.miwt-form .cal button,
+	.btn {
+		@include button-override($color-bg: $color-accent, $color-text: $color-contrast);
+	}
+}

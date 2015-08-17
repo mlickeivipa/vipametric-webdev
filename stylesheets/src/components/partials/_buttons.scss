@@ -1,0 +1,4 @@
+//generic button styles for block buttons
+.btn {
+	@include button-base($color-accent, $bg-accent, $color-contrast);
+}

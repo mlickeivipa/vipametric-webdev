@@ -1,6 +1,10 @@
 //Calendar trigger button
 .miwt-form {
 	.cal {
+		button {
+			@include button-base($bg-body, $bg-accent, $color-contrast);
+		}
+
 		button.clear {
 			display: none;
 		}
