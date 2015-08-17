@@ -133,27 +133,19 @@ a {
     top: 0;
     right: 0;
 
-    .username {
-      display: none;
-    }
+	  .btn.logout-url {
+		  background-image: url(/_resources/dyn/files/21507z2032e2af/_fn/LogOut.png);
+		  background-repeat: no-repeat;
+		  background-position: center center;
+		  display: block;
+		  position: relative;
+		  height: 50px;
+		  width: 50px;
+	  }
 
-    span.logout-url {
-      background: url(/_resources/dyn/files/21507z2032e2af/_fn/LogOut.png) no-repeat center center;
-      display: block;
-      overflow: hidden;
-      position: relative;
-      height: 36px;
-      width: 36px;
-
-      a {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        text-indent: 4000em;
-      }
-    }
+	  .logout-url-text {
+		  display: none;
+	  }
   }
 }
 

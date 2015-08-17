@@ -44,7 +44,7 @@
 
 .principal-info button.btn,
 .prop-editor .actions a {
-  @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 0px 5px);
+  @include button-base($color-accent, $bg-body, $color-contrast, $padding: 0px 5px);
 }
 
 .add-engagement {

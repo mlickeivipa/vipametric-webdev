@@ -13,7 +13,7 @@
   }
 
   .search .entity-actions a {
-    @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+    @include button-base($color-accent, $bg-body, $color-contrast);
     display: block;
     width: 100%;
     text-align: center;

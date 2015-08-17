@@ -135,14 +135,14 @@ body > .calendar {
 .prop-header-actions,
 .prop-footer-actions {
   a {
-	@include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+	@include button-base($color-accent, $bg-body, $color-contrast);
   }
 }
 
 // Add - clickables specific to the management/search pages
 a[title="Add Engagement"],
 a[title="Add User"]{
-  @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+  @include button-base($color-accent, $bg-body, $color-contrast);
 }
 
 // Content box styles
@@ -160,7 +160,7 @@ a[title="Add User"]{
 
 	.controls {
 	  a {
-		@include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 12px);
+		@include button-base($color-accent, $bg-body, $color-contrast, $padding: 5px 12px);
 	  }
 	}
   }
@@ -191,7 +191,7 @@ a[title="Add User"]{
 // Section Styles
 .section-header {
   a {
-	@include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+	@include button-base($color-accent, $bg-body, $color-contrast);
   }
 }
 

@@ -1,5 +1,19 @@
+@mixin button-override($color-bg: "", $color-text: "", $font-size: "", $padding: "") {
+  @if ($color-bg != "") {
+    background-color: $color-bg;
+  }
+  @if ($color-text != "") {
+    color: $color-text;
+  }
+  @if ($font-size != "") {
+    font-size: $font-size;
+  }
+  @if ($padding != "") {
+    padding: $padding;
+  }
+}
 
-@mixin button ($theme-accent, $theme-bg-sec, $theme-contrast, $size: 16px, $padding: 10px 15px) {
+@mixin button-base($theme-accent, $theme-bg-sec, $theme-contrast, $size: 14px, $padding: 5px 15px) {
   background-color: $theme-accent;
   color: $theme-contrast;
   font-size: $size;
@@ -14,6 +28,7 @@
     outline: none;
   }
 }
+
 // Forms/Data edit/manage view mixins
 
 @mixin label {
@@ -57,7 +72,7 @@
         }
 
         &.btn {
-          @include button($theme-accent, $theme-bg-sec, $theme-contrast);
+          @include button-base($theme-accent, $theme-bg-sec, $theme-contrast);
         }
       }
 
@@ -75,7 +90,7 @@
         }
 
         button {
-          @include button($theme-accent, $theme-bg-sec, $theme-contrast);
+          @include button-base($theme-accent, $theme-bg-sec, $theme-contrast);
           margin-top: 15px;
           width: 100%;
         }
@@ -84,37 +99,6 @@
     .l-footer {
       box-shadow: inset 0 2px 1px $theme-bg-sec;
     }
-  }
-}
-
-@mixin button-override($color-bg: "", $color-text: "", $font-size: "", $padding: "") {
-  @if ($color-bg != "") {
-    background-color: $color-bg;
-  }
-  @if ($color-text != "") {
-    color: $color-text;
-  }
-  @if ($font-size != "") {
-    font-size: $font-size;
-  }
-  @if ($padding != "") {
-    padding: $padding;
-  }
-}
-
-@mixin button-base($theme-accent, $theme-bg-sec, $theme-contrast, $size: 16px, $padding: 10px 15px) {
-  background-color: $theme-accent;
-  color: $theme-contrast;
-  font-size: $size;
-  font-family: $font-open-sans-semi-bold;
-  padding: $padding;
-  border: none;
-  &:hover {
-    background-color: lighten($theme-accent, 5%);
-    text-decoration: none;
-  }
-  &:focus {
-    outline: none;
   }
 }
 
@@ -136,14 +120,10 @@
     color: $theme-accent;
   }
 
-  .logout {
-    @include button-base($theme-accent, $theme-bg-sec, $theme-contrast);
-  }
-
   //generic button styles for block buttons
   .btn,
   .cal button {
-    @include button-base($theme-accent, $theme-bg-sec, $theme-contrast, $size: 14px, $padding: 5px 15px)
+    @include button-base($theme-accent, $theme-bg-sec, $theme-contrast);
   }
 
 
