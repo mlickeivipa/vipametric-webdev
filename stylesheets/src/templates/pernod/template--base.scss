@@ -1,0 +1,11 @@
+@import "../../config/base-import";
+@import "../../config/themes/pernod";
+
+@import "../template-definitions/template--base";
+
+@include override-structure-theme;
+@include override-navigation-theme;
+
+body {
+	background-color: $color-grey-f7;
+}

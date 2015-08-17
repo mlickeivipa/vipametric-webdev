@@ -60,6 +60,15 @@
   margin: 5px 0;
 }
 
+@mixin text-like-inputs {
+  input[type=url],
+  input[type=number],
+  input[type=password],
+  input[type=text] {
+    @content;
+  }
+}
+
 @mixin input ($theme-bg){
   padding: 5px;
   border: solid 1px $color-grey-cc;
@@ -75,53 +84,5 @@
   @include breakpoint($bp-mobile-landscape) {
     padding: 25px;
     margin: 25px 0;
-  }
-}
-
-// Login mixin
-@mixin login($theme-bg-img, $theme-bg-sec, $theme-contrast, $theme-accent, $theme-bg) {
-  //styles for the non-logged in pages
-  #t_noheader {
-    #e-content {
-      background: $theme-bg-img repeat-x center bottom 50px $theme-bg-sec;
-      text-align: center;
-
-      input {
-        color: $theme-accent;
-        width: 100%;
-
-        &:focus {
-          background-color: lighten($theme-accent, 80%);
-          outline-color: $theme-accent;
-        }
-
-        &.btn {
-          @include button-base($theme-accent, $theme-bg-sec, $theme-contrast);
-        }
-      }
-
-    //  retrieve password styles
-      .retrieve-password  {
-        span.email {
-          display: block;
-          font-family: $font-open-sans-bold;
-          text-align: left;
-        }
-
-        input {
-          @include input($theme-bg);
-          width: 100%;
-        }
-
-        button {
-          @include button-base($theme-accent, $theme-bg-sec, $theme-contrast);
-          margin-top: 15px;
-          width: 100%;
-        }
-      }
-    }
-    .l-footer {
-      box-shadow: inset 0 2px 1px $theme-bg-sec;
-    }
   }
 }

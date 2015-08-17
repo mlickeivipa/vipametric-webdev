@@ -1,0 +1,29 @@
+h1 {
+	@include h1;
+}
+
+h2 {
+	@include h2;
+}
+
+h3 {
+	@include h3;
+}
+
+a {
+	color: $color-accent;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+@include text-like-inputs {
+	@include input($bg-body);
+
+	&:focus {
+		background-color: lighten($color-accent, 80%);
+		outline-color: $color-accent;
+	}
+}

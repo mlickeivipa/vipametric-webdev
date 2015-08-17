@@ -210,3 +210,21 @@
 	}
 
 }
+
+// Login mixin
+@mixin override-login-theme($theme-bg-img, $theme-bg-sec, $theme-contrast, $theme-accent, $theme-bg) {
+	.e-wrapper {
+		background-image: $theme-bg-img;
+		background-color: $theme-bg-sec;
+
+		@include text-like-inputs {
+			color: $theme-accent;
+		}
+
+		.retrieve-password  {
+			button {
+				@include button-override($theme-accent, $theme-contrast);
+			}
+		}
+	}
+}

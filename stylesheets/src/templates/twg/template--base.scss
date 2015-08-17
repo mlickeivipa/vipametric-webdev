@@ -1,0 +1,7 @@
+@import "../../config/base-import";
+@import "../../config/themes/twg";
+
+@import "../template-definitions/template--base";
+
+@include override-structure-theme;
+@include override-navigation-theme;

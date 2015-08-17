@@ -1,0 +1,15 @@
+@include fontFace('OpenSans', '/OpenSans', 'opensans-regular-webfont');
+@include fontFace('OpenSansBold', '/OpenSans', 'opensans-bold-webfont');
+@include fontFace('OpenSansSemiBold', '/OpenSans', 'opensans-semibold-webfont');
+
+@import "../../libs/normalize";
+@import "../../libs/select2";
+
+@import "template--base/structure";
+
+@import "../../components/partials/base-components";
+@import "../../components/partials/calendar";
+@import "../../components/partials/messages";
+@import "../../components/partials/tables";
+@import "../../components/partials/search";
+@import "../../components/partials/buttons";
