@@ -7,7 +7,7 @@ var del = require('del');
 gulp.task('default', ['styles']);
 
 gulp.task('styles:clean', function(callback) {
-	del(['./web/stylesheets/build/**'], callback);
+	del(['./stylesheets/build/**'], callback);
 });
 
 gulp.task('styles:build', ['styles:clean'], function() {
