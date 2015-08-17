@@ -1,0 +1,24 @@
+.miwt-table {
+	margin: 25px 0;
+	background-color: $color-white;
+	box-shadow: 0 0 2px lighten($color-grey-55, 25%);
+
+	thead {
+		background-color: $color-grey-55;
+		color: $color-white;
+		text-align: left;
+
+		a {
+			color: $color-white;
+		}
+	}
+
+	th,
+	td {
+		padding: 10px 15px;
+	}
+
+	tr:nth-child(even) {
+		background-color: $color-grey-f2;
+	}
+}

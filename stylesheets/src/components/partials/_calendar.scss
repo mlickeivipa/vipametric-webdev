@@ -1,7 +1,30 @@
-// Calendar
+//Calendar trigger button
+.miwt-form {
+	.cal {
+		button.clear {
+			display: none;
+		}
+		button.open,
+		input[type="text"] {
+			display: table-cell;
+			vertical-align: middle;
+			width: auto;
+		}
+
+		button.open {
+			background-image: url(/_resources/dyn/files/25637z863b9862/_fn/calendar.png);
+			background-repeat: no-repeat;
+			background-position: center center;
+			overflow: hidden;
+			text-indent: 4000em;
+			width: 36px;
+		}
+	}
+}
+
+// Calendar Popup
 body > .calendar {
 	border: 1px solid $color-accent;
-
 
 	td.button, td.name {
 		padding:5px;
