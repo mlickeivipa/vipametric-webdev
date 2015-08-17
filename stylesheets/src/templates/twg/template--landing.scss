@@ -1,6 +1,6 @@
 @import "../../config/base-import";
 @import "../../config/themes/twg";
 
-@import "../template-definitions/template--landing";
+@import "../_definitions/template--landing";
 
 @include override-login-theme($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
