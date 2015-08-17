@@ -1,6 +1,6 @@
 function createHtmlStructure() {
     if ($(".dash-container").length === 0 ) {
-        $(document.createElement("div")).addClass("dash-container").appendTo("#e-column-0");
+        $(document.createElement("div")).addClass("dash-container").appendTo(".e-content");
     }
     
     $(".dash-container").empty();
@@ -36,7 +36,7 @@ function createHtmlStructure() {
 
 function noData() {
     if ($(".dash-container").length === 0 ) {
-        $(document.createElement("div")).addClass("dash-container").appendTo("#e-column-0");
+        $(document.createElement("div")).addClass("dash-container").appendTo(".e-content");
     }
     
     $(".dash-container").empty();
