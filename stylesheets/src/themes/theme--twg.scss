@@ -132,14 +132,14 @@ body > .calendar {
 .prop-header-actions,
 .prop-footer-actions {
   a {
-    @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+    @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
   }
 }
 
 // Add - clickables specific to the management/search pages
 a[title="Add Engagement"],
 a[title="Add User"]{
-  @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+  @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
 }
 
 // Content box styles
@@ -157,7 +157,7 @@ a[title="Add User"]{
 
     .controls {
       a {
-        @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 10px);
+        @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 10px);
       }
     }
   }
@@ -172,11 +172,11 @@ a[title="Add User"]{
       .controls {
 
         a {
-          @include button($bg-accent, $bg-body, $color-accent, $size: 12px, $padding: 5px 10px);
+          @include button-base($bg-accent, $bg-body, $color-accent, $size: 12px, $padding: 5px 10px);
         }
 
         .selected-page {
-          @include button($color-accent, $bg-body, $color-contrast, $size: 12px, $padding: 5px 10px);
+          @include button-base($color-accent, $bg-body, $color-contrast, $size: 12px, $padding: 5px 10px);
         }
       }
     }
@@ -187,7 +187,7 @@ a[title="Add User"]{
 // Section Styles
 .section-header {
   a {
-    @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+    @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
   }
 }
 

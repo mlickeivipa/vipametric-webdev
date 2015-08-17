@@ -25,6 +25,14 @@ h3 {
   @include h3;
 }
 
+a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 #e-column-0 {
   padding: 15px 15px 80px;
   position: relative;
@@ -35,6 +43,8 @@ h3 {
 }
 
 .l-header {
+  box-shadow: 0 0 2px lighten($color-grey-55, 25%);
+
   @include breakpoint($bp-desktop) {
     padding: 10px $spacing-horizontal-desktop;
 
@@ -147,6 +157,19 @@ h3 {
   }
 }
 
+.l-footer {
+	text-align: center;
+	padding: 15px;
+
+	&:empty {
+		display: none;
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
 @include breakpoint($bp-desktop) {
 
   .logo,
@@ -193,8 +216,55 @@ h3 {
   }
 }
 
-
 @import "../components/partials/calendar";
 @import "../components/partials/messages";
+
+.miwt-form {
+	.cal {
+		button.clear {
+			display: none;
+		}
+		button.open,
+		input[type="text"] {
+			display: table-cell;
+			vertical-align: middle;
+			width: auto;
+		}
+
+		button.open {
+			background-image: url(/_resources/dyn/files/25637z863b9862/_fn/calendar.png);
+			background-repeat: no-repeat;
+			background-position: center center;
+			overflow: hidden;
+			text-indent: 4000em;
+			width: 36px;
+		}
+	}
+}
+
+.miwt-table {
+	margin: 25px 0;
+	background-color: $color-white;
+	box-shadow: 0 0 2px lighten($color-grey-55, 25%);
+
+	thead {
+		background-color: $color-grey-55;
+		color: $color-white;
+		text-align: left;
+
+		a {
+			color: $color-white;
+		}
+	}
+
+	th,
+	td {
+		padding: 10px 15px;
+	}
+
+	tr:nth-child(even) {
+		background-color: $color-grey-f2;
+	}
+}
 
 @include theme-structure($bg-body, $bg-accent, $color-contrast, $color-accent);

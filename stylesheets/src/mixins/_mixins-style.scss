@@ -1,38 +1,4 @@
 
-// General style mixins
-@mixin background ($theme-bg, $theme-bg-sec){
-  body {
-    background-color: $theme-bg;
-  }
-
-  .l-header {
-    background-color: $theme-bg-sec;
-    box-shadow: 0 0 2px lighten($color-grey-55, 25%);
-  }
-
-  .l-footer {
-    background-color: $theme-bg;
-    text-align: center;
-    padding: 15px;
-
-    &:empty {
-      display: none;
-    }
-
-    p {
-      margin: 0;
-    }
-  }
-}
-
-@mixin a ($theme-accent) {
-  color: $theme-accent;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 @mixin button ($theme-accent, $theme-bg-sec, $theme-contrast, $size: 16px, $padding: 10px 15px) {
   background-color: $theme-accent;
   color: $theme-contrast;
@@ -48,34 +14,6 @@
     outline: none;
   }
 }
-
-@mixin table ($theme-bg, $theme-bg-sec, $theme-accent, $theme-contrast, $padding: 10px 15px) {
-  table {
-    margin: 25px 0;
-    background-color: $theme-contrast;
-    box-shadow: 0 0 2px lighten($color-grey-55, 25%);
-
-    thead {
-      background-color: $theme-accent;
-      color: $theme-contrast;
-      text-align: left;
-
-      a {
-        color: $theme-contrast;
-      }
-    }
-
-    th,
-    td {
-      padding: $padding;
-    }
-
-    tr:nth-child(even) {
-      background-color: lighten($theme-bg, 5%);
-    }
-  }
-}
-
 // Forms/Data edit/manage view mixins
 
 @mixin label {
@@ -149,47 +87,81 @@
   }
 }
 
+@mixin button-override($color-bg: "", $color-text: "", $font-size: "", $padding: "") {
+  @if ($color-bg != "") {
+    background-color: $color-bg;
+  }
+  @if ($color-text != "") {
+    color: $color-text;
+  }
+  @if ($font-size != "") {
+    font-size: $font-size;
+  }
+  @if ($padding != "") {
+    padding: $padding;
+  }
+}
+
+@mixin button-base($theme-accent, $theme-bg-sec, $theme-contrast, $size: 16px, $padding: 10px 15px) {
+  background-color: $theme-accent;
+  color: $theme-contrast;
+  font-size: $size;
+  font-family: $font-open-sans-semi-bold;
+  padding: $padding;
+  border: none;
+  &:hover {
+    background-color: lighten($theme-accent, 5%);
+    text-decoration: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
 
 // One big mixin for the interior page styles
-
 @mixin theme-structure ($theme-bg, $theme-bg-sec, $theme-contrast, $theme-accent){
-  @include background($theme-bg, $theme-bg-sec);
+  body {
+    background-color: $theme-bg;
+  }
+
+  .l-header {
+    background-color: $theme-bg-sec;
+  }
+
+  .l-footer {
+    background-color: $theme-bg;
+  }
 
   a {
-    @include a($theme-accent);
+    color: $theme-accent;
   }
 
   .logout {
-    @include button($theme-accent, $theme-bg-sec, $theme-contrast);
+    @include button-base($theme-accent, $theme-bg-sec, $theme-contrast);
   }
 
   //generic button styles for block buttons
   .btn,
   .cal button {
-    @include button($theme-accent, $theme-bg-sec, $theme-contrast, $size: 14px, $padding: 5px 15px)
+    @include button-base($theme-accent, $theme-bg-sec, $theme-contrast, $size: 14px, $padding: 5px 15px)
   }
 
-  .cal {
-    button.clear {
-      display: none;
-    }
-    button.open,
-    input[type="text"] {
-      display: table-cell;
-      vertical-align: middle;
-      width: auto;
-    }
-
-    button.open {
-      background-image: url(/_resources/dyn/files/25637z863b9862/_fn/calendar.png);
-      background-repeat: no-repeat;
-      background-position: center center;
-      overflow: hidden;
-      text-indent: 4000em;
-      width: 36px;
-    }
-  }
 
   //generic table styles, primarily for search results for engagements and users
-  @include table($theme-bg, $theme-bg-sec, $theme-accent, $theme-contrast);
+  .miwt-table {
+    background-color: $theme-contrast;
+
+    thead {
+      background-color: $theme-accent;
+      color: $theme-contrast;
+
+      a {
+        color: $theme-contrast;
+      }
+    }
+
+    tr:nth-child(even) {
+      background-color: lighten($theme-bg, 5%);
+    }
+  }
 }

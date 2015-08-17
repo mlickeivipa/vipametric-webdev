@@ -12,7 +12,7 @@
   text-align: center;
 
   a {
-    @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+    @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
     display: block;
     width: 100%;
 
@@ -70,7 +70,7 @@
 // Add - clickables specific to the management/search pages
 a[title="Add Engagement"],
 a[title="Add User"]{
-  @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+  @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
   display: block;
   text-align: center;
 }
@@ -214,7 +214,7 @@ table {
 
     .controls {
       a {
-        @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 10px);
+        @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 10px);
         font-family: $font-open-sans;
         text-transform: none;
         margin: 0 2px;
@@ -320,14 +320,14 @@ table {
         }
 
         a {
-          @include button($bg-accent, $bg-body, $color-accent, $size: 12px, $padding: 5px 10px);
+          @include button-base($bg-accent, $bg-body, $color-accent, $size: 12px, $padding: 5px 10px);
           font-family: $font-open-sans;
           text-transform: none;
           margin: 0 2px;
         }
 
         .selected-page {
-          @include button($color-accent, $bg-body, $color-contrast, $size: 12px, $padding: 5px 10px);
+          @include button-base($color-accent, $bg-body, $color-contrast, $size: 12px, $padding: 5px 10px);
           font-family: $font-open-sans;
           text-transform: none;
           margin: 0 2px;
@@ -365,7 +365,7 @@ table {
   font-size: 18px;
 
   a {
-    @include button($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
+    @include button-base($color-accent, $bg-body, $color-contrast, $size: 14px, $padding: 5px 15px);
       display: block;
       width: 100%;
       text-align: center;
