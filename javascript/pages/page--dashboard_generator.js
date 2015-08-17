@@ -408,7 +408,7 @@ function updateChartsAndTables(chartData) {
 
         $("div.full-program-results").empty();
         $("div.full-program-results").mrjsontable({
-            tableClass: "full-program-results-table",
+            tableClass: "miwt-table full-program-results-table",
             pageSize: 20,
             columns: [
                 new $.fn.mrjsontablecolumn({
@@ -445,7 +445,7 @@ function updateChartsAndTables(chartData) {
                 var brand = tableData[0].brand.replace(/[^\w\d\-]+/, "").toLowerCase();
                 $(document.createElement("div")).addClass("price-matrix-table").addClass(brand).addClass("table-wrapper").appendTo("div.price-matrix");
                 $("div.price-matrix-table." + brand).mrjsontable({
-                    tableClass: "price-matrix-table-" + brand,
+                    tableClass: "miwt-table price-matrix-table-" + brand,
                     pageSize: 10,
                     columns: [
                         new $.fn.mrjsontablecolumn({
