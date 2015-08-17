@@ -8,82 +8,8 @@ body {
 	background-color: $color-grey-f7;
 }
 
-h1 {
-  @include h1;
-}
-
-h3 {
-  @include h3;
-}
-
-
-// Calendar
-body > .calendar {
-  border: 1px solid $color-accent;
-
-  thead {
-	border-top:1px solid lighten($bg-body, 5%);
-	border-left:1px solid lighten($bg-body, 5%);
-
-	tr {
-	  background-color: $color-accent;
-	}
-
-	td.button,
-	td.title {
-	  background-color: $color-accent;
-	}
-
-	.daynames .name {
-	  border-bottom:1px solid lighten($bg-body, 5%);
-	}
-  }
-
-  tbody {
-
-	td.day {
-	  border: none;
-	  border-bottom: 1px solid lighten($bg-body, 5%);
-	  padding: 5px;
-	  cursor: pointer;
-	  text-align: center;
-
-	  &:not(.wn) {
-		border-left: 1px solid lighten($bg-body, 5%);
-	  }
-
-	  &.othermonth, &.othermonth.oweekend {
-		background-color: lighten($bg-body, 5%);
-	  }
-
-	  &.today {
-		color: $color-accent;
-	  }
-
-	  &.selected {
-		background-color: lighten($color-accent, 75%);
-		color: $color-accent;
-	  }
-
-	  &.hilite {
-		background-color: lighten($bg-body, 15%);
-	  }
-	}
-  }
-
-  tfoot {
-	td.ttip {
-	  background-color:$color-accent;
-	}
-  }
-  .combo {
-	border: 1px solid $color-accent;
-	background-color: lighten($bg-body, 5%);
-	.label.hilite, .label.active {
-	  background-color: lighten($bg-body, 7%);
-	}
-  }
-}
+@include override-headings;
+@include override-calendar-theme;
 
 .message-container {
   color: $color-red;

@@ -29,6 +29,26 @@
   }
 }
 
+@mixin h1 {
+  font-family: $font-open-sans-bold;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: $color-accent;
+}
+
+@mixin h2 {
+  font-family: $font-open-sans-bold;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+@mixin h3 {
+  font-family: $font-open-sans-semi-bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: $color-accent;
+}
+
 // Forms/Data edit/manage view mixins
 
 @mixin label {
@@ -143,5 +163,72 @@
     tr:nth-child(even) {
       background-color: lighten($theme-bg, 5%);
     }
+  }
+}
+
+@mixin override-headings {
+  h1 {
+    color: $color-accent;
+  }
+
+  h3 {
+    color: $color-accent;
+  }
+}
+
+@mixin override-calendar-theme {
+  body > .calendar {
+    thead {
+      tr {
+        &:first-child {
+          td {
+            background-color: $color-accent;
+          }
+        }
+      }
+
+      td {
+        background-color: $color-accent;
+
+        &.button {
+          &:hover {
+            background-color: darken($color-accent, 10%);
+          }
+        }
+      }
+    }
+
+    .daynames {
+      td {
+        &.name {
+          color: $color-accent;
+        }
+      }
+    }
+
+    .daysrow {
+      td {
+        &.wn {
+          color: $color-accent;
+        }
+
+        &.today {
+          background-color: $color-accent;
+
+          &:hover {
+            background-color: darken($color-accent, 10%);
+          }
+        }
+
+        &.selected {
+          background-color: lighten($color-accent, 15%);
+
+          &:hover {
+            background-color: lighten($color-accent, 5%);
+          }
+        }
+      }
+    }
+
   }
 }
