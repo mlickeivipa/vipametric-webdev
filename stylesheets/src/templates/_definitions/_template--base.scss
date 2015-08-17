@@ -3,7 +3,7 @@
 @include fontFace('OpenSansSemiBold', '/OpenSans', 'opensans-semibold-webfont');
 
 @import "../../libs/normalize";
-@import "../../libs/select2";
+@import "../../libs/select2/core";
 
 @import "template--base/structure";
 

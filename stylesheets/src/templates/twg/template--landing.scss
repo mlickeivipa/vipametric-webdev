@@ -3,4 +3,4 @@
 
 @import "../_definitions/template--landing";
 
-@include override-login-theme($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
+@include override-login-theme($bg-accent, $color-contrast, $color-accent, $bg-body);

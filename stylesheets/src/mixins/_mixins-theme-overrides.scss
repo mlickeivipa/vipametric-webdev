@@ -1,6 +1,6 @@
 @mixin override-structure-theme {
 	body {
-		background-color: $bg-body;
+		background-color: $app--body-bg-color;
 	}
 
 	.l-header {
@@ -212,9 +212,8 @@
 }
 
 // Login mixin
-@mixin override-login-theme($theme-bg-img, $theme-bg-sec, $theme-contrast, $theme-accent, $theme-bg) {
+@mixin override-login-theme($theme-bg-sec, $theme-contrast, $theme-accent, $theme-bg) {
 	.e-wrapper {
-		background-image: $theme-bg-img;
 		background-color: $theme-bg-sec;
 
 		@include text-like-inputs {
