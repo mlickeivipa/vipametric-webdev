@@ -14,10 +14,16 @@
   }
 }
 
-@mixin clearfix {
+@mixin clearfix($include-before: false) {
+  @if ($include-before) {
+    &:before {
+      content: "";
+      display: table;
+    }
+  }
   &:after {
     content:"";
     display: table;
-    width: 100%;
+    clear: both;
   }
 }
