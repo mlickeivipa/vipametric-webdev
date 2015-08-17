@@ -155,4 +155,58 @@
 	.btn {
 		@include button-override($color-bg: $color-accent, $color-text: $color-contrast);
 	}
+
+
+	// Action clickables
+	.header-actions,
+	.footer-actions,
+	.prop-header-actions,
+	.prop-footer-actions {
+		a {
+			@include button-override($color-bg: $color-accent, $color-text: $color-contrast);
+		}
+	}
+
+	// Add - clickables specific to the management/search pages
+	a[title="Add Engagement"],
+	a[title="Add User"]{
+		@include button-override($color-bg: $color-accent, $color-text: $color-contrast);
+	}
+
+	// Search bar styles
+	.search {
+		.pager-top,
+		.pager-bottom {
+			.controls {
+				a {
+					@include button-override($color-bg: $color-accent, $color-text: $color-contrast, $padding: 5px 12px);
+				}
+			}
+		}
+
+
+		@include breakpoint($bp-mobile-landscape) {
+			.pager-top,
+			.pager-bottom {
+				.controls {
+					a {
+						@include button-override($color-bg: $bg-accent, $color-text: $color-accent, $font-size: 12px, $padding: 5px 12px);
+						border: 1px solid $color-grey-dd;
+					}
+
+					.selected-page {
+						@include button-override($color-bg: $color-accent, $color-text: $color-contrast, $font-size: 12px, $padding: 5px 12px);
+					}
+				}
+			}
+		}
+	}
+
+	// Section Styles
+	.section-header {
+		a {
+			@include button-override($color-bg: $color-accent, $color-text: $color-contrast);
+		}
+	}
+
 }

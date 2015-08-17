@@ -79,7 +79,7 @@
 }
 
 // Login mixin
-@mixin login ($theme-bg-img, $theme-bg-sec, $theme-contrast, $theme-accent, $theme-bg) {
+@mixin login($theme-bg-img, $theme-bg-sec, $theme-contrast, $theme-accent, $theme-bg) {
   //styles for the non-logged in pages
   #t_noheader {
     #e-content {

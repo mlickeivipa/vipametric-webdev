@@ -1,7 +1,6 @@
 @import "../themes/theme--standard";
 
-@include login ($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
-
+@include login($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
 
 #e-column-0 {
   display: block;
