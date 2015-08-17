@@ -1,3 +1,20 @@
+@mixin override-structure-theme {
+	body {
+		background-color: $bg-body;
+	}
+
+	.l-header {
+		background-color: $bg-accent;
+	}
+
+	.l-footer {
+		background-color: $bg-body;
+	}
+
+	a {
+		color: $color-accent;
+	}
+}
 
 @mixin override-table-theme {
 	//generic table styles, primarily for search results for engagements and users

@@ -2,12 +2,8 @@
 @import "../config/themes/pernod";
 
 @include login ($bg-img, $bg-accent, $color-contrast, $color-accent, $bg-body);
-@include theme-structure($bg-body, $bg-accent, $color-contrast, $color-accent);
 
-body {
-	background-color: $color-grey-f7;
-}
-
+@include override-structure-theme;
 @include override-table-theme;
 @include override-headings-theme;
 @include override-calendar-theme;
@@ -15,6 +11,9 @@ body {
 @include override-navigation-theme;
 @include override-button-theme;
 
+body {
+	background-color: $color-grey-f7;
+}
 
 // Action clickables
 .header-actions,

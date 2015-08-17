@@ -1,8 +1,8 @@
-
 body {
 	font-family: $font-open-sans;
 	font-size: $font-default-size;
 	color: $color-grey-33;
+	background-color: $bg-body;
 }
 
 h1 {
@@ -18,6 +18,7 @@ h3 {
 }
 
 a {
+	color: $color-accent;
 	text-decoration: none;
 
 	&:hover {
@@ -35,6 +36,7 @@ a {
 }
 
 .l-header {
+	background-color: $bg-accent;
 	box-shadow: 0 0 2px lighten($color-grey-55, 25%);
 
 	@include breakpoint($bp-desktop) {
@@ -181,6 +183,7 @@ a {
 }
 
 .l-footer {
+	background-color: $bg-body;
 	text-align: center;
 	padding: 15px;
 

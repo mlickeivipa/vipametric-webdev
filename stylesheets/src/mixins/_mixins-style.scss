@@ -125,22 +125,3 @@
     }
   }
 }
-
-// One big mixin for the interior page styles
-@mixin theme-structure($theme-bg, $theme-bg-sec, $theme-contrast, $theme-accent){
-  body {
-    background-color: $theme-bg;
-  }
-
-  .l-header {
-    background-color: $theme-bg-sec;
-  }
-
-  .l-footer {
-    background-color: $theme-bg;
-  }
-
-  a {
-    color: $theme-accent;
-  }
-}
