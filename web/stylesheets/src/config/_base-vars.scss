@@ -43,6 +43,7 @@ $font-default-size: 14px;
 
 $html-entity-nbsp: "\a0";
 $html-entity-rarr: "\2192";
+@import "font-glyph-entities";
 
 $bp-mobile-landscape: (min-width: 480px);
 $bp-tablets-portrait: (min-width: 768px);
