@@ -17,10 +17,8 @@
   .engagement-site .btn {
     margin-left: 5px;
   }
-}
 
-@include breakpoint($bp-mobile-landscape) {
-  .engagement-overview  {
+  @include breakpoint($bp-mobile-landscape) {
     .sub-section-container,
     .metric-container {
       display: inline-block;
@@ -46,6 +44,7 @@
       display: block;
       width: 100%;
       text-align: center;
+
       +.btn {
         margin-top: 5px;
       }
@@ -74,10 +73,8 @@
       margin-right: 15px;
     }
   }
-}
 
-@include breakpoint($bp-mobile-landscape) {
-  .prop {
+  @include breakpoint($bp-mobile-landscape) {
     &-header-actions {
       margin-top: -5px;
 
@@ -91,6 +88,7 @@
         }
       }
     }
+
     &-group {
       margin-right: 50px;
       margin-bottom: 50px;
@@ -98,6 +96,7 @@
 
     &-group.default-group {
       margin-right: 0;
+
       .prop {
         margin-right: 50px;
       }
@@ -140,8 +139,7 @@
     color: $color-grey-77;
   }
 
-  input[type="text"],
-  input[type="number"] {
+  @include text-like-inputs {
     width: 70px;
   }
 
@@ -270,10 +268,8 @@ span.metric-bucket.value-component {
 }
 
 .default-group {
-
   .numeric-metric {
     display: block;
-
 
     > div {
       display: block;
@@ -306,6 +302,7 @@ span.metric-bucket.value-component {
 .market-intelligence {
   .string-metric {
     display: block;
+
     input[type="text"] {
       width: 100%;
       min-width: 200px;
@@ -348,26 +345,21 @@ span.metric-bucket.value-component {
 
 // User Management
 .user-management {
-  .section-header {
-    margin-right: 45px;
+  .prop-header-title {
+    @include h3;
   }
-
- .prop-header-title {
-   @include h3;
- }
 
   .entity-actions {
     margin: 5px 0;
-    display: block;
-    width: 100%;
+
+    a {
+      @include button-base;
+    }
   }
 
   .entity-actions a,
   .btn.back {
-    @include button-base;
-    display: block;
     width: 100%;
-    text-align: center;
   }
 
   table .actions {
@@ -378,6 +370,7 @@ span.metric-bucket.value-component {
       }
     }
 
+    //TODO remove once they add class VM-305
     a {
       @include button-base;
       + a {
@@ -385,10 +378,8 @@ span.metric-bucket.value-component {
       }
     }
   }
-}
 
-@include breakpoint($bp-mobile-landscape) {
-  .user-management {
+  @include breakpoint($bp-mobile-landscape) {
     .prop-header {
       position: relative;
       margin-top: 25px;
@@ -404,7 +395,6 @@ span.metric-bucket.value-component {
       position: absolute;
       top: 25px;
       right: 25px;
-      width: auto;
     }
 
     .entity-actions {
@@ -413,20 +403,12 @@ span.metric-bucket.value-component {
 
     .entity-actions a,
     .btn.back {
-      display: inline-block;
-      vertical-align: middle;
       margin-left: 15px;
       width: auto;
     }
-
-    .search-wrapper .prop-header-actions .btn.back {
-      position: relative;
-      display: inline-block;
-      top: 0;
-      right: auto;
-    }
   }
 }
+
 
 // styles for edit pages only
 
