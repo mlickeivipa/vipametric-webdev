@@ -8,7 +8,6 @@
 @import "../../components/partials/messages";
 @import "../../components/partials/buttons";
 
-$spacing-footer-bottom: 50px;
 
 html, body, div.page {
 	height: 100%;
@@ -17,7 +16,8 @@ html, body, div.page {
 .e-wrapper {
 	position: relative;
 	min-height: 100.0%;
-	background: $landing--bg-image repeat-x center bottom 50px $bg-accent;
+	background: repeat-x center bottom 50px $landing--bg-color;
+	background-image: $landing--bg-image;
 	text-align: center;
 }
 
@@ -25,7 +25,7 @@ html, body, div.page {
 	display: block;
 	width: 320px;
 	margin: 0 auto;
-	padding-bottom: $spacing-footer-bottom;
+	padding-bottom: $app--footer-height;
 }
 
 .l-header {
@@ -33,10 +33,10 @@ html, body, div.page {
 }
 
 .l-footer {
-	height: $spacing-footer-bottom;
-	margin-top: -$spacing-footer-bottom;
+	height: $app--footer-height;
+	margin-top: -$app--footer-height;
 	text-align: center;
-	color: $color-white;
+	color: $app--footer-text-color;
 	@include clearfix(true);
 
 	&:empty {
@@ -93,7 +93,7 @@ input {
 	}
 
 	span.logout-url {
-		background: url(/_resources/dyn/files/21507z2032e2af/_fn/LogOut.png) no-repeat center center;
+		background: $app--logout-image no-repeat center center;
 		display: inline-block;
 		vertical-align: middle;
 		overflow: hidden;
@@ -126,7 +126,7 @@ input {
 	}
 
 	input {
-		@include input($bg-body);
+		@include input;
 		width: 100%;
 	}
 

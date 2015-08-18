@@ -2,5 +2,3 @@
 @import "../../config/base-import";
 
 @import "../_definitions/template--landing";
-
-@include override-login-theme($bg-accent, $color-contrast, $color-accent, $bg-body);

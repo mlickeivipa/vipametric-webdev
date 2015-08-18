@@ -20,10 +20,10 @@ a {
 }
 
 @include text-like-inputs {
-	@include input($bg-body);
+	@include input;
 
 	&:focus {
-		background-color: lighten($color-accent, 80%);
-		outline-color: $color-accent;
+		background-color: $app--input-focus-bg-color;
+		outline-color: $app--input-outline-color;
 	}
 }

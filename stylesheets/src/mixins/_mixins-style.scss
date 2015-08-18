@@ -70,7 +70,8 @@
   }
 }
 
-@mixin input ($theme-bg){
+@mixin input {
+  color: $app--input-text-color;
   padding: 5px;
   border: solid 1px $app--input-border-color;
 }

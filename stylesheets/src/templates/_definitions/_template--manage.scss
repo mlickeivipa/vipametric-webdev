@@ -98,7 +98,7 @@ input[type="number"],
 input[type="password"],
 textarea,
 select {
-	@include input($bg-body);
+	@include input;
 	display: block;
 	width: 100%;
 }
