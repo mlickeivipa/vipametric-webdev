@@ -27,3 +27,12 @@
     clear: both;
   }
 }
+
+@mixin text-like-inputs {
+  input[type=url],
+  input[type=number],
+  input[type=password],
+  input[type=text] {
+    @content;
+  }
+}

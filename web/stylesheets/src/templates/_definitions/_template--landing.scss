@@ -67,7 +67,7 @@ input {
 	}
 
 	.btn {
-		@include button-override($font-size: 16px, $padding: 15px);
+		@include style-button-override($font-size: 16px, $padding: 15px);
 	}
 }
 
@@ -80,7 +80,7 @@ input {
 	}
 
 	button {
-		@include button-base;
+		@include style-button-base;
 		margin-top: 15px;
 		width: 100%;
 	}
@@ -118,16 +118,16 @@ input {
 	margin-top: 15px;
 
 	.prop-header {
-		@include h2;
+		@include style-h2;
 	}
 
 	label {
-		@include label;
+		@include style-label;
 		display: block;
 	}
 
 	input {
-		@include input;
+		@include style-input;
 		width: 100%;
 	}
 

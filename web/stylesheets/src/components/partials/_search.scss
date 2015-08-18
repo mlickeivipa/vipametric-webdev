@@ -1,7 +1,7 @@
 // Content box styles
 .search-bar,
 .section {
-	@include contentbox;
+	@include style-contentbox;
 }
 
 // Search bar styles
@@ -52,7 +52,7 @@
 
 		.controls {
 			a {
-				@include button-base($app--pager-btn-bg-color, $app--pager-btn-bg-color, $app--pager-btn-text-color, $size: 12px, $padding: 5px 12px);
+				@include style-button-base($app--pager-btn-bg-color, $app--pager-btn-bg-color, $app--pager-btn-text-color, $size: 12px, $padding: 5px 12px);
 				border: 1px solid $color-grey-dd;
 				margin: 0 2px;
 			}
@@ -150,7 +150,7 @@
 				}
 
 				.selected-page {
-					@include button-base($app--pager-btn-active-bg-color, $app--pager-btn-active-bg-color, $app--pager-btn-active-text-color, $size: 12px, $padding: 5px 12px);
+					@include style-button-base($app--pager-btn-active-bg-color, $app--pager-btn-active-bg-color, $app--pager-btn-active-text-color, $size: 12px, $padding: 5px 12px);
 				}
 			}
 		}

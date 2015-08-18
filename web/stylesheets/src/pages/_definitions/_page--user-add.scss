@@ -1,7 +1,7 @@
 //edit user
 .edit-user {
   .wrapper-header {
-    @include h1;
+    @include style-h1;
   }
 
   .header-actions,
@@ -11,7 +11,7 @@
   }
 
   .search .entity-actions a {
-    @include button-base;
+    @include style-button-base;
     display: block;
     width: 100%;
     text-align: center;
@@ -19,14 +19,14 @@
 
   .prop-header {
     .prop-header-title {
-      @include h2;
+      @include style-h2;
       margin-right: 80px;
     }
   }
 }
 
 .member.prop-editor {
-  @include contentbox;
+  @include style-contentbox;
 
   span.instructions {
     display: block;
@@ -43,7 +43,7 @@
 
 .prop-header {
   .prop-header-title {
-    @include h2;
+    @include style-h2;
     margin-right: 80px;
   }
 
@@ -91,7 +91,7 @@
 
   .prop-header {
     .prop-header-title {
-      @include h2;
+      @include style-h2;
       margin-right: 80px;
     }
 
@@ -117,7 +117,7 @@
   .check-login {
     clear: both;
     float: none;
-    @include contentbox;
+    @include style-contentbox;
 
     .actions {
       .btn {
@@ -140,7 +140,7 @@
   }
 
   .client-member-editor {
-    @include contentbox;
+    @include style-contentbox;
 
     span.instructions {
       display: block;
@@ -157,7 +157,7 @@
 
   .prop-header {
     .prop-header-title {
-      @include h2;
+      @include style-h2;
       margin-right: 80px;
     }
 
@@ -213,7 +213,7 @@
 
     .prop-header {
       .prop-header-title {
-        @include h2;
+        @include style-h2;
         margin-right: 80px;
       }
 

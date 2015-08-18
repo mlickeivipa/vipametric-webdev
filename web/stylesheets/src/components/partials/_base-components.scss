@@ -1,13 +1,13 @@
 h1 {
-	@include h1;
+	@include style-h1;
 }
 
 h2 {
-	@include h2;
+	@include style-h2;
 }
 
 h3 {
-	@include h3;
+	@include style-h3;
 }
 
 a {
@@ -20,7 +20,7 @@ a {
 }
 
 @include text-like-inputs {
-	@include input;
+	@include style-input;
 
 	&:focus {
 		background-color: $app--input-focus-bg-color;

@@ -16,12 +16,12 @@
 }
 
 .wrapper-header {
-  @include h1;
+  @include style-h1;
 }
 
 
 .prop-header-title {
-  @include h2;
+  @include style-h2;
 }
 
 @include breakpoint($bp-mobile-landscape) {
@@ -42,13 +42,13 @@
 
 .principal-info button.btn,
 .prop-editor .actions a {
-  @include button-base($padding: 0px 5px);
+  @include style-button-base($padding: 0px 5px);
 }
 
 .add-engagement {
   .vertical-label-component {
     display: block;
-    @include label;
+    @include style-label;
   }
   button.trigger {
     display: none;

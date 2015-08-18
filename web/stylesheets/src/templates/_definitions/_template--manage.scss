@@ -7,7 +7,7 @@
 	text-align: center;
 
 	a {
-		@include button-base;
+		@include style-button-base;
 		display: block;
 		width: 100%;
 
@@ -60,7 +60,7 @@
 // Add - clickables specific to the management/search pages
 a[title="Add Engagement"],
 a[title="Add User"] {
-	@include button-base;
+	@include style-button-base;
 	width: 100%;
 	text-align: center;
 
@@ -78,7 +78,7 @@ label,
 .label,
 .label-component {
 	display: block;
-	@include label;
+	@include style-label;
 }
 
 .label > label {
@@ -86,7 +86,7 @@ label,
 }
 
 @include text-like-inputs {
-	@include input;
+	@include style-input;
 	display: block;
 	width: 100%;
 
@@ -98,7 +98,7 @@ label,
 
 textarea,
 select {
-	@include input;
+	@include style-input;
 	display: block;
 	width: 100%;
 
@@ -148,7 +148,7 @@ label.tbl {
 	font-size: 18px;
 
 	a {
-		@include button-base;
+		@include style-button-base;
 		display: block;
 		width: 100%;
 		text-align: center;
@@ -160,7 +160,7 @@ label.tbl {
 	padding-top: 5px;
 
 	&-header {
-		@include h3;
+		@include style-h3;
 		margin-left: 25px;
 
 		.metric-set-value-count {

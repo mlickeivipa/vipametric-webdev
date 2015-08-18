@@ -2,7 +2,7 @@
 .miwt-form {
 	.cal {
 		button {
-			@include button-base;
+			@include style-button-base;
 		}
 
 		button.clear {

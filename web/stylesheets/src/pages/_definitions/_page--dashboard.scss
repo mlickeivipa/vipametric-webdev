@@ -1,7 +1,7 @@
 .vipametric,
 .dash-section,
 .dash_message {
-  @include contentbox;
+  @include style-contentbox;
 }
 
 .vipametric {
@@ -102,7 +102,7 @@
 
 .dash-section {
   &-header {
-    @include h2;
+    @include style-h2;
   }
 
   &.circular-chart-wrapper {
@@ -125,7 +125,7 @@
     float: left;
 
     .highcharts-yaxis-title {
-      @include h3;
+      @include style-h3;
     }
 
     div.highcharts-yaxis-labels{
@@ -181,7 +181,7 @@
 
 // No-Data dashboard-styles
 .no-data {
-  @include h3;
+  @include style-h3;
   text-align: center;
 }
 

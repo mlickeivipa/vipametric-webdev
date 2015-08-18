@@ -1,4 +1,4 @@
-@mixin button-override($color-bg: "", $color-text: "", $font-size: "", $padding: "") {
+@mixin style-button-override($color-bg: "", $color-text: "", $font-size: "", $padding: "") {
 	@if ($color-bg != "") {
 		background-color: $color-bg;
 
@@ -17,7 +17,7 @@
 	}
 }
 
-@mixin button-base($color-bg: $app--btn-bg-color, $color-hover-bg: $app--btn-hover-bg-color, $color-text: $app--btn-text-color, $size: 14px, $padding: 5px 15px) {
+@mixin style-button-base($color-bg: $app--btn-bg-color, $color-hover-bg: $app--btn-hover-bg-color, $color-text: $app--btn-text-color, $size: 14px, $padding: 5px 15px) {
 	display: inline-block;
 	background-color: $color-bg;
 	color: $color-text;
@@ -36,48 +36,39 @@
 	}
 }
 
-@mixin h1 {
+@mixin style-h1 {
 	font-family: $font-open-sans-bold;
 	text-transform: uppercase;
 	font-size: 20px;
 	color: $app--heading-h1-color;
 }
 
-@mixin h2 {
+@mixin style-h2 {
 	font-family: $font-open-sans-bold;
 	text-transform: uppercase;
 	font-size: 18px;
 	color: $app--heading-h2-color;
 }
 
-@mixin h3 {
+@mixin style-h3 {
 	font-family: $font-open-sans-semi-bold;
 	text-transform: uppercase;
 	font-size: 16px;
 	color: $app--heading-h3-color;
 }
 
-@mixin label {
+@mixin style-label {
 	font-family: $font-open-sans-semi-bold;
 	margin: 5px 0;
 }
 
-@mixin text-like-inputs {
-	input[type=url],
-	input[type=number],
-	input[type=password],
-	input[type=text] {
-		@content;
-	}
-}
-
-@mixin input {
+@mixin style-input {
 	color: $app--input-text-color;
 	padding: 5px;
 	border: solid 1px $app--input-border-color;
 }
 
-@mixin contentbox {
+@mixin style-contentbox {
 	background-color: $color-white;
 	box-shadow: 0 0 2px lighten($color-grey-55, 25%);
 	position: relative;

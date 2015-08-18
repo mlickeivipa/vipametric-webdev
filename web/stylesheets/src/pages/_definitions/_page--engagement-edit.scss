@@ -244,7 +244,7 @@ span.metric-bucket.value-component {
 .col-photos {
   .props {
     > div {
-      @include contentbox;
+      @include style-contentbox;
       text-align: center;
       margin-bottom: 15px;
       width: 100%;
@@ -346,14 +346,14 @@ span.metric-bucket.value-component {
 // User Management
 .user-management {
   .prop-header-title {
-    @include h3;
+    @include style-h3;
   }
 
   .entity-actions {
     margin: 5px 0;
 
     a {
-      @include button-base;
+      @include style-button-base;
     }
   }
 
@@ -372,7 +372,7 @@ span.metric-bucket.value-component {
 
     //TODO remove once they add class VM-305
     a {
-      @include button-base;
+      @include style-button-base;
       + a {
         margin-left: 5px;
       }
@@ -446,7 +446,7 @@ span.metric-bucket.value-component {
 // Styles for new engagement site edit which has a wonky question structure
 
 .engagement-site.prop-editor {
-  @include contentbox;
+  @include style-contentbox;
 
   .prop-header-title {
     font-family: $font-open-sans-bold;

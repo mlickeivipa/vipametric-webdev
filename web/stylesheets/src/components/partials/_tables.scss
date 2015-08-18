@@ -59,7 +59,7 @@
 
 	button,
 	.btn {
-		@include button-override($font-size: 12px);
+		@include style-button-override($font-size: 12px);
 		margin-right: 5px;
 		white-space: nowrap;
 	}
