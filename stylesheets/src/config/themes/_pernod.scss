@@ -1,3 +1,5 @@
+@import "../base-vars";
+
 // Theme Pernod Ricard
 $bg-accent: $color-white;
 $bg-body: $color-grey-e7;
@@ -5,6 +7,14 @@ $bg-body: $color-grey-e7;
 $color-accent: #023466;
 $color-contrast: $color-white;
 
+
+
+$color--theme-accent: #023466;
+
 $landing--bg-image: url(/_resources/dyn/files/21112z4e4a8fbd/_fn/VipaMetricsLogin.png);
 
 $app--body-bg-color: $color-grey-f7;
+$app--header-bg-color: $color-white;
+$app--footer-bg-color: $color-grey-f7;
+
+@import "../default-vars";

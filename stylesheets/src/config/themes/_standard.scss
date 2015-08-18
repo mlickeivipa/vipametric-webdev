@@ -1,27 +1,9 @@
+@import "../base-vars";
+
 //base theme VipaMetric Dark
 $bg-accent: $color-grey-33;
 $bg-body: $color-grey-e7;
 $color-accent: #4b93ad;
 $color-contrast: $color-white;
 
-
-//reused theme colors
-$color--theme-accent: #4b93ad;
-
-//landing template
-$landing--bg-image: url(/_resources/dyn/files/21273z6d51a6f4/_fn/VipaMetricsLoginDrk.png);
-
-//app variables
-$app--body-bg-color: $color-grey-e7;
-$app--header-bg-color: $color-grey-33;
-
-$app--nav-link-color: $color--theme-accent;
-
-$app--btn-bg-color: $color--theme-accent;
-$app--btn-text-color: $color-white;
-$app--btn-hover-bg-color: lighten($color--theme-accent, 5%);
-
-$app--table-headings-bg-color: $color-grey-33;
-$app--table-headings-text-color: $color-white;
-$app--table-row-even-bg-color: $color-grey-f2;
-$app--table-row-odd-bg-color: $color-white;
+@import "../default-vars";

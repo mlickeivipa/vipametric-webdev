@@ -1,5 +1,5 @@
-@import "../config/base-import";
 @import "../config/themes/pernod";
+@import "../config/base-import";
 
 @include override-table-theme;
 @include override-headings-theme;

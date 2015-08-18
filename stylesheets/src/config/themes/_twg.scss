@@ -1,3 +1,5 @@
+@import "../base-vars";
+
 // Theme The Wine Group
 $bg-accent: $color-white;
 $bg-body: $color-grey-e7;
@@ -5,4 +7,12 @@ $bg-body: $color-grey-e7;
 $color-accent: #752225;
 $color-contrast: $color-white;
 
+
+
+$color--theme-accent: #752225;
+
 $landing--bg-image: url(/_resources/dyn/files/21112z4e4a8fbd/_fn/VipaMetricsLogin.png);
+
+$app--header-bg-color: $color-white;
+
+@import "../default-vars";

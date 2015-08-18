@@ -1,0 +1,23 @@
+//reused theme colors
+$color--theme-accent: #4b93ad !default;
+
+//landing template
+$landing--bg-image: url(/_resources/dyn/files/21273z6d51a6f4/_fn/VipaMetricsLoginDrk.png) !default;
+
+//app variables
+$app--body-bg-color: $color-grey-e7 !default;
+$app--body-text-color: $color-grey-33 !default;
+$app--header-bg-color: $color-grey-33 !default;
+$app--nav-link-color: $color--theme-accent !default;
+$app--footer-bg-color: $color-grey-e7 !default;
+
+$app--link-color: $color--theme-accent !default;
+
+$app--btn-bg-color: $color--theme-accent !default;
+$app--btn-text-color: $color-white !default;
+$app--btn-hover-bg-color: lighten($color--theme-accent, 5%) !default;
+
+$app--table-headings-bg-color: $color-grey-33 !default;
+$app--table-headings-text-color: $color-white !default;
+$app--table-row-even-bg-color: $color-grey-f2 !default;
+$app--table-row-odd-bg-color: $color-white !default;
