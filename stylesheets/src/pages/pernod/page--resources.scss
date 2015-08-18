@@ -29,23 +29,23 @@
 	.video-link {
 		display: block;
 		margin: 0 5px 10px;
-		border: 3px solid $color-grey-99;
+		border: 3px solid $app--video-border-color;
 		transition: all 250ms;
 		text-decoration: none;
 
 		&:hover {
-			border-color: lighten($color-accent, 10%);
+			border-color: $app--video-hover-border-color;
 
 			.video-overlay {
-				border-color: lighten($color-accent, 10%);
-				background-color: $color-accent;
+				border-color: $app--video-hover-overlay-edge-bg-color;
+				background-color: $app--video-hover-overlay-bg-color;
 				width: 70px;
 				height: 70px;
 				border-width: 10px;
 			}
 
 			.video-info {
-				background-color: $color-accent;
+				background-color: $app--video-hover-info-bg-color;
 			}
 		}
 	}
@@ -60,12 +60,12 @@
 		position: relative;
 
 		.video-overlay {
-			border: 5px solid $color-grey-77;
+			border: 5px solid $app--video-overlay-edge-bg-color;
 			border-radius: 50%;
 			width: 50px;
 			height: 50px;
 			display: block;
-			background-color: $color-grey-55;
+			background-color: $app--video-overlay-bg-color;
 			position: absolute;
 			left: 50%;
 			top: 50%;
@@ -79,7 +79,7 @@
 				border-top-width: 10px;
 				border-bottom-width: 10px;
 				border-right: none;
-				border-left-color: $color-white;
+				border-left-color: $app--video-overlay-play-color;
 				position: absolute;
 				left: 50%;
 				top: 50%;
@@ -89,8 +89,8 @@
 	}
 
 	.video-info {
-		background-color: $color-grey-55;
-		color: $color-white;
+		background-color: $app--video-info-bg-color;
+		color: $app--video-info-text-color;
 		padding: 10px;
 		transition: all 250ms;
 	}

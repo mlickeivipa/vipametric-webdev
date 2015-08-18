@@ -64,3 +64,14 @@ $app--table-headings-bg-color: $color--theme-accent !default;
 $app--table-headings-text-color: $color-white !default;
 $app--table-row-even-bg-color: $color-grey-f2 !default;
 $app--table-row-odd-bg-color: $color-white !default;
+
+$app--video-border-color: $color-grey-99 !default;
+$app--video-info-bg-color: $color-grey-55 !default;
+$app--video-info-text-color: $color-white !default;
+$app--video-overlay-bg-color: $color-grey-55 !default;
+$app--video-overlay-edge-bg-color: $color-grey-77 !default;
+$app--video-overlay-play-color: $color-white !default;
+$app--video-hover-border-color: lighten($color--theme-accent, 10%) !default;
+$app--video-hover-info-bg-color: $color--theme-accent !default;
+$app--video-hover-overlay-bg-color: $color--theme-accent !default;
+$app--video-hover-overlay-edge-bg-color: lighten($color--theme-accent, 10%) !default;
