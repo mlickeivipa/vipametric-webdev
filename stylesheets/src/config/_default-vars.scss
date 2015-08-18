@@ -13,11 +13,37 @@ $app--footer-bg-color: $color-grey-e7 !default;
 
 $app--link-color: $color--theme-accent !default;
 
+$app--heading-h1-color: $color--theme-accent !default;
+$app--heading-h2-color: $app--body-text-color !default;
+$app--heading-h3-color: $color--theme-accent !default;
+
 $app--btn-bg-color: $color--theme-accent !default;
 $app--btn-text-color: $color-white !default;
 $app--btn-hover-bg-color: lighten($color--theme-accent, 5%) !default;
 
-$app--table-headings-bg-color: $color-grey-33 !default;
+$app--input-border-color: $color-grey-cc !default;
+
+$app--cal-bg-color: $color-white !default;
+$app--cal-heading-bg-color: $color--theme-accent !default;
+$app--cal-heading-text-color: $color-white !default;
+$app--cal-daynames-bg-color: $color-grey-f2 !default;
+$app--cal-daynames-text-color: $color--theme-accent !default;
+$app--cal-weeknum-bg-color: $color-grey-f7 !default;
+$app--cal-weeknum-text-color: $color--theme-accent !default;
+$app--cal-today-bg-color: $color--theme-accent !default;
+$app--cal-today-text-color: $color-white !default;
+$app--cal-selected-bg-color: lighten($color--theme-accent, 15%) !default;
+$app--cal-selected-text-color: $color-white !default;
+$app--cal-othermonth-bg-color: $color-grey-cc !default;
+$app--cal-hilite-bg-color: $color-grey-aa !default;
+$app--cal-hilite-text-color: $color-white !default;
+
+$app--pager-btn-bg-color: $color-white !default;
+$app--pager-btn-text-color: $color--theme-accent !default;
+$app--pager-btn-active-bg-color: $color--theme-accent !default;
+$app--pager-btn-active-text-color: $color-white !default;
+
+$app--table-headings-bg-color: $color--theme-accent !default;
 $app--table-headings-text-color: $color-white !default;
 $app--table-row-even-bg-color: $color-grey-f2 !default;
 $app--table-row-odd-bg-color: $color-white !default;

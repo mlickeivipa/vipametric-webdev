@@ -17,15 +17,15 @@
   }
 }
 
-@mixin button-base($theme-accent, $theme-bg-sec, $theme-contrast, $size: 14px, $padding: 5px 15px) {
-  background-color: $theme-accent;
-  color: $theme-contrast;
+@mixin button-base($color-bg: $app--btn-bg-color, $color-hover-bg: $app--btn-hover-bg-color, $color-text: $app--btn-text-color, $size: 14px, $padding: 5px 15px) {
+  background-color: $color-bg;
+  color: $color-text;
   font-size: $size;
   font-family: $font-open-sans-semi-bold;
   padding: $padding;
   border: none;
   &:hover {
-    background-color: lighten($theme-accent, 5%);
+    background-color: $color-hover-bg;
     text-decoration: none;
   }
   &:focus {
@@ -37,20 +37,21 @@
   font-family: $font-open-sans-bold;
   text-transform: uppercase;
   font-size: 20px;
-  color: $color-accent;
+  color: $app--heading-h1-color;
 }
 
 @mixin h2 {
   font-family: $font-open-sans-bold;
   text-transform: uppercase;
   font-size: 18px;
+  color: $app--heading-h2-color;
 }
 
 @mixin h3 {
   font-family: $font-open-sans-semi-bold;
   text-transform: uppercase;
   font-size: 16px;
-  color: $color-accent;
+  color: $app--heading-h3-color;
 }
 
 // Forms/Data edit/manage view mixins
@@ -71,7 +72,7 @@
 
 @mixin input ($theme-bg){
   padding: 5px;
-  border: solid 1px $color-grey-cc;
+  border: solid 1px $app--input-border-color;
 }
 
 @mixin contentbox {

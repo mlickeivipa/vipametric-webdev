@@ -2,7 +2,7 @@
 .miwt-form {
 	.cal {
 		button {
-			@include button-base($bg-body, $bg-accent, $color-contrast);
+			@include button-base;
 		}
 
 		button.clear {
@@ -29,7 +29,7 @@
 // Calendar Popup
 
 body > .calendar {
-	background-color: $color-white;
+	background-color: $app--cal-bg-color;
 	border: 1px solid $color-grey-e7;
 	box-shadow: 3px 3px 10px transparentize($color-black, 0.55);
 
@@ -52,8 +52,8 @@ body > .calendar {
 		tr {
 			&:first-child {
 				td {
-					background-color: $color-accent;
-					color: $color-white;
+					background-color: $app--cal-heading-bg-color;
+					color: $app--cal-heading-text-color;
 					padding: 8px 10px;
 					font-family: $font-open-sans-bold;
 					font-size: 16px
@@ -62,13 +62,13 @@ body > .calendar {
 		}
 
 		td {
-			background-color: $color-accent;
-			color: $color-white;
+			background-color: $app--cal-heading-bg-color;
+			color: $app--cal-heading-text-color;
 			padding: 5px 10px;
 
 			&.button {
 				&:hover {
-					background-color: darken($color-accent, 10%);
+					background-color: darken($app--cal-heading-bg-color, 10%);
 				}
 			}
 		}
@@ -79,16 +79,16 @@ body > .calendar {
 			&.name {
 				font-family: $font-open-sans-semi-bold;
 				text-transform: uppercase;
-				color: $color-accent;
+				color: $app--cal-daynames-text-color;
 				padding: 5px;
 				font-size: 10px;
-				background-color: $color-grey-f2;
+				background-color: $app--cal-daynames-bg-color;
 				border-bottom: 1px solid $color-grey-dd;
 			}
 
 			&.day {
 				&:hover {
-					background-color: $color-grey-aa;
+					background-color: darken($app--cal-daynames-bg-color, 10%);
 				}
 			}
 
@@ -103,35 +103,35 @@ body > .calendar {
 			padding: 6px 8px;
 
 			&.wn {
-				background-color: $color-grey-f7;
+				background-color: $app--cal-weeknum-bg-color;
 				border-right: 1px solid $color-grey-e7;
-				color: $color-accent;
+				color: $app--cal-weeknum-text-color;
 			}
 
 			&.othermonth {
-				color: $color-grey-cc;
+				color: $app--cal-othermonth-bg-color;
 			}
 
 			&.hilite {
-				background-color: $color-grey-aa;
-				color: $color-white;
+				background-color: $app--cal-hilite-bg-color;
+				color: $app--cal-hilite-text-color;
 			}
 
 			&.today {
-				background-color: $color-accent;
-				color: $color-white;
+				background-color: $app--cal-today-bg-color;
+				color: $app--cal-today-text-color;
 
 				&:hover {
-					background-color: darken($color-accent, 10%);
+					background-color: darken($app--cal-today-bg-color, 10%);
 				}
 			}
 
 			&.selected {
-				background-color: lighten($color-accent, 15%);
-				color: $color-white;
+				background-color: $app--cal-selected-bg-color;
+				color: $app--cal-selected-text-color;
 
 				&:hover {
-					background-color: lighten($color-accent, 5%);
+					background-color: lighten($app--cal-selected-bg-color, 5%);
 				}
 			}
 		}
@@ -158,8 +158,8 @@ body > .calendar {
 			cursor: pointer;
 
 			&.hilite {
-				background-color: $color-grey-aa;
-				color: $color-white;
+				background-color: $app--cal-hilite-bg-color;
+				color: $app--cal-hilite-text-color;
 			}
 		}
 	}

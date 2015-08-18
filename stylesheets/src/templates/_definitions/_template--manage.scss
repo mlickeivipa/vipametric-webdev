@@ -7,7 +7,7 @@
 	text-align: center;
 
 	a {
-		@include button-base($color-accent, $bg-body, $color-contrast);
+		@include button-base;
 		display: block;
 		width: 100%;
 
@@ -65,7 +65,7 @@
 // Add - clickables specific to the management/search pages
 a[title="Add Engagement"],
 a[title="Add User"]{
-	@include button-base($color-accent, $bg-body, $color-contrast);
+	@include button-base;
 	display: block;
 	text-align: center;
 }
@@ -209,9 +209,8 @@ table {
 
 		.controls {
 			a {
-				@include button-base($color-accent, $bg-body, $color-contrast, $padding: 5px 10px);
-				font-family: $font-open-sans;
-				text-transform: none;
+				@include button-base($app--pager-btn-bg-color, $app--pager-btn-bg-color, $app--pager-btn-text-color, $size: 12px, $padding: 5px 12px);
+				border: 1px solid $color-grey-dd;
 				margin: 0 2px;
 			}
 
@@ -314,18 +313,8 @@ table {
 					vertical-align: middle;
 				}
 
-				a {
-					@include button-base($bg-accent, $bg-body, $color-accent, $size: 12px, $padding: 5px 10px);
-					font-family: $font-open-sans;
-					text-transform: none;
-					margin: 0 2px;
-				}
-
 				.selected-page {
-					@include button-base($color-accent, $bg-body, $color-contrast, $size: 12px, $padding: 5px 10px);
-					font-family: $font-open-sans;
-					text-transform: none;
-					margin: 0 2px;
+					@include button-base($app--pager-btn-active-bg-color, $app--pager-btn-active-bg-color, $app--pager-btn-active-text-color, $size: 12px, $padding: 5px 12px);
 				}
 			}
 		}
@@ -360,7 +349,7 @@ table {
 	font-size: 18px;
 
 	a {
-		@include button-base($color-accent, $bg-body, $color-contrast);
+		@include button-base;
 		display: block;
 		width: 100%;
 		text-align: center;

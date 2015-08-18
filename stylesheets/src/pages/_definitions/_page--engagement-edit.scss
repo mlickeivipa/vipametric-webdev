@@ -365,7 +365,7 @@ span.metric-bucket.value-component {
 
   .entity-actions a,
   .btn.back {
-    @include button-base($color-accent, $bg-body, $color-contrast);
+    @include button-base;
     display: block;
     width: 100%;
     text-align: center;
@@ -380,7 +380,7 @@ span.metric-bucket.value-component {
     }
 
     a {
-      @include button-base($color-accent, $bg-body, $color-contrast);
+      @include button-base;
       + a {
         margin-left: 5px;
       }

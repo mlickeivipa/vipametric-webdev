@@ -5,10 +5,10 @@
 
 	&.permanent-messages {
 		@include contentbox;
-		border: 10px solid $color-accent;
+		border: 10px solid $color--theme-accent;
 		font-family: $font-open-sans-semi-bold;
 		font-size: 16px;
-		color: $color-accent;
+		color: $color--theme-accent;
 	}
 
 	&.empty {

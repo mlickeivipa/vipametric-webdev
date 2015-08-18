@@ -79,7 +79,7 @@ input {
 	}
 
 	button {
-		@include button-base($color-accent, $bg-accent, $color-contrast);
+		@include button-base;
 		margin-top: 15px;
 		width: 100%;
 	}
