@@ -296,7 +296,7 @@ span.metric-bucket.value-component {
 
     &.metric-bucket:last-child {
       .label-component {
-        color: $color-accent;
+        color: $color--theme-accent;
       }
     }
   }
