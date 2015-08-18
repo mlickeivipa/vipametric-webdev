@@ -65,6 +65,15 @@ $app--table-headings-text-color: $color-white !default;
 $app--table-row-even-bg-color: $color-grey-f2 !default;
 $app--table-row-odd-bg-color: $color-white !default;
 
+$app--success-light-color: $color-green-almost-white;
+$app--success-dark-color: $color-dark-green;
+$app--error-light-color: $color-red-almost-white;
+$app--error-dark-color: $color-red;
+$app--info-light-color: $color-blue-almost-white;
+$app--info-dark-color: $color-dark-blue;
+$app--warning-light-color: $color-gold-almost-white;
+$app--warning-dark-color: $color-gold;
+
 $app--video-border-color: $color-grey-99 !default;
 $app--video-info-bg-color: $color-grey-55 !default;
 $app--video-info-text-color: $color-white !default;
