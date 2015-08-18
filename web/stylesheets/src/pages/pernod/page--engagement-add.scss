@@ -1,0 +1,9 @@
+@import "../../config/themes/_pernod";
+@import "../../config/_base-import";
+
+@import "../_definitions/_page--engagement-add";
+
+// Custom fields - pernod only
+.custom-fields .AssignedTo input {
+	max-width: 225px;
+}

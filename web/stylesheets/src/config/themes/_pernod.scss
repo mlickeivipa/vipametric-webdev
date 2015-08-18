@@ -1,0 +1,13 @@
+@import "../_base-vars";
+
+//Pernod Ricard
+$color--theme-accent: #023466;
+
+$landing--bg-image: none;
+$landing--bg-color: $color-white;
+
+$app--body-bg-color: $color-grey-f7;
+$app--header-bg-color: $color-white;
+$app--footer-bg-color: $color-grey-f7;
+
+@import "../_default-vars";

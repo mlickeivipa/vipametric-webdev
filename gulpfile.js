@@ -7,11 +7,11 @@ var del = require('del');
 gulp.task('default', ['styles']);
 
 gulp.task('styles:clean', function(callback) {
-	del(['./stylesheets/build/**'], callback);
+	del(['./web/stylesheets/build/**'], callback);
 });
 
 gulp.task('styles:build', ['styles:clean'], function() {
-	return gulp.src('./stylesheets/src/**/*.scss')
+	return gulp.src('./web/stylesheets/src/**/*.scss')
 		.pipe(clip())
 		.pipe(sass({
 			outputStyle: 'expanded'
@@ -20,7 +20,7 @@ gulp.task('styles:build', ['styles:clean'], function() {
 			browsers: ['> 1%', 'last 2 versions', 'ie >= 9'],
 			cascade: false
 		}))
-		.pipe(gulp.dest('./stylesheets/build'));
+		.pipe(gulp.dest('./web/stylesheets/build'));
 });
 
 gulp.task('styles', ['styles:build']);

@@ -1,0 +1,107 @@
+@import "../../config/themes/_pernod";
+@import "../../config/_base-import";
+
+%resource-video {
+	@include breakpoint($bp-mobile-landscape) {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		width: 33%;
+	}
+
+	@include breakpoint($bp-tablets-landscape) {
+		width: 25%;
+	}
+
+	@include breakpoint($bp-desktop-widest) {
+		width: 20%;
+	}
+}
+
+.youtube-video {
+	@extend %resource-video;
+}
+
+.video {
+	.video-link {
+		display: block;
+		margin: 0 5px 10px;
+		border: 3px solid $app--video-border-color;
+		transition: all 250ms;
+		text-decoration: none;
+
+		&:hover {
+			border-color: $app--video-hover-border-color;
+
+			.video-overlay {
+				border-color: $app--video-hover-overlay-edge-bg-color;
+				background-color: $app--video-hover-overlay-bg-color;
+				width: 70px;
+				height: 70px;
+				border-width: 10px;
+			}
+
+			.video-info {
+				background-color: $app--video-hover-info-bg-color;
+			}
+		}
+	}
+
+	.video-thumbnail {
+		width: 100%;
+		height: 180px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-color: transparent;
+		position: relative;
+
+		.video-overlay {
+			border: 5px solid $app--video-overlay-edge-bg-color;
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			display: block;
+			background-color: $app--video-overlay-bg-color;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			transition: all 150ms;
+
+			&:before {
+				display: block;
+				content: "";
+				border: 15px solid transparent;
+				border-top-width: 10px;
+				border-bottom-width: 10px;
+				border-right: none;
+				border-left-color: $app--video-overlay-play-color;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translateX(-40%) translateY(-50%);
+			}
+		}
+	}
+
+	.video-info {
+		background-color: $app--video-info-bg-color;
+		color: $app--video-info-text-color;
+		padding: 10px;
+		transition: all 250ms;
+	}
+
+	.video-title {
+		font-family: $font-open-sans-semi-bold;
+		font-size: 16px;
+	}
+
+	.video-length {
+		font-family: $font-open-sans-italic;
+		font-size: 12px;
+	}
+}
