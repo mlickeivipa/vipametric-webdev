@@ -1,28 +1,71 @@
-.message-container {
-	font-family: $font-open-sans-semi-bold;
-	color: $color-red;
-	margin-bottom: 15px;
+//.message-container {
+//	font-family: $font-open-sans-semi-bold;
+//	color: $color-red;
+//	margin-bottom: 15px;
+//
+//	&.permanent-messages {
+//		@include contentbox;
+//		border: 10px solid $color--theme-accent;
+//		font-family: $font-open-sans-semi-bold;
+//		font-size: 16px;
+//		color: $color--theme-accent;
+//	}
+//
+//	@include breakpoint($bp-mobile-landscape) {
+//		&.permanent-message {
+//			padding: 25px;
+//			margin: 25px 0;
+//
+//			&.empty {
+//				display: none;
+//			}
+//		}
+//	}
+//}
 
-	&.permanent-messages {
-		@include contentbox;
-		border: 10px solid $color--theme-accent;
-		font-family: $font-open-sans-semi-bold;
-		font-size: 16px;
-		color: $color--theme-accent;
-	}
+.message_container {
+	margin: 15px 0;
+	text-align: left;
 
 	&.empty {
 		display: none;
 	}
 
-	@include breakpoint($bp-mobile-landscape) {
-		&.permanent-message {
-			padding: 25px;
-			margin: 25px 0;
+	& + & {
+		margin-top: -10px;
+	}
 
-			&.empty {
-				display: none;
-			}
+	.message {
+		:first-child {
+			margin-top: 0;
 		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.message {
+	@include style-message-base;
+
+	:first-child {
+		margin-top: 0;
+	}
+
+	:last-child {
+		margin-bottom: 0;
+	}
+
+	&.error {
+		@include style-message-error;
+	}
+
+	&.info {
+		@include style-message-info;
+	}
+
+	&.important {
+		@include style-message-important;
 	}
 }

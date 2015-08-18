@@ -1,91 +1,136 @@
 @mixin button-override($color-bg: "", $color-text: "", $font-size: "", $padding: "") {
-  @if ($color-bg != "") {
-    background-color: $color-bg;
+	@if ($color-bg != "") {
+		background-color: $color-bg;
 
-    &:hover {
-      background-color: lighten($color-bg, 5%);
-    }
-  }
-  @if ($color-text != "") {
-    color: $color-text;
-  }
-  @if ($font-size != "") {
-    font-size: $font-size;
-  }
-  @if ($padding != "") {
-    padding: $padding;
-  }
+		&:hover {
+			background-color: lighten($color-bg, 5%);
+		}
+	}
+	@if ($color-text != "") {
+		color: $color-text;
+	}
+	@if ($font-size != "") {
+		font-size: $font-size;
+	}
+	@if ($padding != "") {
+		padding: $padding;
+	}
 }
 
 @mixin button-base($color-bg: $app--btn-bg-color, $color-hover-bg: $app--btn-hover-bg-color, $color-text: $app--btn-text-color, $size: 14px, $padding: 5px 15px) {
-  display: inline-block;
-  background-color: $color-bg;
-  color: $color-text;
-  font-size: $size;
-  font-family: $font-open-sans-semi-bold;
-  padding: $padding;
-  border: 0 none;
+	display: inline-block;
+	background-color: $color-bg;
+	color: $color-text;
+	font-size: $size;
+	font-family: $font-open-sans-semi-bold;
+	padding: $padding;
+	border: 0 none;
 
-  &:hover {
-    background-color: $color-hover-bg;
-    text-decoration: none;
-  }
+	&:hover {
+		background-color: $color-hover-bg;
+		text-decoration: none;
+	}
 
-  &:focus {
-    outline: none;
-  }
+	&:focus {
+		outline: none;
+	}
 }
 
 @mixin h1 {
-  font-family: $font-open-sans-bold;
-  text-transform: uppercase;
-  font-size: 20px;
-  color: $app--heading-h1-color;
+	font-family: $font-open-sans-bold;
+	text-transform: uppercase;
+	font-size: 20px;
+	color: $app--heading-h1-color;
 }
 
 @mixin h2 {
-  font-family: $font-open-sans-bold;
-  text-transform: uppercase;
-  font-size: 18px;
-  color: $app--heading-h2-color;
+	font-family: $font-open-sans-bold;
+	text-transform: uppercase;
+	font-size: 18px;
+	color: $app--heading-h2-color;
 }
 
 @mixin h3 {
-  font-family: $font-open-sans-semi-bold;
-  text-transform: uppercase;
-  font-size: 16px;
-  color: $app--heading-h3-color;
+	font-family: $font-open-sans-semi-bold;
+	text-transform: uppercase;
+	font-size: 16px;
+	color: $app--heading-h3-color;
 }
 
 @mixin label {
-  font-family: $font-open-sans-semi-bold;
-  margin: 5px 0;
+	font-family: $font-open-sans-semi-bold;
+	margin: 5px 0;
 }
 
 @mixin text-like-inputs {
-  input[type=url],
-  input[type=number],
-  input[type=password],
-  input[type=text] {
-    @content;
-  }
+	input[type=url],
+	input[type=number],
+	input[type=password],
+	input[type=text] {
+		@content;
+	}
 }
 
 @mixin input {
-  color: $app--input-text-color;
-  padding: 5px;
-  border: solid 1px $app--input-border-color;
+	color: $app--input-text-color;
+	padding: 5px;
+	border: solid 1px $app--input-border-color;
 }
 
 @mixin contentbox {
-  background-color: $color-white;
-  box-shadow: 0 0 2px lighten($color-grey-55, 25%);
-  position: relative;
-  padding: 15px;
-  margin: 15px 0;
+	background-color: $color-white;
+	box-shadow: 0 0 2px lighten($color-grey-55, 25%);
+	position: relative;
+	padding: 15px;
+	margin: 15px 0;
 
-  @include breakpoint($bp-mobile-landscape) {
-    padding: 25px;
-    margin: 25px 0;
-  }
+	@include breakpoint($bp-mobile-landscape) {
+		padding: 25px;
+		margin: 25px 0;
+	}
+}
+
+@mixin style-message-override($color-text, $color-bg, $color-border, $color-content, $content: "") {
+	padding-left: 40px;
+	color: $color-text;
+	background-color: $color-bg;
+	border-color: $color-border;
+
+	&:before {
+		display: block;
+		color: $color-content;
+		content: $content;
+	}
+}
+
+@mixin style-message-base {
+	display: block;
+	position: relative;
+	margin: 5px 0;
+	padding: 10px;
+	font-size: 13px;
+	border-radius: 3px;
+	border: 1px solid transparent;
+	font-family: $font-open-sans-semi-bold;
+
+	&:before {
+		position: absolute;
+		top: 8px;
+		left: 10px;
+		font-size: 20px;
+		font-family: $font-glyph-lib;
+	}
+}
+
+@mixin style-message-error {
+	@include style-message-override(#D74300, #FFD9DA, #F5C5C7, #FA797C, $html-entity-error);
+	font-weight: bold;
+}
+
+@mixin style-message-info {
+	@include style-message-override(#1a608a, #D6F0FF, #BEE5FB, #1a608a, $html-entity-info);
+}
+
+@mixin style-message-important {
+	@include style-message-override(#A08F29, #FFF5BA, #ffea6e, #DBC018, $html-entity-warning);
 }
