@@ -1,0 +1,121 @@
+.nav-plus {
+	position: relative;
+
+	.nav-collapse {
+		.nav-trigger {
+			display: block;
+			padding: 17px 15px;
+			background-color: $app--nav-hamburger-bg-color;
+			box-shadow: 0 0 2px lighten($color-grey-55, 25%);
+
+			&:hover {
+				background-color: $app--nav-hamburger-hover-bg-color;
+				cursor: pointer;
+			}
+
+			.line {
+				display: block;
+				height: 2px;
+				width: 36px;
+				background-color: $app--nav-hamburger-line-color;
+
+				+ .line {
+					margin-top: 5px;
+				}
+			}
+		}
+	}
+
+	.menu ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		text-align: center;
+
+		.mi {
+			border-bottom: 1px solid $bg-body;
+
+			&.last {
+				border-bottom: none;
+			}
+
+			.menuitemlabel {
+				color: $app--nav-link-color;
+				font-family: $font-open-sans-bold;
+				font-size: 16px;
+				text-transform: uppercase;
+				display: block;
+				padding: 10px 0;
+
+				&:hover {
+					text-decoration: none;
+					color: $app--nav-link-hover-color;
+				}
+			}
+
+			&.mi-active,
+			.menuitemlabel:hover {
+				.mil {
+					border-bottom: 1px solid $app--nav-link-underline-color;
+				}
+			}
+		}
+	}
+
+	.logout {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		.btn.logout-url {
+			background-image: $app--logout-image;
+			background-repeat: no-repeat;
+			background-position: center center;
+			display: block;
+			position: relative;
+			height: 50px;
+			width: 50px;
+		}
+
+		.logout-url-text {
+			display: none;
+		}
+	}
+
+	@include breakpoint($bp-desktop) {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
+
+		.nav-collapse {
+			display: inline-block;
+			vertical-align: middle;
+
+			.nav-trigger {
+				display: none;
+			}
+
+			.collapsible-shown {
+				display: block !important;
+			}
+		}
+
+		.menu .menu-t1 {
+			.mi {
+				display: inline-block;
+				vertical-align: middle;
+				border-bottom: none;
+
+				.menuitemlabel {
+					padding: 10px 25px 10px 0;
+				}
+			}
+		}
+
+		.logout {
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+		}
+	}
+}

@@ -1,38 +1,3 @@
-@mixin override-navigation-theme {
-	.nav-plus {
-		.nav-collapse {
-			.nav-trigger {
-				background-color: $color-accent;
-				&:hover {
-					background-color: darken($color-accent, 5%);
-				}
-				.line {
-					background-color: $color-contrast;
-				}
-			}
-		}
-
-		.menu ul {
-			.mi {
-				border-bottom: 1px solid $bg-body;
-				.menuitemlabel {
-					color: $color-accent;
-					&:hover {
-						color: lighten($color-accent, 5%);
-					}
-				}
-
-				&.mi-active,
-				.menuitemlabel:hover {
-					.mil {
-						border-bottom: 1px solid $color-accent;
-					}
-				}
-			}
-		}
-	}
-}
-
 // Login mixin
 @mixin override-login-theme($theme-bg-sec, $theme-contrast, $theme-accent, $theme-bg) {
 	.e-wrapper {
