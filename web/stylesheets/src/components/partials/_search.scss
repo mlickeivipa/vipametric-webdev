@@ -3,3 +3,156 @@
 .section {
 	@include contentbox;
 }
+
+// Search bar styles
+.search {
+	.constraints {
+		input,
+		select {
+			width: 100%;
+		}
+
+		.range-selector {
+			display: block;
+
+			.constraint-input,
+			.miwt-calendar {
+				display: block;
+				margin: 5px 0;
+			}
+
+			.miwt-calendar {
+				input {
+					width: auto;
+				}
+			}
+		}
+	}
+
+	.search-actions {
+		display: block;
+		margin-top: 15px;
+
+		.btn {
+			width: 100%;
+
+			+ .btn {
+				margin-top: 5px;
+			}
+		}
+	}
+
+	.pager-top,
+	.pager-bottom {
+		text-align: center;
+
+		.controls {
+			a {
+				@include button-base($app--pager-btn-bg-color, $app--pager-btn-bg-color, $app--pager-btn-text-color, $size: 12px, $padding: 5px 12px);
+				border: 1px solid $color-grey-dd;
+				margin: 0 2px;
+			}
+
+			&.pages {
+				display: none;
+			}
+		}
+	}
+
+	.search-results-con {
+		overflow: auto;
+		margin: 25px 0;
+		box-shadow: 0 0 2px lighten($color-grey-55, 25%);
+	}
+
+	.result-actions {
+		display: block;
+		margin-top: 15px;
+	}
+
+	@include breakpoint($bp-mobile-landscape) {
+		.constraints {
+			input,
+			select {
+				width: auto;
+			}
+
+			select {
+				max-width: 300px;
+			}
+		}
+
+		.constraints,
+		.search-actions {
+			display: inline-block;
+			vertical-align: bottom;
+		}
+
+		.search-actions {
+			.btn {
+				vertical-align: middle;
+				width: auto;
+
+				+ .btn {
+					margin-top: 0;
+					margin-left: 15px;
+				}
+			}
+		}
+
+		.constraints {
+			.constraint,
+			.range-selector {
+				display: inline-block;
+				vertical-align: bottom;
+				margin-right: 25px;
+			}
+
+			.range-selector {
+				.constraint-operator {
+					margin-right: 15px;
+				}
+
+				.constraint-operator,
+				.constraint-input {
+					display: inline-block;
+					vertical-align: top;
+				}
+
+				.constraint-input {
+					margin: 0;
+
+					.miwt-calendar {
+						display: inline-block;
+						margin: 0;
+					}
+
+					.constraint-input-conjunction {
+						margin: 0 15px;
+					}
+				}
+			}
+		}
+
+		.pager-top,
+		.pager-bottom {
+			text-align: center;
+
+			.controls {
+				&.pages,
+				&.mp-controls{
+					display: inline-block;
+					vertical-align: middle;
+				}
+
+				.selected-page {
+					@include button-base($app--pager-btn-active-bg-color, $app--pager-btn-active-bg-color, $app--pager-btn-active-text-color, $size: 12px, $padding: 5px 12px);
+				}
+			}
+		}
+
+		.result-actions {
+			text-align: right;
+		}
+	}
+}

@@ -24,18 +24,8 @@
 			margin-top: 5px;
 		}
 	}
-}
 
-.prop-header-actions,
-.prop-footer-actions {
-	margin-top: 5px;
-}
-
-@include breakpoint($bp-mobile-landscape) {
-	.header-actions,
-	.footer-actions,
-	.prop-header-actions,
-	.prop-footer-actions {
+	@include breakpoint($bp-mobile-landscape) {
 		text-align: right;
 		width: auto;
 
@@ -62,18 +52,20 @@
 	}
 }
 
-// Add - clickables specific to the management/search pages
-a[title="Add Engagement"],
-a[title="Add User"]{
-	@include button-base;
-	display: block;
-	text-align: center;
+.prop-header-actions,
+.prop-footer-actions {
+	margin-top: 5px;
 }
 
-@include breakpoint($bp-mobile-landscape) {
-	a[title="Add Engagement"],
-	a[title="Add User"]{
-		display: inline-block;
+// Add - clickables specific to the management/search pages
+a[title="Add Engagement"],
+a[title="Add User"] {
+	@include button-base;
+	width: 100%;
+	text-align: center;
+
+	@include breakpoint($bp-mobile-landscape) {
+		width: auto;
 		position: absolute;
 		top: 35px;
 		right: 25px;
@@ -93,28 +85,34 @@ label,
 	margin: 0;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="password"],
+@include text-like-inputs {
+	@include input;
+	display: block;
+	width: 100%;
+
+	@include breakpoint($bp-mobile-landscape) {
+		display: inline-block;
+		width: auto;
+	}
+}
+
 textarea,
 select {
 	@include input;
 	display: block;
 	width: 100%;
-}
 
-@include breakpoint($bp-mobile-landscape) {
-	input[type="text"],
-	input[type="number"],
-	input[type="password"],
-	textarea,
-	select {
+	@include breakpoint($bp-mobile-landscape) {
+		display: inline-block;
 		width: auto;
 	}
-
 }
 
-input[type="checkbox"],
+input[type="checkbox"] {
+	display: inline-block;
+	vertical-align: middle;
+}
+
 label.tbl {
 	display: inline-block;
 	vertical-align: middle;
@@ -125,205 +123,6 @@ label.tbl {
 	display: block;
 }
 
-table {
-	width: 100%;
-
-	div.column-visibility {
-		button {
-			padding:0;
-			box-shadow: none;
-		}
-	}
-
-	button,
-	.btn {
-		font-size: 12px;
-		margin-right: 5px;
-		white-space: nowrap;
-	}
-
-	a + a {
-		margin-left: 5px;
-	}
-}
-
-
-// Content box styles
-.search-bar,
-.section {
-	@include contentbox;
-}
-
-
-// Search bar styles
-.search {
-	.constraints {
-		input,
-		select {
-			width: 100%;
-		}
-
-		.range-selector {
-			display: block;
-
-			.constraint-input,
-			.miwt-calendar {
-				display: block;
-				margin: 5px 0;
-			}
-
-			.miwt-calendar {
-				input {
-					width: auto;
-				}
-			}
-		}
-	}
-
-	.search-actions {
-		display: block;
-		margin-top: 15px;
-		margin-bottom: 3px;
-
-		button {
-			width: 100%;
-			display: block;
-			text-align: center;
-
-			+ button {
-				margin-top: 5px;
-			}
-		}
-	}
-
-	.pager-search-results {
-		position: relative;
-		div.column-visibility {
-			position: inherit;
-		}
-	}
-
-	.pager-top,
-	.pager-bottom {
-		text-align: center;
-
-		.controls {
-			a {
-				@include button-base($app--pager-btn-bg-color, $app--pager-btn-bg-color, $app--pager-btn-text-color, $size: 12px, $padding: 5px 12px);
-				border: 1px solid $color-grey-dd;
-				margin: 0 2px;
-			}
-
-			&.pages {
-				display: none;
-			}
-		}
-	}
-
-	.search-results-con {
-		display: block;
-		width: 100%;
-		overflow: auto;
-		margin: 25px 0;
-		box-shadow: 0 0 2px lighten($color-grey-55, 25%);
-
-		table {
-			margin: 0;
-		}
-	}
-
-	.result-actions {
-		display: block;
-		margin-top: 15px;
-	}
-}
-
-@include breakpoint($bp-mobile-landscape) {
-	.search {
-		.constraints {
-			input,
-			select {
-				width: auto;
-			}
-
-			select {
-				max-width: 300px;
-			}
-		}
-		.constraints,
-		.search-actions {
-			display: inline-block;
-			vertical-align: bottom;
-		}
-
-		.search-actions {
-			button {
-				display: inline-block;
-				vertical-align: middle;
-				width: auto;
-
-				+ button {
-					margin-top: 0;
-					margin-left: 15px;
-				}
-			}
-		}
-
-		.constraints .constraint,
-		.constraints .range-selector {
-			display: inline-block;
-			vertical-align: bottom;
-			margin-right: 25px;
-		}
-
-		.constraints .range-selector {
-			.constraint-operator {
-				margin-right: 15px;
-			}
-
-			.constraint-operator,
-			.constraint-input {
-				display: inline-block;
-				vertical-align: top;
-			}
-
-			.constraint-input {
-				margin: 0;
-
-				.miwt-calendar {
-					display: inline-block;
-					margin: 0;
-				}
-
-				.constraint-input-conjunction {
-					margin: 0 15px;
-				}
-			}
-		}
-
-		.pager-top,
-		.pager-bottom {
-			text-align: center;
-
-			.controls {
-
-				&.pages,
-				&.mp-controls{
-					display: inline-block;
-					vertical-align: middle;
-				}
-
-				.selected-page {
-					@include button-base($app--pager-btn-active-bg-color, $app--pager-btn-active-bg-color, $app--pager-btn-active-text-color, $size: 12px, $padding: 5px 12px);
-				}
-			}
-		}
-	}
-
-	.result-actions {
-		text-align: right;
-	}
-}
 
 .column-visibility-selector {
 	ul {

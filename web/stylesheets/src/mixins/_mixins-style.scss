@@ -18,16 +18,19 @@
 }
 
 @mixin button-base($color-bg: $app--btn-bg-color, $color-hover-bg: $app--btn-hover-bg-color, $color-text: $app--btn-text-color, $size: 14px, $padding: 5px 15px) {
+  display: inline-block;
   background-color: $color-bg;
   color: $color-text;
   font-size: $size;
   font-family: $font-open-sans-semi-bold;
   padding: $padding;
-  border: none;
+  border: 0 none;
+
   &:hover {
     background-color: $color-hover-bg;
     text-decoration: none;
   }
+
   &:focus {
     outline: none;
   }
