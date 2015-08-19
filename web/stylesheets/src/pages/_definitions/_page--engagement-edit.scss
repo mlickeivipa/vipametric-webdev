@@ -192,7 +192,8 @@
     text-align: right;
     min-width: 125px;
 
-    .value-component {
+    span.value-component,
+		div.value-component {
       border-bottom: 1px solid $color-grey-77;
       min-width: 25px;
       min-height: 18px;
@@ -254,10 +255,8 @@ span.metric-bucket.value-component {
       }
     }
   }
-}
 
-@include breakpoint($bp-mobile-landscape) {
-  .col-photos {
+  @include breakpoint($bp-mobile-landscape) {
     .props {
       > div {
         display: table-cell;
@@ -266,6 +265,7 @@ span.metric-bucket.value-component {
     }
   }
 }
+
 
 .default-group {
   .numeric-metric {
@@ -430,16 +430,15 @@ span.metric-bucket.value-component {
     .metric-container.monetary-metric,
     .metric-container.numeric-metric {
       > div {
-
-        .value-component {
+        div.value-component {
           border-bottom: none;
         }
       }
     }
 
-    span.metric-bucket.value-component {
-      border-bottom: none;
-    }
+    //span.metric-bucket.value-component {
+    //  border-bottom: none;
+    //}
   }
 }
 
