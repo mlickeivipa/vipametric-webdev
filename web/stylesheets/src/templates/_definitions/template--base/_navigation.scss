@@ -83,9 +83,8 @@
 	}
 
 	@include breakpoint($bp-desktop) {
-		display: table-cell;
-		vertical-align: middle;
-		text-align: right;
+		float: right;
+		margin-top: 16px;
 
 		.nav-collapse {
 			display: inline-block;
