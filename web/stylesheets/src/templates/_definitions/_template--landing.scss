@@ -19,11 +19,9 @@ html, body, div.page {
 	min-height: 100.0%;
 	background: repeat-x center bottom 50px $landing--bg-color;
 	background-image: $landing--bg-image;
-	text-align: center;
 }
 
 .e-content {
-	display: block;
 	width: 320px;
 	margin: 0 auto;
 	padding-bottom: $app--footer-height;
@@ -31,6 +29,7 @@ html, body, div.page {
 
 .l-header {
 	padding-top: 50px;
+	text-align: center;
 }
 
 .l-footer {
@@ -50,15 +49,17 @@ input {
 }
 
 .login {
-	text-align: center;
-
 	.title,
 	label {
 		display: none;
 	}
 
+	.fields {
+		margin-top: 15px;
+	}
+
 	.field {
-		margin: 15px 0;
+		margin: 10px 0;
 
 		input {
 			padding: 15px;
@@ -66,8 +67,17 @@ input {
 		}
 	}
 
+	.password-rules {
+		@include style-message-base;
+		@include style-message-important;
+	}
+
 	.btn {
-		@include style-button-override($font-size: 16px, $padding: 15px);
+		@include style-button-override($font-size: 16px, $padding: 10px 15px);
+	}
+
+	.retrieve-password {
+		text-align: center;
 	}
 }
 
@@ -75,45 +85,28 @@ input {
 .retrieve-password  {
 	span.email {
 		display: block;
-		font-family: $font-open-sans-bold;
-		text-align: left;
+		font-family: $font-open-sans-semi-bold;
 	}
 
 	button {
-		@include style-button-base;
-		margin-top: 15px;
+		@include style-button-base($size: 16px, $padding: 10px 15px);
+		margin-top: 10px;
 		width: 100%;
 	}
 }
 
 
 .logout {
-	.username {
-		display: inline-block;
-		vertical-align: middle;
-	}
+	@include style-message-base;
+	@include style-message-important;
 
-	span.logout-url {
-		background: $app--logout-image no-repeat center center;
-		display: inline-block;
-		vertical-align: middle;
-		overflow: hidden;
-		position: relative;
-		height: 36px;
-		width: 36px;
-
-		a {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			text-indent: 4000em;
-		}
+	.user {
+		font-family: $font-open-sans-bold;
 	}
 }
 
 // Styles for product specialist landing
+//TODO find out where this is used
 .td-director {
 	margin-top: 15px;
 
