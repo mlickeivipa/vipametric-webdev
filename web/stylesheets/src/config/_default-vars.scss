@@ -1,4 +1,6 @@
-//reused theme colors
+$font--web-root-path: "/_fonts" !default;
+
+//reused theme variables
 $color--theme-accent: #4b93ad !default;
 
 //landing template
@@ -7,6 +9,11 @@ $landing--bg-color: $color--theme-accent !default;
 
 //app variables
 $app--constraint-max-width: 1600px !default;
+
+$app--spacing-horizontal-desktop: 25px !default;
+
+$app--base-font-size: 14px !default;
+$app--base-font-family: $font-open-sans !default;
 
 $app--body-bg-color: $color-grey-e7 !default;
 $app--body-text-color: $color-grey-33 !default;
@@ -35,6 +42,7 @@ $app--heading-h3-color: $color--theme-accent !default;
 $app--btn-bg-color: $color--theme-accent !default;
 $app--btn-text-color: $color-white !default;
 $app--btn-hover-bg-color: lighten($color--theme-accent, 5%) !default;
+$app--btn-spacing-between-btns: 5px !default;
 
 $app--input-border-color: $color-grey-cc !default;
 $app--input-text-color: $color--theme-accent !default;

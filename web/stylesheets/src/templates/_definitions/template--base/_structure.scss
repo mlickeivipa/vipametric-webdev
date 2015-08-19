@@ -1,6 +1,6 @@
 body {
-	font-family: $font-open-sans;
-	font-size: $font-default-size;
+	font-family: $app--base-font-family;
+	font-size: $app--base-font-size;
 	color: $app--body-text-color;
 	background-color: $app--body-bg-color;
 }
@@ -17,7 +17,7 @@ body {
 
 	@include breakpoint($bp-desktop) {
 		> .box-wc {
-			padding: 10px $spacing-horizontal-desktop;
+			padding: 10px $app--spacing-horizontal-desktop;
 			@include clearfix;
 		}
 	}
@@ -28,7 +28,7 @@ body {
 	position: relative;
 
 	@include breakpoint($bp-mobile-landscape) {
-		padding: 25px $spacing-horizontal-desktop 80px;
+		padding: 25px $app--spacing-horizontal-desktop 80px;
 	}
 }
 

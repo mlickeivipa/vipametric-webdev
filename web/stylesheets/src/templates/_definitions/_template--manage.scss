@@ -12,7 +12,7 @@
 		width: 100%;
 
 		+ a {
-			margin-top: 5px;
+			margin-top: $app--btn-spacing-between-btns;
 		}
 	}
 
@@ -21,7 +21,7 @@
 		width: 100%;
 
 		+ button {
-			margin-top: 5px;
+			margin-top: $app--btn-spacing-between-btns;
 		}
 	}
 
@@ -36,7 +36,7 @@
 
 			+ a {
 				margin-top: 0;
-				margin-left: 15px;
+				margin-left: $app--btn-spacing-between-btns;
 			}
 		}
 
@@ -46,7 +46,7 @@
 
 			+ button {
 				margin-top: 0;
-				margin-left: 15px;
+				margin-left: $app--btn-spacing-between-btns;
 			}
 		}
 	}

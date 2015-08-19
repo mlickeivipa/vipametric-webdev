@@ -39,8 +39,6 @@ $font-glyph-lib: GlyphLib, sans-serif;
 $font-monospace: monospace;
 $font-georgia: Georgia, "Times New Roman", serif;
 
-$font-default-size: 14px;
-
 $html-entity-nbsp: "\a0";
 $html-entity-rarr: "\2192";
 @import "font-glyph-entities";
@@ -51,9 +49,3 @@ $bp-tablets-landscape: (min-width: 1024px);
 $bp-desktop: (min-width: 1280px);
 $bp-desktop-wide: (min-width: 1400px);
 $bp-desktop-widest: (min-width: 1600px);
-
-$spacing-default-between-buttons: 2px;
-
-$spacing-horizontal-desktop: 25px;
-
-$font-path: "/_fonts";

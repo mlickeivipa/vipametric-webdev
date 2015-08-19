@@ -15,7 +15,7 @@
   }
 
   .engagement-site .btn {
-    margin-left: 5px;
+    margin-left: $app--btn-spacing-between-btns;
   }
 
   @include breakpoint($bp-mobile-landscape) {
@@ -46,7 +46,7 @@
       text-align: center;
 
       +.btn {
-        margin-top: 5px;
+        margin-top: $app--btn-spacing-between-btns;
       }
     }
   }
@@ -366,7 +366,7 @@ span.metric-bucket.value-component {
     .btn {
       margin-right: 0;
       + .btn {
-        margin-left: 5px;
+        margin-left: $app--btn-spacing-between-btns;
       }
     }
 
@@ -374,7 +374,7 @@ span.metric-bucket.value-component {
     a {
       @include style-button-base;
       + a {
-        margin-left: 5px;
+        margin-left: $app--btn-spacing-between-btns;
       }
     }
   }
@@ -403,7 +403,7 @@ span.metric-bucket.value-component {
 
     .entity-actions a,
     .btn.back {
-      margin-left: 15px;
+      margin-left: $app--btn-spacing-between-btns;
       width: auto;
     }
   }

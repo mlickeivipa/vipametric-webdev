@@ -36,7 +36,7 @@
       display: block;
 
       + span.report {
-        margin-top: 10px;
+        margin-top: $app--btn-spacing-between-btns;
       }
     }
 
@@ -82,7 +82,7 @@
         display: inline-block;
         + span.report {
           margin-top: 0;
-          margin-left: 10px;
+          margin-left: $app--btn-spacing-between-btns;
         }
       }
     }

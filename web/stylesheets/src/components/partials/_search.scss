@@ -37,7 +37,7 @@
 			width: 100%;
 
 			+ .btn {
-				margin-top: 5px;
+				margin-top: $app--btn-spacing-between-btns;
 			}
 		}
 	}
@@ -99,7 +99,7 @@
 
 				+ .btn {
 					margin-top: 0;
-					margin-left: 15px;
+					margin-left: $app--btn-spacing-between-btns;
 				}
 			}
 		}

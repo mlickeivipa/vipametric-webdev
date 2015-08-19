@@ -1,5 +1,5 @@
 @mixin fontFace($font-name, $file-path, $file-name) {
-  $font-file-path: $font-path + $file-path + '/' + $file-name;
+  $font-file-path: $font--web-root-path + $file-path + '/' + $file-name;
 
   @font-face {
     font-family: $font-name;

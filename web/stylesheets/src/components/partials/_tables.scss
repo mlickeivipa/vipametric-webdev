@@ -60,12 +60,11 @@
 	button,
 	.btn {
 		@include style-button-override($font-size: 12px);
-		margin-right: 5px;
 		white-space: nowrap;
 	}
 
 	.btn + .btn {
-		margin-left: 5px;
+		margin-left: $app--btn-spacing-between-btns;
 	}
 
 	div.column-visibility {
