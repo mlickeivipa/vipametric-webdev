@@ -123,24 +123,6 @@ label.tbl {
 	display: block;
 }
 
-
-.column-visibility-selector {
-	ul {
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
-	}
-	input[type="checkbox"],
-	label {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	label {
-		word-break: break-all;
-		font-size: 12px;
-	}
-}
-
 // Section Styles
 .section-header {
 	font-family: $font-open-sans-bold;
