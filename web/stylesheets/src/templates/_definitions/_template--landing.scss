@@ -14,6 +14,12 @@ html, body, div.page {
 	height: 100%;
 }
 
+body {
+	font-family: $app--base-font-family;
+	font-size: $app--base-font-size;
+	color: $app--body-text-color;
+}
+
 .e-wrapper {
 	position: relative;
 	min-height: 100.0%;
@@ -105,6 +111,10 @@ input {
 	}
 }
 
+.login-intro {
+	text-align: center;
+}
+
 // Styles for product specialist landing
 //TODO find out where this is used
 .td-director {
@@ -120,11 +130,11 @@ input {
 	}
 
 	input {
-		@include style-input;
 		width: 100%;
 	}
 
 	button {
+		@include style-button-base($size: 16px, $padding: 10px 15px);
 		margin-top: 15px;
 		width: 100%;
 	}
