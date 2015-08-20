@@ -2,3 +2,7 @@
 @import "../../config/_base-import";
 
 @import "../_definitions/_page--engagement-edit";
+
+a[title="Take Survey"] {
+  @include style-button-base();
+}
