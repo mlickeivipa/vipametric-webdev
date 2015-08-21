@@ -33,14 +33,18 @@
 	}
 
 	&.error {
-		@include style-message-error;
+		@include style-message-error-override;
 	}
 
 	&.info {
-		@include style-message-info;
+		@include style-message-info-override;
 	}
 
 	&.important {
-		@include style-message-important;
+		@include style-message-important-override;
+	}
+
+	&.success {
+		@include style-message-success-override;
 	}
 }

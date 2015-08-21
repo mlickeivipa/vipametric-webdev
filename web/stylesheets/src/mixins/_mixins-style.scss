@@ -113,7 +113,7 @@
 	}
 }
 
-@mixin style-message-error {
+@mixin style-message-error-override {
 	@include style-message-override(
 			$app--message-error-text-color,
 			$app--message-error-bg-color,
@@ -124,7 +124,7 @@
 	font-weight: bold;
 }
 
-@mixin style-message-info {
+@mixin style-message-info-override {
 	@include style-message-override(
 			$app--message-info-text-color,
 			$app--message-info-bg-color,
@@ -134,7 +134,7 @@
 	);
 }
 
-@mixin style-message-important {
+@mixin style-message-important-override {
 	@include style-message-override(
 			$app--message-important-text-color,
 			$app--message-important-bg-color,
@@ -142,4 +142,29 @@
 			$app--message-important-glyph-color,
 			$app--message-important-glyph-entity
 	);
+}
+
+@mixin style-message-success-override {
+	@include style-message-override(
+			$app--message-success-text-color,
+			$app--message-success-bg-color,
+			$app--message-success-border-color,
+			$app--message-success-glyph-color,
+			$app--message-success-glyph-entity
+	);
+}
+
+@mixin style-message-error {
+	@include style-message-base;
+	@include style-message-error-override;
+}
+
+@mixin style-message-info {
+	@include style-message-base;
+	@include style-message-info-override;
+}
+
+@mixin style-message-important {
+	@include style-message-base;
+	@include style-message-important-override;
 }

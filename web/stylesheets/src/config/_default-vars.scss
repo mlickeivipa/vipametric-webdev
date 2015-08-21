@@ -89,6 +89,11 @@ $app--message-important-bg-color: #FFF5BA !default;
 $app--message-important-border-color: #ffea6e !default;
 $app--message-important-glyph-color: #DBC018 !default;
 $app--message-important-glyph-entity: $html-entity-warning !default;
+$app--message-success-text-color: $color-dark-green !default;
+$app--message-success-bg-color: $color-green-almost-white !default;
+$app--message-success-border-color: #9CF39A !default;
+$app--message-success-glyph-color: $color-dark-green !default;
+$app--message-success-glyph-entity: $html-entity-success !default;
 
 $app--video-border-color: $color-grey-99 !default;
 $app--video-info-bg-color: $color-grey-55 !default;

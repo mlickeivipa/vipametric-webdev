@@ -75,7 +75,7 @@ input {
 
 	.password-rules {
 		@include style-message-base;
-		@include style-message-important;
+		@include style-message-important-override;
 	}
 
 	.btn {
@@ -104,7 +104,7 @@ input {
 
 .logout {
 	@include style-message-base;
-	@include style-message-important;
+	@include style-message-important-override;
 
 	.user {
 		font-family: $font-open-sans-bold;
