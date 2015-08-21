@@ -43,6 +43,20 @@ function noData() {
     $(document.createElement("div")).addClass("dash_message").addClass("no-data").text("Currently no Data").appendTo(".dash-container");
 }
 
+function friendlyNumberFormat(number) {
+    if (number > 1000000000000) {
+        return Math.round(number / 1000000000000) + 't';
+    } else if (number > 1000000000) {
+        return Math.round(number / 1000000000) + 'b';
+    } else if (number > 1000000) {
+        return Math.round(number / 1000000) + 'm';
+    } else if (number > 1000) {
+        return Math.round(number / 1000) + 'k';
+    } else {
+        return number;
+    }
+}
+
 var gaugeOptions = {
 
         chart: {
@@ -87,7 +101,10 @@ var gaugeOptions = {
             },
             labels: {
                 y: 16,
-                useHTML: true
+                useHTML: true,
+                formatter: function() {
+                    return friendlyNumberFormat(this.value);
+                }
             }
         },
 
