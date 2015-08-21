@@ -113,8 +113,6 @@
 	}
 }
 
-<<<<<<< HEAD
-=======
 @mixin style-message-tag-override {
 	padding: 5px;
 	padding-left: 34px;
@@ -127,7 +125,6 @@
 	}
 }
 
->>>>>>> Engagement updates
 @mixin style-message-error-override {
 	@include style-message-override(
 			$app--message-error-text-color,
@@ -159,7 +156,6 @@
 	);
 }
 
-<<<<<<< HEAD
 @mixin style-message-success-override {
 	@include style-message-override(
 			$app--message-success-text-color,
@@ -170,8 +166,6 @@
 	);
 }
 
-=======
->>>>>>> Engagement updates
 @mixin style-message-error {
 	@include style-message-base;
 	@include style-message-error-override;
