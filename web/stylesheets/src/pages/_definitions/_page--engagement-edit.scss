@@ -1,4 +1,159 @@
+$spacing-metric: 15px;
+
+//FIXME move this to basic button functionality
+.btn + .btn {
+	margin-left: $app--btn-spacing-between-btns;
+}
+
+//FIXME remove this after removing it from template-manage
+.label-component {
+	margin: 0;
+}
+
+//FIXME remove this stuff
+.sub-section {
+	padding-top: 5px;
+
+	button.btn.trigger {
+		top: 10px;
+	}
+	+ .sub-section {
+		padding-top: 5px;
+		margin-top: 5px;
+		border-top: 1px solid $color-grey-aa;
+
+		button.btn.trigger {
+			top: 10px;
+		}
+	}
+}
+
+//TODO remove .section after remove the display inline and text transform from manage template
+.section {
+	.sub-section-header {
+		.sub-section-heading {
+			margin-right: 10px;
+		}
+
+		.metric-set-value-count {
+			@include style-message-base;
+
+			//TODO add different styles for types of filled in options
+			@include style-message-important-override;
+			@include style-message-tag-override;
+
+			&.required-metric-count {
+				@include style-message-error-override;
+				@include style-message-tag-override;
+			}
+
+			+ .metric-set-value-count {
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+.metric-container {
+	margin: $spacing-metric 0;
+	position: relative;
+
+	.metric-container-header {
+		margin: 10px 0;
+		@include clearfix;
+		font-family: $font-open-sans-semi-bold;
+		font-size: 16px;
+	}
+	.metric-container-heading {
+		float: left;
+	}
+	.metric-container-actions {
+		float: right;
+	}
+}
+
 // Engagement Overview Section styles
+.photo-metric {
+	.label-component {
+	}
+}
+
+.event-pictures {
+	.picture-list {
+		margin: 0 -5px;
+		@include clearfix;
+	}
+
+	.picture {
+		position: relative;
+		float: left;
+		margin: 0 5px 10px;
+		background-color: $color-grey-33;
+		cursor: pointer;
+		border: 1px solid $color-white;
+		transition: box-shadow 200ms;
+		min-width: 100px;
+
+		&:hover {
+			border-color: $color-grey-aa;
+			box-shadow: 0 0 4px transparentize($color-black, 0.7);
+		}
+
+		&.picture-selected {
+			border-color: $color--theme-accent;
+			outline: 3px solid $color--theme-accent;
+
+			.select-for-download {
+				background-color: darken($color--theme-accent, 10%);
+				border-top-color: lighten($color--theme-accent, 15%);
+			}
+		}
+
+		img {
+			height: 130px;
+			//TODO remove height and width once script updated
+			width: auto;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.select-for-download {
+		background-color: $color-grey-e2;
+		padding: 9px 0;
+		text-align: center;
+		line-height: 1px;
+		border-top: 1px solid $color-white;
+
+		input {
+			vertical-align: top;
+			padding-right: 0;
+		}
+
+		label {
+			display: none;
+		}
+	}
+
+	.delete-picture {
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		border: 2px solid darken($color--theme-accent, 10%);
+
+		.btn {
+			@include style-button-override($padding: 2px 7px);
+		}
+	}
+
+	.picture-upload {
+		padding: 10px;
+		margin-bottom: 10px;
+		display: inline-block;
+		background-color: $color-grey-f2;
+		border: 1px solid $color-grey-cc;
+	}
+}
 
 .engagement-overview {
   .sub-section-container,
@@ -55,24 +210,24 @@
     margin-top: 15px;
   }
 
-  &-group {
-    margin-right: 15px;
-    margin-bottom: 15px;
-    display: inline-block;
-    vertical-align: top;
-    min-width: 220px;
-    max-width: 100%;
-  }
+  //&-group {
+  //  margin-right: 15px;
+  //  margin-bottom: 15px;
+  //  display: inline-block;
+  //  vertical-align: top;
+  //  min-width: 220px;
+  //  max-width: 100%;
+  //}
 
-  &-group.default-group {
-    display: block;
-
-    .prop {
-      display: inline-block;
-      vertical-align: top;
-      margin-right: 15px;
-    }
-  }
+  //&-group.default-group {
+  //  display: block;
+	//
+  //  .prop {
+  //    display: inline-block;
+  //    vertical-align: top;
+  //    margin-right: 15px;
+  //  }
+  //}
 
   @include breakpoint($bp-mobile-landscape) {
     &-header-actions {
@@ -88,19 +243,19 @@
         }
       }
     }
-
-    &-group {
-      margin-right: 50px;
-      margin-bottom: 50px;
-    }
-
-    &-group.default-group {
-      margin-right: 0;
-
-      .prop {
-        margin-right: 50px;
-      }
-    }
+		//
+    //&-group {
+    //  margin-right: 50px;
+    //  margin-bottom: 50px;
+    //}
+		//
+    //&-group.default-group {
+    //  margin-right: 0;
+		//
+    //  .prop {
+    //    margin-right: 50px;
+    //  }
+    //}
   }
 }
 
@@ -109,16 +264,8 @@
 //metric Feedback
 
 .prop-body {
-  .label-component,
-  .value-component,
-  label,
-  input {
-    font-weight: normal;
-  }
 
   @include breakpoint($bp-mobile-landscape) {
-      .label-component,
-      .value-component,
       label,
       input {
         display: inline-block;
@@ -143,10 +290,6 @@
     width: 70px;
   }
 
-  input[type="file"] {
-    padding-bottom: 15px;
-  }
-
   textarea {
     width: 100%;
   }
@@ -166,11 +309,11 @@
   display: block;
 }
 
-.metric-container,
-.prop-group {
-  display: inline-block;
-  vertical-align: top;
-}
+//.metric-container,
+//.prop-group {
+//  display: inline-block;
+//  vertical-align: top;
+//}
 
 
 .metric-bucket,
@@ -219,54 +362,6 @@ span.metric-bucket.value-component {
   min-height: 18px;
 }
 
-.photo-metric {
-  display: block;
-
-  .prop-body {
-    margin-top: 5px;
-  }
-
-  .label-component {
-    display: block;
-  }
-
-  .value-component {
-    display: block;
-    margin: 0;
-  }
-  .section .sub-section & {
-    .prop-header-actions {
-      position: relative;
-      margin-bottom: 10px;
-    }
-  }
-}
-
-.col-photos {
-  .props {
-    > div {
-      @include style-contentbox;
-      text-align: center;
-      margin-bottom: 15px;
-      width: 100%;
-
-      img {
-        max-width: 200px;
-      }
-    }
-  }
-
-  @include breakpoint($bp-mobile-landscape) {
-    .props {
-      > div {
-        display: table-cell;
-        width: auto;
-      }
-    }
-  }
-}
-
-
 .default-group {
   .numeric-metric {
     display: block;
@@ -275,10 +370,6 @@ span.metric-bucket.value-component {
       display: block;
       text-align: left;
     }
-  }
-
-  .label-component {
-    font-weight: bold;
   }
 }
 
@@ -415,7 +506,7 @@ span.metric-bucket.value-component {
 @include breakpoint($bp-mobile-landscape) {
   .engagement-editor {
     .sub-section-container,
-    .metric-container,
+    //.metric-container,
     .prop-group.default-group .prop {
       margin-right: 25px;
     }
