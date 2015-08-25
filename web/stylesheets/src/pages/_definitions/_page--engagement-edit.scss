@@ -15,15 +15,19 @@ $spacing-metric: 15px;
 	padding-top: 5px;
 
 	button.btn.trigger {
-		top: 10px;
+		top: 8px;
+		//FIXME remove when other gone
+		left: auto;
+		right: 0;
 	}
+
 	+ .sub-section {
 		padding-top: 5px;
 		margin-top: 5px;
-		border-top: 1px solid $color-grey-aa;
+		border-top: 1px solid $color-grey-e2;
 
 		button.btn.trigger {
-			top: 10px;
+			top: 8px;
 		}
 	}
 }
@@ -31,24 +35,84 @@ $spacing-metric: 15px;
 //TODO remove .section after remove the display inline and text transform from manage template
 .section {
 	.sub-section-header {
+		margin-left: 0; //FIXME remove when other styles gone
+		margin-right: 30px;
+
 		.sub-section-heading {
 			margin-right: 10px;
 		}
 
 		.metric-set-value-count {
-			@include style-message-base;
+      margin-right: 10px;
+			padding-left: 0; //FIXME remove when otehr styles gone
+			display: inline-block;
+			vertical-align: bottom;
 
-			//TODO add different styles for types of filled in options
-			@include style-message-important-override;
-			@include style-message-tag-override;
-
-			&.required-metric-count {
-				@include style-message-error-override;
-				@include style-message-tag-override;
+			&:before {
+				display: inline-block;
+				vertical-align: middle;
+				color: $color-grey-e2;
+				content: $html-entity-success;
+				font-size: 20px;
+				font-family: $font-glyph-lib;
+				margin-right: 15px;
 			}
+		}
 
-			+ .metric-set-value-count {
-				margin-left: 10px;
+    .metric-value-bar {
+      display: inline-block;
+      width: 50px;
+      background-color: $color-grey-cc;
+      height: 8px;
+      margin-right: 5px;
+      border-top: 1px solid $color-grey-aa;
+      border-radius: 2px;
+      vertical-align: middle;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 1px 1px transparentize($color-black, 0.9) inset;
+    }
+
+    .metric-value-bar-progress {
+      background-color: $color--theme-accent;
+      height: 100%;
+      display: block;
+    }
+
+    .metric-value-percent {
+      display: inline-block;
+      vertical-align: middle;
+      font-family: $font-open-sans-bold;
+      width: 38px;
+      color: $color-grey-55;
+
+      &:after {
+        content: "%";
+        font-size: 10px;
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
+	}
+
+	.sub-section-complete {
+		.metric-set-value-count {
+			&:before {
+				color: $app--message-success-glyph-color;
+			}
+		}
+	}
+
+	.sub-section {
+
+		.prop-header-actions {
+			top: auto;
+			margin-top: 0; //FIXME remove this and above
+		}
+
+		+ .sub-section {
+			.prop-header-actions {
+				top: auto;
 			}
 		}
 	}

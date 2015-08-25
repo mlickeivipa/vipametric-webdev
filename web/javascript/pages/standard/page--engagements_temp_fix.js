@@ -10,13 +10,21 @@ jQuery(function($) {
       heading.appendChild(document.createTextNode(this.childNodes[0].nodeValue));
       this.replaceChild(heading, this.childNodes[0]);
 
-      $con.find('.metric-set-value-count').wrap('<span class="metric-value-counts" />').each(function(){
-        $(this).text($(this).text().replace(/[\(\)]+/g, ''));
-      });
+      $con.find('.metric-set-value-count').prependTo($con).each(function(){
+        var text = $(this).text();
+        var matches = text.match(/.*(\d+)\s+of\s+(\d+).*/);
+        var count = parseInt(matches[1]);
+        var total = parseInt(matches[2]);
+        var percent = Math.floor((count / total) * 100);
 
-      if (idx == 4) {
-        $con.find('.metric-set-value-count').clone().prependTo($con.find('.metric-value-counts')).addClass('required-metric-count').text('2 of 10 required values entered');
-      }
+        if (percent == 100) {
+          $(this).closest('.sub-section').addClass('sub-section-complete');
+        }
+
+        $(this)
+          .empty()
+          .append('<span class="metric-value-bar"><span class="metric-value-bar-progress" style="width: ' + percent + '%;" /></span><span class="metric-value-percent">' + percent + '</span>');
+      });
     });
 
     $context.find('.photo-metric').each(function() {
