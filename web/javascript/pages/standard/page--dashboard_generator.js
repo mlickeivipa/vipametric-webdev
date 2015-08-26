@@ -1,37 +1,42 @@
-function createHtmlStructure() {
-    if ($(".dash-container").length === 0 ) {
-        $(document.createElement("div")).addClass("dash-container").appendTo(".e-content");
-    }
-    
-    $(".dash-container").empty();
-    
-    $(document.createElement("div")).addClass("dash-section").addClass("brand-totals").addClass("circular-chart-wrapper").appendTo(".dash-container");
-    $(document.createElement("div")).addClass("dash-section-header").addClass("brand-totals-header").text("Brand Totals").appendTo("div.brand-totals");
-    $(document.createElement("div")).addClass("bottle-sales").addClass("gauge-chart").appendTo("div.brand-totals");
-    $(document.createElement("div")).addClass("events-completed").addClass("gauge-chart").appendTo("div.brand-totals");
-    $(document.createElement("div")).addClass("samples-given").addClass("gauge-chart").appendTo("div.brand-totals");
-    $(document.createElement("div")).addClass("impressions").addClass("gauge-chart").appendTo("div.brand-totals");
-   
-    
-    $(document.createElement("div")).addClass("dash-section").addClass("full-program-results-container").appendTo(".dash-container");
-    $(document.createElement("div")).addClass("full-program-results").addClass("table-wrapper").appendTo("div.full-program-results-container");
-    
-    
-    $(document.createElement("div")).addClass("dash-section").addClass("price-matrix").appendTo(".dash-container");
-    
-    
-    $(document.createElement("div")).addClass("dash-section").addClass("consumer-demographics").addClass("circular-chart-wrapper").appendTo(".dash-container");
-    $(document.createElement("div")).addClass("dash-section-header").addClass("consumer-demographics-header").text("Consumer Demographics").appendTo("div.consumer-demographics");
-    $(document.createElement("div")).addClass("age").addClass("pie-chart").appendTo("div.consumer-demographics");
-    $(document.createElement("div")).addClass("gender").addClass("pie-chart").appendTo("div.consumer-demographics");
-    $(document.createElement("div")).addClass("language").addClass("pie-chart").appendTo("div.consumer-demographics");
-    $(document.createElement("div")).addClass("background").addClass("pie-chart").appendTo("div.consumer-demographics");
-    
-    
-    $(document.createElement("div")).addClass("dash-section").addClass("multi-chart-wrapper").addClass("consumer-purchase-motivators-wrapper").appendTo(".dash-container");
-    $(document.createElement("div")).addClass("consumer-purchase-motivators").addClass("column-chart").appendTo("div.consumer-purchase-motivators-wrapper");
-    
-    $(document.createElement("div")).addClass("right-account").addClass("pie-chart").appendTo("div.consumer-purchase-motivators-wrapper");
+function createHtmlStructure($context) {
+	var $container = $context.find('.dash-container');
+	if ($container.length) {
+		$container.empty();
+	} else {
+		$container = $('<div class="dash-container" />').appendTo($context);
+	}
+
+	var $brandTotals = $('<div class="dash-section brand-totals circular-chart-wrapper" />').appendTo($container);
+	$([
+		'<div class="dash-section-header brand-totals-header">Brand Totals</div>',
+		'<div class="gauge-chart bottle-sales" />',
+		'<div class="gauge-chart events-completed" />',
+		'<div class="gauge-chart samples-given" />',
+		'<div class="gauge-chart impressions" />'
+	].join('')).appendTo($brandTotals);
+
+
+	var $fullProgram = $('<div class="dash-section full-program-results-container" />').appendTo($container);
+	$([
+		'<div class="full-program-results table-wrapper" />'
+	].join('')).appendTo($fullProgram);
+
+
+	$(document.createElement("div")).addClass("dash-section").addClass("price-matrix").appendTo(".dash-container");
+
+
+	$(document.createElement("div")).addClass("dash-section").addClass("consumer-demographics").addClass("circular-chart-wrapper").appendTo(".dash-container");
+	$(document.createElement("div")).addClass("dash-section-header").addClass("consumer-demographics-header").text("Consumer Demographics").appendTo("div.consumer-demographics");
+	$(document.createElement("div")).addClass("age").addClass("pie-chart").appendTo("div.consumer-demographics");
+	$(document.createElement("div")).addClass("gender").addClass("pie-chart").appendTo("div.consumer-demographics");
+	$(document.createElement("div")).addClass("language").addClass("pie-chart").appendTo("div.consumer-demographics");
+	$(document.createElement("div")).addClass("background").addClass("pie-chart").appendTo("div.consumer-demographics");
+
+
+	$(document.createElement("div")).addClass("dash-section").addClass("multi-chart-wrapper").addClass("consumer-purchase-motivators-wrapper").appendTo(".dash-container");
+	$(document.createElement("div")).addClass("consumer-purchase-motivators").addClass("column-chart").appendTo("div.consumer-purchase-motivators-wrapper");
+
+	$(document.createElement("div")).addClass("right-account").addClass("pie-chart").appendTo("div.consumer-purchase-motivators-wrapper");
 }
 
 function noData() {
@@ -557,7 +562,7 @@ function loadingDialog(show) {
     }
 }
 
-function sendAjaxUpdateCharts() {
+function sendAjaxUpdateCharts($context) {
     loadingDialog(true);
     var url = $(location).attr('href');
     $.ajax(
@@ -565,7 +570,7 @@ function sendAjaxUpdateCharts() {
             url: url,
             contentType: "application/json",
             success: function (result, status, xhr) {
-                createHtmlStructure();
+                createHtmlStructure($context);
     
                 createCharts();
                 
@@ -583,11 +588,13 @@ function sendAjaxUpdateCharts() {
 }
 
 jQuery(function($) {
-    noData();
-    
-    sendAjaxUpdateCharts();
+	$('.e-content').each(function() {
+		var $context = $(this);
+		noData($context);
+		sendAjaxUpdateCharts($context);
 
-    $('.vipametric .search-button.dashboard-search').on('click', function() {
-        sendAjaxUpdateCharts();
-    });
+		$context.find('.vipametric .search-button.dashboard-search').on('click', function() {
+			sendAjaxUpdateCharts($context);
+		});
+	});
 });
