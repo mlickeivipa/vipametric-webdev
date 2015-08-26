@@ -12,7 +12,12 @@ $spacing-metric: 15px;
 
 //FIXME remove this stuff
 .sub-section {
-	padding-top: 5px;
+  padding-top: 0;
+
+  //FIXME should probably get this class to change, but need to talk with muhlin
+  .sub-section {
+    padding: 5px 0;
+  }
 
 	button.btn.trigger {
 		top: 8px;
@@ -22,9 +27,9 @@ $spacing-metric: 15px;
 	}
 
 	+ .sub-section {
-		padding-top: 5px;
-		margin-top: 5px;
 		border-top: 1px solid $color-grey-e2;
+    margin-top: 0; //FIXME eventually remove
+    padding-top: 5px; //FIXME eventually remove
 
 		button.btn.trigger {
 			top: 8px;
@@ -34,6 +39,23 @@ $spacing-metric: 15px;
 
 //TODO remove .section after remove the display inline and text transform from manage template
 .section {
+  padding: 0; //FIXME remove once integrate manage CSS
+
+  .section-header {
+    border-bottom: 1px solid $color-grey-e2;
+    padding: 10px 25px;
+    background-color: $color-grey-f2;
+
+    //FIXME get class added for btn
+    a {
+      top: 8px;
+    }
+  }
+
+  .section-content {
+    padding: 15px 25px;
+  }
+
 	.sub-section-header {
 		margin-left: 0; //FIXME remove when other styles gone
 		margin-right: 30px;
@@ -113,6 +135,19 @@ $spacing-metric: 15px;
 		+ .sub-section {
 			.prop-header-actions {
 				top: auto;
+			}
+		}
+
+		> .miwt-collapsable {
+			&.shown {
+				padding: 10px 25px;
+				margin-top: 10px;
+				margin-left: 115px;
+				margin-bottom: 15px;
+			}
+
+			&.hidden {
+
 			}
 		}
 	}
@@ -504,6 +539,7 @@ span.metric-bucket.value-component {
     @include style-h3;
   }
 
+	//FIXME this should be in the section header...
   .entity-actions {
     margin: 5px 0;
 
@@ -553,7 +589,8 @@ span.metric-bucket.value-component {
     }
 
     .entity-actions {
-      top: 15px;
+	    margin: 0;
+      top: 8px;
     }
 
     .entity-actions a,

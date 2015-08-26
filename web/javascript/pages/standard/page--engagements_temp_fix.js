@@ -2,6 +2,9 @@ jQuery(function($) {
 	function tempUpdates(context) {
 		var $context = $(context);
 
+		$context.find('.section').each(function() {
+			$(this).children().not('.section-header').wrapAll('<div class="section-content" />');
+		});
 
 
 		$context.find('.sub-section-header').each(function(idx) {
