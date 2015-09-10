@@ -6,6 +6,66 @@ jQuery(function($) {
 			$(this).children().not('.section-header').wrapAll('<div class="section-content" />');
 		});
 
+    $context.find('.engagement-overview').each(function() {
+      var $con = $(this);
+      var $newCon = $('<div class="engagement-info" />').insertBefore($con);
+      var engagementMoment = moment($con.find('.engagement-date .val').text());
+      var status = $con.find('.status .val').text();
+      var statusKey = 'status-' + status.toLowerCase().replace(/[^a-z0-9]+/gi, '-');
+      var assigneeName = $con.find('.AssignedTo .val').text().length ? $con.find('.AssignedTo .val').text() : 'Unassigned';
+
+      //status chain
+      // Draft/Active => Feedback Started => Ready for Review => Completed
+
+      $('<div class="engagement-info-details" />')
+        .append($('<div class="engagement-name" />').text($con.find('.name .val').text()).appendTo($newCon))
+        .append(
+          $('<div class="engagement-datetime" />')
+            .append($('<div class="engagement-date" />').text(engagementMoment.format('dddd, MMMM Do, YYYY')))
+            .append(
+              $('<div class="engagement-time" />')
+                .append($('<span class="engagement-time-start" />').text($con.find('.Start.Time .val').text()))
+                .append('<span class="engagement-time-sep">-</span>')
+                .append($('<span class="engagement-time-end" />').text($con.find('.End.Time .val').text()))
+            )
+        )
+        .append(
+          $('<div class="engagement-state" />')
+            .append(
+              $('<div class="engagement-assignee" />')
+                .append('<span class="engagement-assignee-label">Assigned to</span>')
+                .append($('<span class="engagement-assignee-name" />').text(assigneeName))
+            )
+            .append(
+              $('<div class="engagement-status">').addClass(statusKey)
+                .append('<span class="engagement-status-label">Status</span>')
+                .append($('<span class="engagement-status-text" />').text(status))
+            )
+        )
+        .appendTo($newCon);
+      $('<div class="engagement-location" />')
+        .append('<div class="engagement-map"><img src="https://maps.googleapis.com/maps/api/staticmap?center=40.718217,-73.998284&zoom=13&size=300x150&maptype=roadmap&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyB4RCfgHYDHFY9WHnl6Ofup5s7pca92EXs" /></div>')
+        .append(
+          $('<div class="engagement-address" />')
+            .append($('<div class="address-name" />').text($con.find('.engagement-site-name').text()))
+            .append(
+              $('<div class="address-lines" />')
+                .append($('<div class="address-line" />').text($con.find('.engagement-site-address-line').text()))
+            )
+            .append(
+              $('<div class="address-area" />')
+                .append($('<span class="address-city" />').text($con.find('.engagement-site-city').text()))
+                .append($('<span class="address-region" />').text($con.find('.engagement-site-state').text()))
+                .append($('<span class="address-postal-code" />').text($con.find('.engagement-site-zip').text()))
+            )
+        )
+        .appendTo($newCon);
+
+      //$('<div class="" />').text($con.find('').text()).appendTo($newCon);
+    });
+
+    $context.find('.header-actions').insertAfter($context.find('.engagement-info'));
+    $context.find('.permanent-messages').insertAfter($context.find('.engagement-info'));
 
 		$context.find('.sub-section-header').each(function(idx) {
 			var $con = $(this);
