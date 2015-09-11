@@ -5,20 +5,20 @@
       <paths name="VipaMetric Live">
         <serverdata>
           <mappings>
-            <mapping deploy="www.vipametric.com\Web\Design" local="$PROJECT_DIR$/web/design" web="/" />
-            <mapping deploy="www.vipametric.com\Web\FavIcons" local="$PROJECT_DIR$/web/favicons" web="/" />
-            <mapping deploy="www.vipametric.com\Web\Javascript" local="$PROJECT_DIR$/web/javascript" web="/" />
-            <mapping deploy="www.vipametric.com\Web\Stylesheets" local="$PROJECT_DIR$/web/stylesheets/build" web="/" />
+            <mapping deploy="www.vipametric.com\Web\Design" local="$PROJECT_DIR$/web/build/design" web="/" />
+            <mapping deploy="www.vipametric.com\Web\FavIcons" local="$PROJECT_DIR$/web/build/favicons" web="/" />
+            <mapping deploy="www.vipametric.com\Web\Javascript" local="$PROJECT_DIR$/web/build/javascript" web="/" />
+            <mapping deploy="www.vipametric.com\Web\Stylesheets" local="$PROJECT_DIR$/web/build/stylesheets" web="/" />
           </mappings>
         </serverdata>
       </paths>
       <paths name="VipaMetric QA">
         <serverdata>
           <mappings>
-            <mapping deploy="vipametric-qa.venturetech.net\Web\Design" local="$PROJECT_DIR$/web/design" web="/" />
-            <mapping deploy="vipametric-qa.venturetech.net\Web\FavIcons" local="$PROJECT_DIR$/web/favicons" web="/" />
-            <mapping deploy="vipametric-qa.venturetech.net\Web\Javascript" local="$PROJECT_DIR$/web/javascript" web="/" />
-            <mapping deploy="vipametric-qa.venturetech.net\Web\Stylesheets" local="$PROJECT_DIR$/web/stylesheets/build" web="/" />
+            <mapping deploy="vipametric-qa.venturetech.net\Web\Design" local="$PROJECT_DIR$/web/build/design" web="/" />
+            <mapping deploy="vipametric-qa.venturetech.net\Web\FavIcons" local="$PROJECT_DIR$/web/build/favicons" web="/" />
+            <mapping deploy="vipametric-qa.venturetech.net\Web\Javascript" local="$PROJECT_DIR$/web/build/javascript" web="/" />
+            <mapping deploy="vipametric-qa.venturetech.net\Web\Stylesheets" local="$PROJECT_DIR$/web/build/stylesheets" web="/" />
           </mappings>
         </serverdata>
       </paths>
