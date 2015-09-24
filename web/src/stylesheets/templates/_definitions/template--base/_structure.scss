@@ -89,6 +89,8 @@ body {
 	background-color: $app--footer-bg-color;
 	text-align: center;
 	padding: 15px;
+	height: 50px;
+	margin-top: -50px;
 
 	&:empty {
 		display: none;
