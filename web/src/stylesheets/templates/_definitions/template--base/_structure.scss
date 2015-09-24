@@ -16,8 +16,10 @@ body {
 	box-shadow: 0 0 2px lighten($color-grey-55, 25%);
 
 	@include breakpoint($bp-desktop) {
+		border-bottom: 1px solid $color-grey-22;
+
 		> .box-wc {
-			padding: 10px $app--spacing-horizontal-desktop;
+			padding: 0 $app--spacing-horizontal-desktop;
 			@include clearfix;
 		}
 	}
@@ -34,18 +36,52 @@ body {
 
 // Header area styles
 .logo {
-	padding: 0 15px;
+	padding: 7px 15px;
 	text-align: center;
 
+	//TODO fix image
 	img {
 		max-width: 250px;
 		height: auto;
 	}
 
 	@include breakpoint($bp-desktop) {
+		float: left;
 		padding-left: 0;
 		padding-right: 0;
-		float: left;
+		text-align: left;
+		height: 40px;
+
+		img {
+			height: 50px;
+			width: 162px;
+			margin-top: -6px;
+		}
+	}
+}
+
+.account-logout {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+
+	.account-username {
+		color: $color-white;
+		padding-right: 10px;
+		font-size: 12px;
+	}
+
+	.account-logout-link {
+		@include style-button-override($font-size: 12px, $padding: 1px 10px, $color-text: $color-grey-cc, $color-bg: $color-grey-55);
+		background-position: 5px 3px;
+		background-image: $app--logout-image;
+		background-repeat: no-repeat;
+		background-size: 13px;
+	}
+
+	.account-logout-link-text {
+		padding-left: 13px;
 	}
 }
 

@@ -26,69 +26,42 @@
 		}
 	}
 
-	.menu ul {
+	.menu {
 		list-style-type: none;
 		padding: 0;
 		margin: 0;
 		text-align: center;
+	}
 
-		.mi {
-			border-bottom: 1px solid $app--nav-border-color;
+	.mi {
+		&.last {
+			border-bottom: none;
+		}
 
-			&.last {
-				border-bottom: none;
-			}
+		&.mi-active {
 
-			.menuitemlabel {
-				color: $app--nav-link-color;
-				font-family: $font-open-sans-bold;
-				font-size: 16px;
-				text-transform: uppercase;
-				display: block;
-				padding: 10px 0;
-
-				&:hover {
-					text-decoration: none;
-					color: $app--nav-link-hover-color;
-				}
-			}
-
-			&.mi-active,
-			.menuitemlabel:hover {
-				.mil {
-					border-bottom: 1px solid $app--nav-link-underline-color;
-				}
-			}
 		}
 	}
 
-	.logout {
-		position: absolute;
-		top: 0;
-		right: 0;
+	.menuitemlabel {
+		color: $app--nav-link-color;
+		font-family: $font-open-sans-bold;
+		font-size: 16px;
+		text-transform: uppercase;
+		display: block;
+		padding: 10px 0;
 
-		.btn.logout-url {
-			background-image: $app--logout-image;
-			background-repeat: no-repeat;
-			background-position: center center;
-			display: block;
-			position: relative;
-			height: 50px;
-			width: 50px;
-		}
-
-		.logout-url-text {
-			display: none;
+		&:hover {
+			text-decoration: none;
+			color: $app--nav-link-hover-color;
 		}
 	}
 
 	@include breakpoint($bp-desktop) {
-		float: right;
-		margin-top: 16px;
-
 		.nav-collapse {
 			display: inline-block;
 			vertical-align: middle;
+			margin-left: 30px;
 
 			.nav-trigger {
 				display: none;
@@ -99,22 +72,52 @@
 			}
 		}
 
-		.menu .menu-t1 {
-			.mi {
-				display: inline-block;
-				vertical-align: middle;
-				border-bottom: none;
+		.mi {
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 20px;
 
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&.over,
+			&.mi-active,
+			&:hover {
 				.menuitemlabel {
-					padding: 10px 25px 10px 0;
+					color: $color-white;
+
+					&:after {
+						height: 10px;
+					}
 				}
 			}
 		}
 
-		.logout {
-			display: inline-block;
-			vertical-align: middle;
+		.menuitemlabel {
+			color: $color-grey-bb;
 			position: relative;
+			padding: 15px 0;
+
+			&:after {
+				content: "";
+				display: block;
+				background-color: $color--theme-accent;
+				position: absolute;
+				transform: translate(-50%);
+				height: 0;
+				left: 50%;
+				width: 25px;
+				bottom: 0;
+				z-index: 1;
+				border-radius: 1px;
+				transition: all 150ms;
+			}
+		}
+
+		.mil {
+			position: relative;
+			z-index: 2
 		}
 	}
 }
