@@ -263,6 +263,7 @@ $spacing-metric: 15px;
 .image-manager-heading {
 	font-family: $font-open-sans-bold;
 	font-size: 16px;
+	text-align: center;
 }
 
 .image-manager-count {
@@ -281,6 +282,7 @@ $spacing-metric: 15px;
 	border-radius: 50%;
 	position: relative;
 	margin: 10px 0;
+	border: 1px solid $color-grey-dd;
 }
 
 .image-manager-preview-item {
