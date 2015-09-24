@@ -1,5 +1,12 @@
 $spacing-metric: 15px;
 
+//FIXME make this better after HTML updates
+.vipametric-wrapper > .header-actions {
+	position: absolute;
+	right: 25px;
+	top: 8px;
+}
+
 //FIXME move this to basic button functionality
 .btn + .btn {
 	margin-left: $app--btn-spacing-between-btns;
@@ -37,6 +44,23 @@ $spacing-metric: 15px;
 	}
 }
 
+.aside-content {
+	float: right;
+	width: 220px;
+
+	> *:first-child {
+		margin-top: 0;
+	}
+}
+
+.primary-content {
+	margin-right: 240px;
+
+	> *:first-child {
+		margin-top: 0;
+	}
+}
+
 //TODO remove .section after remove the display inline and text transform from manage template
 .section {
   padding: 0; //FIXME remove once integrate manage CSS
@@ -47,15 +71,29 @@ $spacing-metric: 15px;
     background-color: $color-grey-f2;
 
     //FIXME get class added for btn
-    a {
+    > a {
       top: 8px;
     }
   }
 
+	.section-header-actions {
+		float: right;
+		margin-left: 10px;
+
+		.btn {
+			vertical-align: top;
+		}
+	}
+
   .section-content {
     padding: 15px 25px;
-		@include clearfix();
   }
+
+	&.media {
+		.section-content {
+			@include clearfix();
+		}
+	}
 
 	.sub-section-header {
 		margin-left: 0; //FIXME remove when other styles gone
@@ -256,17 +294,21 @@ $spacing-metric: 15px;
 }
 
 
-.image-manager {
+.media-manager {
 	float: left;
+	position: relative;
+
+	& + & {
+		margin-top: 40px;
+	}
 }
 
-.image-manager-heading {
+.media-manager-heading {
 	font-family: $font-open-sans-bold;
 	font-size: 16px;
-	text-align: center;
 }
 
-.image-manager-count {
+.media-manager-count {
 	background-color: $color-grey-55;
 	color: $color-white;
 	padding: 1px 4px;
@@ -275,7 +317,7 @@ $spacing-metric: 15px;
 	margin-left: 5px;
 }
 
-.image-manager-preview {
+.media-manager-previewer {
 	background-color: $color-grey-e7;
 	width: 170px;
 	height: 170px;
@@ -285,58 +327,117 @@ $spacing-metric: 15px;
 	border: 1px solid $color-grey-dd;
 }
 
-.image-manager-preview-item {
-	padding: 5px 5px 18px;
-	background-color: $color-white;
-	border: 1px solid $color-grey-aa;
+.picture-manager {
+	.media-manager-preview {
+		padding: 5px 5px 18px;
+		background-color: $color-white;
+		border: 1px solid $color-grey-aa;
+		position: absolute;
+		box-shadow: 1px 1px 5px transparentize($color-black, 0.6);
+		top: 50%;
+		left: 50%;
+		margin-left: -60px;
+		margin-top: -60px;
+
+		&:first-child {
+			transform: rotate(-10deg);
+		}
+
+		&:nth-child(2) {
+			transform: rotate(0deg);
+		}
+
+		&:nth-child(3) {
+			transform: translate(13px, -1px) rotate(8deg);
+		}
+
+		&:nth-child(4) {
+			transform: translate(25px, 7px) rotate(16deg);
+		}
+	}
+
+	.media-manager-preview-render {
+		width: 100px;
+		height: 100px;
+		background-size: cover;
+		background-position: center center;
+	}
+}
+
+.media-manager-actions {
 	position: absolute;
-	box-shadow: 1px 1px 5px transparentize($color-black, 0.6);
-	top: 50%;
-	left: 50%;
-	margin-left: -60px;
-	margin-top: -60px;
+	right: 0;
+	top: 0;
+}
+
+.media-manager-size {
+	display: block;
+	font-size: 11px;
+	font-weight: $font-open-sans;
+}
+
+.lead {
+	display: inline-block;
+	width: 25%;
+	vertical-align: top;
+	border-right: 1px solid $color-grey-e7;
+	padding-left: 20px;
 
 	&:first-child {
-		transform: rotate(-10deg);
+		padding-left: 0;
 	}
 
-	&:nth-child(2) {
-		transform: rotate(0deg);
-	}
-
-	&:nth-child(3) {
-		transform: translate(13px, -1px) rotate(8deg);
-	}
-
-	&:nth-child(4) {
-		transform: translate(25px, 7px) rotate(16deg);
+	&:nth-child(4n) {
+		border-right: 0 none;
 	}
 }
 
-.image-manager-preview-media {
-	width: 100px;
-	height: 100px;
-	background-size: cover;
-	background-position: center center;
-}
+.lead-title {
+	font-family: $font-open-sans-bold;
+	font-size: 18px;
+	text-transform: uppercase;
+	color: $color-grey-99;
 
-.image-manager-actions {
-	margin-top: 15px;
-	text-align: center;
-}
-
-.image-manager-size {
-	margin-left: 5px;
-	font-size: 11px;
-
-	&:before {
-		content: "(";
+	.lead-email & {
+		&:before {
+			@include glyphAdd($html-entity-email);
+		}
 	}
-	&:after {
-		content: ")";
+
+	.lead-phone & {
+		&:before {
+			@include glyphAdd($html-entity-phone);
+		}
+	}
+
+	.lead-social & {
+		&:before {
+			@include glyphAdd($html-entity-social-share);
+		}
+	}
+
+	.lead-net-promoter & {
+		&:before {
+			@include glyphAdd($html-entity-flask);
+		}
+	}
+
+	.lead & {
+		&:before {
+			font-size: 28px;
+			color: $color-grey-d0;
+			margin-right: 10px;
+			float: left;
+		}
 	}
 }
 
+.lead-count {
+	font-size: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+}
 
 .engagement-info {
 	position: relative;
@@ -364,6 +465,52 @@ $spacing-metric: 15px;
 		margin-right: 7px;
 		margin-top: 2px;
 		color: $color--theme-accent;
+	}
+}
+
+.section.surveys {
+
+	.survey-item {
+		margin: 5px 0;
+		display: inline-block;
+		vertical-align: top;
+		width: 25%;
+		padding-left: 20px;
+		border-right: 1px solid $color-grey-e7;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:nth-child(4n) {
+			border-right: 0 none;
+		}
+	}
+
+	a.survey-item-name {
+		display: block;
+		font-size: 16px;
+		font-family: $font-open-sans-semi-bold;
+
+		&:after {
+			@include glyphAdd($html-entity-link);
+			vertical-align: baseline;
+			padding-left: 5px;
+			text-decoration: none;
+		}
+	}
+
+	.survey-item-data-count {
+		font-size: 32px;
+		margin-right: 5px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.survey-item-data-text {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 10px;
 	}
 }
 

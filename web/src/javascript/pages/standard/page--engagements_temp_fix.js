@@ -1,4 +1,8 @@
 jQuery(function($) {
+	function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
 	function tempUpdates(context) {
 		var $context = $(context);
 
@@ -64,7 +68,15 @@ jQuery(function($) {
       //$('<div class="" />').text($con.find('').text()).appendTo($newCon);
     });
 
-    $context.find('.header-actions').insertAfter($context.find('.engagement-info'));
+    $context.find('.header-actions').prependTo($context.find('.vipametric-wrapper.view-engagement'));
+
+		$context
+			.find('.header-actions')
+			.find('.expand-all, .collapse-all')
+			.appendTo($context.find('.section.market-intelligence .section-header'))
+			.wrapAll('<div class="section-header-actions" />')
+			.addClass('btn btn-small');
+
     $context.find('.permanent-messages').insertAfter($context.find('.engagement-info'));
 
 		$context.find('.sub-section-header').each(function(idx) {
@@ -139,30 +151,105 @@ jQuery(function($) {
 
 		});
 
-		var $pictures = $context.find('.photo-metric .picture img');
-		var pictureHtml = $.map($pictures.slice(0, 4), function(el, idx) {
-			var imageStyle = 'style="background-image: url(' + el.src + ');"';
-			return '<div class="image-manager-preview-item"><div class="image-manager-preview-media" ' + imageStyle + ' /></div>';
+		$context.find('.section.goals, .section.market-intelligence').wrapAll('<div class="primary-content" />');
+
+		var surveys = [
+			{name: "Pre-Event Survey"},
+			{name: "RSVP"},
+			{name: "In-Market Survey"},
+			{name: "Post Event Survey"}
+		];
+		var surveyHtml = $.map(surveys, function(el, idx) {
+			return [
+				'<div class="survey-item">',
+					'<div class="survey-item-header">',
+						'<a href="#" class="survey-item-name" title="Go to external survey">' + el.name + '</a>',
+					'</div>',
+					'<div class="survey-item-info">',
+						'<div class="survey-item-data">',
+							'<span class="survey-item-data-count">' + getRandomInt(50, 150) + '</span>',
+							'<span class="survey-item-data-text">Entries</span>',
+							'<a class="btn btn-glyph-only btn-xsmall btn-download" href="#" title="Download Data"><span class="btn-text">Download Data</span></a>',
+						'</div>',
+					'</div>',
+				'</div>'
+			].join('');
 		}).join('');
 
 		$([
-			'<div class="section media">',
-				'<div class="section-header">Media</div>',
+			'<div class="section surveys">',
+				'<div class="section-header">Surveys</div>',
 				'<div class="section-content">',
-					'<div class="image-manager">',
-						'<div class="image-manager-heading">Pictures<span class="image-manager-count">' + $pictures.length + '</span></div>',
-						'<div class="image-manager-preview">',
-							pictureHtml,
-						'</div>',
-						'<div class="image-manager-actions">',
-							'<a class="download-all btn" href="#">Download All<span class="image-manager-size">30 MB</span></a>',
+					'<div class="survey-items">',
+						surveyHtml,
+					'</div>',
+				'</div>',
+			'</div>'
+		].join(''))
+			.prependTo($context.find('.primary-content'));
+
+		$([
+			'<div class="section leads">',
+				'<div class="section-header">Leads</div>',
+				'<div class="section-content">',
+					'<div class="lead-summary">',
+						'<div class="lead lead-email"><div class="lead-title">Emails</div><div class="lead-count">' + getRandomInt(100, 250) + '</div><a class="btn btn-glyph-only btn-xsmall btn-download" href="#"  title="Download Data"><span class="btn-text">Download</span></a></div>',
+						'<div class="lead lead-phone"><div class="lead-title">Phone Numbers</div><div class="lead-count">' + getRandomInt(100, 250) + '</div><a class="btn btn-glyph-only btn-xsmall btn-download" href="#" title="Download Data"><span class="btn-text">Download</span></a></div>',
+						'<div class="lead lead-social"><div class="lead-title">Social Accounts</div><div class="lead-count">' + getRandomInt(100, 250) + '</div><a class="btn btn-glyph-only btn-xsmall btn-download" href="#" title="Download Data"><span class="btn-text">Download</span></a></div>',
+						'<div class="lead lead-net-promoter"><div class="lead-title">Net Promoter Score</div><div class="lead-count">8.8</div></div>',
+					'</div>',
+				'</div>',
+			'</div>'
+		].join(''))
+			.insertBefore($context.find('.section.goals'));
+
+		var $pictures = $context.find('.photo-metric .picture img');
+		var pictureHtml = $.map($pictures.slice(0, 4), function(el, idx) {
+			var imageStyle = 'style="background-image: url(' + el.src + ');"';
+			return '<div class="media-manager-preview"><div class="media-manager-preview-render" ' + imageStyle + ' /></div>';
+		}).join('');
+
+		$([
+			'<div class="aside-content">',
+				'<div class="section media">',
+					'<div class="section-header">Media</div>',
+					'<div class="section-content">',
+						'<div class="media-manager picture-manager">',
+							'<div class="media-manager-actions">',
+								'<a class="btn btn-glyph-only btn-xsmall btn-download" href="#"><span class="btn-text">Download All</span></a>',
+							'</div>',
+							'<div class="media-manager-heading">',
+								'Pictures',
+								'<span class="media-manager-count">' + $pictures.length + '</span>',
+								'<span class="media-manager-size">Total size 30 MB</span>',
+							'</div>',
+							'<div class="media-manager-previewer">',
+								pictureHtml,
+							'</div>',
 						'</div>',
 					'</div>',
 				'</div>',
 			'</div>'
 			].join(''))
-			.insertBefore($context.find('.section.goals'));
+			.insertBefore($context.find('.primary-content'));
 
+		$([
+			'<div class="media-manager video-manager">',
+				'<div class="media-manager-actions">',
+					'<a class="btn btn-glyph-only btn-xsmall btn-download" href="#"><span class="btn-text">Download All</span></a>',
+				'</div>',
+				'<div class="media-manager-heading">',
+					'Videos',
+					'<span class="media-manager-count">' + getRandomInt(5, 20) + '</span>',
+					'<span class="media-manager-size">Total size 523 MB</span>',
+				'</div>',
+				'<div class="media-manager-previewer">',
+				'</div>',
+			'</div>'
+		].join(''))
+			.appendTo($context.find('.section.media .section-content'));
+
+		$context.find('.user-management').remove();
 	}
 
 	$('.miwt-form').each(function() {
