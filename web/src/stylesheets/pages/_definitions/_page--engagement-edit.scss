@@ -54,6 +54,7 @@ $spacing-metric: 15px;
 
   .section-content {
     padding: 15px 25px;
+		@include clearfix();
   }
 
 	.sub-section-header {
@@ -251,6 +252,86 @@ $spacing-metric: 15px;
 		display: inline-block;
 		background-color: $color-grey-f2;
 		border: 1px solid $color-grey-cc;
+	}
+}
+
+
+.image-manager {
+	float: left;
+}
+
+.image-manager-heading {
+	font-family: $font-open-sans-bold;
+	font-size: 16px;
+}
+
+.image-manager-count {
+	background-color: $color-grey-55;
+	color: $color-white;
+	padding: 1px 4px;
+	font-size: 13px;
+	border-radius: 2px;
+	margin-left: 5px;
+}
+
+.image-manager-preview {
+	background-color: $color-grey-e7;
+	width: 170px;
+	height: 170px;
+	border-radius: 50%;
+	position: relative;
+	margin: 10px 0;
+}
+
+.image-manager-preview-item {
+	padding: 5px 5px 18px;
+	background-color: $color-white;
+	border: 1px solid $color-grey-aa;
+	position: absolute;
+	box-shadow: 1px 1px 5px transparentize($color-black, 0.6);
+	top: 50%;
+	left: 50%;
+	margin-left: -60px;
+	margin-top: -60px;
+
+	&:first-child {
+		transform: rotate(-10deg);
+	}
+
+	&:nth-child(2) {
+		transform: rotate(0deg);
+	}
+
+	&:nth-child(3) {
+		transform: translate(13px, -1px) rotate(8deg);
+	}
+
+	&:nth-child(4) {
+		transform: translate(25px, 7px) rotate(16deg);
+	}
+}
+
+.image-manager-preview-media {
+	width: 100px;
+	height: 100px;
+	background-size: cover;
+	background-position: center center;
+}
+
+.image-manager-actions {
+	margin-top: 15px;
+	text-align: center;
+}
+
+.image-manager-size {
+	margin-left: 5px;
+	font-size: 11px;
+
+	&:before {
+		content: "(";
+	}
+	&:after {
+		content: ")";
 	}
 }
 

@@ -88,7 +88,7 @@ jQuery(function($) {
 
 				$(this)
 					.empty()
-					.append('<span class="metric-value-bar"><span class="metric-value-bar-progress" style="width: ' + percent + '%;" /></span><span class="metric-value-percent">' + percent + '</span>');
+					.append('<span class="metric-value-bar"><span class="metric-value-bar-progress" style="width: ' + percent + '%;" /></span>');
 			});
 		});
 
@@ -138,6 +138,31 @@ jQuery(function($) {
 			});
 
 		});
+
+		var $pictures = $context.find('.photo-metric .picture img');
+		var pictureHtml = $.map($pictures.slice(0, 4), function(el, idx) {
+			var imageStyle = 'style="background-image: url(' + el.src + ');"';
+			return '<div class="image-manager-preview-item"><div class="image-manager-preview-media" ' + imageStyle + ' /></div>';
+		}).join('');
+
+		$([
+			'<div class="section media">',
+				'<div class="section-header">Media</div>',
+				'<div class="section-content">',
+					'<div class="image-manager">',
+						'<div class="image-manager-heading">Pictures<span class="image-manager-count">' + $pictures.length + '</span></div>',
+						'<div class="image-manager-preview">',
+							pictureHtml,
+						'</div>',
+						'<div class="image-manager-actions">',
+							'<a class="download-all btn" href="#">Download All<span class="image-manager-size">30 MB</span></a>',
+						'</div>',
+					'</div>',
+				'</div>',
+			'</div>'
+			].join(''))
+			.insertBefore($context.find('.section.goals'));
+
 	}
 
 	$('.miwt-form').each(function() {
