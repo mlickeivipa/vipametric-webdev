@@ -2,3 +2,40 @@
 .btn {
 	@include style-button-base;
 }
+
+.btn-glyph-only {
+	&:before {
+		@include glyphAdd($html-entity-nbsp);
+		margin-right: 0;
+	}
+	.btn-text {
+		display: none;
+	}
+}
+
+.btn-glyph {
+	&:before {
+		@include glyphAdd($html-entity-nbsp);
+		margin-right: 5px;
+	}
+}
+
+.btn-small {
+	@include style-button-override($font-size: 11px, $padding: 5px 8px);
+	&:before {
+		@include glyphOverride($size: 11px);
+	}
+}
+
+.btn-xsmall {
+	@include style-button-override($font-size: 10px, $padding: 4px 4px);
+	&:before {
+		@include glyphOverride($size: 10px);
+	}
+}
+
+.btn-download {
+	&:before {
+		@include glyphOverride($html-entity-download);
+	}
+}
