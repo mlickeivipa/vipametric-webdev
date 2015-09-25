@@ -1,0 +1,76 @@
+.event-pictures {
+	.picture-list {
+		margin: 0 -5px;
+		@include clearfix;
+	}
+
+	.picture {
+		position: relative;
+		float: left;
+		margin: 0 5px 10px;
+		background-color: $color-grey-33;
+		cursor: pointer;
+		border: 1px solid $color-white;
+		transition: box-shadow 200ms;
+		min-width: 100px;
+
+		&:hover {
+			border-color: $color-grey-aa;
+			box-shadow: 0 0 4px transparentize($color-black, 0.7);
+		}
+
+		&.picture-selected {
+			border-color: $color--theme-accent;
+			outline: 3px solid $color--theme-accent;
+
+			.select-for-download {
+				background-color: darken($color--theme-accent, 10%);
+				border-top-color: lighten($color--theme-accent, 15%);
+			}
+		}
+
+		img {
+			height: 130px;
+			//TODO remove height and width once script updated
+			width: auto;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.select-for-download {
+		background-color: $color-grey-e2;
+		padding: 9px 0;
+		text-align: center;
+		line-height: 1px;
+		border-top: 1px solid $color-white;
+
+		input {
+			vertical-align: top;
+			padding-right: 0;
+		}
+
+		label {
+			display: none;
+		}
+	}
+
+	.delete-picture {
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		border: 2px solid darken($color--theme-accent, 10%);
+
+		.btn {
+			@include style-button-override($padding: 2px 7px);
+		}
+	}
+
+	.picture-upload {
+		padding: 10px;
+		margin-bottom: 10px;
+		display: inline-block;
+		background-color: $color-grey-f2;
+		border: 1px solid $color-grey-cc;
+	}
+}
