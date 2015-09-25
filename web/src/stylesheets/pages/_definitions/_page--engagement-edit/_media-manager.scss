@@ -32,6 +32,18 @@
 	border: 1px solid $color-grey-dd;
 }
 
+.media-manager-actions {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.media-manager-size {
+	display: block;
+	font-size: 11px;
+	font-family: $font-open-sans;
+}
+
 .picture-manager {
 	.media-manager-preview {
 		padding: 5px 5px 18px;
@@ -69,14 +81,14 @@
 	}
 }
 
-.media-manager-actions {
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-
-.media-manager-size {
-	display: block;
-	font-size: 11px;
-	font-family: $font-open-sans;
+.video-manager {
+	.media-manager-previewer {
+		&:before {
+			@include glyphAdd($html-entity-video-library, 60px, $color-grey-aa);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+	}
 }
