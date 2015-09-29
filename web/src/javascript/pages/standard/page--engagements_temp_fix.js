@@ -154,22 +154,38 @@ jQuery(function($) {
 		$context.find('.section.goals, .section.market-intelligence').wrapAll('<div class="primary-content" />');
 
 		var surveys = [
-			{name: "Pre-Event Survey"},
-			{name: "RSVP"},
-			{name: "In-Market Survey"},
-			{name: "Post Event Survey"}
+			{
+				name: "Pre-Event Survey",
+				link: '/demo/survey',
+				csv: '/somefile.csv'
+			},
+			{
+				name: "RSVP",
+				link: '/demo/survey',
+				csv: '/somefile.csv'
+			},
+			{
+				name: "In-Market Survey",
+				link: '/demo/survey',
+				csv: '/somefile.csv'
+			},
+			{
+				name: "Post Event Survey",
+				link: '/demo/survey',
+				csv: '/somefile.csv'
+			}
 		];
 		var surveyHtml = $.map(surveys, function(el, idx) {
 			return [
 				'<div class="survey-item">',
 					'<div class="survey-item-header">',
-						'<a href="#" class="survey-item-name" title="Go to external survey">' + el.name + '</a>',
+						'<a href="' + el.link + '" class="survey-item-name" title="Go to external survey">' + el.name + '</a>',
 					'</div>',
 					'<div class="survey-item-info">',
 						'<div class="survey-item-data">',
 							'<span class="survey-item-data-count">' + getRandomInt(50, 150) + '</span>',
 							'<span class="survey-item-data-text">Entries</span>',
-							'<a class="btn btn-glyph-only btn-xsmall btn-download" href="#" title="Download Data"><span class="btn-text">Download Data</span></a>',
+							'<a class="btn btn-glyph-only btn-xsmall btn-download" href="' + el.csv + '" title="Download Data"><span class="btn-text">Download Data</span></a>',
 						'</div>',
 					'</div>',
 				'</div>'
@@ -188,23 +204,66 @@ jQuery(function($) {
 		].join(''))
 			.prependTo($context.find('.primary-content'));
 
+		var leads = [
+			{
+				name: "Emails",
+				css: 'lead-email',
+				csv: '/somefile.csv'
+			},
+			{
+				name: "Phone Numbers",
+				css: 'lead-phone',
+				csv: '/somefile.csv'
+			},
+			{
+				name: "Social Accounts",
+				css: 'lead-social',
+				csv: '/somefile.csv'
+			},
+			{
+				name: "Addresses",
+				css: 'lead-address',
+				csv: '/somefile.csv'
+			}
+		];
+
+		var leadHtml = $.map(leads, function(el, idx) {
+			return [
+				'<div class="lead ' + el.css + '">',
+					'<div class="lead-title">' + el.name + '</div>',
+					'<div class="lead-count">' + getRandomInt(100, 250) + '</div>',
+					'<a class="btn btn-glyph-only btn-xsmall btn-download" href="' + el.csv + '"  title="Download Data"><span class="btn-text">Download</span></a>',
+				'</div>'
+			].join('');
+		}).join('');
+
 		$([
 			'<div class="section leads">',
 				'<div class="section-header">Leads</div>',
 				'<div class="section-content">',
 					'<div class="lead-summary">',
-						'<div class="lead lead-email"><div class="lead-title">Emails</div><div class="lead-count">' + getRandomInt(100, 250) + '</div><a class="btn btn-glyph-only btn-xsmall btn-download" href="#"  title="Download Data"><span class="btn-text">Download</span></a></div>',
-						'<div class="lead lead-phone"><div class="lead-title">Phone Numbers</div><div class="lead-count">' + getRandomInt(100, 250) + '</div><a class="btn btn-glyph-only btn-xsmall btn-download" href="#" title="Download Data"><span class="btn-text">Download</span></a></div>',
-						'<div class="lead lead-social"><div class="lead-title">Social Accounts</div><div class="lead-count">' + getRandomInt(100, 250) + '</div><a class="btn btn-glyph-only btn-xsmall btn-download" href="#" title="Download Data"><span class="btn-text">Download</span></a></div>',
-						'<div class="lead lead-net-promoter"><div class="lead-title">Net Promoter Score</div><div class="lead-count">8.8</div></div>',
+					leadHtml,
 					'</div>',
 				'</div>',
 			'</div>'
 		].join(''))
 			.insertBefore($context.find('.section.goals'));
 
-		var $pictures = $context.find('.photo-metric .picture img');
-		var pictureHtml = $.map($pictures.slice(0, 4), function(el, idx) {
+		var pictureData = [
+			{
+				src: '/_resources/dyn/image/27021w75h100se210/_fn/IMG_1454.jpg'
+			},
+			{
+				src: '/_resources/dyn/image/27021w75h100se210/_fn/IMG_1454.jpg'
+			},
+			{
+				src: '/_resources/dyn/image/27021w75h100se210/_fn/IMG_1454.jpg'
+			},
+			{
+				src: '/_resources/dyn/image/27021w75h100se210/_fn/IMG_1454.jpg'
+			}
+		];
+		var pictureHtml = $.map(pictureData, function(el, idx) {
 			var imageStyle = 'style="background-image: url(' + el.src + ');"';
 			return '<div class="media-manager-preview"><div class="media-manager-preview-render" ' + imageStyle + ' /></div>';
 		}).join('');
@@ -220,7 +279,7 @@ jQuery(function($) {
 							'</div>',
 							'<div class="media-manager-heading">',
 								'Pictures',
-								'<span class="media-manager-count">' + $pictures.length + '</span>',
+								'<span class="media-manager-count">' + 17 + '</span>',
 								'<span class="media-manager-size">Total size 30 MB</span>',
 							'</div>',
 							'<div class="media-manager-previewer">',

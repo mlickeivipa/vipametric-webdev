@@ -1,3 +1,13 @@
+@import "_page--dashboard/leads";
+
+.dash-section {
+  &.leads {
+    .dash-section-header {
+      margin-bottom: 10px;
+    }
+  }
+}
+
 .vipametric,
 .dash-section,
 .dash_message {
