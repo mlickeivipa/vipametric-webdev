@@ -28,9 +28,9 @@ jQuery(function($) {
             .append($('<div class="engagement-date" />').text(engagementMoment.format('dddd, MMMM Do, YYYY')))
             .append(
               $('<div class="engagement-time" />')
-                .append($('<span class="engagement-time-start" />').text($con.find('.Start.Time .val').text()))
+                .append($('<span class="engagement-time-start" />').text('7:00 PM'))
                 .append('<span class="engagement-time-sep">-</span>')
-                .append($('<span class="engagement-time-end" />').text($con.find('.End.Time .val').text()))
+                .append($('<span class="engagement-time-end" />').text('9:00 PM'))
             )
         )
         .append(
@@ -54,13 +54,13 @@ jQuery(function($) {
             .append($('<div class="address-name" />').text($con.find('.engagement-site-name').text()))
             .append(
               $('<div class="address-lines" />')
-                .append($('<div class="address-line" />').text($con.find('.engagement-site-address-line').text()))
+                .append($('<div class="address-line" />').text('123 34th St'))
             )
             .append(
               $('<div class="address-area" />')
-                .append($('<span class="address-city" />').text($con.find('.engagement-site-city').text()))
-                .append($('<span class="address-region" />').text($con.find('.engagement-site-state').text()))
-                .append($('<span class="address-postal-code" />').text($con.find('.engagement-site-zip').text()))
+                .append($('<span class="address-city" />').text('New York'))
+                .append($('<span class="address-region" />').text('NY'))
+                .append($('<span class="address-postal-code" />').text('10012'))
             )
         )
         .appendTo($newCon);
@@ -185,7 +185,7 @@ jQuery(function($) {
 						'<div class="survey-item-data">',
 							'<span class="survey-item-data-count">' + getRandomInt(50, 150) + '</span>',
 							'<span class="survey-item-data-text">Entries</span>',
-							'<a class="btn btn-glyph-only btn-xsmall btn-download" href="' + el.csv + '" title="Download Data"><span class="btn-text">Download Data</span></a>',
+							'<a class="btn btn-glyph-only btn-xsmall btn-download" href="/_resources/dyn/files/35859z271659/_fn/metric-data.csv" title="Download Data"><span class="btn-text">Download Data</span></a>',
 						'</div>',
 					'</div>',
 				'</div>'
@@ -232,7 +232,7 @@ jQuery(function($) {
 				'<div class="lead ' + el.css + '">',
 					'<div class="lead-title">' + el.name + '</div>',
 					'<div class="lead-count">' + getRandomInt(100, 250) + '</div>',
-					'<a class="btn btn-glyph-only btn-xsmall btn-download" href="' + el.csv + '"  title="Download Data"><span class="btn-text">Download</span></a>',
+					'<a class="btn btn-glyph-only btn-xsmall btn-download" href="/_resources/dyn/files/35859z271659/_fn/metric-data.csv"  title="Download Data"><span class="btn-text">Download</span></a>',
 				'</div>'
 			].join('');
 		}).join('');
