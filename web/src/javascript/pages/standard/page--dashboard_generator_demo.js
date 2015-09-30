@@ -71,7 +71,7 @@ function friendlyNumberFormat(number) {
 }
 
 var gaugeOptions = {
-
+				colors: ['#4b93ad'],
         chart: {
             type: 'solidgauge'
         },
@@ -98,9 +98,12 @@ var gaugeOptions = {
         // the value axis
         yAxis: {
             stops: [
-                [0.1, '#DF5353'], // red
-                [0.5, '#DDDF0D'], // yellow
-                [0.9, '#55BF3B'] // green                               
+                [0, '#4b93ad'], // red
+	              [0.25, '#4b93ad'], // red
+	              [0.26, '#4b93ad'], // yellow
+                [0.69, '#4b93ad'], // yellow
+                [0.7, '#4b93ad'], // green
+                [1, '#4b93ad'] // green
             ],
             tickPositioner: function () {
              return [0,this.max];
@@ -229,7 +232,7 @@ var leadCharts = [
         suffix: ' Emails',
         data: {
             goal: 3000,
-            value: 1821
+            value: 2321
         }
     },
     {
@@ -247,7 +250,7 @@ var leadCharts = [
         suffix: ' Social Accounts',
         data: {
             goal: 3000,
-            value: 1200
+            value: 1251
         }
     },
     {
@@ -256,7 +259,7 @@ var leadCharts = [
         suffix: ' Addresses',
         data: {
             goal: 1400,
-            value: 500
+            value: 324
         }
     }
 ];
