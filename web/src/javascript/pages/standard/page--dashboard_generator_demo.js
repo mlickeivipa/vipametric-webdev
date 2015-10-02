@@ -71,75 +71,82 @@ function friendlyNumberFormat(number) {
 }
 
 var gaugeOptions = {
-				colors: ['#4b93ad'],
-        chart: {
-            type: 'solidgauge'
+    colors: ['#4b93ad'],
+    chart: {
+        type: 'solidgauge'
+    },
+
+    title: null,
+
+    credits: {
+        enabled: false
+    },
+
+    pane: {
+        center: ['50%', '85%'],
+        size: '140%',
+        startAngle: -90,
+        endAngle: 90,
+        background: {
+            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+            innerRadius: '60%',
+            outerRadius: '100%',
+            shape: 'arc'
+        }
+    },
+
+    tooltip: {
+        enabled: false
+    },
+
+    // the value axis
+    yAxis: {
+        stops: [
+            [0, '#4b93ad'], // red
+            [0.25, '#4b93ad'], // red
+            [0.26, '#4b93ad'], // yellow
+            [0.69, '#4b93ad'], // yellow
+            [0.7, '#4b93ad'], // green
+            [1, '#4b93ad'] // green
+        ],
+        tickPositioner: function () {
+            return [0,this.max];
         },
-
-        title: null,
-
-        pane: {
-            center: ['50%', '85%'],
-            size: '140%',
-            startAngle: -90,
-            endAngle: 90,
-            background: {
-                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-                innerRadius: '60%',
-                outerRadius: '100%',
-                shape: 'arc'
-            }
+        lineWidth: 0,
+        minorTickInterval: null,
+        tickPixelInterval: 400,
+        tickWidth: 0,
+        title: {
+            y: -70
         },
-
-        tooltip: {
-            enabled: false
-        },
-
-        // the value axis
-        yAxis: {
-            stops: [
-                [0, '#4b93ad'], // red
-	              [0.25, '#4b93ad'], // red
-	              [0.26, '#4b93ad'], // yellow
-                [0.69, '#4b93ad'], // yellow
-                [0.7, '#4b93ad'], // green
-                [1, '#4b93ad'] // green
-            ],
-            tickPositioner: function () {
-             return [0,this.max];
-            },
-            lineWidth: 0,
-            minorTickInterval: null,
-            tickPixelInterval: 400,
-            tickWidth: 0,
-            title: {
-                y: -70
-            },
-            labels: {
-                y: 16,
-                useHTML: true,
-                formatter: function() {
-                    return friendlyNumberFormat(this.value);
-                }
-            }
-        },
-
-        plotOptions: {
-            solidgauge: {
-                dataLabels: {
-                    y: 5,
-                    borderWidth: 0,
-                    useHTML: true
-                }
+        labels: {
+            y: 16,
+            useHTML: true,
+            formatter: function() {
+                return friendlyNumberFormat(this.value);
             }
         }
-    };
+    },
+
+    plotOptions: {
+        solidgauge: {
+            dataLabels: {
+                y: 5,
+                borderWidth: 0,
+                useHTML: true
+            }
+        }
+    }
+};
 
 var semiCircleDonutOptions = {
     chart: {
         plotBackgroundColor: null,
         plotBorderWidth: 0,
         plotShadow: false
+    },
+    credits: {
+        enabled: false
     },
     title: {
         align: 'center',
@@ -180,6 +187,9 @@ var columnOptions = {
     chart: {
         type: 'column'
     },
+    credits: {
+        enabled: false
+    },
     yAxis: {
         min: 0
     },
@@ -207,6 +217,9 @@ var pieWithLegendOptions = {
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false
+    },
+    credits: {
+        enabled: false
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.y:.lf}</b>'
@@ -276,10 +289,6 @@ function createCharts() {
             }
         },
         
-        credits: {
-            enabled: false
-        },
-        
         series: [
             {
                 name: "Completed",
@@ -304,10 +313,6 @@ function createCharts() {
             title: {
                 text: "Impressions"
             }
-        },
-
-        credits: {
-            enabled: false
         },
 
         series: [
@@ -336,10 +341,6 @@ function createCharts() {
                 }
             },
 
-            credits: {
-                enabled: false
-            },
-
             series: [
                 {
                     name: chartConfig.label,
@@ -359,38 +360,24 @@ function createCharts() {
     $("div.consumer-demographics div.age").highcharts(Highcharts.merge(semiCircleDonutOptions, {
         title: {
             text: "Age"
-        },
-      
-        credits: {
-            enabled: false
         }
     }));
     
     $("div.consumer-demographics div.gender").highcharts(Highcharts.merge(semiCircleDonutOptions, {
         title: {
             text: "Gender"
-        },
-      
-        credits: {
-            enabled: false
         }
     }));
     
     $("div.consumer-demographics div.language").highcharts(Highcharts.merge(semiCircleDonutOptions, {
         title: {
             text: "Language"
-        },
-        credits: {
-            enabled: false
         }
     }));
     
     $("div.consumer-demographics div.background").highcharts(Highcharts.merge(semiCircleDonutOptions, {
         title: {
             text: "Background"
-        },
-        credits: {
-            enabled: false
         }
       
     }));
@@ -407,18 +394,12 @@ function createCharts() {
         tooltip: {
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.lf} Consumers</b></td></tr>'
         },
-        credits: {
-            enabled: false
-        },
         series: []
     }));
     
     $("div.right-account").highcharts(Highcharts.merge(pieWithLegendOptions, {
         title: {
             text: 'Are we in the right accounts?'
-        },
-        credits: {
-            enabled: false
         },
         series: [
             {
