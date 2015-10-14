@@ -7,6 +7,11 @@ var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 var rename = require('gulp-rename');
 var _ = require('lodash');
+var reactify = require('reactify');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var streamqueue = require('streamqueue');
 
 gulp.task('default', ['styles', 'javascript', 'design']);
 gulp.task('clean', ['styles:clean', 'javascript:clean', 'design:clean']);
@@ -31,6 +36,39 @@ gulp.task('styles:clean', function(callback) {
 gulp.task('javascript', ['javascript:build']);
 gulp.task('javascript:build', ['javascript:clean'], function() {
 	return gulp.src('./web/src/javascript/**/*.js')
+		.pipe(gulp.dest('./web/build/javascript'));
+});
+
+gulp.task('javascript:build', ['javascript:clean'], function() {
+	var stream = streamqueue({ objectMode: true });
+	var b = browserify({
+		entries: './web/src/javascript/apps/engagement-demo.react.js',
+		debug: true,
+		transform: [reactify]
+	});
+	var b2 = browserify({
+		entries: './web/src/javascript/pages/standard/page--engagements_multi_day_temp.react.js',
+		debug: true,
+		transform: [reactify]
+	});
+
+	stream.queue(
+		b.bundle()
+			.pipe(source('bundles/engagement-demo.bundle.js'))
+			.pipe(buffer())
+	);
+
+	stream.queue(
+		b2.bundle()
+			.pipe(source('bundles/page--engagements_multi-day_temp.bundle.js'))
+			.pipe(buffer())
+	);
+
+	stream.queue(
+		gulp.src(['./web/src/javascript/**/*', '!./web/src/javascript/bundles/**/*'])
+	);
+
+	return stream.done()
 		.pipe(gulp.dest('./web/build/javascript'));
 });
 gulp.task('javascript:clean', function(callback) {
