@@ -1,0 +1,33 @@
+@import "../../config/themes/standard";
+@import "../../config/base-import";
+
+@import "../../components/partials/buttons";
+@import "../_definitions/_page--engagement-edit/surveys";
+@import "../_definitions/_page--engagement-edit/leads";
+
+.prop-group-goal-title {
+	float: right;
+	margin-right: 16px;
+	font-family: $font-open-sans-semi-bold;
+
+	.goal-title {
+		margin-right: 20px;
+	}
+}
+
+.metric-group .metric-container.numeric-metric > div {
+	div.value-component {
+		width: 50px;
+	}
+
+	div.goal-component {
+		border-bottom-color: transparent;
+		margin-right: 10px;
+		width: 50px;
+		padding-right: 10px;
+
+		.val {
+			color: $color-grey-aa;
+		}
+	}
+}
