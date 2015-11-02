@@ -2,3 +2,9 @@
 @import "../../config/_base-import";
 
 @import "../_definitions/_page--dashboard";
+
+.full-program-results-table .percentage {
+  &:after {
+    content: "%";
+  }
+}
