@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="VipaMetric Live">
+  <component name="PublishConfigData" serverName="VipaMetric QA">
     <serverData>
       <paths name="VipaMetric Live">
         <serverdata>
@@ -9,6 +9,16 @@
             <mapping deploy="www.vipametric.com\Web\FavIcons" local="$PROJECT_DIR$/web/favicons" web="/" />
             <mapping deploy="www.vipametric.com\Web\Javascript" local="$PROJECT_DIR$/web/javascript" web="/" />
             <mapping deploy="www.vipametric.com\Web\Stylesheets" local="$PROJECT_DIR$/web/stylesheets/build" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="VipaMetric QA">
+        <serverdata>
+          <mappings>
+            <mapping deploy="vipametric-qa.venturetech.net\Web\Design" local="$PROJECT_DIR$/web/design" web="/" />
+            <mapping deploy="vipametric-qa.venturetech.net\Web\FavIcons" local="$PROJECT_DIR$/web/favicons" web="/" />
+            <mapping deploy="vipametric-qa.venturetech.net\Web\Javascript" local="$PROJECT_DIR$/web/javascript" web="/" />
+            <mapping deploy="vipametric-qa.venturetech.net\Web\Stylesheets" local="$PROJECT_DIR$/web/stylesheets/build" web="/" />
           </mappings>
         </serverdata>
       </paths>

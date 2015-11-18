@@ -1,0 +1,58 @@
+.default-param-component {
+	@include style-contentbox;
+	border-bottom: 1px solid $color-grey-e2;
+
+	button.search-button {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	.dashboard-param {
+		display: inline-block;
+		line-height: 30px;
+	}
+
+	.dashboard-param-label {
+		display: block;
+		font-family: $font-open-sans-semi-bold;
+		margin: 5px 0;
+	}
+
+	@include breakpoint($bp-mobile-landscape) {
+		> div:first-child {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		button.search-button {
+			display: inline-block;
+			margin-top: 30px;
+			margin-right: 50px;
+			width: auto;
+		}
+	}
+}
+
+.param-wrapper {
+	margin-bottom: 15px;
+
+	input,
+	select {
+		width: 100%;
+	}
+
+	@include breakpoint($bp-mobile-landscape) {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 30px;
+
+		select {
+			max-width: 300px;
+		}
+	}
+}
+
+.report-listing-container {
+	@include style-contentbox;
+}
