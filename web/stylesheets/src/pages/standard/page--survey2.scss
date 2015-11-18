@@ -1,0 +1,9 @@
+@import "../../config/themes/_standard";
+@import "../../config/_base-import";
+
+@import "../_definitions/_page--survey";
+
+.wizard_category_navigator,
+.wizard_procedure_step_header {
+    display: none;
+}
