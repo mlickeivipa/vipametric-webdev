@@ -78,9 +78,12 @@
       padding-bottom: 15px;
       text-align: right;
 
+
       .btn {
         display: inline-block;
         width: auto;
+	      //FIXME add white-space nowrap to buttons eventually possibly?
+	      white-space: nowrap;
 
         + .btn {
           margin-top: 0;
