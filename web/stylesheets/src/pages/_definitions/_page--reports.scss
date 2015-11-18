@@ -55,4 +55,78 @@
 
 .report-listing-container {
 	@include style-contentbox;
+	@include clearfix();
+}
+
+.report-listing {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.report {
+	border: 1px solid $color-grey-e2;
+	display: table;
+	margin-bottom: 10px;
+	position: relative;
+	width: 100%;
+
+	&:after {
+		display: block;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 50px;
+		background-color: $color-grey-e7;
+		border-right: 1px solid $color-grey-e2;
+	}
+
+	//FIXME change to glyphadd once branches are merged
+	&:before {
+		content: "\f112";
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 50px;
+		text-align: center;
+		font-family: GlyphLib;
+		transform: translateY(-50%);
+		font-size: 32px;
+		color: $color-grey-aa;
+		z-index: 2;
+	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		width: calc(50% - 10px);
+		margin-right: 10px;
+	}
+
+	@include breakpoint($bp-desktop) {
+		width: calc(33.333333% - 10px);
+	}
+}
+
+.report-info {
+	padding: 20px 20px 20px 70px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.report-actions {
+	display: table-cell;
+	vertical-align: middle;
+	width: 1px;
+	padding: 20px 20px 20px 0;
+}
+
+.report-name {
+	font-size: 16px;
+	font-family: $font-open-sans-bold;
+}
+
+.report-description {
+	font-size: 13px;
+	color: $color-grey-77;
 }

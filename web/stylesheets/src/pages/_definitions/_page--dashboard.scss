@@ -78,9 +78,11 @@
       padding-bottom: 15px;
       text-align: right;
 
-      span.report {
+      .btn {
         display: inline-block;
-        + span.report {
+        width: auto;
+
+        + .btn {
           margin-top: 0;
           margin-left: $app--btn-spacing-between-btns;
         }
