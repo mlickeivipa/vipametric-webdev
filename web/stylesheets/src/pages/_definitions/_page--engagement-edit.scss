@@ -1,547 +1,576 @@
 // Engagement Overview Section styles
-
 .engagement-overview {
-  .sub-section-container,
-  .metric-container {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 25px;
-  }
-
-  .metric-container.string-metric {
-    input {
-      min-width: 200px;
-    }
-  }
-
-  .engagement-site .btn {
-    margin-left: $app--btn-spacing-between-btns;
-  }
-
-  @include breakpoint($bp-mobile-landscape) {
     .sub-section-container,
     .metric-container {
-      display: inline-block;
-      vertical-align: top;
-      margin-right: 50px;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 25px;
     }
-  }
+
+    .metric-container.string-metric {
+        input {
+            min-width: 200px;
+        }
+    }
+
+    .engagement-site .btn {
+        margin-left: $app--btn-spacing-between-btns;
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .sub-section-container,
+        .metric-container {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 50px;
+        }
+    }
 }
 
 .prop {
-  &-group-title {
-    font-family: $font-open-sans-semi-bold;
-  }
-
-  &-wrapper.event-pictures {
-    position: relative;
-  }
-
-  &-header-actions {
-    margin-top: 5px;
-
-    .btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-
-      +.btn {
-        margin-top: $app--btn-spacing-between-btns;
-      }
+    &-group-title {
+        font-family: $font-open-sans-semi-bold;
     }
-  }
 
-  &-body {
-    margin-top: 15px;
-  }
-
-  &-group {
-    margin-right: 15px;
-    margin-bottom: 15px;
-    display: inline-block;
-    vertical-align: top;
-    min-width: 220px;
-    max-width: 100%;
-  }
-
-  &-group.default-group {
-    display: block;
-
-    .prop {
-      display: inline-block;
-      vertical-align: top;
-      margin-right: 15px;
+    &-wrapper.event-pictures {
+        position: relative;
     }
-  }
 
-  @include breakpoint($bp-mobile-landscape) {
     &-header-actions {
-      margin-top: -5px;
+        margin-top: 5px;
 
-      .btn {
-        display: inline-block;
-        vertical-align: middle;
-        width: auto;
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
 
-        +.btn {
-          margin-top: 0;
+            + .btn {
+                margin-top: $app--btn-spacing-between-btns;
+            }
         }
-      }
+    }
+
+    &-body {
+        margin-top: 15px;
     }
 
     &-group {
-      margin-right: 50px;
-      margin-bottom: 50px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        display: inline-block;
+        vertical-align: top;
+        min-width: 220px;
+        max-width: 100%;
     }
 
     &-group.default-group {
-      margin-right: 0;
+        display: block;
 
-      .prop {
-        margin-right: 50px;
-      }
+        .prop {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 15px;
+        }
     }
-  }
+
+    @include breakpoint($bp-mobile-landscape) {
+        &-header-actions {
+            margin-top: -5px;
+
+            .btn {
+                display: inline-block;
+                vertical-align: middle;
+                width: auto;
+
+                + .btn {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        &-group {
+            margin-right: 50px;
+            margin-bottom: 50px;
+        }
+
+        &-group.default-group {
+            margin-right: 0;
+
+            .prop {
+                margin-right: 50px;
+            }
+        }
+    }
 }
-
-
 
 //metric Feedback
 
 .prop-body {
-  .label-component,
-  .value-component,
-  label,
-  input {
-    font-weight: normal;
-  }
-
-  @include breakpoint($bp-mobile-landscape) {
-      .label-component,
-      .value-component,
-      label,
-      input {
-        display: inline-block;
-        vertical-align: middle;
-        padding-right: 5px;
-      }
-  }
-
-  .vertical-label-component,
-  .string-metric .label-component {
-    display: block;
-    width: auto;
-    margin: 5px 0;
-    font-family: $font-open-sans-semi-bold;
-  }
-
-  .value-component span{
-    color: $color-grey-77;
-  }
-
-  @include text-like-inputs {
-    width: 70px;
-  }
-
-  input[type="file"] {
-    padding-bottom: 15px;
-  }
-
-  textarea {
-    width: 100%;
-  }
-
-
-  .choice-metric {
-    display: inline-block;
-    vertical-align: top;
+    .label-component,
+    .value-component,
+    label,
+    input {
+        font-weight: normal;
+    }
 
     @include breakpoint($bp-mobile-landscape) {
-      margin-right: 50px;
+        .label-component,
+        .value-component,
+        label,
+        input {
+            display: inline-block;
+            vertical-align: middle;
+            padding-right: 5px;
+        }
     }
-  }
+
+    .vertical-label-component,
+    .string-metric .label-component {
+        display: block;
+        width: auto;
+        margin: 5px 0;
+        font-family: $font-open-sans-semi-bold;
+    }
+
+    .value-component span {
+        color: $color-grey-77;
+    }
+
+    @include text-like-inputs {
+        width: 70px;
+    }
+
+    input[type="file"] {
+        padding-bottom: 15px;
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    .choice-metric {
+        display: inline-block;
+        vertical-align: top;
+
+        @include breakpoint($bp-mobile-landscape) {
+            margin-right: 50px;
+        }
+    }
 }
 
 .metric-group {
-  display: block;
+    display: block;
 }
 
 .metric-container,
 .prop-group {
-  display: inline-block;
-  vertical-align: top;
-}
-
-
-.metric-bucket,
-.metric-group .metric-container.monetary-metric,
-.metric-group .metric-container.numeric-metric {
-  display: table-row;
-}
-
-.metric-bucket,
-.metric-group .metric-container.monetary-metric,
-.metric-group .metric-container.numeric-metric {
-  .label-component,
-  > div {
-    display: table-cell;
-    padding: 5px 15px 5px 0;
-  }
-
-  > div {
-    text-align: right;
-    min-width: 125px;
-
-    span.value-component,
-		div.value-component {
-      border-bottom: 1px solid $color-grey-77;
-      min-width: 25px;
-      min-height: 18px;
-    }
-  }
-
-  .value-component,
-  .goal-type,
-  .before-value-component {
     display: inline-block;
-    vertical-align: middle;
-    padding: 5px;
-  }
+    vertical-align: top;
+}
 
-  .percent-total {
-    font-family: $font-open-sans-semi-bold;
-  }
+.metric-bucket,
+.metric-group .metric-container.monetary-metric,
+.metric-group .metric-container.numeric-metric {
+    display: table-row;
+}
+
+.metric-bucket,
+.metric-group .metric-container.monetary-metric,
+.metric-group .metric-container.numeric-metric {
+    .label-component,
+    > div {
+        display: table-cell;
+        padding: 5px 15px 5px 0;
+    }
+
+    > div {
+        text-align: right;
+        min-width: 125px;
+
+        span.value-component,
+        div.value-component {
+            border-bottom: 1px solid $color-grey-77;
+            min-width: 25px;
+            min-height: 18px;
+        }
+    }
+
+    .value-component,
+    .goal-type,
+    .before-value-component {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 5px;
+    }
+
+    .percent-total {
+        font-family: $font-open-sans-semi-bold;
+    }
 }
 
 span.metric-bucket.value-component {
-  border-bottom: 1px solid $color-grey-77;
-  min-width: 25px;
-  min-height: 18px;
+    border-bottom: 1px solid $color-grey-77;
+    min-width: 25px;
+    min-height: 18px;
 }
 
 .photo-metric {
-  display: block;
-
-  .prop-body {
-    margin-top: 5px;
-  }
-
-  .label-component {
     display: block;
-  }
 
-  .value-component {
-    display: block;
-    margin: 0;
-  }
-  .section .sub-section & {
-    .prop-header-actions {
-      position: relative;
-      margin-bottom: 10px;
+    .prop-body {
+        margin-top: 5px;
     }
-  }
+
+    .label-component {
+        display: block;
+    }
+
+    .value-component {
+        display: block;
+        margin: 0;
+    }
+    .section .sub-section & {
+        .prop-header-actions {
+            position: relative;
+            margin-bottom: 10px;
+        }
+    }
 }
+
+.file-metric {
+    width: 100%;
+
+    .label-component,  
+    .value-component {
+        display: block;
+        width: 100%;
+    }
+
+    .col-files {
+        width: 100%;
+
+        .props {
+            display: table;
+            width: 100%;
+            box-shadow: 0 0 2px #959595;
+
+               > div {
+                 display: table-row;
+
+                &:nth-child(even) {
+
+                }
+
+                   a,
+                .select-for-download {
+                    display: table-cell;
+                    width: 50%;
+                     padding: 10px 15px;
+                }
+            }
+        }
+    }
+}
+
 
 .col-photos {
-  .props {
-    > div {
-      @include style-contentbox;
-      text-align: center;
-      margin-bottom: 15px;
-      width: 100%;
-
-      img {
-        max-width: 200px;
-      }
-    }
-  }
-
-  @include breakpoint($bp-mobile-landscape) {
     .props {
-      > div {
-        display: table-cell;
-        width: auto;
-      }
+        > div {
+            @include style-contentbox;
+            text-align: center;
+            margin-bottom: 15px;
+            width: 100%;
+
+            img {
+                max-width: 200px;
+            }
+        }
     }
-  }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .props {
+            > div {
+                display: table-cell;
+                width: auto;
+            }
+        }
+    }
 }
 
-
 .default-group {
-  .numeric-metric {
-    display: block;
+    .numeric-metric {
+        display: block;
 
-    > div {
-      display: block;
-      text-align: left;
+        > div {
+            display: block;
+            text-align: left;
+        }
     }
-  }
 
-  .label-component {
-    font-weight: bold;
-  }
+    .label-component {
+        font-weight: bold;
+    }
 }
 
 // Consumer profile only
 
 .consumer-profile {
-  .metric-container {
-    .label-component {
-      width: 150px;
-    }
+    .metric-container {
+        .label-component {
+            width: 150px;
+        }
 
-    &.metric-bucket:last-child {
-      .label-component {
-        color: $color--theme-accent;
-      }
+        &.metric-bucket:last-child {
+            .label-component {
+                color: $color--theme-accent;
+            }
+        }
     }
-  }
 }
 
 // Market Intell only
 .market-intelligence {
-  .string-metric {
-    display: block;
+    .string-metric {
+        display: block;
 
-    input[type="text"] {
-      width: 100%;
-      min-width: 200px;
-    }
+        input[type="text"] {
+            width: 100%;
+            min-width: 200px;
+        }
 
-    @include breakpoint($bp-mobile-landscape) {
-      input[type="text"] {
-        width: auto;
-        max-width: 180px;
-        min-width: 125px;
-      }
+        @include breakpoint($bp-mobile-landscape) {
+            input[type="text"] {
+                width: auto;
+                max-width: 180px;
+                min-width: 125px;
+            }
+        }
     }
-  }
 }
 
 @include breakpoint($bp-mobile-landscape) {
-  .market-intelligence {
-    .EventResults,
-    .EventApproval {
-      .default-group {
-        .metric-container.numeric-metric {
-          display: inline-block;
-          vertical-align: top;
-          margin-right: 50px;
+    .market-intelligence {
+        .EventResults,
+        .EventApproval {
+            .default-group {
+                .metric-container.numeric-metric {
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-right: 50px;
+                }
+            }
         }
-      }
-    }
 
-    .EventApproval {
-      .default-group {
-        .metric-container.string-metric {
-          display: inline-block;
-          vertical-align: top;
-          margin-right: 25px;
+        .EventApproval {
+            .default-group {
+                .metric-container.string-metric {
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-right: 25px;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 // User Management
 .user-management {
-  .prop-header-title {
-    @include style-h3;
-  }
-
-  .entity-actions {
-    margin: 5px 0;
-
-    a {
-      @include style-button-base;
-    }
-  }
-
-  .entity-actions a,
-  .btn.back {
-    width: 100%;
-  }
-
-  table .actions {
-    .btn {
-      margin-right: 0;
-      + .btn {
-        margin-left: $app--btn-spacing-between-btns;
-      }
-    }
-
-    //TODO remove once they add class VM-305
-    a {
-      @include style-button-base;
-      + a {
-        margin-left: $app--btn-spacing-between-btns;
-      }
-    }
-  }
-
-  @include breakpoint($bp-mobile-landscape) {
-    .prop-header {
-      position: relative;
-      margin-top: 25px;
-      &-actions {
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
-    }
-
-    .entity-actions,
-    .search-wrapper .btn.back {
-      position: absolute;
-      top: 25px;
-      right: 25px;
+    .prop-header-title {
+        @include style-h3;
     }
 
     .entity-actions {
-      top: 15px;
+        margin: 5px 0;
+
+        a {
+            @include style-button-base;
+        }
     }
 
     .entity-actions a,
     .btn.back {
-      margin-left: $app--btn-spacing-between-btns;
-      width: auto;
+        width: 100%;
     }
-  }
-}
 
+    table .actions {
+        .btn {
+            margin-right: 0;
+            + .btn {
+                margin-left: $app--btn-spacing-between-btns;
+            }
+        }
+
+        //TODO remove once they add class VM-305
+        a {
+            @include style-button-base;
+            + a {
+                margin-left: $app--btn-spacing-between-btns;
+            }
+        }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .prop-header {
+            position: relative;
+            margin-top: 25px;
+            &-actions {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+
+        .entity-actions,
+        .search-wrapper .btn.back {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+        }
+
+        .entity-actions {
+            top: 15px;
+        }
+
+        .entity-actions a,
+        .btn.back {
+            margin-left: $app--btn-spacing-between-btns;
+            width: auto;
+        }
+    }
+}
 
 // styles for edit pages only
 
 @include breakpoint($bp-mobile-landscape) {
-  .engagement-editor {
-    .sub-section-container,
-    .metric-container,
-    .prop-group.default-group .prop {
-      margin-right: 25px;
-    }
-
-    .prop-group.default-group {
-      .metric-container .prop {
-        margin-right: 0;
-      }
-    }
-
-    .metric-bucket,
-    .metric-container.monetary-metric,
-    .metric-container.numeric-metric {
-      > div {
-        div.value-component {
-          border-bottom: none;
+    .engagement-editor {
+        .sub-section-container,
+        .metric-container,
+        .prop-group.default-group .prop {
+            margin-right: 25px;
         }
-      }
-    }
 
-    //span.metric-bucket.value-component {
-    //  border-bottom: none;
-    //}
-  }
+        .prop-group.default-group {
+            .metric-container .prop {
+                margin-right: 0;
+            }
+        }
+
+        .metric-bucket,
+        .metric-container.monetary-metric,
+        .metric-container.numeric-metric {
+            > div {
+                div.value-component {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        //span.metric-bucket.value-component {
+        //  border-bottom: none;
+        //}
+    }
 }
 
 // Styles for new engagement site edit which has a wonky question structure
 
 .engagement-site.prop-editor {
-  @include style-contentbox;
+    @include style-contentbox;
 
-  .prop-header-title {
-    font-family: $font-open-sans-bold;
-    text-transform: uppercase;
-    font-size: 18px;
-  }
-
-  .rtb,
-  .rtb + label {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  .rtb {
-    margin-top: -1px;
-  }
-
-  .prop-group.selection-editor {
-    display: block;
-    margin: 0;
-  }
-
-  .constraint,
-  .address_form {
-    label {
-      display: block;
-    }
-  }
-
-  .siteName {
-    display: block;
-    margin-right: 0;
-  }
-
-  .siteName,
-  .address_form,
-  .custom-fields {
-    input,
-    select {
-      width: 100%;
-    }
-  }
-
-  .pager-search-results {
-    padding-bottom: 5px;
-  }
-
-  @include breakpoint($bp-mobile-landscape) {
-    .prop-header-actions {
-      margin-top: -25px;
+    .prop-header-title {
+        font-family: $font-open-sans-bold;
+        text-transform: uppercase;
+        font-size: 18px;
     }
 
-    .prop-group {
-      margin: 0;
+    .rtb,
+    .rtb + label {
+        display: inline-block;
+        vertical-align: top;
     }
-    .siteName,
-    .address_form,
-    .custom-fields {
-      input,
-      select {
-        width: 225px;
-      }
+
+    .rtb {
+        margin-top: -1px;
+    }
+
+    .prop-group.selection-editor {
+        display: block;
+        margin: 0;
+    }
+
+    .constraint,
+    .address_form {
+        label {
+            display: block;
+        }
     }
 
     .siteName {
-      input {
-        min-width: 225px;
-      }
-    }
-
-    .address_form {
-      .part,
-      .address_container div.address_line {
-        display: inline-block;
-        margin-right: 25px;
-      }
-
-      .part.address_container {
         display: block;
-      }
+        margin-right: 0;
     }
 
+    .siteName,
+    .address_form,
     .custom-fields {
-      input {
-        max-width: 225px;
-      }
-
-      .prop,
-      .choice-metric {
-        margin-right: 25px;
-        padding-right: 0;
-      }
-
-      .btn.trigger {
-        display: none;
-      }
+        input,
+        select {
+            width: 100%;
+        }
     }
-  }
+
+    .pager-search-results {
+        padding-bottom: 5px;
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .prop-header-actions {
+            margin-top: -25px;
+        }
+
+        .prop-group {
+            margin: 0;
+        }
+        .siteName,
+        .address_form,
+        .custom-fields {
+            input,
+            select {
+                width: 225px;
+            }
+        }
+
+        .siteName {
+            input {
+                min-width: 225px;
+            }
+        }
+
+        .address_form {
+            .part,
+            .address_container div.address_line {
+                display: inline-block;
+                margin-right: 25px;
+            }
+
+            .part.address_container {
+                display: block;
+            }
+        }
+
+        .custom-fields {
+            input {
+                max-width: 225px;
+            }
+
+            .prop,
+            .choice-metric {
+                margin-right: 25px;
+                padding-right: 0;
+            }
+
+            .btn.trigger {
+                display: none;
+            }
+        }
+    }
 }
