@@ -4,4 +4,4 @@ jQuery(function($) {
 
     $filemetricSelect.removeAttr('accept');
 
-});​
+});
