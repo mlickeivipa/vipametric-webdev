@@ -239,6 +239,8 @@ span.metric-bucket.value-component {
 
 .file-metric {
     width: 100%;
+    margin-top: 30px;
+
 
     .label-component,  
     .value-component {
@@ -246,26 +248,62 @@ span.metric-bucket.value-component {
         width: 100%;
     }
 
-    .col-files {
+    .prop-viewer {
+        .prop-header .actions {
+            margin-top: -49px;
+        }
+    }
+
+    .prop-editor {
+        .prop-header .actions {
+            margin-top: 60px;
+        }
+    }
+
+    .prop-footer .actions {
+        margin-top: -30px;
+    }
+
+    .filemetric-interactions {
+        margin-bottom: 70px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $color-grey-e7;
+    }
+
+    .filemetric-listing {
         width: 100%;
 
         .props {
             display: table;
             width: 100%;
-            box-shadow: 0 0 2px #959595;
+            box-shadow: 0 0 2px $color-grey-99;
 
-               > div {
-                 display: table-row;
+            .filemetric-row {
+                display: table-row;
 
                 &:nth-child(even) {
-
+                    > div {
+                        background-color: $color-grey-f2;
+                    }
                 }
 
-                   a,
-                .select-for-download {
+                .select-for-download,
+                .file-name,
+                .file-actions {
                     display: table-cell;
-                    width: 50%;
-                     padding: 10px 15px;
+                    padding: 10px 15px;
+
+                    .btn {
+                        font-size: 0;
+
+                        &:before {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                .file-actions {
+                    text-align: right;
                 }
             }
         }
