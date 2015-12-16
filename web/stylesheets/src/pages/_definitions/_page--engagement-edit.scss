@@ -156,6 +156,7 @@
             margin-right: 50px;
         }
     }
+
 }
 
 .metric-group {
@@ -239,18 +240,18 @@ span.metric-bucket.value-component {
 
 .file-metric {
     width: 100%;
-    margin-top: 30px;
 
-
-    .label-component,  
+    .label-component,
     .value-component {
         display: block;
         width: 100%;
     }
 
-    .prop-viewer {
-        .prop-header .actions {
-            margin-top: -49px;
+    .section .sub-section + .sub-section & {
+        .prop-viewer {
+            .prop-header-actions {
+                top: 50px;
+            }
         }
     }
 
@@ -292,14 +293,10 @@ span.metric-bucket.value-component {
                 .file-actions {
                     display: table-cell;
                     padding: 10px 15px;
+                }
 
-                    .btn {
-                        font-size: 0;
-
-                        &:before {
-                            margin-right: 0;
-                        }
-                    }
+                .select-for-download {
+                    width: 150px;
                 }
 
                 .file-actions {
@@ -309,7 +306,6 @@ span.metric-bucket.value-component {
         }
     }
 }
-
 
 .col-photos {
     .props {
