@@ -6,44 +6,6 @@
 }
 
 
-/** STEP SPECIFIC STYLES **/
-.addl-purchases {
-  table.extra_value_renderer {
-    td {
-      text-align: center;
-      padding-right: 40px;
-    }
-
-    .likert_heading_0-con,
-    .likert_heading_1-con,
-    .likert_heading_2-con {
-      label {
-        display: none;
-      }
-    }
-  }
-}
-
-.given_name_container {
-  margin-bottom: 10px;
-}
-
-.name_form {
-  .label {
-    font-family: $font-open-sans;
-  }
-
-  @include breakpoint($bp-tablets-portrait) {
-    .part {
-      display: inline-block;
-
-      + .part {
-        margin-left: 15px;
-      }
-    }
-  }
-}
-
 
 /** BUTTON STYLES **/
 .submit_button {

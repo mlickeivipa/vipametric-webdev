@@ -1,0 +1,25 @@
+h2 {
+    font-size: 21px;
+}
+
+h3 {
+    font-size: 16px;
+    color: $color-blue;
+}
+
+table {
+    @include style-standard-table;
+    margin-bottom: 70px;
+
+    @include breakpoint($bp-tablets-portrait) {
+
+        thead th, tbody td {
+            text-align: center;
+
+            &:first-child {
+                width: 30%;
+                text-align: left;
+            }
+        }
+    }
+}
