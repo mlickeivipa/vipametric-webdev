@@ -1,0 +1,7 @@
+.quantitative p {
+    @include style-label;
+}
+
+.quantitative-subtext .label {
+    font-family: $font-open-sans;
+}
