@@ -85,6 +85,18 @@ label,
 	margin: 0;
 }
 
+.question + .question {
+	margin-top: 20px;
+}
+
+.form_field + .form_field {
+	margin-top: 10px;
+}
+
+.procedure-navigation-con {
+	padding-top: 20px;
+}
+
 @include text-like-inputs {
 	@include style-input;
 	display: block;
@@ -113,6 +125,10 @@ input[type="checkbox"] {
 	vertical-align: middle;
 }
 
+input[type="file"] {
+	font-size: 12px;
+}
+
 label.tbl {
 	display: inline-block;
 	vertical-align: middle;
@@ -122,6 +138,19 @@ label.tbl {
 .ctb {
 	display: block;
 }
+
+.next-button-con {
+	padding-left: 10px;
+}
+
+.btn[disabled] {
+	background-color: $color-grey-cc;
+
+	&:hover {
+		background-color: $color-grey-cc;
+	}
+}
+
 
 // Section Styles
 .section-header {
@@ -187,7 +216,7 @@ label.tbl {
 	}
 }
 
-@include breakpoint ($bp-mobile-landscape) {
+@include breakpoint($bp-mobile-landscape) {
 	.section {
 
 		&-header {
