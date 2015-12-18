@@ -18,13 +18,13 @@
     font-size: 18px;
     line-height: 1.2;
 
-    /*&:before {
+    &:before {
         @include glyphAdd($html-entity-calendar, $size: 32px);
         float: left;
         margin-right: 7px;
         margin-top: 2px;
         color: $color--theme-accent;
-    }*/
+    }
 }
 
 
@@ -44,7 +44,7 @@
     top: 0;
     white-space: nowrap;
 
-   /* &:before {
+    /*&:before {
         @include glyphAdd($html-entity-location, $size: 32px);
         float: left;
         margin-right: 7px;
