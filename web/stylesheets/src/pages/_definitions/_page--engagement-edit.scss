@@ -1,3 +1,13 @@
+@import "_page--engagement-edit/engagement-info";
+
+
+.engagement-custom-fields {
+    .header,
+    .btn.trigger {
+        display: none;
+    }
+}
+
 // Engagement Overview Section styles
 .engagement-overview {
     .sub-section-container,
