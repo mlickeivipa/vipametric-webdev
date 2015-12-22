@@ -139,6 +139,10 @@
 .engagement-overview {
     display: none;
 
+    .engagement-editor & {
+        display: block;
+    }
+
     .sub-section-container,
     .metric-container {
         display: inline-block;
