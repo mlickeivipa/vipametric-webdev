@@ -1,0 +1,136 @@
+//TODO remove .section after remove the display inline and text transform from manage template
+.section {
+    padding: 0; //FIXME remove once integrate manage CSS
+
+    .section-header {
+        border-bottom: 1px solid $color-grey-e2;
+        padding: 10px 25px;
+        background-color: $color-grey-f2;
+
+        //FIXME get class added for btn
+        .section-header-actions > a {
+            position: relative;
+            display: inline-block;
+            top: auto;
+            right: auto;
+
+            + a {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .section-header-actions {
+        float: right;
+        margin-left: 10px;
+
+        .btn {
+            vertical-align: top;
+        }
+    }
+
+    .section-content,
+    .section-header + div {
+        padding: 15px 25px;
+    }
+
+    &.media {
+        .section-content {
+            @include clearfix();
+        }
+    }
+
+    .sub-section-header {
+
+        .sub-section-heading {
+            margin-right: 10px;
+        }
+
+        .metric-set-value-count {
+            margin-right: 10px;
+            //padding-left: 0; //FIXME remove when otehr styles gone
+            display: inline-block;
+            vertical-align: bottom;
+
+            /*&:before {
+                display: inline-block;
+                vertical-align: middle;
+                color: $color-grey-e2;
+                content: $html-entity-success;
+                font-size: 20px;
+                font-family: $font-glyph-lib;
+                margin-right: 15px;
+            }*/
+        }
+
+        .metric-value-bar {
+            display: inline-block;
+            width: 50px;
+            background-color: $color-grey-cc;
+            height: 8px;
+            margin-right: 5px;
+            border-top: 1px solid $color-grey-aa;
+            border-radius: 2px;
+            vertical-align: middle;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 1px 1px transparentize($color-black, 0.9) inset;
+        }
+
+        .metric-value-bar-progress {
+            background-color: $color--theme-accent;
+            height: 100%;
+            display: block;
+        }
+
+        .metric-value-percent {
+            display: inline-block;
+            vertical-align: middle;
+            font-family: $font-open-sans-bold;
+            width: 38px;
+            color: $color-grey-55;
+
+            &:after {
+                content: "%";
+                font-size: 10px;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+    }
+
+    .sub-section-complete {
+        .metric-set-value-count {
+            &:before {
+                color: $app--message-success-glyph-color;
+            }
+        }
+    }
+
+    .sub-section {
+
+        .prop-header-actions {
+            top: auto;
+            margin-top: 0; //FIXME remove this and above
+        }
+
+        + .sub-section {
+            .prop-header-actions {
+                top: auto;
+            }
+        }
+
+        > .miwt-collapsable {
+            &.shown {
+                padding: 10px 25px;
+                margin-top: 10px;
+                margin-left: 115px;
+                margin-bottom: 15px;
+            }
+
+            &.hidden {
+
+            }
+        }
+    }
+}
