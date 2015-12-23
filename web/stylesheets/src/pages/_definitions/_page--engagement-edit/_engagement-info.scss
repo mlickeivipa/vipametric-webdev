@@ -59,6 +59,7 @@
         line-height: 1.2;
         position: relative;
         margin-left: 37px;
+        margin-top: 10px;
 
         &:before {
             @include glyphAdd($html-entity-location, $size: 32px);
@@ -105,6 +106,7 @@
 
         .engagement-address {
             margin-right: 210px;
+            margin-top: 0;
         }
     }
 
@@ -137,6 +139,11 @@
 .engagement-custom-fields {
     clear: right;
     padding-top: 5px;
+
+    .header,
+    .trigger {
+        display: none;
+    }
 
     @include breakpoint($bp-tablets-landscape) {
         padding-top: 0;
