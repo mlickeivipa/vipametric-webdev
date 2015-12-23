@@ -1,6 +1,7 @@
 .engagement-info {
     position: relative;
     margin: 20px 0;
+    min-height: 200px;
 }
 
 .engagement-name {
@@ -10,7 +11,9 @@
 }
 
 .engagement-info-details {
-    margin-right: 450px;
+    @include breakpoint($bp-tablets-portrait) {
+        margin-right: 480px;
+    }
 }
 
 .engagement-datetime {
@@ -27,7 +30,6 @@
     }
 }
 
-
 .engagement-time {
     font-size: 13px;
     color: $color-grey-77;
@@ -39,33 +41,38 @@
 
 .engagement-location {
     font-size: 14px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    white-space: nowrap;
-
-    /*&:before {
-        @include glyphAdd($html-entity-location, $size: 32px);
-        float: left;
-        margin-right: 7px;
-        color: $color--theme-accent;
-    }*/
+    margin-top: 20px;
 
     .engagement-map {
-        float: right;
         border: 1px solid $color-grey-aa;
 
         img {
             display: block;
+            width: 100%;
+            height: auto;
         }
     }
 
     .engagement-address {
-        margin-left: 40px;
-        margin-right: 320px;
         white-space: normal;
-        max-width: 250px;
+        max-width: 350px;
         line-height: 1.2;
+        position: relative;
+        margin-left: 37px;
+
+        &:before {
+            @include glyphAdd($html-entity-location, $size: 32px);
+            float: left;
+            margin-right: 7px;
+            color: $color--theme-accent;
+            position: absolute;
+            left: -35px;
+        }
+
+        .address-city,
+        .address-region {
+            display: inline-block;
+        }
     }
 
     .address-name {
@@ -85,6 +92,56 @@
             content: ",";
             margin-right: 5px;
         }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .engagement-map {
+            float: right;
+        }
+
+        .engagement-map {
+            max-width: 50%;
+        }
+
+        .engagement-address {
+            margin-right: 210px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        position: absolute;
+        right: 0;
+        top: 0;
+        white-space: nowrap;
+
+        .engagement-map {
+            max-width: 250px;
+        }
+
+        .engagement-address {
+            margin-right: 260px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .engagement-map {
+            max-width: none;
+        }
+
+        .engagement-address {
+            margin-right: 380px;
+        }
+    }
+}
+
+.engagement-custom-fields {
+    clear: right;
+    padding-top: 5px;
+
+    @include breakpoint($bp-tablets-landscape) {
+        padding-top: 0;
+        margin-top: -100px;
+        margin-bottom: 100px;
     }
 }
 
