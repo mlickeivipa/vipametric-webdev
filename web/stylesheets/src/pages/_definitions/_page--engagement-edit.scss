@@ -1,12 +1,5 @@
 @import "_page--engagement-edit/engagement-info";
-
-
-.engagement-custom-fields {
-    .header,
-    .btn.trigger {
-        display: none;
-    }
-}
+@import "_page--engagement-edit/sections";
 
 // Engagement Overview Section styles
 .engagement-overview {
