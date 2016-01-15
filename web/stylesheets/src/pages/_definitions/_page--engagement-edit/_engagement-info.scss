@@ -1,7 +1,7 @@
 .engagement-info {
     position: relative;
     margin: 20px 0;
-    min-height: 200px;
+    min-height: 250px;
 }
 
 .engagement-name {
@@ -18,15 +18,62 @@
 
 .engagement-datetime {
     margin: 10px 0;
-    font-size: 18px;
-    line-height: 1.2;
 
-    &:before {
-        @include glyphAdd($html-entity-calendar, $size: 32px);
-        float: left;
-        margin-right: 7px;
-        margin-top: 2px;
-        color: $color--theme-accent;
+    .engagement-end-date {
+         margin-top: 20px;
+    }
+
+    .engagement-start-date-label,
+    .engagement-end-date-label {
+        display: block;
+        font-family: $font-open-sans-semi-bold;
+        margin-bottom: 3px;
+    }
+
+    .engagement-date {
+        margin-bottom: 5px;
+        font-size: 18px;
+        line-height: 1.2;
+
+        &:before {
+            @include glyphAdd($html-entity-calendar, $size: 32px);
+            float: left;
+            margin-right: 7px;
+            margin-top: 2px;
+            color: $color--theme-accent;
+            min-height: 45px;
+        }
+    }
+
+    .engagement-time-zone {
+        display: block;
+    }
+
+
+    @include breakpoint($bp-mobile-landscape) {
+        .engagement-start-time,
+        .engagement-end-time {
+            display: inline-block;
+        }
+
+        .engagement-time-zone {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .engagement-start-date,
+        .enagement-start-date,
+        .engagement-end-date {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .engagement-end-date {
+            margin-top: 0;
+            margin-left: 50px;
+        }
     }
 }
 
@@ -175,8 +222,22 @@
     }
 }
 
+.engagement-submitter,
+.engagement-approver {
+    label,
+    .val {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .val {
+        margin: 5px 0 5px 5px;
+    }
+}
+
 .engagement-status {
     margin-top: 5px;
+    clear: both;
 
     /*&:before {
         @include glyphAdd($html-entity-warning, $size: 20px);

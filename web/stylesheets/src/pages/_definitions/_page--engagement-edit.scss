@@ -1,5 +1,7 @@
 @import "_page--engagement-edit/engagement-info";
 @import "_page--engagement-edit/sections";
+@import "_page--engagement-edit/surveys";
+@import "_page--engagement-edit/leads";
 
 // Engagement Overview Section styles
 .engagement-overview {
@@ -26,6 +28,19 @@
             display: inline-block;
             vertical-align: top;
             margin-right: 50px;
+        }
+    }
+}
+
+// event pictures {
+.event-pictures {
+    .col-photos {
+        min-width: 100%;
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .col-photos {
+            min-width: 220px;
         }
     }
 }
@@ -207,6 +222,11 @@
         padding: 5px;
     }
 
+    .goal-type {
+        padding: 0 5px;
+        font-size: 12px;
+    }
+
     .percent-total {
         font-family: $font-open-sans-semi-bold;
     }
@@ -217,6 +237,341 @@ span.metric-bucket.value-component {
     min-width: 25px;
     min-height: 18px;
 }
+
+// STYLES FOR NEW HTML FOR VM-412
+
+.content {
+    > .metric-group-container {
+        + .metric,
+        + .metric-group-container {
+            margin-top: 50px;
+        }
+    }
+
+    > .metric {
+        + .metric,
+        + .metric-group-container {
+            margin-top: 50px;
+        }
+    }
+
+    .metric {
+        .metric-label {
+            font-family: $font-open-sans-semi-bold;
+        }
+
+        .value-component {
+            color: $color-grey-77;
+        }
+    }
+}
+
+.metric-group-container {
+    &.consumer-profile {
+        .metric-group {
+            .metric + .metric {
+                margin-top: 20px;
+            }
+        }
+
+        .metric-bucket-item-container {
+            &:last-child {
+                .metric-bucket-item {
+                    width: 100%;
+                    text-align: left;
+                    display: table;
+                }
+
+                .label-component {
+                    color: $color--theme-accent;
+                    text-align: left;
+                    display: table-cell;
+                    padding: 5px 15px 5px 0;
+                }
+
+                .value-component {
+                    text-align: right;
+                    display: table-cell;
+                    padding: 5px 0 5px 0;
+                    font-family: $font-open-sans-semi-bold;
+                }
+            }
+
+            .metric-bucket-item-label {
+                color: $color-grey-77;
+                font-family: $font-open-sans-semi-bold;
+            }
+
+            .metric-bucket-item-label,
+            .metric-container {
+                width: 85px;
+                display: table-cell;
+                padding: 5px 15px 5px 0;
+            }
+
+            .metric-container {
+                text-align: right;
+                min-width: 85px;
+                color: $color-grey-77;
+
+                .view-engagement & {
+                    .metric-bucket-item,
+                    .after-value-component {
+                        border-bottom: 1px solid $color-grey-77;
+                        display: inline-block;
+                        vertical-align: bottom;
+                    }
+                }
+
+                .metric-bucket-item {
+                    min-width: 25px;
+                    min-height: 18px;
+                    padding: 0 0 5px 4px;
+                }
+
+                .after-value-component {
+                    padding: 0 3px 5px 0;
+                }
+            }
+
+            .label-component {
+                width: 85px;
+            }
+        }
+    }
+
+    &.purchase-motivators {
+        .metric-label,
+        .metric-container-wrapper {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 5px 15px 5px 0;
+        }
+
+        .metric {
+            width: 100%;
+            display: table;
+        }
+
+        .metric-container-wrapper {
+            text-align: right;
+            color: $color-grey-77;
+
+            .numeric-metric {
+                display: block;
+
+                .value-component {
+                    min-width: 0;
+                }
+            }
+
+            .view-engagement & {
+
+                .val {
+                    width: auto;
+                    border-bottom: 1px solid $color-grey-77;
+                    //min-width: 25px;
+                    padding: 0 4px 5px;
+                }
+            }
+        }
+    }
+
+    .metric-label,
+    .group-label {
+        display: block;
+        font-family: $font-open-sans-semi-bold;
+        margin: 5px 0;
+    }
+
+    .group-label {
+        margin-top: 50px;
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        &.consumer-profile {
+            .metric-group {
+                .metric {
+                    display: inline-block;
+                    vertical-align: top;
+
+                    + .metric {
+                        margin-top: 0;
+                        margin-left: 40px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include breakpoint($bp-desktop) {
+        &.consumer-profile {
+            .metric-bucket-item-container {
+                .metric-bucket-item-label,
+                .metric-container {
+                    width: 130px;
+                }
+            }
+
+            .label-component {
+                width: 130px;
+            }
+        }
+    }
+}
+
+.kpi {
+    .metric-group {
+        .metric {
+            display: block;
+            margin: 0;
+
+            + .metric {
+                margin: 0;
+            }
+        }
+    }
+
+    .metric-label {
+        padding-top: 10px;
+    }
+
+    .metric-container-wrapper {
+        display: table;
+        width: 100%;
+
+        .metric-container {
+            /*width: 30%;
+            display: table-cell;
+            vertical-align: middle;*/
+            display: block;
+
+            &:before {
+                content: "Actual";
+                width: 45px;
+                font-family: $font-open-sans-semi-bold;
+                font-style: italic;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;
+                text-align: right;
+                font-size: 12px;
+            }
+
+            .value-component {
+                padding: 0 5px;
+                min-width: 0;
+            }
+
+            .view-engagement & {
+                .val {
+                    padding: 5px;
+                    width: auto;
+                    border-bottom: 1px solid $color-grey-77;
+                    min-width: 25px;
+                    min-height: 18px;
+                    display: block;
+                }
+            }
+        }
+
+        .metric-container-goal {
+            &:before {
+                content: "Goal";
+            }
+        }
+    }
+
+    .metric-goal-heading {
+        display: none;
+        font-family: $font-open-sans-semi-bold;
+
+        .goal-heading,
+        .actual-heading {
+            display: inline-block;
+        }
+
+        .goal-heading {
+            width: 70%;
+        }
+
+        .actual-heading {
+            width: 30%;
+        }
+    }
+
+
+    @include breakpoint($bp-mobile-landscape) {
+        .metric-goal-heading {
+            display: block;
+            margin-left: 30%;
+        }
+
+        .metric-label,
+        .metric-container-wrapper {
+            display: inline-block;
+            padding: 5px 0;
+            vertical-align: middle;
+
+            .numeric-metric {
+                display: inline-block;
+                padding: 0 5px;
+                text-align: center;
+                width: 50%;
+            }
+        }
+
+        .metric-label {
+            width: 30%
+        }
+
+        .metric-container-wrapper {
+            width: 70%;
+
+            .metric-container {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        .metric-goal-heading {
+            .goal-heading,
+            .actual-heading {
+                width: 50%;
+                text-align: center;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .metric-goal-heading {
+            margin-left: 150px;
+
+            .goal-heading,
+            .actual-heading {
+                width: 140px;
+            }
+        }
+
+        .metric-label {
+            width: 150px;
+        }
+
+        .metric-container-wrapper {
+            width: auto;
+
+            .numeric-metric {
+                width: 140px;
+            }
+        }
+    }
+
+
+}
+
+
+// END STYLES FOR NEW HTML
 
 .photo-metric {
     display: block;
@@ -253,7 +608,7 @@ span.metric-bucket.value-component {
     .section .sub-section + .sub-section & {
         .prop-viewer {
             .prop-header-actions {
-                top: 50px;
+                top: 100px;
             }
         }
     }
@@ -304,6 +659,16 @@ span.metric-bucket.value-component {
 
                 .file-actions {
                     text-align: right;
+                }
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .section .sub-section + .sub-section & {
+            .prop-viewer {
+                .prop-header-actions {
+                    top: 50px;
                 }
             }
         }
@@ -410,6 +775,7 @@ span.metric-bucket.value-component {
     }
 }
 
+
 // User Management
 .user-management {
     .prop-header-title {
@@ -422,6 +788,10 @@ span.metric-bucket.value-component {
         a {
             @include style-button-base;
         }
+    }
+
+    .search {
+        margin-top: 5px;
     }
 
     .entity-actions a,
@@ -465,7 +835,7 @@ span.metric-bucket.value-component {
         }
 
         .entity-actions {
-            top: 15px;
+            top: 3px;
         }
 
         .entity-actions a,
@@ -477,6 +847,42 @@ span.metric-bucket.value-component {
 }
 
 // styles for edit pages only
+.engagement-editor {
+    input[type=number],
+    input[type=password],
+    input[type=text] {
+        width: 70px;
+        display: inline-block;
+    }
+
+    .metric-group-container {
+        &.consumer-profile {
+            .metric-bucket-item-container {
+                .metric-container {
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    .metric-bucket,
+    .metric-container.monetary-metric,
+    .metric-container.numeric-metric {
+        > div {
+            div.value-component {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .metric-group {
+        .metric-container.numeric-metric {
+            .value-component {
+                text-align: left;
+            }
+        }
+    }
+}
 
 @include breakpoint($bp-mobile-landscape) {
     .engagement-editor {
@@ -492,15 +898,7 @@ span.metric-bucket.value-component {
             }
         }
 
-        .metric-bucket,
-        .metric-container.monetary-metric,
-        .metric-container.numeric-metric {
-            > div {
-                div.value-component {
-                    border-bottom: none;
-                }
-            }
-        }
+
 
         //span.metric-bucket.value-component {
         //  border-bottom: none;
@@ -509,7 +907,6 @@ span.metric-bucket.value-component {
 }
 
 // Styles for new engagement site edit which has a wonky question structure
-
 .engagement-site.prop-editor {
     @include style-contentbox;
 
@@ -567,6 +964,7 @@ span.metric-bucket.value-component {
         .prop-group {
             margin: 0;
         }
+
         .siteName,
         .address_form,
         .custom-fields {

@@ -1,4 +1,5 @@
 //TODO remove .section after remove the display inline and text transform from manage template
+
 .section {
     padding: 0; //FIXME remove once integrate manage CSS
 
@@ -7,23 +8,23 @@
         padding: 10px 25px;
         background-color: $color-grey-f2;
 
-        //FIXME get class added for btn
-        .section-header-actions > a {
-            position: relative;
-            display: inline-block;
-            top: auto;
-            right: auto;
+        .section-header-actions {
+            > .expand-all,
+            > .collapse-all {
+                position: relative;
+                display: inline-block;
+                top: auto;
+                right: auto;
 
-            + a {
-                margin-left: 5px;
+                + .expand-all,
+                + .collapse-all {
+                    margin-top: 5px;
+                }
             }
         }
     }
 
     .section-header-actions {
-        float: right;
-        margin-left: 10px;
-
         .btn {
             vertical-align: top;
         }
@@ -41,18 +42,19 @@
     }
 
     .sub-section-header {
+        margin-left: 0;
 
         .sub-section-heading {
-            margin-right: 10px;
+            margin: 13px 0 5px;
+            display: block;
         }
 
         .metric-set-value-count {
-            margin-right: 10px;
-            //padding-left: 0; //FIXME remove when otehr styles gone
-            display: inline-block;
-            vertical-align: bottom;
+            margin-left: 35px;
+            display: block;
+            padding-top: 5px;
 
-            /*&:before {
+            &:before {
                 display: inline-block;
                 vertical-align: middle;
                 color: $color-grey-e2;
@@ -60,12 +62,12 @@
                 font-size: 20px;
                 font-family: $font-glyph-lib;
                 margin-right: 15px;
-            }*/
+            }
         }
 
         .metric-value-bar {
             display: inline-block;
-            width: 50px;
+            width: 45%;
             background-color: $color-grey-cc;
             height: 8px;
             margin-right: 5px;
@@ -99,32 +101,30 @@
         }
     }
 
-    .sub-section-complete {
-        .metric-set-value-count {
-            &:before {
-                color: $app--message-success-glyph-color;
-            }
-        }
-    }
 
     .sub-section {
+        position: relative;
+        overflow: hidden;
+        padding-top: 10px;
 
-        .prop-header-actions {
-            top: auto;
-            margin-top: 0; //FIXME remove this and above
+        &.complete {
+            .metric-set-value-count {
+                &:before {
+                    color: $app--message-success-glyph-color;
+                }
+            }
         }
 
-        + .sub-section {
-            .prop-header-actions {
-                top: auto;
-            }
+        .header-actions {
+            position: absolute;
+            right: 0;
+            top: 8px;
         }
 
         > .miwt-collapsable {
             &.shown {
                 padding: 10px 25px;
                 margin-top: 10px;
-                margin-left: 115px;
                 margin-bottom: 15px;
             }
 
@@ -132,5 +132,74 @@
 
             }
         }
+    }
+
+    @include breakpoint($bp-mobile-only) {
+        .sub-section {
+            button.btn.trigger {
+                height: 30px;
+                width: 30px;
+                top: 8px;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .section-header {
+            .section-header-actions {
+                > .expand-all,
+                > .collapse-all {
+                    + .expand-all,
+                    + .collapse-all {
+                        margin-top: 0;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+
+        .section-header-actions {
+            float: right;
+            margin-left: 10px;
+        }
+
+        .sub-section-header {
+            display: inline-block;
+            vertical-align: middle;
+
+            .sub-section-heading {
+                margin: 0 0 0 10px;
+                display: inline-block;
+            }
+
+            .metric-set-value-count {
+                margin-left: 25px;
+                padding-top: 0;
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
+            .metric-value-bar {
+                width: 50px;
+            }
+        }
+
+        .sub-section {
+            .header-actions {
+                position: relative;
+                right: auto;
+                top: -2px;
+                display: inline-block;
+                float: right;
+            }
+
+            button.btn.trigger {
+                top: 13px;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+
     }
 }
