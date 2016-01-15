@@ -6,3 +6,11 @@
 a[title="Take Survey"] {
   @include style-button-base();
 }
+
+.btn-edit,
+.btn-delete {
+  &:before {
+    display: none;
+  }
+}
+
