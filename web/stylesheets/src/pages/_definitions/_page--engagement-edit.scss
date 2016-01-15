@@ -366,11 +366,9 @@ span.metric-bucket.value-component {
             }
 
             .view-engagement & {
-
                 .val {
                     width: auto;
                     border-bottom: 1px solid $color-grey-77;
-                    //min-width: 25px;
                     padding: 0 4px 5px;
                 }
             }
@@ -384,9 +382,12 @@ span.metric-bucket.value-component {
         margin: 5px 0;
     }
 
-    .group-label {
-        margin-top: 50px;
+    @include breakpoint($bp-tablets-portrait) {
+        .group-label {
+            margin-top: 50px;
+        }
     }
+
 
     @include breakpoint($bp-tablets-landscape) {
         &.consumer-profile {
@@ -400,6 +401,13 @@ span.metric-bucket.value-component {
                         margin-left: 40px;
                     }
                 }
+            }
+        }
+
+        &.purchase-motivators {
+            .metric {
+                width: 300px;
+                display: table;
             }
         }
     }
@@ -613,15 +621,6 @@ span.metric-bucket.value-component {
         }
     }
 
-    .prop-editor {
-        .prop-header .actions {
-            margin-top: 60px;
-        }
-    }
-
-    .prop-footer .actions {
-        margin-top: -30px;
-    }
 
     .filemetric-interactions {
         margin-bottom: 70px;
@@ -634,6 +633,8 @@ span.metric-bucket.value-component {
 
         .props {
             display: table;
+            table-layout: fixed;
+            max-width: 90%;
             width: 100%;
             box-shadow: 0 0 2px $color-grey-99;
 
@@ -654,21 +655,54 @@ span.metric-bucket.value-component {
                 }
 
                 .select-for-download {
-                    width: 150px;
+                    width: 50px;
+
+                    .tbl {
+                        display: none;
+                    }
+                }
+
+                .file-name {
+                    padding-left: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
 
                 .file-actions {
                     text-align: right;
+                    padding-left: 0;
+                    width: 50px;
                 }
             }
         }
     }
 
     @include breakpoint($bp-tablets-portrait) {
+        .prop-editor {
+            .prop-header .actions {
+                margin-top: 60px;
+            }
+        }
+
         .section .sub-section + .sub-section & {
             .prop-viewer {
                 .prop-header-actions {
                     top: 50px;
+                }
+            }
+        }
+
+        .filemetric-listing {
+            .props {
+                .filemetric-row {
+                    .select-for-download {
+                        width: 150px;
+
+                        .tbl {
+                            display: inline-block;
+                        }
+                    }
                 }
             }
         }
@@ -853,6 +887,10 @@ span.metric-bucket.value-component {
     input[type=text] {
         width: 70px;
         display: inline-block;
+
+        &.metric-bucket-item {
+            width: 50px;
+        }
     }
 
     .metric-group-container {
@@ -882,28 +920,22 @@ span.metric-bucket.value-component {
             }
         }
     }
-}
 
-@include breakpoint($bp-mobile-landscape) {
-    .engagement-editor {
-        .sub-section-container,
-        .metric-container,
-        .prop-group.default-group .prop {
-            margin-right: 25px;
-        }
 
-        .prop-group.default-group {
-            .metric-container .prop {
-                margin-right: 0;
+    @include breakpoint($bp-mobile-landscape) {
+            .sub-section-container,
+            .metric-container,
+            .prop-group.default-group .prop {
+                margin-right: 25px;
             }
-        }
 
-
-
-        //span.metric-bucket.value-component {
-        //  border-bottom: none;
-        //}
+            .prop-group.default-group {
+                .metric-container .prop {
+                    margin-right: 0;
+                }
+            }
     }
+
 }
 
 // Styles for new engagement site edit which has a wonky question structure

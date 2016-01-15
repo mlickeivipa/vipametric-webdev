@@ -32,7 +32,7 @@
 
     .section-content,
     .section-header + div {
-        padding: 15px 25px;
+        padding: 5px 25px 15px;
     }
 
     &.media {
@@ -52,7 +52,6 @@
         .metric-set-value-count {
             margin-left: 35px;
             display: block;
-            padding-top: 5px;
 
             &:before {
                 display: inline-block;
@@ -121,6 +120,7 @@
             top: 8px;
         }
 
+
         > .miwt-collapsable {
             &.shown {
                 padding: 10px 25px;
@@ -145,10 +145,23 @@
     }
 
     @include breakpoint($bp-tablets-portrait) {
+        .section-header a {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
         .section-header {
+            a {
+                display: inline-block;
+                width: auto;
+            }
+
             .section-header-actions {
                 > .expand-all,
                 > .collapse-all {
+
                     + .expand-all,
                     + .collapse-all {
                         margin-top: 0;
@@ -174,7 +187,6 @@
 
             .metric-set-value-count {
                 margin-left: 25px;
-                padding-top: 0;
                 display: inline-block;
                 vertical-align: bottom;
             }
@@ -193,6 +205,11 @@
                 float: right;
             }
 
+            .prop-footer-actions {
+                position: absolute;
+                right: 0;
+            }
+
             button.btn.trigger {
                 top: 13px;
             }
@@ -200,6 +217,10 @@
     }
 
     @include breakpoint($bp-tablets-portrait) {
-
+        .sub-section {
+            .prop-footer .actions {
+                margin-top: -30px;
+            }
+        }
     }
 }

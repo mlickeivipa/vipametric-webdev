@@ -62,12 +62,14 @@
         }
     }
 
-    @include breakpoint($bp-tablets-portrait) {
+
+    @include breakpoint($bp-desktop) {
         .engagement-start-date,
         .enagement-start-date,
         .engagement-end-date {
             display: inline-block;
             vertical-align: top;
+            min-width: 250px;
         }
 
         .engagement-end-date {
