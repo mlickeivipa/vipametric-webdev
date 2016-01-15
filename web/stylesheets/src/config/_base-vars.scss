@@ -4,6 +4,7 @@ $color-grey-f2: #f2f2f2;
 $color-grey-e2: #e2e2e2;
 $color-grey-e7: #e7e7e7;
 $color-grey-dd: #ddd;
+$color-grey-d0: #d0d0d0;
 $color-grey-cc: #ccc;
 $color-grey-aa: #aaa;
 $color-grey-99: #999;
@@ -43,6 +44,7 @@ $html-entity-nbsp: "\a0";
 $html-entity-rarr: "\2192";
 @import "font-glyph-entities";
 
+$bp-mobile-only: (max-width: 767px);
 $bp-mobile-landscape: (min-width: 480px);
 $bp-tablets-portrait: (min-width: 768px);
 $bp-tablets-landscape: (min-width: 1024px);
