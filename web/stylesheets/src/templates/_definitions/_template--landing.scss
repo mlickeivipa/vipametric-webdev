@@ -124,9 +124,37 @@ input {
 		@include style-h2;
 	}
 
+	.props > .prop + .prop {
+		margin-top: 15px;
+	}
+
 	label {
 		@include style-label;
 		display: block;
+	}
+
+	.label-after {
+		display: inline-block;
+		vertical-align: top;
+
+		+ .label-after {
+			margin-left: 10px;
+		}
+
+		input,
+		label {
+			width: auto;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		label {
+			margin-left: 5px;
+		}
+	}
+
+	.extension_label-con {
+		padding: 0 5px;
 	}
 
 	input {
