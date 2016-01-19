@@ -1,0 +1,104 @@
+.file-metric {
+    width: 100%;
+
+    .metric-label {
+        display: block;
+    }
+
+    .label-component,
+    .value-component {
+        display: block;
+        width: 100%;
+    }
+
+    .section .sub-section + .sub-section & {
+        .prop-viewer {
+            .prop-header-actions {
+                top: 100px;
+            }
+        }
+    }
+
+    .filemetric-interactions {
+        margin-bottom: 70px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $color-grey-e7;
+    }
+
+    .filemetric-listing {
+        width: 100%;
+        margin-bottom: 50px;
+
+        .props {
+            display: table;
+            table-layout: fixed;
+            max-width: 90%;
+            width: 100%;
+            box-shadow: 0 0 2px $color-grey-99;
+
+            .filemetric-row {
+                display: table-row;
+
+                &:nth-child(even) {
+                    > div {
+                        background-color: $color-grey-f2;
+                    }
+                }
+
+                .select-for-download,
+                .file-name,
+                .file-actions {
+                    display: table-cell;
+                    padding: 10px 15px;
+                }
+
+                .select-for-download {
+                    width: 50px;
+
+                    .tbl {
+                        display: none;
+                    }
+                }
+
+                .file-name {
+                    padding-left: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .file-actions {
+                    text-align: right;
+                    padding-left: 0;
+                    width: 50px;
+                }
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .section .sub-section + .sub-section & {
+            .prop-viewer {
+                .prop-header-actions {
+                    top: 50px;
+                }
+            }
+        }
+
+        .filemetric-listing {
+            .props {
+                max-width: none;
+
+                .filemetric-row {
+                    .select-for-download {
+                        width: 150px;
+
+                        .tbl {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

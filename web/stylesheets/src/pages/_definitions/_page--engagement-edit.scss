@@ -1,38 +1,11 @@
 @import "_page--engagement-edit/engagement-info";
 @import "_page--engagement-edit/sections";
 @import "_page--engagement-edit/surveys";
+@import "_page--engagement-edit/goals";
 @import "_page--engagement-edit/leads";
 @import "_page--engagement-edit/media-manager";
-@import "_page--engagement-edit/photos";
-
-// Engagement Overview Section styles
-.engagement-overview {
-    .sub-section-container,
-    .metric-container {
-        display: inline-block;
-        vertical-align: top;
-        margin-right: 25px;
-    }
-
-    .metric-container.string-metric {
-        input {
-            min-width: 200px;
-        }
-    }
-
-    .engagement-site .btn {
-        margin-left: $app--btn-spacing-between-btns;
-    }
-
-    @include breakpoint($bp-mobile-landscape) {
-        .sub-section-container,
-        .metric-container {
-            display: inline-block;
-            vertical-align: top;
-            margin-right: 50px;
-        }
-    }
-}
+@import "_page--engagement-edit/file-metrics";
+@import "_page--engagement-edit/photo-metrics";
 
 // event pictures {
 .event-pictures {
@@ -47,143 +20,11 @@
     }
 }
 
-.prop {
-    &-group-title {
-        font-family: $font-open-sans-semi-bold;
-    }
-
-    &-wrapper.event-pictures {
-        position: relative;
-    }
-
-    &-header-actions {
-        margin-top: 5px;
-
-        .btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-
-            + .btn {
-                margin-top: $app--btn-spacing-between-btns;
-            }
-        }
-    }
-
-    &-body {
-        margin-top: 15px;
-    }
-
-    &-group {
-        margin-right: 15px;
-        margin-bottom: 15px;
-        display: inline-block;
-        vertical-align: top;
-        min-width: 220px;
-        max-width: 100%;
-    }
-
-    &-group.default-group {
-        display: block;
-
-        .prop {
-            display: inline-block;
-            vertical-align: top;
-            margin-right: 15px;
-        }
-    }
-
-    @include breakpoint($bp-mobile-landscape) {
-        &-header-actions {
-            margin-top: -5px;
-
-            .btn {
-                display: inline-block;
-                vertical-align: middle;
-                width: auto;
-
-                + .btn {
-                    margin-top: 0;
-                }
-            }
-        }
-
-        &-group {
-            margin-right: 50px;
-            margin-bottom: 50px;
-        }
-
-        &-group.default-group {
-            margin-right: 0;
-
-            .prop {
-                margin-right: 50px;
-            }
-        }
-    }
-}
-
-//metric Feedback
-.prop-body {
-    .label-component,
-    .value-component,
-    label,
-    input {
-        font-weight: normal;
-    }
-
-    @include breakpoint($bp-mobile-landscape) {
-        .label-component,
-        .value-component,
-        label,
-        input {
-            display: inline-block;
-            vertical-align: middle;
-            padding-right: 5px;
-        }
-    }
-
-    .vertical-label-component,
-    .string-metric .label-component {
-        display: block;
-        width: auto;
-        margin: 5px 0;
-        font-family: $font-open-sans-semi-bold;
-    }
-
-    .value-component span {
-        color: $color-grey-77;
-    }
-
-    @include text-like-inputs {
-        width: 70px;
-    }
-
-    input[type="file"] {
-        padding-bottom: 15px;
-    }
-
-    textarea {
-        width: 100%;
-    }
-
-    .choice-metric {
-        display: inline-block;
-        vertical-align: top;
-
-        @include breakpoint($bp-mobile-landscape) {
-            margin-right: 50px;
-        }
-    }
-
-}
-
 .metric-group {
     display: block;
 }
 
-.metric-container,
-.prop-group {
+.metric-container {
     display: inline-block;
     vertical-align: top;
 }
@@ -243,9 +84,24 @@ span.metric-bucket.value-component {
 
 .sub-section {
     .metric-group-container {
-
         margin-top: 0;
         margin-bottom: 50px;
+
+        .view-engagement & {
+            .metric-group .metric-container.numeric-metric .value-component {
+                min-width: 0 !important;
+
+                .val {
+                    padding: 5px;
+                    border-bottom: 1px solid $color-grey-77;
+                }
+            }
+        }
+
+        .vertical-value-component,
+        .vertical-label-component {
+            display: block;
+        }
 
         .metric-group {
             .metric {
@@ -293,12 +149,6 @@ span.metric-bucket.value-component {
         }
 
         &.consumer-profile {
-            /*.metric-group {
-                .metric + .metric {
-                    margin-top: 20px;
-                }
-            }*/
-
             .metric-label {
                 display: block;
             }
@@ -410,7 +260,6 @@ span.metric-bucket.value-component {
         }
 
         @include breakpoint($bp-tablets-portrait) {
-
             .metric-group {
                 .metric {
                     display: table-row;
@@ -418,29 +267,19 @@ span.metric-bucket.value-component {
                 }
             }
 
-            .group-label {
-               // margin-top: 50px;
-            }
-
             .metric-label {
-                //display: table-cell;
                 width: auto;
             }
 
             .metric-container-wrapper {
-                //width: auto;
-                //display: table-cell;
-
                 .numeric-metric,
                 .monetary-metric {
                     width: 120px;
                     padding-left: 10px;
                 }
 
-                .metric-container {
-                    .value-component {
-                        //padding: 0 5px;
-                    }
+                .MostPopularBrands.string-metric {
+                    padding-left: 15px;
                 }
             }
         }
@@ -463,13 +302,6 @@ span.metric-bucket.value-component {
                     }
                 }
             }
-
-            &.purchase-motivators {
-                /*.metric {
-                    width: 300px;
-                    display: table;
-                }*/
-            }
         }
 
         @include breakpoint($bp-desktop) {
@@ -485,20 +317,8 @@ span.metric-bucket.value-component {
                         }
                     }
                 }
-
-                /*.metric-bucket-item-container {
-                    .metric-bucket-item-label,
-                    .metric-container {
-                        width: 130px;
-                    }
-                }
-
-                .label-component {
-                    width: 130px;
-                }*/
             }
         }
-
     }
 
     .metric {
@@ -513,21 +333,6 @@ span.metric-bucket.value-component {
 
         .value-component {
             color: $color-grey-77;
-        }
-    }
-
-    /*.product-sales,
-    .kpi,
-    .kpi-goal-display*/ .metric-group-container {
-        .view-engagement & {
-            .metric-group .metric-container.numeric-metric .value-component {
-                min-width: 0 !important;
-
-                .val {
-                    padding: 5px;
-                    border-bottom: 1px solid $color-grey-77;
-                }
-            }
         }
     }
 
@@ -575,7 +380,6 @@ span.metric-bucket.value-component {
         }
 
         @include breakpoint($bp-mobile-landscape) {
-
             .metric-goal-heading {
                 display: block;
                 margin-left: 30%;
@@ -595,8 +399,6 @@ span.metric-bucket.value-component {
                 .numeric-metric,
                 .monetary-metric {
                     display: inline-block;
-                    //padding: 0 5px;
-                    //width: 50%;
                 }
             }
 
@@ -647,7 +449,6 @@ span.metric-bucket.value-component {
         }
     }
 }
-
 
 // begin styles for legacy clients
 .ConsumerPurchasingKnowledge,
@@ -759,12 +560,33 @@ span.metric-bucket.value-component {
     }
 }
 
+.sub-section {
+    .metric-group-container {
+        &.competitor-price,
+        &.competitor-sale-price,
+        &.product-price,
+        &.product-sale-price {
+            .metric .value-component {
+                border-bottom: 1px solid $color-grey-77;
+            }
+        }
+
+        &.competitive-samplings {
+            .metric-label,
+            .metric-container-wrapper {
+                display: block;
+                padding: 0;
+            }
+        }
+    }
+}
+
 // end legacy client styles
 
 // END STYLES FOR NEW HTML
 
 // STYLES FOR VM-440, MEDIA SUMMARY WIDGET
-.primary-content {
+.primary-content.vipametric-wrapper {
     @include breakpoint($bp-tablets-landscape) {
         margin-right: 240px;
     }
@@ -778,139 +600,6 @@ span.metric-bucket.value-component {
 }
 
 // END STYLES FOR VM-440
-
-.photo-metric {
-    display: block;
-
-    .prop-body {
-        margin-top: 5px;
-    }
-
-    .label-component {
-        display: block;
-    }
-
-    .value-component {
-        display: block;
-        margin: 0;
-    }
-    .section .sub-section & {
-        .prop-header-actions {
-            position: relative;
-            margin-bottom: 10px;
-        }
-    }
-}
-
-.file-metric {
-    width: 100%;
-
-    .metric-label {
-        display: block;
-    }
-
-    .label-component,
-    .value-component {
-        display: block;
-        width: 100%;
-    }
-
-    .section .sub-section + .sub-section & {
-        .prop-viewer {
-            .prop-header-actions {
-                top: 100px;
-            }
-        }
-    }
-
-
-    .filemetric-interactions {
-        margin-bottom: 70px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid $color-grey-e7;
-    }
-
-    .filemetric-listing {
-        width: 100%;
-
-        .props {
-            display: table;
-            table-layout: fixed;
-            max-width: 90%;
-            width: 100%;
-            box-shadow: 0 0 2px $color-grey-99;
-
-            .filemetric-row {
-                display: table-row;
-
-                &:nth-child(even) {
-                    > div {
-                        background-color: $color-grey-f2;
-                    }
-                }
-
-                .select-for-download,
-                .file-name,
-                .file-actions {
-                    display: table-cell;
-                    padding: 10px 15px;
-                }
-
-                .select-for-download {
-                    width: 50px;
-
-                    .tbl {
-                        display: none;
-                    }
-                }
-
-                .file-name {
-                    padding-left: 0;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-
-                .file-actions {
-                    text-align: right;
-                    padding-left: 0;
-                    width: 50px;
-                }
-            }
-        }
-    }
-
-    @include breakpoint($bp-tablets-portrait) {
-        .prop-editor {
-            .prop-header .actions {
-                margin-top: 60px;
-            }
-        }
-
-        .section .sub-section + .sub-section & {
-            .prop-viewer {
-                .prop-header-actions {
-                    top: 50px;
-                }
-            }
-        }
-
-        .filemetric-listing {
-            .props {
-                .filemetric-row {
-                    .select-for-download {
-                        width: 150px;
-
-                        .tbl {
-                            display: inline-block;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 
 .default-group {
     .numeric-metric {
@@ -928,7 +617,6 @@ span.metric-bucket.value-component {
 }
 
 // Consumer profile only
-
 .consumer-profile {
     .metric-container {
         .label-component {

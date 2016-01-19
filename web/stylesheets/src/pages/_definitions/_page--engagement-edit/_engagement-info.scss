@@ -82,6 +82,13 @@
 .engagement-time {
     font-size: 13px;
     color: $color-grey-77;
+
+    &:empty:before {
+        content: "--";
+        font-style: italic;
+        font-size: 12px;
+        color: $color-grey-99;
+    }
 }
 
 .engagement-time-sep {
