@@ -2,6 +2,8 @@
 @import "_page--engagement-edit/sections";
 @import "_page--engagement-edit/surveys";
 @import "_page--engagement-edit/leads";
+@import "_page--engagement-edit/media-manager";
+@import "_page--engagement-edit/photos";
 
 // Engagement Overview Section styles
 .engagement-overview {
@@ -122,7 +124,6 @@
 }
 
 //metric Feedback
-
 .prop-body {
     .label-component,
     .value-component,
@@ -240,22 +241,272 @@ span.metric-bucket.value-component {
 
 // STYLES FOR NEW HTML FOR VM-412
 
-.content {
-    > .metric-group-container {
-        + .metric,
-        + .metric-group-container {
-            margin-top: 50px;
-        }
-    }
+.sub-section {
+    .metric-group-container {
 
-    > .metric {
-        + .metric,
-        + .metric-group-container {
-            margin-top: 50px;
+        margin-top: 0;
+        margin-bottom: 50px;
+
+        .metric-group {
+            .metric {
+                display: block;
+                margin: 0;
+
+                + .metric {
+                    margin: 0;
+                }
+            }
         }
+
+        .metric-label,
+        .group-label {
+            display: block;
+            font-family: $font-open-sans-semi-bold;
+            margin: 5px 0;
+        }
+
+        .metric-label {
+            padding-top: 10px;
+        }
+
+        .metric-container-wrapper {
+            display: table;
+            width: 100%;
+        }
+
+        .metric-goal-heading {
+            display: none;
+            font-family: $font-open-sans-semi-bold;
+
+            .goal-heading,
+            .actual-heading {
+                display: inline-block;
+            }
+
+            .goal-heading {
+                width: 70%;
+            }
+
+            .actual-heading {
+                width: 30%;
+            }
+        }
+
+        &.consumer-profile {
+            /*.metric-group {
+                .metric + .metric {
+                    margin-top: 20px;
+                }
+            }*/
+
+            .metric-label {
+                display: block;
+            }
+
+            .metric-bucket-item-container {
+                &:last-child {
+                    .metric-bucket-item {
+                        width: 100%;
+                        text-align: left;
+                        display: table;
+                    }
+
+                    .label-component {
+                        color: $color--theme-accent;
+                        text-align: left;
+                        display: table-cell;
+                        padding: 5px 15px 5px 0;
+                    }
+
+                    .value-component {
+                        text-align: right;
+                        display: table-cell;
+                        padding: 5px 0 5px 0;
+                        font-family: $font-open-sans-semi-bold;
+                    }
+                }
+
+                .metric-bucket-item-label {
+                    color: $color-grey-77;
+                    font-family: $font-open-sans-semi-bold;
+                }
+
+                .metric-bucket-item-label,
+                .metric-container {
+                    width: 85px;
+                    display: table-cell;
+                    padding: 5px 15px 5px 0;
+                }
+
+                .metric-container {
+                    text-align: right;
+                    min-width: 85px;
+                    color: $color-grey-77;
+
+                    .view-engagement & {
+                        .metric-bucket-item,
+                        .after-value-component {
+                            border-bottom: 1px solid $color-grey-77;
+                            display: inline-block;
+                            vertical-align: bottom;
+                        }
+                    }
+
+                    .metric-bucket-item {
+                        min-width: 25px;
+                        min-height: 18px;
+                        padding: 0 0 5px 4px;
+                    }
+
+                    .after-value-component {
+                        padding: 0 3px 5px 0;
+                    }
+                }
+
+                .label-component {
+                    width: 85px;
+                }
+            }
+        }
+
+        &.purchase-motivators {
+            .metric-label,
+            .metric-container-wrapper {
+                display: table-cell;
+                vertical-align: middle;
+                padding: 5px 15px 5px 0;
+            }
+
+            .metric-label {
+                width: 100px;
+            }
+
+            .metric {
+                width: 100%;
+                display: table;
+            }
+
+            .metric-container-wrapper {
+                text-align: right;
+                color: $color-grey-77;
+
+                .numeric-metric,
+                .monetary-metric {
+                    display: block;
+
+                    .value-component {
+                        min-width: 0;
+                    }
+                }
+
+                .view-engagement & {
+                    .val {
+                        width: auto;
+                        border-bottom: 1px solid $color-grey-77;
+                        padding: 0 4px 5px;
+                    }
+                }
+            }
+        }
+
+        @include breakpoint($bp-tablets-portrait) {
+
+            .metric-group {
+                .metric {
+                    display: table-row;
+                    margin: 0;
+                }
+            }
+
+            .group-label {
+               // margin-top: 50px;
+            }
+
+            .metric-label {
+                //display: table-cell;
+                width: auto;
+            }
+
+            .metric-container-wrapper {
+                //width: auto;
+                //display: table-cell;
+
+                .numeric-metric,
+                .monetary-metric {
+                    width: 120px;
+                    padding-left: 10px;
+                }
+
+                .metric-container {
+                    .value-component {
+                        //padding: 0 5px;
+                    }
+                }
+            }
+        }
+
+        @include breakpoint($bp-tablets-landscape) {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 50px;
+
+            &.consumer-profile {
+                .metric-group {
+                    .metric {
+                        display: inline-block;
+                        vertical-align: top;
+
+                        + .metric {
+                            margin-top: 0;
+                            margin-left: 40px;
+                        }
+                    }
+                }
+            }
+
+            &.purchase-motivators {
+                /*.metric {
+                    width: 300px;
+                    display: table;
+                }*/
+            }
+        }
+
+        @include breakpoint($bp-desktop) {
+            &.consumer-profile {
+                .metric-group {
+                    .metric {
+                        display: inline-block;
+                        vertical-align: top;
+
+                        + .metric {
+                            margin-top: 0;
+                            margin-left: 70px;
+                        }
+                    }
+                }
+
+                /*.metric-bucket-item-container {
+                    .metric-bucket-item-label,
+                    .metric-container {
+                        width: 130px;
+                    }
+                }
+
+                .label-component {
+                    width: 130px;
+                }*/
+            }
+        }
+
     }
 
     .metric {
+        + .metric,
+        + .metric-group-container {
+            margin-top: 50px;
+        }
+
         .metric-label {
             font-family: $font-open-sans-semi-bold;
         }
@@ -264,322 +515,269 @@ span.metric-bucket.value-component {
             color: $color-grey-77;
         }
     }
-}
 
-.metric-group-container {
-    &.consumer-profile {
-        .metric-group {
-            .metric + .metric {
-                margin-top: 20px;
-            }
-        }
+    /*.product-sales,
+    .kpi,
+    .kpi-goal-display*/ .metric-group-container {
+        .view-engagement & {
+            .metric-group .metric-container.numeric-metric .value-component {
+                min-width: 0 !important;
 
-        .metric-bucket-item-container {
-            &:last-child {
-                .metric-bucket-item {
-                    width: 100%;
-                    text-align: left;
-                    display: table;
-                }
-
-                .label-component {
-                    color: $color--theme-accent;
-                    text-align: left;
-                    display: table-cell;
-                    padding: 5px 15px 5px 0;
-                }
-
-                .value-component {
-                    text-align: right;
-                    display: table-cell;
-                    padding: 5px 0 5px 0;
-                    font-family: $font-open-sans-semi-bold;
-                }
-            }
-
-            .metric-bucket-item-label {
-                color: $color-grey-77;
-                font-family: $font-open-sans-semi-bold;
-            }
-
-            .metric-bucket-item-label,
-            .metric-container {
-                width: 85px;
-                display: table-cell;
-                padding: 5px 15px 5px 0;
-            }
-
-            .metric-container {
-                text-align: right;
-                min-width: 85px;
-                color: $color-grey-77;
-
-                .view-engagement & {
-                    .metric-bucket-item,
-                    .after-value-component {
-                        border-bottom: 1px solid $color-grey-77;
-                        display: inline-block;
-                        vertical-align: bottom;
-                    }
-                }
-
-                .metric-bucket-item {
-                    min-width: 25px;
-                    min-height: 18px;
-                    padding: 0 0 5px 4px;
-                }
-
-                .after-value-component {
-                    padding: 0 3px 5px 0;
-                }
-            }
-
-            .label-component {
-                width: 85px;
-            }
-        }
-    }
-
-    &.purchase-motivators {
-        .metric-label,
-        .metric-container-wrapper {
-            display: table-cell;
-            vertical-align: middle;
-            padding: 5px 15px 5px 0;
-        }
-
-        .metric {
-            width: 100%;
-            display: table;
-        }
-
-        .metric-container-wrapper {
-            text-align: right;
-            color: $color-grey-77;
-
-            .numeric-metric {
-                display: block;
-
-                .value-component {
-                    min-width: 0;
-                }
-            }
-
-            .view-engagement & {
-                .val {
-                    width: auto;
-                    border-bottom: 1px solid $color-grey-77;
-                    padding: 0 4px 5px;
-                }
-            }
-        }
-    }
-
-    .metric-label,
-    .group-label {
-        display: block;
-        font-family: $font-open-sans-semi-bold;
-        margin: 5px 0;
-    }
-
-    @include breakpoint($bp-tablets-portrait) {
-        .group-label {
-            margin-top: 50px;
-        }
-    }
-
-
-    @include breakpoint($bp-tablets-landscape) {
-        &.consumer-profile {
-            .metric-group {
-                .metric {
-                    display: inline-block;
-                    vertical-align: top;
-
-                    + .metric {
-                        margin-top: 0;
-                        margin-left: 40px;
-                    }
-                }
-            }
-        }
-
-        &.purchase-motivators {
-            .metric {
-                width: 300px;
-                display: table;
-            }
-        }
-    }
-
-    @include breakpoint($bp-desktop) {
-        &.consumer-profile {
-            .metric-bucket-item-container {
-                .metric-bucket-item-label,
-                .metric-container {
-                    width: 130px;
-                }
-            }
-
-            .label-component {
-                width: 130px;
-            }
-        }
-    }
-}
-
-.kpi {
-    .metric-group {
-        .metric {
-            display: block;
-            margin: 0;
-
-            + .metric {
-                margin: 0;
-            }
-        }
-    }
-
-    .metric-label {
-        padding-top: 10px;
-    }
-
-    .metric-container-wrapper {
-        display: table;
-        width: 100%;
-
-        .metric-container {
-            /*width: 30%;
-            display: table-cell;
-            vertical-align: middle;*/
-            display: block;
-
-            &:before {
-                content: "Actual";
-                width: 45px;
-                font-family: $font-open-sans-semi-bold;
-                font-style: italic;
-                display: inline-block;
-                vertical-align: middle;
-                margin-right: 5px;
-                text-align: right;
-                font-size: 12px;
-            }
-
-            .value-component {
-                padding: 0 5px;
-                min-width: 0;
-            }
-
-            .view-engagement & {
                 .val {
                     padding: 5px;
-                    width: auto;
                     border-bottom: 1px solid $color-grey-77;
-                    min-width: 25px;
-                    min-height: 18px;
-                    display: block;
                 }
             }
         }
-
-        .metric-container-goal {
-            &:before {
-                content: "Goal";
-            }
-        }
     }
 
-    .metric-goal-heading {
-        display: none;
-        font-family: $font-open-sans-semi-bold;
-
-        .goal-heading,
-        .actual-heading {
-            display: inline-block;
-        }
-
-        .goal-heading {
-            width: 70%;
-        }
-
-        .actual-heading {
-            width: 30%;
-        }
-    }
-
-
-    @include breakpoint($bp-mobile-landscape) {
-        .metric-goal-heading {
-            display: block;
-            margin-left: 30%;
-        }
-
-        .metric-label,
+    .kpi,
+    .kpi-goal-display,
+    .product-sales {
         .metric-container-wrapper {
-            display: inline-block;
-            padding: 5px 0;
-            vertical-align: middle;
-
-            .numeric-metric {
-                display: inline-block;
-                padding: 0 5px;
-                text-align: center;
-                width: 50%;
-            }
-        }
-
-        .metric-label {
-            width: 30%
-        }
-
-        .metric-container-wrapper {
-            width: 70%;
-
             .metric-container {
                 &:before {
-                    display: none;
+                    content: "Actual";
+                    width: 45px;
+                    font-family: $font-open-sans-semi-bold;
+                    font-style: italic;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    text-align: right;
+                    font-size: 12px;
+                }
+            }
+
+            .metric-container-goal {
+                &:before {
+                    content: "Goal";
                 }
             }
         }
 
         .metric-goal-heading {
+            display: none;
+            font-family: $font-open-sans-semi-bold;
+
             .goal-heading,
             .actual-heading {
-                width: 50%;
-                text-align: center;
+                display: inline-block;
+            }
+
+            .goal-heading {
+                width: 70%;
+            }
+
+            .actual-heading {
+                width: 30%;
+            }
+        }
+
+        @include breakpoint($bp-mobile-landscape) {
+
+            .metric-goal-heading {
+                display: block;
+                margin-left: 30%;
+
+                .goal-heading,
+                .actual-heading {
+                    width: 50%;
+                }
+            }
+
+            .metric-label,
+            .metric-container-wrapper {
+                padding: 5px 0;
+                vertical-align: middle;
+                display: table-cell;
+
+                .numeric-metric,
+                .monetary-metric {
+                    display: inline-block;
+                    //padding: 0 5px;
+                    //width: 50%;
+                }
+            }
+
+            .metric-label {
+                width: 30%
+            }
+
+            .metric-container-wrapper {
+                width: 70%;
+
+                .metric-container {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        @include breakpoint($bp-tablets-portrait) {
+            .metric-goal-heading {
+                margin-left: 150px;
+
+                .goal-heading,
+                .actual-heading {
+                    width: 120px;
+                    padding-left: 10px;
+                }
+            }
+
+            .metric-label {
+                display: table-cell;
+                width: auto;
+            }
+
+            .metric-container-wrapper {
+                width: auto;
+                display: table-cell;
             }
         }
     }
 
-    @include breakpoint($bp-tablets-portrait) {
-        .metric-goal-heading {
-            margin-left: 150px;
-
-            .goal-heading,
-            .actual-heading {
-                width: 140px;
-            }
-        }
-
-        .metric-label {
-            width: 150px;
-        }
-
-        .metric-container-wrapper {
-            width: auto;
-
-            .numeric-metric {
-                width: 140px;
+    .InMarketSurvey {
+        .value-component {
+            label {
+                display: inline-block;
+                margin-right: 40px;
             }
         }
     }
-
-
 }
 
 
+// begin styles for legacy clients
+.ConsumerPurchasingKnowledge,
+.BrandProductAndPrice,
+.CompetitorProductAndPrice {
+    .metric-group-container {
+        .metric-container-wrapper {
+            .metric-container {
+                &:before {
+                    content: "Actual";
+                    width: 45px;
+                    font-family: $font-open-sans-semi-bold;
+                    font-style: italic;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    text-align: right;
+                    font-size: 12px;
+                }
+            }
+
+            .metric-container-goal {
+                &:before {
+                    content: "Goal";
+                }
+            }
+        }
+
+        .metric-goal-heading {
+            display: none;
+            font-family: $font-open-sans-semi-bold;
+
+            .goal-heading,
+            .actual-heading {
+                display: inline-block;
+            }
+
+            .goal-heading {
+                width: 70%;
+            }
+
+            .actual-heading {
+                width: 30%;
+            }
+        }
+
+        @include breakpoint($bp-mobile-landscape) {
+
+            .metric-goal-heading {
+                display: block;
+                margin-left: 30%;
+
+                .goal-heading,
+                .actual-heading {
+                    width: 50%;
+                }
+            }
+
+            .metric-label,
+            .metric-container-wrapper {
+                padding: 5px 0;
+                vertical-align: middle;
+                display: table-cell;
+
+                .numeric-metric,
+                .monetary-metric {
+                    display: inline-block;
+                    //padding: 0 5px;
+                    //width: 50%;
+                }
+            }
+
+            .metric-label {
+                width: 30%
+            }
+
+            .metric-container-wrapper {
+                width: 70%;
+
+                .metric-container {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        @include breakpoint($bp-tablets-portrait) {
+            .metric-goal-heading {
+                margin-left: 150px;
+
+                .goal-heading,
+                .actual-heading {
+                    width: 120px;
+                    padding-left: 10px;
+                }
+            }
+
+            .metric-label {
+                display: table-cell;
+                width: auto;
+            }
+
+            .metric-container-wrapper {
+                width: auto;
+                display: table-cell;
+            }
+        }
+    }
+}
+
+// end legacy client styles
+
 // END STYLES FOR NEW HTML
+
+// STYLES FOR VM-440, MEDIA SUMMARY WIDGET
+.primary-content {
+    @include breakpoint($bp-tablets-landscape) {
+        margin-right: 240px;
+    }
+}
+
+.aside-content {
+    @include breakpoint($bp-tablets-landscape) {
+        float: right;
+        width: 220px;
+    }
+}
+
+// END STYLES FOR VM-440
 
 .photo-metric {
     display: block;
@@ -606,6 +804,10 @@ span.metric-bucket.value-component {
 
 .file-metric {
     width: 100%;
+
+    .metric-label {
+        display: block;
+    }
 
     .label-component,
     .value-component {
@@ -709,29 +911,6 @@ span.metric-bucket.value-component {
     }
 }
 
-.col-photos {
-    .props {
-        > div {
-            @include style-contentbox;
-            text-align: center;
-            margin-bottom: 15px;
-            width: 100%;
-
-            img {
-                max-width: 200px;
-            }
-        }
-    }
-
-    @include breakpoint($bp-mobile-landscape) {
-        .props {
-            > div {
-                display: table-cell;
-                width: auto;
-            }
-        }
-    }
-}
 
 .default-group {
     .numeric-metric {
@@ -828,6 +1007,10 @@ span.metric-bucket.value-component {
         margin-top: 5px;
     }
 
+    .search-results-con {
+        overflow-x: scroll;
+    }
+
     .entity-actions a,
     .btn.back {
         width: 100%;
@@ -890,6 +1073,31 @@ span.metric-bucket.value-component {
 
         &.metric-bucket-item {
             width: 50px;
+        }
+    }
+
+    .engagement-overview {
+        .name {
+            input[type="text"] {
+                width: auto;
+            }
+        }
+    }
+
+    .user-status {
+        .submitted-by,
+        .approved-by {
+            display: inline-block;
+            margin-right: 25px;
+        }
+    }
+
+    .custom-fields {
+        padding: 15px 25px;
+
+        button.btn.trigger {
+            left: 15px;
+            top: 18px;
         }
     }
 

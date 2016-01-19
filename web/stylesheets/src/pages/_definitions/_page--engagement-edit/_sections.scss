@@ -11,8 +11,9 @@
         .section-header-actions {
             > .expand-all,
             > .collapse-all {
+                display: block;
+                width: 100%;
                 position: relative;
-                display: inline-block;
                 top: auto;
                 right: auto;
 
@@ -100,7 +101,6 @@
         }
     }
 
-
     .sub-section {
         position: relative;
         overflow: hidden;
@@ -145,37 +145,6 @@
     }
 
     @include breakpoint($bp-tablets-portrait) {
-        .section-header a {
-            width: 100%;
-            display: block;
-        }
-    }
-
-    @include breakpoint($bp-tablets-portrait) {
-        .section-header {
-            a {
-                display: inline-block;
-                width: auto;
-            }
-
-            .section-header-actions {
-                > .expand-all,
-                > .collapse-all {
-
-                    + .expand-all,
-                    + .collapse-all {
-                        margin-top: 0;
-                        margin-left: 5px;
-                    }
-                }
-            }
-        }
-
-        .section-header-actions {
-            float: right;
-            margin-left: 10px;
-        }
-
         .sub-section-header {
             display: inline-block;
             vertical-align: middle;
@@ -221,6 +190,29 @@
             .prop-footer .actions {
                 margin-top: -30px;
             }
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .section-header {
+            .section-header-actions {
+                > .expand-all,
+                > .collapse-all {
+                    display: inline-block;
+                    width: auto;
+
+                    + .expand-all,
+                    + .collapse-all {
+                        margin-top: 0;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+
+        .section-header-actions {
+            float: right;
+            margin-left: 10px;
         }
     }
 }

@@ -1,0 +1,22 @@
+@import "_page--engagement-edit/photos";
+
+.metric-media-file {
+    display: table-cell;
+    vertical-align: middle;
+
+    + .metric-media-file {
+        padding-left: 15px;
+    }
+}
+
+.metric-wrap {
+    background: $color-white;
+    padding: 15px;
+}
+
+.image {
+    height: 100px;
+    width: 160px;
+    background-size: cover;
+    background-position: center center;
+}

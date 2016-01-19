@@ -1,7 +1,7 @@
 .engagement-info {
     position: relative;
     margin: 20px 0;
-    min-height: 250px;
+    min-height: 225px;
 }
 
 .engagement-name {
@@ -187,27 +187,43 @@
 
 .engagement-custom-fields {
     clear: right;
-    padding-top: 5px;
+    position: relative;
+    z-index: 99;
 
-    .header,
-    .trigger {
-        display: none;
+    .header {
+        font-family: $font-open-sans-semi-bold;
+        padding-left: 30px;
+        margin-bottom: 20px;
+    }
+
+    .metric-label {
+        font-family: $font-open-sans-semi-bold;
+    }
+
+    button.btn.trigger {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .metric {
+            display: inline-block;
+            vertical-align: top;
+
+            + .metric {
+                margin-left: 50px;
+                margin-top: 0;
+            }
+        }
     }
 
     @include breakpoint($bp-tablets-landscape) {
-        padding-top: 0;
-        margin-top: -100px;
-        margin-bottom: 100px;
+
     }
 }
 
 .engagement-assignee {
-    /*&:before {
-        @include glyphAdd($html-entity-profile, $size: 20px);
-        margin-right: 5px;
-        color: $color--theme-accent;
-    }*/
-
     .engagement-assignee-label,
     .engagement-assignee-name {
         display: inline-block;
@@ -241,11 +257,11 @@
     margin-top: 5px;
     clear: both;
 
-    /*&:before {
+    &:before {
         @include glyphAdd($html-entity-warning, $size: 20px);
         margin-right: 5px;
         color: $color--theme-accent;
-    }*/
+    }
 
     .engagement-status-label,
     .engagement-status-text {
