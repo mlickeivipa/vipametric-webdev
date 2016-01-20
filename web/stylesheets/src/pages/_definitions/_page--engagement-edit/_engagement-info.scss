@@ -247,6 +247,8 @@
     }
 }
 
+.engagement-industry,
+.engagement-event-type,
 .engagement-submitter,
 .engagement-approver {
     label,
@@ -264,11 +266,11 @@
     margin-top: 5px;
     clear: both;
 
-    &:before {
+    /*&:before {
         @include glyphAdd($html-entity-warning, $size: 20px);
         margin-right: 5px;
         color: $color--theme-accent;
-    }
+    }*/
 
     .engagement-status-label,
     .engagement-status-text {

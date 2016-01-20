@@ -8,7 +8,7 @@
 	}
 }
 .media-summary-info {
-	padding: 5px 15px;
+	padding: 15px !important;
 }
 
 .media-manager-heading,
@@ -41,8 +41,21 @@
 .media-manager-actions,
 .media-summary-actions {
 	position: absolute;
-	right: 0;
-	top: 47px;
+	right: 15px;
+	top: 62px;
+
+	.btn-download {
+		@include style-button-base;
+		padding: 2px 3px;
+
+		&:before {
+			margin-right: 0;
+		}
+
+		span {
+			display: none;
+		}
+	}
 }
 
 .media-manager-size,
