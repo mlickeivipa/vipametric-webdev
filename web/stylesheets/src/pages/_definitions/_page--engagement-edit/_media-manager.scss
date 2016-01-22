@@ -1,12 +1,17 @@
 .media-manager,
 .media-summary {
-	float: left;
 	position: relative;
+	padding-bottom: 20px;
 
 	& + & {
 		margin-top: 40px;
 	}
+
+	@include breakpoint($bp-tablets-landscape) {
+		float: left;
+	}
 }
+
 .media-summary-info {
 	padding: 15px !important;
 }
@@ -35,7 +40,11 @@
 	border-radius: 50%;
 	position: relative;
 	border: 1px solid $color-grey-dd;
-	margin: 5px 25px 10px;
+	margin: 5px auto 10px;
+
+	@include breakpoint($bp-tablets-portrait) {
+		margin: 5px 25px 10px;
+	}
 }
 
 .media-manager-actions,

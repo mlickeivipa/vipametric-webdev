@@ -247,18 +247,29 @@
     }
 }
 
+.engagement-state {
+    @include breakpoint($bp-mobile-landscape) {
+        max-width: 300px;
+    }
+}
+
 .engagement-industry,
 .engagement-event-type,
 .engagement-submitter,
 .engagement-approver {
-    label,
-    .val {
-        display: inline-block;
-        vertical-align: top;
-    }
+    display: inline-block;
+    width: 50%;
 
-    .val {
-        margin: 5px 0 5px 5px;
+    .view-engagement & {
+        label,
+        .val {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .val {
+            margin: 5px 0 5px 5px;
+        }
     }
 }
 
@@ -266,11 +277,11 @@
     margin-top: 5px;
     clear: both;
 
-    /*&:before {
+    &:before {
         @include glyphAdd($html-entity-warning, $size: 20px);
         margin-right: 5px;
         color: $color--theme-accent;
-    }*/
+    }
 
     .engagement-status-label,
     .engagement-status-text {
@@ -322,6 +333,7 @@
     }
 }
 
+
 .prop-body {
     .Market {
         //margin: 5px 0;
@@ -343,6 +355,15 @@
             span {
                 color: $color--theme-accent;
             }
+        }
+    }
+
+}
+
+.engagement-editor {
+    .engagement-overview {
+        .sub-section-container {
+            margin-bottom: 20px;
         }
     }
 }

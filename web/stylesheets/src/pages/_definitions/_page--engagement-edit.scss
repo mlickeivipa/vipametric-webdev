@@ -10,7 +10,7 @@
 // event pictures {
 .event-pictures {
     .col-photos {
-        min-width: 100%;
+        padding: 0 5px;
     }
 
     @include breakpoint($bp-mobile-landscape) {
@@ -679,6 +679,10 @@ span.metric-bucket.value-component {
 
 // User Management
 .user-management {
+    .section-header + div {
+        padding-top: 15px;
+    }
+
     .prop-header-title {
         @include style-h3;
     }
@@ -688,14 +692,13 @@ span.metric-bucket.value-component {
 
         a {
             @include style-button-base;
+            text-align: center;
+            margin: 5px 0;
         }
     }
 
-    .search {
-        margin-top: 5px;
-    }
-
     .search-results-con {
+        margin-top: 10px;
         overflow-x: scroll;
     }
 
@@ -735,18 +738,18 @@ span.metric-bucket.value-component {
         .entity-actions,
         .search-wrapper .btn.back {
             position: absolute;
-            top: 25px;
+            top: 3px;
             right: 25px;
         }
 
-        .entity-actions {
-            top: 3px;
+        .search-wrapper .btn.back {
+            top: 8px;
         }
 
         .entity-actions a,
         .btn.back {
-            margin-left: $app--btn-spacing-between-btns;
             width: auto;
+            margin: 0 0 0 $app--btn-spacing-between-btns;
         }
     }
 }
@@ -781,7 +784,7 @@ span.metric-bucket.value-component {
     }
 
     .custom-fields {
-        padding: 15px 25px;
+        padding: 15px;
 
         button.btn.trigger {
             left: 15px;
@@ -838,6 +841,10 @@ span.metric-bucket.value-component {
 .engagement-site.prop-editor {
     @include style-contentbox;
 
+    .props {
+        padding: 15px 0;
+    }
+
     .prop-header-title {
         font-family: $font-open-sans-bold;
         text-transform: uppercase;
@@ -852,6 +859,7 @@ span.metric-bucket.value-component {
 
     .rtb {
         margin-top: -1px;
+        margin-right: 3px;
     }
 
     .prop-group.selection-editor {

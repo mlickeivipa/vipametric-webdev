@@ -123,7 +123,7 @@
 
         > .miwt-collapsable {
             &.shown {
-                padding: 10px 25px;
+                padding: 10px 0;
                 margin-top: 10px;
                 margin-bottom: 15px;
             }
@@ -182,13 +182,19 @@
             button.btn.trigger {
                 top: 13px;
             }
+
+            > .miwt-collapsable {
+                &.shown {
+                    //padding: 10px 25px;
+                }
+            }
         }
     }
 
     @include breakpoint($bp-tablets-portrait) {
         .sub-section {
             .prop-footer .actions {
-                margin-top: -30px;
+                margin-top: -10px;
             }
         }
     }
