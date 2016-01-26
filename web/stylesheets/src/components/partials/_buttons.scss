@@ -46,7 +46,17 @@
 	}
 }
 
-.btn-results {
+.btn-edit {
+	font-size: 0;
+	padding: 5px;
+
+	&:before {
+		@include glyphOverride($html-entity-edit);
+		margin-right: 0;
+	}
+}
+
+/*.btn-results {
 	&:before {
 		@include glyphOverride($html-entity-graph);
 	}
@@ -62,4 +72,4 @@
 	&:before {
 		@include glyphOverride($html-entity-delete);
 	}
-}
+}*/

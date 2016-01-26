@@ -6,3 +6,20 @@
 a[title="Take Survey"] {
   @include style-button-base();
 }
+
+.btn-delete {
+  padding: 5px 10px;
+
+  &:before {
+    display: none;
+  }
+}
+
+.btn-edit {
+  padding: 10px;
+
+  @include breakpoint($bp-tablets-portrait) {
+    padding: 5px;
+  }
+}
+

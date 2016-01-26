@@ -1,6 +1,7 @@
 .engagement-info {
     position: relative;
     margin: 20px 0;
+    min-height: 225px;
 }
 
 .engagement-name {
@@ -10,27 +11,84 @@
 }
 
 .engagement-info-details {
-    margin-right: 450px;
+    @include breakpoint($bp-tablets-portrait) {
+        margin-right: 480px;
+    }
 }
 
 .engagement-datetime {
     margin: 10px 0;
-    font-size: 18px;
-    line-height: 1.2;
 
-    &:before {
-        @include glyphAdd($html-entity-calendar, $size: 32px);
-        float: left;
-        margin-right: 7px;
-        margin-top: 2px;
-        color: $color--theme-accent;
+    .engagement-end-date {
+         margin-top: 20px;
+    }
+
+    .engagement-start-date-label,
+    .engagement-end-date-label {
+        display: block;
+        font-family: $font-open-sans-semi-bold;
+        margin-bottom: 3px;
+    }
+
+    .engagement-date {
+        margin-bottom: 5px;
+        font-size: 18px;
+        line-height: 1.2;
+
+        &:before {
+            @include glyphAdd($html-entity-calendar, $size: 32px);
+            float: left;
+            margin-right: 7px;
+            margin-top: 2px;
+            color: $color--theme-accent;
+            min-height: 45px;
+        }
+    }
+
+    .engagement-time-zone {
+        display: block;
+    }
+
+
+    @include breakpoint($bp-mobile-landscape) {
+        .engagement-start-time,
+        .engagement-end-time {
+            display: inline-block;
+        }
+
+        .engagement-time-zone {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+
+
+    @include breakpoint($bp-desktop) {
+        .engagement-start-date,
+        .enagement-start-date,
+        .engagement-end-date {
+            display: inline-block;
+            vertical-align: top;
+            min-width: 250px;
+        }
+
+        .engagement-end-date {
+            margin-top: 0;
+            margin-left: 50px;
+        }
     }
 }
-
 
 .engagement-time {
     font-size: 13px;
     color: $color-grey-77;
+
+    &:empty:before {
+        content: "--";
+        font-style: italic;
+        font-size: 12px;
+        color: $color-grey-99;
+    }
 }
 
 .engagement-time-sep {
@@ -39,33 +97,39 @@
 
 .engagement-location {
     font-size: 14px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    white-space: nowrap;
-
-    /*&:before {
-        @include glyphAdd($html-entity-location, $size: 32px);
-        float: left;
-        margin-right: 7px;
-        color: $color--theme-accent;
-    }*/
+    margin-top: 20px;
 
     .engagement-map {
-        float: right;
         border: 1px solid $color-grey-aa;
 
         img {
             display: block;
+            width: 100%;
+            height: auto;
         }
     }
 
     .engagement-address {
-        margin-left: 40px;
-        margin-right: 320px;
         white-space: normal;
-        max-width: 250px;
+        max-width: 350px;
         line-height: 1.2;
+        position: relative;
+        margin-left: 37px;
+        margin-top: 10px;
+
+        &:before {
+            @include glyphAdd($html-entity-location, $size: 32px);
+            float: left;
+            margin-right: 7px;
+            color: $color--theme-accent;
+            position: absolute;
+            left: -35px;
+        }
+
+        .address-city,
+        .address-region {
+            display: inline-block;
+        }
     }
 
     .address-name {
@@ -86,15 +150,87 @@
             margin-right: 5px;
         }
     }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .engagement-map {
+            float: right;
+        }
+
+        .engagement-map {
+            max-width: 50%;
+        }
+
+        .engagement-address {
+            margin-right: 210px;
+            margin-top: 0;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        position: absolute;
+        right: 0;
+        top: 0;
+        white-space: nowrap;
+
+        .engagement-map {
+            max-width: 250px;
+        }
+
+        .engagement-address {
+            margin-right: 260px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .engagement-map {
+            max-width: none;
+        }
+
+        .engagement-address {
+            margin-right: 380px;
+        }
+    }
+}
+
+.engagement-custom-fields {
+    clear: right;
+    position: relative;
+    z-index: 99;
+
+    .header {
+        font-family: $font-open-sans-semi-bold;
+        padding-left: 30px;
+        margin-bottom: 20px;
+    }
+
+    .metric-label {
+        font-family: $font-open-sans-semi-bold;
+    }
+
+    button.btn.trigger {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .metric {
+            display: inline-block;
+            vertical-align: top;
+
+            + .metric {
+                margin-left: 50px;
+                margin-top: 0;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+
+    }
 }
 
 .engagement-assignee {
-    /*&:before {
-        @include glyphAdd($html-entity-profile, $size: 20px);
-        margin-right: 5px;
-        color: $color--theme-accent;
-    }*/
-
     .engagement-assignee-label,
     .engagement-assignee-name {
         display: inline-block;
@@ -111,14 +247,41 @@
     }
 }
 
+.engagement-state {
+    @include breakpoint($bp-tablets-portrait) {
+        max-width: 600px;
+    }
+}
+
+.engagement-industry,
+.engagement-event-type,
+.engagement-submitter,
+.engagement-approver {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    margin-bottom: 10px;
+
+    .view-engagement & {
+        label {
+            margin: 0;
+        }
+
+        .val {
+            margin: 5px 0;
+        }
+    }
+}
+
 .engagement-status {
     margin-top: 5px;
+    clear: both;
 
-    /*&:before {
+    &:before {
         @include glyphAdd($html-entity-warning, $size: 20px);
         margin-right: 5px;
         color: $color--theme-accent;
-    }*/
+    }
 
     .engagement-status-label,
     .engagement-status-text {
@@ -170,6 +333,7 @@
     }
 }
 
+
 .prop-body {
     .Market {
         //margin: 5px 0;
@@ -191,6 +355,15 @@
             span {
                 color: $color--theme-accent;
             }
+        }
+    }
+
+}
+
+.engagement-editor {
+    .engagement-overview {
+        .sub-section-container {
+            margin-bottom: 20px;
         }
     }
 }

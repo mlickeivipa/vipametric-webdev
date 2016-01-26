@@ -151,6 +151,27 @@ label.tbl {
 	}
 }
 
+button.btn.trigger {
+	padding: 0 5px;
+	height: 18px;
+	width: 20px;
+
+	&:after {
+		content: "+";
+		font-size: 18px;
+		line-height: 18px;
+	}
+}
+
+.shown {
+	button.btn.trigger {
+		&:after {
+			content: "-";
+			line-height: 14px;
+		}
+	}
+}
+
 
 // Section Styles
 .section-header {
@@ -182,18 +203,9 @@ label.tbl {
 	}
 
 	button.btn.trigger {
-		padding: 0 5px;
-		height: 18px;
-		width: 20px;
 		position: absolute;
 		top: 7px;
 		left: 0;
-
-		&:after {
-			content: "+";
-			font-size: 18px;
-			line-height: 18px;
-		}
 	}
 
 	+ .sub-section {
@@ -203,15 +215,6 @@ label.tbl {
 
 		button.btn.trigger {
 			top: 10px;
-		}
-	}
-
-	.shown {
-		button.btn.trigger {
-			&:after {
-				content: "-";
-				line-height: 14px;
-			}
 		}
 	}
 }

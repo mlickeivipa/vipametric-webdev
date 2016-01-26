@@ -8,13 +8,24 @@
 			margin-left: 5px;
 		}
 	}
+}
 
-	.column-visibility-selector {
+.prop-group.selection-editor {
+	.pager {
+		position: relative;
+	}
+
+	.column-visibility-selector,
+	.miwt-config-wrapper {
 		font-family: $font-open-sans;
 		font-size: 14px;
 		padding: 10px;
 		border: 1px solid $color-grey-aa;
-		top: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: auto;
+		transform: none;
 		white-space: normal;
 
 		ul {
@@ -26,6 +37,7 @@
 		input[type="checkbox"] {
 			display: inline-block;
 			vertical-align: middle;
+			width: auto;
 		}
 
 		label {
