@@ -5,18 +5,18 @@
       <paths name="ActivationHUB Live">
         <serverdata>
           <mappings>
-            <mapping deploy="www.vipametric.com/Web/Stylesheets" local="$PROJECT_DIR$/web/stylesheets/build" web="/" />
+            <mapping deploy="www.vipametric.com/Web/Stylesheets" local="$PROJECT_DIR$/web/build/stylesheets" web="/" />
             <mapping deploy="www.vipametric.com/Web/Javascript" local="$PROJECT_DIR$/web/build/javascript" web="/" />
-            <mapping deploy="www.vipametric.com/Web/Design" local="$PROJECT_DIR$/web/design" web="/" />
+            <mapping deploy="www.vipametric.com/Web/Design" local="$PROJECT_DIR$/web/build/design" web="/" />
           </mappings>
         </serverdata>
       </paths>
       <paths name="ActivationHUB Stage">
         <serverdata>
           <mappings>
-            <mapping deploy="vipametric-stage.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/web/stylesheets/build" web="/" />
+            <mapping deploy="vipametric-stage.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/web/build/stylesheets" web="/" />
             <mapping deploy="vipametric-stage.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/web/build/javascript" web="/" />
-            <mapping deploy="vipametric-stage.venturetech.net/Web/Design" local="$PROJECT_DIR$/web/design" web="/" />
+            <mapping deploy="vipametric-stage.venturetech.net/Web/Design" local="$PROJECT_DIR$/web/build/design" web="/" />
           </mappings>
         </serverdata>
       </paths>
