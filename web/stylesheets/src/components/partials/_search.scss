@@ -27,6 +27,16 @@
 				}
 			}
 		}
+
+		.zip-code-constraint {
+			.zip-code-miles-label {
+				display: inline-block;
+				margin: 10px 10px 10px 0;
+				font-family: $font-open-sans-italic;
+				font-size: 12px;
+				font-style: italic;
+			}
+		}
 	}
 
 	.search-actions {
@@ -107,6 +117,12 @@
 					.constraint-input-conjunction {
 						margin: 0 15px;
 					}
+				}
+			}
+
+			.zip-code-constraint {
+				.zip-code-miles-label {
+					margin: 0 5px;
 				}
 			}
 		}
