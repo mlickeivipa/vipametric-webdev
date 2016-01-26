@@ -248,8 +248,8 @@
 }
 
 .engagement-state {
-    @include breakpoint($bp-mobile-landscape) {
-        max-width: 300px;
+    @include breakpoint($bp-tablets-portrait) {
+        max-width: 600px;
     }
 }
 
@@ -258,17 +258,17 @@
 .engagement-submitter,
 .engagement-approver {
     display: inline-block;
+    vertical-align: top;
     width: 50%;
+    margin-bottom: 10px;
 
     .view-engagement & {
-        label,
-        .val {
-            display: inline-block;
-            vertical-align: top;
+        label {
+            margin: 0;
         }
 
         .val {
-            margin: 5px 0 5px 5px;
+            margin: 5px 0;
         }
     }
 }
