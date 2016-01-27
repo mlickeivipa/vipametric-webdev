@@ -3,6 +3,18 @@
 
 @import "../_definitions/_page--engagement-edit";
 
+.market-intelligence {
+  .traffic-impacts {
+    .metric.string-metric {
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
+  }
+}
+
 a[title="Take Survey"] {
   @include style-button-base();
 }

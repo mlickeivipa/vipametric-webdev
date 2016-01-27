@@ -134,6 +134,7 @@ input[type="file"] {
 label.tbl {
 	display: inline-block;
 	vertical-align: middle;
+	margin-left: 3px;
 }
 
 .rtb,
@@ -258,6 +259,16 @@ button.btn.trigger {
 					top: 10px;
 				}
 			}
+		}
+	}
+}
+
+
+// User Management Styles
+.manage-users {
+	@include breakpoint($bp-mobile-landscape) {
+		.miwt-table.search-results .first-column {
+			min-width: 180px;
 		}
 	}
 }

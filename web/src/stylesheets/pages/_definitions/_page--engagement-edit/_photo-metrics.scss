@@ -92,7 +92,7 @@
             &.featured {
                 .featured-image label{
                     &:before {
-                        color: $color--theme-accent;
+                        color: $color-yellow-gold;
                     }
 
                     &:after {
@@ -120,6 +120,13 @@
 
         .prop-header-actions {
             margin-bottom: 10px;
+        }
+    }
+
+    @include breakpoint($bp-mobile-only) {
+        input[type=file] + .btn {
+            display: block;
+            margin-top: 10px;
         }
     }
 

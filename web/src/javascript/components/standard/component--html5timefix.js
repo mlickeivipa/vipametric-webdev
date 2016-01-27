@@ -31,6 +31,7 @@ jQuery(function($){
             showDuration:  true,
             useSelect:  true,
             timeFormat: 'h:i a',
+            step: 5,
             noneOption: true
         });
 

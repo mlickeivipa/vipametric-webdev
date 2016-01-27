@@ -45,14 +45,15 @@
     }
 
     > div {
-        text-align: right;
         min-width: 125px;
 
-        span.value-component,
-        div.value-component {
-            border-bottom: 1px solid $color-grey-77;
-            min-width: 25px;
-            min-height: 18px;
+        .view-engagement & {
+            span.value-component,
+            div.value-component {
+                border-bottom: 1px solid $color-grey-77;
+                min-width: 25px;
+                min-height: 18px;
+            }
         }
     }
 
@@ -71,6 +72,12 @@
 
     .percent-total {
         font-family: $font-open-sans-semi-bold;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        > div {
+            text-align: right;
+        }
     }
 }
 
@@ -105,7 +112,7 @@ span.metric-bucket.value-component {
 
         .metric-group {
             .metric {
-                display: block;
+                //display: block;
                 margin: 0;
 
                 + .metric {
@@ -123,11 +130,6 @@ span.metric-bucket.value-component {
 
         .metric-label {
             padding-top: 10px;
-        }
-
-        .metric-container-wrapper {
-            display: table;
-            width: 100%;
         }
 
         .metric-goal-heading {
@@ -148,6 +150,135 @@ span.metric-bucket.value-component {
             }
         }
 
+        .metric-container-wrapper {
+            display: table;
+            width: 100%;
+        }
+
+
+        &.metric-group-goal {
+            .metric-goal-heading {
+                display: none;
+                font-family: $font-open-sans-semi-bold;
+
+                .goal-heading,
+                .actual-heading {
+                    display: inline-block;
+                }
+
+                .goal-heading {
+                    width: 70%;
+                }
+
+                .actual-heading {
+                    width: 30%;
+                }
+
+                @include breakpoint($bp-mobile-landscape) {
+                    display: block;
+                    margin-left: 155px;
+
+                    .goal-heading,
+                    .actual-heading {
+                        width: 50%;
+                    }
+                }
+
+                @include breakpoint($bp-tablets-portrait) {
+                    margin-left: 165px;
+
+                    .goal-heading,
+                    .actual-heading {
+                        width: 120px;
+                        padding-left: 10px;
+                    }
+                }
+            }
+
+            .numeric-metric {
+                display: block;
+
+                .metric-container-wrapper {
+                    display: block;
+
+                    .metric-label {
+                        display: block;
+                    }
+
+                    .metric-container {
+                        display: block;
+                        text-align: left;
+
+                        &:before {
+                            content: "Actual";
+                            width: 45px;
+                            font-family: $font-open-sans-semi-bold;
+                            font-style: italic;
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-right: 5px;
+                            text-align: right;
+                            font-size: 12px;
+                        }
+                    }
+
+                    .metric-container-goal {
+                        text-align: left;
+
+                        &:before {
+                            content: "Goal";
+                        }
+                    }
+                }
+
+                @include breakpoint($bp-mobile-landscape) {
+                    display: table;
+
+                    .metric-container-wrapper,
+                    .metric-label {
+                        display: table-cell;
+                        padding: 5px 0;
+                        vertical-align: middle;
+
+                        .metric-container {
+                            display: inline-block;
+
+                            &:before {
+                                display: none;
+                            }
+                        }
+
+                        .view-engagement & {
+                            .metric-container {
+                                width: 50%;
+                            }
+                        }
+                    }
+
+                    .metric-label {
+                        width: 150px;
+                        padding: 5px 15px 5px 0;
+                    }
+                }
+
+                @include breakpoint($bp-tablets-portrait) {
+                    .metric-container-wrapper,
+                    .metric-label {
+
+                        .view-engagement & {
+                            .metric-container {
+                                width: 120px;
+                            }
+                        }
+                    }
+
+                    .metric-label {
+                        display: table-cell;
+                        width: 160px;
+                    }
+                }
+            }
+        }
 
         &.consumer-profile {
             .metric-label {
@@ -226,14 +357,17 @@ span.metric-bucket.value-component {
             }
         }
 
-        &.purchase-motivators,
+        /*&.purchase-motivators,
         &.preferred-brand,
         &.likely-purchase,
         &.familiarity,
         &.premiums-distributed,
         &.montejo-products,
-        &.modelo-products {
+        &.modelo-products,*/
+        .numeric-metric,
+        .monetary-metric {
             width: 100%;
+            display: table;
 
             .metric-label,
             .metric-container-wrapper {
@@ -243,12 +377,7 @@ span.metric-bucket.value-component {
             }
 
             .metric-label {
-                width: 100px;
-            }
-
-            .metric {
-                width: 100%;
-                display: table;
+                //width: 100px;
             }
 
             .metric-container-wrapper {
@@ -258,7 +387,7 @@ span.metric-bucket.value-component {
 
                 .numeric-metric,
                 .monetary-metric {
-                    display: block;
+                    //display: block;
 
                     .value-component {
                         min-width: 0;
@@ -275,7 +404,6 @@ span.metric-bucket.value-component {
             }
         }
 
-
         @include breakpoint($bp-tablets-portrait) {
             .metric-group {
                 .metric {
@@ -285,13 +413,26 @@ span.metric-bucket.value-component {
             }
 
             .metric-label {
-                width: auto;
+                width: 200px;
+            }
+
+            .choice-metric {
+                > .metric-label {
+                    width: auto;
+                }
             }
 
             .metric-container-wrapper {
+                .view-engagement & {
+                    .numeric-metric,
+                    .monetary-metric {
+                        width: 120px;
+                    }
+                }
+
                 .numeric-metric,
                 .monetary-metric {
-                    width: 120px;
+                    width: auto;
                     padding-left: 10px;
                 }
 
@@ -300,7 +441,7 @@ span.metric-bucket.value-component {
                 }
             }
 
-            &.purchase-motivators,
+            /*&.purchase-motivators,
             &.preferred-brand,
             &.likely-purchase,
             &.familiarity,
@@ -308,13 +449,13 @@ span.metric-bucket.value-component {
                 .metric-label {
                     width: 200px;
                 }
-            }
+            }*/
         }
 
-        @include breakpoint($bp-tablets-landscape) {
-            display: inline-block;
+        @include breakpoint($bp-desktop) {
+            /*display: inline-block;
             vertical-align: top;
-            margin-right: 50px;
+            margin-right: 50px;*/
 
             &.consumer-profile {
                 .metric-group {
@@ -324,20 +465,7 @@ span.metric-bucket.value-component {
 
                         + .percentage-metric {
                             margin-top: 0;
-                            margin-left: 40px;
-                        }
-                    }
-                }
-            }
-        }
-
-        @include breakpoint($bp-desktop) {
-            &.consumer-profile {
-                .metric-group {
-                    .percentage-metric {
-                        + .percentage-metric {
-                            margin-top: 0;
-                            margin-left: 70px;
+                            margin-left: 50px;
                         }
                     }
                 }
@@ -361,63 +489,9 @@ span.metric-bucket.value-component {
     }
 
     .kpi,
-    .kpi-goal-display,
+    .product-goal-display,
     .product-sales {
-        .metric-container-wrapper {
-            .metric-container {
-                text-align: left;
-
-                &:before {
-                    content: "Actual";
-                    width: 45px;
-                    font-family: $font-open-sans-semi-bold;
-                    font-style: italic;
-                    display: inline-block;
-                    vertical-align: middle;
-                    margin-right: 5px;
-                    text-align: right;
-                    font-size: 12px;
-                }
-            }
-
-            .metric-container-goal {
-                text-align: left;
-
-                &:before {
-                    content: "Goal";
-                }
-            }
-        }
-
-        .metric-goal-heading {
-            display: none;
-            font-family: $font-open-sans-semi-bold;
-
-            .goal-heading,
-            .actual-heading {
-                display: inline-block;
-            }
-
-            .goal-heading {
-                width: 70%;
-            }
-
-            .actual-heading {
-                width: 30%;
-            }
-        }
-
-        @include breakpoint($bp-mobile-landscape) {
-            .metric-goal-heading {
-                display: block;
-                margin-left: 30%;
-
-                .goal-heading,
-                .actual-heading {
-                    width: 50%;
-                }
-            }
-
+        /*@include breakpoint($bp-mobile-landscape) {
             .metric-label,
             .metric-container-wrapper {
                 padding: 5px 0;
@@ -427,6 +501,7 @@ span.metric-bucket.value-component {
                 .numeric-metric,
                 .monetary-metric {
                     display: inline-block;
+                    width: 50%;
                 }
             }
 
@@ -434,28 +509,9 @@ span.metric-bucket.value-component {
                 width: 30%
             }
 
-            .metric-container-wrapper {
-                width: 70%;
-
-                .metric-container {
-                    &:before {
-                        display: none;
-                    }
-                }
-            }
         }
 
         @include breakpoint($bp-tablets-portrait) {
-            .metric-goal-heading {
-                margin-left: 165px;
-
-                .goal-heading,
-                .actual-heading {
-                    width: 120px;
-                    padding-left: 10px;
-                }
-            }
-
             .metric-label {
                 display: table-cell;
                 width: 160px;
@@ -465,7 +521,7 @@ span.metric-bucket.value-component {
                 width: auto;
                 display: table-cell;
             }
-        }
+        }*/
     }
 
     .InMarketSurvey {
@@ -481,7 +537,7 @@ span.metric-bucket.value-component {
 // begin styles for legacy clients
 .ConsumerPurchasingKnowledge,
 .BrandProductAndPrice,
-.CompetitorProductAndPrice {
+/*.CompetitorProductAndPrice {
     .metric-group-container {
         .metric-container-wrapper {
             .metric-container {
@@ -524,7 +580,6 @@ span.metric-bucket.value-component {
         }
 
         @include breakpoint($bp-mobile-landscape) {
-
             .metric-goal-heading {
                 display: block;
                 margin-left: 30%;
@@ -544,17 +599,15 @@ span.metric-bucket.value-component {
                 .numeric-metric,
                 .monetary-metric {
                     display: inline-block;
-                    //padding: 0 5px;
-                    //width: 50%;
                 }
             }
 
             .metric-label {
-                width: 30%
+                //width: 30%
             }
 
             .metric-container-wrapper {
-                width: 70%;
+                //width: 70%;
 
                 .metric-container {
                     &:before {
@@ -586,7 +639,7 @@ span.metric-bucket.value-component {
             }
         }
     }
-}
+}*/
 
 .sub-section {
     .metric-group-container {
@@ -596,6 +649,12 @@ span.metric-bucket.value-component {
         &.product-sale-price {
             .metric .value-component {
                 border-bottom: 1px solid $color-grey-77;
+            }
+
+            @include breakpoint($bp-tablets-portrait) {
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 50px;
             }
         }
 
@@ -725,8 +784,12 @@ span.metric-bucket.value-component {
         }
     }
 
-    .search-results-con {
+    div.search {
         margin-top: 10px;
+    }
+
+    .search-results-con,
+    .miwt-table-con {
         overflow-x: scroll;
     }
 
@@ -738,6 +801,7 @@ span.metric-bucket.value-component {
     table .actions {
         .btn {
             margin-right: 0;
+
             + .btn {
                 margin-left: $app--btn-spacing-between-btns;
             }
