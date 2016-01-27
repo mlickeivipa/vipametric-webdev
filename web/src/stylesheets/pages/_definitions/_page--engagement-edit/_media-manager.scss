@@ -9,6 +9,7 @@
 
 	@include breakpoint($bp-tablets-landscape) {
 		float: left;
+		margin: 0;
 	}
 }
 

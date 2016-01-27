@@ -14,9 +14,9 @@
       <paths name="ActivationHUB Stage">
         <serverdata>
           <mappings>
-            <mapping deploy="vipametric-stage.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/web/build/stylesheets" web="/" />
-            <mapping deploy="vipametric-stage.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/web/build/javascript" web="/" />
             <mapping deploy="vipametric-stage.venturetech.net/Web/Design" local="$PROJECT_DIR$/web/build/design" web="/" />
+            <mapping deploy="vipametric-stage.venturetech.net/Web/Javascript" local="$PROJECT_DIR$/web/build/javascript" web="/" />
+            <mapping deploy="vipametric-stage.venturetech.net/Web/Stylesheets" local="$PROJECT_DIR$/web/build/stylesheets" web="/" />
           </mappings>
         </serverdata>
       </paths>

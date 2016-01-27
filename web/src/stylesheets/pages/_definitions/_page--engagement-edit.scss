@@ -30,14 +30,14 @@
 }
 
 .metric-bucket,
-.metric-group .metric-container.monetary-metric,
-.metric-group .metric-container.numeric-metric {
+.metric-group > .monetary-metric,
+.metric-group > .numeric-metric {
     display: table-row;
 }
 
 .metric-bucket,
-.metric-group .metric-container.monetary-metric,
-.metric-group .metric-container.numeric-metric {
+.metric-group > .monetary-metric,
+.metric-group > .numeric-metric {
     .label-component,
     > div {
         display: table-cell;
@@ -148,6 +148,7 @@ span.metric-bucket.value-component {
             }
         }
 
+
         &.consumer-profile {
             .metric-label {
                 display: block;
@@ -173,6 +174,12 @@ span.metric-bucket.value-component {
                         display: table-cell;
                         padding: 5px 0 5px 0;
                         font-family: $font-open-sans-semi-bold;
+
+                        .percent-total,
+                        > span {
+                            display: inline-block;
+                            vertical-align: bottom;
+                        }
                     }
                 }
 
@@ -219,7 +226,15 @@ span.metric-bucket.value-component {
             }
         }
 
-        &.purchase-motivators {
+        &.purchase-motivators,
+        &.preferred-brand,
+        &.likely-purchase,
+        &.familiarity,
+        &.premiums-distributed,
+        &.montejo-products,
+        &.modelo-products {
+            width: 100%;
+
             .metric-label,
             .metric-container-wrapper {
                 display: table-cell;
@@ -239,6 +254,7 @@ span.metric-bucket.value-component {
             .metric-container-wrapper {
                 text-align: right;
                 color: $color-grey-77;
+                width: auto;
 
                 .numeric-metric,
                 .monetary-metric {
@@ -258,6 +274,7 @@ span.metric-bucket.value-component {
                 }
             }
         }
+
 
         @include breakpoint($bp-tablets-portrait) {
             .metric-group {
@@ -282,6 +299,16 @@ span.metric-bucket.value-component {
                     padding-left: 15px;
                 }
             }
+
+            &.purchase-motivators,
+            &.preferred-brand,
+            &.likely-purchase,
+            &.familiarity,
+            &.premiums-distributed {
+                .metric-label {
+                    width: 200px;
+                }
+            }
         }
 
         @include breakpoint($bp-tablets-landscape) {
@@ -291,11 +318,11 @@ span.metric-bucket.value-component {
 
             &.consumer-profile {
                 .metric-group {
-                    .metric {
+                    .percentage-metric {
                         display: inline-block;
                         vertical-align: top;
 
-                        + .metric {
+                        + .percentage-metric {
                             margin-top: 0;
                             margin-left: 40px;
                         }
@@ -307,11 +334,8 @@ span.metric-bucket.value-component {
         @include breakpoint($bp-desktop) {
             &.consumer-profile {
                 .metric-group {
-                    .metric {
-                        display: inline-block;
-                        vertical-align: top;
-
-                        + .metric {
+                    .percentage-metric {
+                        + .percentage-metric {
                             margin-top: 0;
                             margin-left: 70px;
                         }
@@ -341,6 +365,8 @@ span.metric-bucket.value-component {
     .product-sales {
         .metric-container-wrapper {
             .metric-container {
+                text-align: left;
+
                 &:before {
                     content: "Actual";
                     width: 45px;
@@ -355,6 +381,8 @@ span.metric-bucket.value-component {
             }
 
             .metric-container-goal {
+                text-align: left;
+
                 &:before {
                     content: "Goal";
                 }
@@ -419,7 +447,7 @@ span.metric-bucket.value-component {
 
         @include breakpoint($bp-tablets-portrait) {
             .metric-goal-heading {
-                margin-left: 150px;
+                margin-left: 165px;
 
                 .goal-heading,
                 .actual-heading {
@@ -430,7 +458,7 @@ span.metric-bucket.value-component {
 
             .metric-label {
                 display: table-cell;
-                width: auto;
+                width: 160px;
             }
 
             .metric-container-wrapper {
