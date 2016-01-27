@@ -948,7 +948,9 @@ span.metric-bucket.value-component {
             .part,
             .address_container div.address_line {
                 display: inline-block;
+                vertical-align: top;
                 margin-right: 25px;
+                margin-bottom: 5px;
             }
 
             .part.address_container {
