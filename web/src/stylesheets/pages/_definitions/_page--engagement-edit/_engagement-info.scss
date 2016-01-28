@@ -313,6 +313,10 @@
         margin-right: 25px;
     }
 
+    .custom-fields .content .metric {
+        margin-bottom: 20px;
+    }
+
     .metric-container.string-metric {
         input {
             min-width: 200px;
@@ -325,10 +329,15 @@
 
     @include breakpoint($bp-mobile-landscape) {
         .sub-section-container,
-        .metric-container {
+        .metric-container,
+        .custom-fields .content .metric {
             display: inline-block;
             vertical-align: top;
             margin-right: 50px;
+        }
+
+        .custom-fields .content .metric + .metric {
+            margin-top: 0;
         }
     }
 }

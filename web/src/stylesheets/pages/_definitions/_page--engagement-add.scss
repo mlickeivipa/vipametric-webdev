@@ -33,11 +33,17 @@
   }
 }
 
+
 .add-engagement .sub-section-container,
-.add-engagement .metric-container {
+.add-engagement .metric-container,
+.add-engagement .custom-fields .content .metric {
   display: inline-block;
   vertical-align: top;
   margin-right: 25px;
+}
+
+.add-engagement .custom-fields .content .metric + .metric {
+  margin-top: 0;
 }
 
 .principal-info button.btn,
@@ -74,6 +80,12 @@
   }
 }
 
+.custom-fields {
+  .metric + .metric {
+    margin-top: 20px;
+  }
+}
+
 @include breakpoint($bp-mobile-landscape) {
   button + button,
   a + a {
@@ -85,6 +97,7 @@
     .address_form .part,
     .address_lines div.address_line {
       display: inline-block;
+      vertical-align: top;
       margin-right: 25px;
     }
 

@@ -232,10 +232,23 @@
 	.btn {
 		@include style-button-override($font-size: 12px);
 		white-space: nowrap;
+		width: 100%;
 	}
 
 	.btn + .btn {
-		margin-left: $app--btn-spacing-between-btns;
+		margin-top: $app--btn-spacing-between-btns;
+	}
+
+
+	@include breakpoint($bp-mobile-landscape) {
+		.btn {
+			width: auto;
+
+			+ .btn {
+				margin-top: 0;
+				margin-left: $app--btn-spacing-between-btns;
+			}
+		}
 	}
 
 }
