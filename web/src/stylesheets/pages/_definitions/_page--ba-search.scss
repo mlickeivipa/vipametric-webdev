@@ -1,0 +1,31 @@
+@import "../../libs/stacktable";
+
+// Table styles
+
+.miwt-table {
+    .first-column {
+        max-width: 100px;
+        text-align: center;
+
+        .member-profile-thumnail {
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .btn {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+}
