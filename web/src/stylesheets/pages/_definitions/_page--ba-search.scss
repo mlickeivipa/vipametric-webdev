@@ -7,7 +7,8 @@
         max-width: 100px;
         text-align: center;
 
-        .member-profile-thumnail {
+        .member-profile-thumnail,
+        .member-profile-thumbnail {
             position: relative;
             padding-bottom: 20px;
         }
@@ -19,6 +20,7 @@
             display: block;
             margin: 0 auto;
         }
+
 
         .btn {
             position: absolute;

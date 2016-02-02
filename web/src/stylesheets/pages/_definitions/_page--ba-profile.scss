@@ -1,0 +1,108 @@
+@import "page--user-add";
+
+.edit-member {
+    .wrapper-header {
+        font-family: OpenSansBold, Arial, Verdana, sans-serif;
+        text-transform: uppercase;
+        font-size: 20px;
+        color: #4b93ad;
+    }
+}
+
+.member-picture {
+    .col-photos {
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .member-profile-picture {
+        position: relative;
+        padding-bottom: 30px;
+    }
+
+    .default-group {
+        .props {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            .btn {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .col-photos {
+            img {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+        }
+
+        .default-group {
+            .props {
+                text-align: center;
+
+                .btn {
+                    max-width: 250px;
+                }
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        display: inline-block;
+        float: left;
+        width: 300px;
+    }
+}
+
+.prop-wrapper {
+    &.principal-info {
+        .prop {
+            + .prop {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        &.principal-info {
+            margin-left: 320px;
+
+            .default-group {
+                .props {
+                    display: table;
+                    width: 100%;
+                }
+
+                .prop {
+                    display: table-row;
+
+                    &:nth-child(even){
+                        background-color: $color-grey-f2;
+                    }
+                }
+
+                .label,
+                .val {
+                    display: table-cell;
+                    padding: 5px 10px;
+                    vertical-align: middle;
+                }
+
+            }
+        }
+
+        &.engagements {
+            clear: both;
+        }
+    }
+}
