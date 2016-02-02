@@ -73,36 +73,124 @@
         }
     }
 
+    &.member-engagements {
+        .search-bar {
+            display: none;
+        }
+    }
+
+    &.member-brands {
+        .member-profile-brands {
+            margin-top: 5px;
+        }
+    }
+
     @include breakpoint($bp-tablets-portrait) {
         &.principal-info {
             margin-left: 320px;
 
-            .default-group {
-                .props {
-                    display: table;
-                    width: 100%;
-                }
+            &.prop-viewer {
+                .default-group {
+                    .props {
+                        display: table;
+                        width: 100%;
+                    }
 
-                .prop {
-                    display: table-row;
+                    .prop {
+                        display: table-row;
 
-                    &:nth-child(even){
-                        background-color: $color-grey-f2;
+                        &:nth-child(even) {
+                            background-color: $color-grey-f2;
+                        }
+                    }
+
+                    .label,
+                    .val {
+                        display: table-cell;
+                        padding: 5px 10px;
+                        vertical-align: middle;
                     }
                 }
-
-                .label,
-                .val {
-                    display: table-cell;
-                    padding: 5px 10px;
-                    vertical-align: middle;
-                }
-
             }
         }
 
         &.engagements {
             clear: both;
+        }
+    }
+}
+
+.member-profile-edit {
+    .phone {
+        > .label {
+            margin-bottom: 1px;
+        }
+    }
+
+    .phone_number_form {
+        .rtb {
+            display: inline-block;
+
+            + .rtb {
+                margin-left: 10px;
+            }
+
+            label,
+            input[type=radio] {
+                display: inline-block;
+                width: auto;
+            }
+
+            label {
+                margin-left: 5px;
+                font-size: 12px;
+                font-family: $font-open-sans;
+                margin-top: 2px;
+            }
+        }
+    }
+
+
+    &.prop-editor {
+        .prop {
+            display: block;
+            margin-bottom: 10px;
+
+            &.birth-date {
+                input {
+                    width: auto;
+                }
+            }
+
+            input,
+            select {
+                width: auto;
+            }
+        }
+
+
+
+        @include breakpoint($bp-tablets-portrait) {
+            .prop {
+                &.status,
+                &.first-name,
+                &.last-name,
+                &.gender,
+                &.birth-date {
+                    display: inline-block;
+                    margin-top: 0;
+                }
+            }
+
+            .address_lines {
+                > .address_line {
+                    display: inline-block;
+
+                    + .address_line {
+                        margin-left: 10px;
+                    }
+                }
+            }
         }
     }
 }
