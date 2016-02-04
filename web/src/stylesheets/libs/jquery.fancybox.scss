@@ -48,8 +48,15 @@
 	position: relative;
 }
 
+
 .fancybox-inner {
 	overflow: hidden;
+
+	img {
+		max-width: 100%;
+		height: auto;
+		width: auto;
+	}
 }
 
 .fancybox-type-iframe .fancybox-inner {
