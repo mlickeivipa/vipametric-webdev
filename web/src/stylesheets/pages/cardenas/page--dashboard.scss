@@ -1,0 +1,167 @@
+@import "../../config/themes/_pernod";
+@import "../../config/_base-import";
+
+@import "../_definitions/_page--dashboard";
+
+.dash-section .gauge-chart .highcharts-yaxis-title,
+.no-data {
+    color: $color--theme-accent;
+}
+
+.spend-wrapper {
+    float: left;
+    margin-top: 13px;
+
+    .number-display {
+        + .number-display {
+            padding-top: 10px;
+        }
+    }
+}
+
+.number-display {
+    width: 255px;
+
+    .data-label {
+        margin-top: 12px;
+        text-align: center;
+        font-family: $font-open-sans-semi-bold;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: $color-grey-77;
+    }
+
+    .data-value {
+        margin-top: 10px;
+        text-align: center;
+        font-family: $font-open-sans-semi-bold;
+        text-transform: uppercase;
+        font-size: 25px;
+        color: $color-black;
+        line-height: 1;
+    }
+
+    .percent-sign {
+        font-size: 24px;
+        vertical-align: top;
+        display: inline-block;
+        margin-top: 5px;
+    }
+
+    .data-description {
+        text-align: center;
+        font-size: 12px;
+        color: $color-grey-cc;
+        font-weight: bold;
+        margin-top: 3px;
+    }
+}
+
+@include breakpoint($bp-tablets-portrait) {
+    .easy-find-case-display,
+    .was-expected-was-supportive,
+    .stacked-pies {
+        display: inline-block;
+        vertical-align: middle;
+        width: 30%;
+    }
+
+    .stacked-pies {
+        .pie-chart {
+            display: block;
+            width: 100%;
+            margin: 2.5% 0;
+        }
+    }
+}
+
+
+.active .nav_con {
+    position: relative;
+    z-index: 5000;
+}
+
+.active .nav_con .navi {
+    cursor: pointer;
+}
+
+.active .nav_con .navi.prev {
+    padding-top: 9px;
+    padding-left: 12px;
+    width: 23px;
+    height: 26px;
+    position: absolute;
+    left: -25px;
+    top: 170px;
+}
+
+.active .nav_con .navi.prev span {
+    border-right: 15px solid $color--theme-accent;
+}
+
+.active .nav_con .navi.prev.inactive {
+    cursor: auto;
+    opacity: .25;
+}
+
+.active .nav_con .navi.next {
+    height: 26px;
+    width: 20px;
+    padding-top: 9px;
+    padding-left: 15px;
+    position: absolute;
+    top: 170px;
+    right: 5px;
+}
+
+.active .nav_con .navi.next span {
+    border-left: 15px solid $color--theme-accent;
+}
+
+.active .nav_con .navi.next.inactive {
+    cursor: auto;
+    opacity: .25;
+}
+
+.active .nav_con .navi span {
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+
+.wrapper {
+    overflow-x: scroll;
+    margin: 10px 20px 0;
+}
+
+.scrollpane {
+    position: relative;
+    width: 4000px;
+    padding-bottom: 30px;
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}
+
+.featured-photos .photo {
+    width: 345px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    transition: .5s ease all;
+}
+
+.featured-photos .photo img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    opacity: .65;
+    transform: scale(.9);
+    transition: .5s ease all;
+}
+
+.featured-photos .photo.current img {
+    opacity: 1;
+    transform: scale(1);
+}
