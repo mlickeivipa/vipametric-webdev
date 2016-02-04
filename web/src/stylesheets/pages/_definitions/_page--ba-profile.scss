@@ -19,21 +19,24 @@
         }
     }
 
-    .member-profile-picture {
-        position: relative;
-        padding-bottom: 30px;
-    }
-
     .default-group {
         .props {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            margin-bottom: 10px;
+            text-align: left;
+
+            input {
+                margin-bottom: 5px;
+            }
 
             .btn {
-                width: 100%;
-                max-width: 100%;
+                &.edit {
+                    width: 100%;
+                    max-width: 100%;
+                }
+
+                &.cancel {
+                    margin-left: 5px;
+                }
             }
         }
     }
@@ -48,10 +51,10 @@
 
         .default-group {
             .props {
-                text-align: center;
-
                 .btn {
-                    max-width: 250px;
+                    &.edit {
+                        max-width: 250px;
+                    }
                 }
             }
         }
@@ -65,13 +68,13 @@
 }
 
 .prop-wrapper {
-    &.principal-info {
+    /*&.principal-info {
         .prop {
             + .prop {
                 margin-top: 10px;
             }
         }
-    }
+    }*/
 
     &.member-engagements {
         .search-bar {
@@ -97,10 +100,16 @@
                     }
 
                     .prop {
-                        display: table-row;
+                        display: inline-block;
+                        width: 50%;
 
-                        &:nth-child(even) {
+                        &:nth-child(4n-1),
+                        &:nth-child(4n-2) {
                             background-color: $color-grey-f2;
+                        }
+
+                        &.status {
+                            display: block;
                         }
                     }
 
@@ -167,8 +176,6 @@
                 width: auto;
             }
         }
-
-
 
         @include breakpoint($bp-tablets-portrait) {
             .prop {

@@ -1,33 +1,51 @@
 @import "../../libs/stacktable";
 
 // Table styles
-
 .miwt-table {
     .first-column {
         max-width: 100px;
         text-align: center;
+    }
+}
 
-        .member-profile-thumnail,
-        .member-profile-thumbnail {
-            position: relative;
-            padding-bottom: 20px;
-        }
+tr.even.active.first,
+tr.odd.active.last {
+    th.st-head-row {
+        border-top: 1px solid $color--theme-accent;
+    }
+}
 
+th.st-head-row-main {
+    background-color: $color--theme-accent;
+    color: $color-white;
+    padding: 10px 15px;
+}
+
+.member-profile-thumnail,
+.member-profile-thumbnail {
+    position: relative;
+    padding-bottom: 20px;
+    min-height: 25px;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .btn {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
         img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-
-        .btn {
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            max-width: 100px;
         }
     }
 }
