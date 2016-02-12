@@ -1,0 +1,96 @@
+.section {
+    &.agency-brands-editor {
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        &.agency-links {
+            float: left;
+            width: 300px;
+        }
+
+        &.agency-brands {
+            padding-left: 330px;
+        }
+    }
+}
+
+.prop-header-title {
+    @include style-h3;
+}
+
+.agency-key-metric-total {
+    margin-top: 13px;
+
+    .prop {
+        + .prop {
+            padding-top: 10px;
+        }
+    }
+
+    .default-group .prop {
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    label {
+        margin-top: 12px;
+        text-align: center;
+        font-family: $font-open-sans-semi-bold;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: $color-grey-77;
+    }
+
+    .val {
+        margin-top: 10px;
+        text-align: center;
+        font-family: $font-open-sans-semi-bold;
+        text-transform: uppercase;
+        color: $color-black;
+        line-height: 1;
+        font-size: 25px;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .default-group .prop {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+
+.agency-brands {
+    .agency-brands-header {
+        display: none;
+    }
+}
+
+.agency-brand-tile {
+    @include style-contentbox;
+    display: inline-block;
+    padding-bottom: 10px;
+
+    .brand-logo {
+        width: 100%;
+        padding: 40px 10px;
+
+        &-no-image {
+            background: $color-grey-cc;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-family: $font-open-sans-bold;
+        }
+    }
+
+    .brand-actions {
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        padding-bottom: 10px;
+    }
+}
