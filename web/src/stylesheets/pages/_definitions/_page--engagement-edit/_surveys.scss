@@ -41,4 +41,15 @@
 		vertical-align: middle;
 		margin-right: 10px;
 	}
+
+	.survey-item-actions {
+		.btn {
+			vertical-align: middle;
+			display: inline-block;
+
+			+ .btn {
+				margin-left: 3px;
+			}
+		}
+	}
 }
