@@ -1,0 +1,20 @@
+// Table styles
+.miwt-table {
+    .first-column {
+        max-width: 100px;
+        text-align: center;
+    }
+}
+
+tr.even.active.first,
+tr.odd.active.last {
+    th.st-head-row {
+        border-top: 1px solid $color--theme-accent;
+    }
+}
+
+th.st-head-row-main {
+    background-color: $color--theme-accent;
+    color: $color-white;
+    padding: 10px 15px;
+}
