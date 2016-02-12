@@ -148,6 +148,17 @@
 }
 
 .featured-photos {
+    min-height: 440px;
+
+    .featured-photos-header {
+        &:before {
+            @include glyphAdd($html-entity-favorite, 18px, $color-yellow-gold);
+            vertical-align: top;
+            margin-right: 5px;
+            margin-top: 3px;
+        }
+    }
+
     .photo {
         width: 325px;
         position: relative;
