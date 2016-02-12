@@ -7,6 +7,18 @@
         font-size: 20px;
         color: #4b93ad;
     }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .wrapper-header,
+        .header-actions {
+            display: inline-block;
+            width: 50%;
+        }
+
+        .header-actions {
+            float: right;
+        }
+    }
 }
 
 .member-picture {
@@ -68,14 +80,6 @@
 }
 
 .prop-wrapper {
-    /*&.principal-info {
-        .prop {
-            + .prop {
-                margin-top: 10px;
-            }
-        }
-    }*/
-
     &.member-engagements {
         .search-bar {
             display: none;
@@ -92,6 +96,17 @@
         &.principal-info {
             margin-left: 320px;
 
+            &.prop-viewer {
+
+            }
+        }
+
+        &.engagements {
+            clear: both;
+        }
+    }
+    @include breakpoint($bp-tablets-landscape) {
+        &.principal-info {
             &.prop-viewer {
                 .default-group {
                     .props {
@@ -119,12 +134,14 @@
                         padding: 5px 10px;
                         vertical-align: middle;
                     }
+
+                    .label {
+                        width: 200px;
+                        min-width: 200px;
+                        text-align: right;
+                    }
                 }
             }
-        }
-
-        &.engagements {
-            clear: both;
         }
     }
 }
