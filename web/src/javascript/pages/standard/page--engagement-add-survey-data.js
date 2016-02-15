@@ -6,109 +6,115 @@ jQuery(function ($) {
     function tempUpdates(context) {
         var $context = $(context);
 
-        var surveys = [
-            {
-                name: "Pre-Event Survey",
-                slug: "pre-event-survey",
-                link: '/demo/survey',
-                csv: '/_resources/dyn/files/35859z271659/_fn/metric-data.csv'
-            },
-            {
-                name: "RSVP",
-                slug: "rsvp",
-                link: '/demo/survey',
-                csv: '/_resources/dyn/files/35859z271659/_fn/metric-data.csv'
-            },
-            {
-                name: "In-Market Survey",
-                slug: "in-market-survey",
-                link: '/demo/survey',
-                csv: '/_resources/dyn/files/36190zc82a7590/_fn/Malibu-Survey-Data.csv'
-            },
-            {
-                name: "Post Event Survey",
-                slug: "post-event-survey",
-                link: '/demo/survey',
-                csv: '/_resources/dyn/files/35859z271659/_fn/metric-data.csv'
-            }
-        ];
-        var surveyHtml = $.map(surveys, function (el, idx) {
-            return [
-                '<div class="survey-item '+ el.slug + '">',
-                '<div class="survey-item-header">',
-                '<a href="' + el.link + '" class="survey-item-name" title="Go to external survey">' + el.name + '</a>',
-                '</div>',
-                '<div class="survey-item-info">',
-                '<div class="survey-item-data">',
-                '<span class="survey-item-data-count">' + getRandomInt(50, 150) + '</span>',
-                '<span class="survey-item-data-text">Entries</span>',
-                '<span class="survey-item-actions">',
-                '<a class="btn btn-glyph-only btn-xsmall btn-download" href="' + el.csv + '" title="Download Data"><span class="btn-text">Download Data</span></a>',
-                '</span>',
+        if (!$('.surveys').length) {
+            var surveys = [
+                {
+                    name: "Pre-Event Survey",
+                    slug: "pre-event-survey",
+                    link: '/demo/survey',
+                    csv: '/_resources/dyn/files/35859z271659/_fn/metric-data.csv'
+                },
+                {
+                    name: "RSVP",
+                    slug: "rsvp",
+                    link: '/demo/survey',
+                    csv: '/_resources/dyn/files/35859z271659/_fn/metric-data.csv'
+                },
+                {
+                    name: "In-Market Survey",
+                    slug: "in-market-survey",
+                    link: '/demo/survey',
+                    csv: '/_resources/dyn/files/36190zc82a7590/_fn/Malibu-Survey-Data.csv'
+                },
+                {
+                    name: "Post Event Survey",
+                    slug: "post-event-survey",
+                    link: '/demo/survey',
+                    csv: '/_resources/dyn/files/35859z271659/_fn/metric-data.csv'
+                }
+            ];
+            var surveyHtml = $.map(surveys, function (el, idx) {
+                return [
+                    '<div class="survey-item ' + el.slug + '">',
+                    '<div class="survey-item-header">',
+                    '<a href="' + el.link + '" class="survey-item-name" title="Go to external survey">' + el.name + '</a>',
+                    '</div>',
+                    '<div class="survey-item-info">',
+                    '<div class="survey-item-data">',
+                    '<span class="survey-item-data-count">' + getRandomInt(50, 150) + '</span>',
+                    '<span class="survey-item-data-text">Entries</span>',
+                    '<span class="survey-item-actions">',
+                    '<a class="btn btn-glyph-only btn-xsmall btn-download" href="' + el.csv + '" title="Download Data"><span class="btn-text">Download Data</span></a>',
+                    '</span>',
+                    '</div>',
+                    '</div>',
+                    '</div>'
+                ].join('');
+            }).join('');
+
+            $([
+                '<div class="section surveys">',
+                '<div class="section-header">Surveys</div>',
+                '<div class="section-content">',
+                '<div class="survey-items">',
+                surveyHtml,
                 '</div>',
                 '</div>',
                 '</div>'
-            ].join('');
-        }).join('');
+            ].join(''))
+                .prependTo($context.find('.primary-content'));
 
-        $([
-            '<div class="section surveys">',
-            '<div class="section-header">Surveys</div>',
-            '<div class="section-content">',
-            '<div class="survey-items">',
-            surveyHtml,
-            '</div>',
-            '</div>',
-            '</div>'
-        ].join(''))
-            .prependTo($context.find('.primary-content'));
+            editSurveyData();
+        }
 
-        var leads = [
-            {
-                name: "Emails",
-                css: 'lead-email',
-                csv: '/somefile.csv'
-            },
-            {
-                name: "Phone Numbers",
-                css: 'lead-phone',
-                csv: '/somefile.csv'
-            },
-            {
-                name: "Social Accounts",
-                css: 'lead-social',
-                csv: '/somefile.csv'
-            },
-            {
-                name: "Addresses",
-                css: 'lead-address',
-                csv: '/somefile.csv'
-            }
-        ];
+        if (!$('.leads').length) {
 
-        var leadHtml = $.map(leads, function (el, idx) {
-            return [
-                '<div class="lead ' + el.css + '">',
-                '<div class="lead-title">' + el.name + '</div>',
-                '<div class="lead-count">' + getRandomInt(100, 250) + '</div>',
-                '<a class="btn btn-glyph-only btn-xsmall btn-download" href="/_resources/dyn/files/35859z271659/_fn/metric-data.csv"  title="Download Data"><span class="btn-text">Download</span></a>',
+            var leads = [
+                {
+                    name: "Emails",
+                    css: 'lead-email',
+                    csv: '/somefile.csv'
+                },
+                {
+                    name: "Phone Numbers",
+                    css: 'lead-phone',
+                    csv: '/somefile.csv'
+                },
+                {
+                    name: "Social Accounts",
+                    css: 'lead-social',
+                    csv: '/somefile.csv'
+                },
+                {
+                    name: "Addresses",
+                    css: 'lead-address',
+                    csv: '/somefile.csv'
+                }
+            ];
+
+            var leadHtml = $.map(leads, function (el, idx) {
+                return [
+                    '<div class="lead ' + el.css + '">',
+                    '<div class="lead-title">' + el.name + '</div>',
+                    '<div class="lead-count">' + getRandomInt(100, 250) + '</div>',
+                    '<a class="btn btn-glyph-only btn-xsmall btn-download" href="/_resources/dyn/files/35859z271659/_fn/metric-data.csv"  title="Download Data"><span class="btn-text">Download</span></a>',
+                    '</div>'
+                ].join('');
+            }).join('');
+
+            $([
+                '<div class="section leads">',
+                '<div class="section-header">Leads</div>',
+                '<div class="section-content">',
+                '<div class="lead-summary">',
+                leadHtml,
+                '</div>',
+                '</div>',
                 '</div>'
-            ].join('');
-        }).join('');
+            ].join(''))
+                .insertBefore($context.find('.section.goals'));
+        }
 
-        $([
-            '<div class="section leads">',
-            '<div class="section-header">Leads</div>',
-            '<div class="section-content">',
-            '<div class="lead-summary">',
-            leadHtml,
-            '</div>',
-            '</div>',
-            '</div>'
-        ].join(''))
-            .insertBefore($context.find('.section.goals'));
-
-        editSurveyData();
     }
 
     function editSurveyData() {
