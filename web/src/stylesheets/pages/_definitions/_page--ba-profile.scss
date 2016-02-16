@@ -41,13 +41,12 @@
             }
 
             .btn {
-                &.edit {
-                    width: 100%;
-                    max-width: 100%;
-                }
+                width: 100%;
+                max-width: 100%;
 
                 &.cancel {
-                    margin-left: 5px;
+                    margin-top: 5px;
+                    width: 100%;
                 }
             }
         }
@@ -63,10 +62,12 @@
 
         .default-group {
             .props {
+                text-align: center;
+
                 .btn {
-                    &.edit {
-                        max-width: 250px;
-                    }
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 250px;
                 }
             }
         }
@@ -75,7 +76,10 @@
     @include breakpoint($bp-tablets-portrait) {
         display: inline-block;
         float: left;
-        width: 300px;
+        width: 255px;
+        position: relative;
+        z-index: 888;
+        padding-bottom: 10px;
     }
 }
 
@@ -94,17 +98,14 @@
 
     @include breakpoint($bp-tablets-portrait) {
         &.principal-info {
-            margin-left: 320px;
-
-            &.prop-viewer {
-
-            }
+            margin-left: 270px;
         }
 
-        &.engagements {
+        &.upcoming-engagements {
             clear: both;
         }
     }
+
     @include breakpoint($bp-tablets-landscape) {
         &.principal-info {
             &.prop-viewer {
