@@ -9,6 +9,8 @@
         &.agency-links {
             float: left;
             width: 300px;
+            position: relative;
+            z-index: 888;
         }
 
         &.agency-brands {
@@ -79,16 +81,35 @@
     padding-bottom: 10px;
     margin: 10px auto;
     width: 165px;
+    height: 50%;
 
     .brand-logo {
         width: 100%;
-        padding: 40px 10px;
 
         &-no-image {
+            padding: 40px 10px;
             background: $color-grey-cc;
             font-size: 20px;
             text-transform: uppercase;
             font-family: $font-open-sans-bold;
+        }
+
+        &-image {
+            width: 115px;
+            height: 115px;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                width: auto;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
         }
     }
 
@@ -102,7 +123,6 @@
         margin: 10px auto;
     }
 }
-
 
 // SLIDER STYLES
 .active {
