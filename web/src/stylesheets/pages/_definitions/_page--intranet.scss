@@ -1,3 +1,6 @@
+@import "_page--intranet/tile-flip";
+@import "_page--intranet/brand-slider";
+
 .section {
     &.agency-brands-editor {
         background-color: transparent;
@@ -5,16 +8,38 @@
         padding: 0;
     }
 
+    &.agency-brand-logo-editor {
+        .agency-brand-tile {
+            box-shadow: none;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+
+            .brand-logo-image {
+                width: 80%;
+                height: 165px;
+            }
+        }
+    }
+
     @include breakpoint($bp-tablets-portrait) {
+        &.agency-brand-logo-editor,
         &.agency-links {
             float: left;
             width: 300px;
             position: relative;
             z-index: 888;
+            margin: 0;
         }
 
+        &.agency-links {
+            clear: left;
+            margin: 25px 0;
+        }
+
+        &.agency-key-metrics-editor,
         &.agency-brands {
-            padding-left: 330px;
+            margin-left: 330px;
         }
     }
 }
@@ -64,6 +89,7 @@
     }
 }
 
+
 .agency-brands {
     .agency-brands-header {
         display: none;
@@ -76,7 +102,8 @@
     text-align: center;
 }
 
-.agency-brand-tile {
+.agency-brand-tile,
+.brand-data {
     @include style-contentbox;
     padding-bottom: 10px;
     margin: 10px auto;
@@ -124,84 +151,48 @@
     }
 }
 
-// SLIDER STYLES
-.active {
-    position: relative;
+.brand-data {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    margin-top: 0;
+    height: 100%;
+    padding: 30px 10px;
 
-    .nav_con {
-        z-index: 5000;
-
-        .navi {
-            cursor: pointer;
-            background: $color-grey-cc;
-            top: 0;
-            bottom: 0;
-            width: 35px;
-            position: absolute;
-            text-align: center;
-
-            &.prev {
-                left: 0;
-
-                &.inactive {
-                    cursor: auto;
-                    opacity: .25;
-                }
-
-                span {
-                    left: 7px;
-                    border-right: 15px solid #fff;
-                }
-            }
-
-            &.next {
-                right: 0;
-
-                &.inactive {
-                    cursor: auto;
-                    opacity: .25;
-                }
-
-                span {
-                    right: 7px;
-                    border-left: 15px solid #fff;
-                }
-            }
-
-            span {
-                display: block;
-                width: 0;
-                height: 0;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-15px);
-                border-top: 15px solid transparent;
-                border-bottom: 15px solid transparent;
-            }
-        }
+    .title {
+        margin-top: 12px;
+        text-align: center;
+        font-family: $font-open-sans-semi-bold;
+        text-transform: uppercase;
+        font-size: 13px;
+        color: $color-black;
     }
 
-    @include breakpoint($bp-tablets-landscape) {
-        .nav_con {
-            display: block;
+    .value {
+        margin: 5px 0 15px;
+        text-align: center;
+        font-family: $font-open-sans-bold;
+        text-transform: uppercase;
+        color: $color-black;
+        line-height: 1;
+        font-size: 18px;
+    }
+
+    .img {
+        width: 115px;
+        opacity: .1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto;
         }
     }
 }
 
 
-.wrapper {
-    overflow-x: hidden;
-    margin: 0 auto;
 
-    @include breakpoint($bp-tablets-portrait) {
-        max-width: 100%;
-    }
-}
-
-.scrollpane {
-    position: relative;
-    width: 4000px;
-    padding-bottom: 30px;
-    -webkit-transition: 0.5s all ease;
-    transition: 0.5s all ease;
-}
