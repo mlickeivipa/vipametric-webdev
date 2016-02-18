@@ -1,9 +1,12 @@
-jQuery(function($){
+$.mobile.autoInitializePage = false;
+
+jQuery(function($) {
     var CSS_INACTIVE_CLASS = "inactive";
     var CSS_ACTIVE_CLASS = "active";
     var CSS_PREVIOUS_CLASS = "prev";
     var CSS_NEXT_CLASS = "next";
     var CSS_CURRENT_CLASS = "current";
+    var CSS_FLIPPED_CLASS = "flipped";
     var CSS_WRAPPER_PADDING = 80;
     var CSS_TABLET_BREAKPOINT = 768;
     var transitionProperty = Modernizr.csstransforms ? "transform" : "left";
@@ -12,10 +15,14 @@ jQuery(function($){
     var conWidth;
     var $tileCon = $('.agency-brand-tiles');
     var $tileColumn = $('<div class="agency-brand-tile-column"></div>');
+    var $flipWrapper = $('<div class="flip-wrapper"></div>');
+    var $flipper = $('<div class="flipper"></div>');
     var RESIZE_THROTTLE_TIME = 200
     var resizeThrottleId;
 
     function init() {
+        swapBrandLogo();
+
         if (windowWidth >= CSS_TABLET_BREAKPOINT) {
             $tileCon.addClass(CSS_ACTIVE_CLASS);
         }
@@ -46,10 +53,36 @@ jQuery(function($){
                 for(var i = 0; i < $tiles.length; i+=2) {
                     $tiles.slice(i, i+2).wrapAll($tileColumn);
                 }
+
+                setupTileFlip();
+            }
+
+            function relinkMontejoLogo() {
+                var $montejoTileLink = $tiles.eq(11).find(".brand-actions a span");
+                $montejoTileLink.on('click', function(evt){
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    window.location = "https://vipametric-qa.venturetech.net/cardenas/dashboard/5";
+                });
             }
 
             function setupTileFlip() {
+                $tiles.each(function(idx, tile){
+                    var $tile = $(tile);
+                    var $brandDataCon = $('<div class="brand-data"></div>');
+                    var $img = $tile.find('img').clone();
+                    var $brandLogo = $('<div class="img"></div>').append($img);
+                    var $eventsCompleted = '<div class="title">Events Completed</div><div class="value">' + $tile.data('eventsCompletedCount') + '</div>';
+                    var $campaignCount = '<div class="title">Campaign Count</div><div class="value">' + $tile.data('campaignCount') + '</div>';
+                    $tile.wrap($flipWrapper);
+                    $brandDataCon.append($brandLogo).append($eventsCompleted).append($campaignCount).insertAfter($tile);
 
+                    $tile.closest('.flip-wrapper').wrapInner($flipper);
+                });
+
+                $('.flip-wrapper').on('click', function(evt){
+                   $(this).toggleClass(CSS_FLIPPED_CLASS);
+                });
             }
 
             function setupSlides() {
@@ -170,12 +203,18 @@ jQuery(function($){
                 });
             }
 
+            relinkMontejoLogo();
             groupBrandTiles();
             resizeWrapper();
             setupSlides();
             addResizeWatcher();
         });
     }
+
+    function swapBrandLogo() {
+        $('.agency-brand-logo-editor').find("img").attr('src', "/_resources/dyn/files/2828036z484752a4/_fn/ai-logomark.png");
+    }
+
 
     init();
 });
