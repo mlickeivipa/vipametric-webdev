@@ -106,6 +106,16 @@ label,
 	padding-top: 20px;
 }
 
+.form-metric-landing-nav {
+	a {
+		@include style-button-base();
+
+		+ a {
+			margin-left: 5px;
+		}
+	}
+}
+
 @include text-like-inputs {
 	@include style-input;
 	display: block;
