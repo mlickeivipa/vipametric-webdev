@@ -6,6 +6,12 @@
     }
 }
 
+th.first-column {
+    .column-label {
+        display: none;
+    }
+}
+
 tr.even.active.first,
 tr.odd.active.last {
     th.st-head-row {
