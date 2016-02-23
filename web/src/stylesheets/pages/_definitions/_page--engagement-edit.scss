@@ -729,6 +729,10 @@ span.metric-bucket.value-component {
         }
     }
 
+    .multipart_search > label {
+        display: none;
+    }
+
     .metric-container {
         display: block;
         margin-top: 10px;
@@ -753,6 +757,7 @@ span.metric-bucket.value-component {
         .show-form-metric-table,
         .entity_actions {
             margin: 10px 0;
+            text-align: right;
         }
 
         .search .constraints .constraint.checkbox {
