@@ -59,8 +59,10 @@
 	margin-top: 5px;
 }
 
+
 // Add - clickables specific to the management/search pages
 a[title="Add Engagement"],
+a[title="Add Event"],
 a[title="Add User"] {
 	@include style-button-base;
 	width: 100%;
