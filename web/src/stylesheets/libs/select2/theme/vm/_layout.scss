@@ -12,6 +12,10 @@
   min-width: 150px;
 }
 
+.select2-container--vm-multi .select2-search__field {
+  min-width: 100px;
+}
+
 @import "single";
 @import "multiple";
 
