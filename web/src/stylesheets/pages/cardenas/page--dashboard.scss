@@ -8,6 +8,26 @@
     color: $color--theme-accent;
 }
 
+.price-matrix-recommend-account {
+    display: table;
+    width: 100%;
+}
+
+.dash-section {
+    &.recommend-account {
+        display: inline-block;
+        width: 27.5%;
+        vertical-align: top;
+    }
+
+    &.price-matrix {
+        display: inline-block;
+        width: 70%;
+        margin-left: 2.5%;
+        height: 100%;
+    }
+}
+
 .spend-wrapper {
     float: left;
     margin-top: 13px;
@@ -19,7 +39,8 @@
     }
 }
 
-.number-display {
+.number-display,
+.count-display {
     width: 255px;
 
     .data-label {
@@ -54,6 +75,20 @@
         color: $color-grey-cc;
         font-weight: bold;
         margin-top: 3px;
+    }
+}
+
+.count-display {
+    display: inline-block;
+    height: 160px;
+    width: 300px;
+
+    .data-label {
+        margin-top: 20px;
+    }
+
+    .data-value {
+        font-size: 60px;
     }
 }
 
