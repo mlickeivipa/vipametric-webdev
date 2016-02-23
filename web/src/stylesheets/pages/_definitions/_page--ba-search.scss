@@ -1,0 +1,39 @@
+@import "_page--ba-search/ba-search-box";
+@import "_page--ba-search/ba-tables";
+
+.wrapper-header {
+    font-family: OpenSansBold, Arial, Verdana, sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #4b93ad;
+}
+
+.member-profile-thumnail,
+.member-profile-thumbnail {
+    position: relative;
+    padding-bottom: 20px;
+    min-height: 25px;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .btn {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .member-profile-thumnail,
+        .member-profile-thumbnail {
+            max-width: 100px;
+        }
+    }
+}

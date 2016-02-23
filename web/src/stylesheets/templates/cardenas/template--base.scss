@@ -3,6 +3,10 @@
 
 @import "../_definitions/_template--base";
 
+.logo p {
+    margin: 0;
+}
+
 .nav-plus {
     .logout {
         .btn.logout-url {
@@ -60,9 +64,9 @@
         padding: 7px 0;
 
         img {
-            /*height: 50px;
-            width: 162px;
-            margin-top: -6px;*/
+            max-height: 45px;
+            width: auto;
+            height: auto;
         }
     }
 
@@ -137,5 +141,3 @@
         }
     }
 }
-
-

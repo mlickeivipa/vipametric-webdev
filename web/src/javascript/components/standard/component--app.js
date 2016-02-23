@@ -26,11 +26,23 @@ jQuery(function($) {
 		}
 
 		if ($con.length && !($con.closest('.cke_dialog').length || $con.closest('tr[data-dnd-source-def]').length)) {
-			$con
-				.select2(DEFAULT_SELECT_OPTIONS)
-				.addClass(CSS_CLASS_SELECT_INIT)
-				.filter('[data-features~="watch"]')
-				.on('change', miwt.observerFormSubmit);
+			$con.each(function(idx, select){
+				var $sel = $(select);
+				if ($sel.hasClass("multi-selection-constraint")) {
+					$sel
+						.select2({theme: 'vm-multi', tags: true, multiple: true, placeholder: 'Select'})
+						.addClass(CSS_CLASS_SELECT_INIT)
+						.filter('[data-features~="watch"]')
+						.on('change', miwt.observerFormSubmit);
+				}
+				else {
+					$sel
+						.select2(DEFAULT_SELECT_OPTIONS)
+						.addClass(CSS_CLASS_SELECT_INIT)
+						.filter('[data-features~="watch"]')
+						.on('change', miwt.observerFormSubmit);
+				}
+			});
 		}
 	}
 

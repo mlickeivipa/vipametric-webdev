@@ -31,8 +31,12 @@
     top: 25px;
     right: 25px;
   }
-}
 
+  .edit-user .prop-header-actions,
+  .edit-user .prop-editor .entity-actions {
+    top: 15px;
+  }
+}
 
 .add-engagement .sub-section-container,
 .add-engagement .metric-container,
@@ -48,6 +52,11 @@
 
 .principal-info button.btn,
 .prop-editor .actions a {
+  @include style-button-base();
+}
+
+.add-engagement .principal-info button.btn,
+.add-engagement .prop-editor .actions a {
   @include style-button-base($padding: 0px 5px);
 }
 

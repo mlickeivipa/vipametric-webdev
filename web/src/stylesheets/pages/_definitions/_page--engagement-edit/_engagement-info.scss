@@ -12,7 +12,11 @@
 
 .engagement-info-details {
     @include breakpoint($bp-tablets-portrait) {
-        margin-right: 480px;
+        margin-right: 300px;
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        margin-right: 670px;
     }
 }
 
@@ -109,9 +113,10 @@
         }
     }
 
+
     .engagement-address {
         white-space: normal;
-        max-width: 350px;
+        max-width: 250px;
         line-height: 1.2;
         position: relative;
         margin-left: 37px;
@@ -154,6 +159,7 @@
     @include breakpoint($bp-mobile-landscape) {
         .engagement-map {
             float: right;
+            margin-left: 10px;
         }
 
         .engagement-map {
@@ -173,21 +179,26 @@
         white-space: nowrap;
 
         .engagement-map {
+            float: none;
             max-width: 250px;
         }
 
         .engagement-address {
-            margin-right: 260px;
+            //margin-right: 260px;
+            margin-right: 0;
+            margin-top: 10px;
         }
     }
 
     @include breakpoint($bp-tablets-landscape) {
         .engagement-map {
             max-width: none;
+            float: right;
         }
 
         .engagement-address {
             margin-right: 380px;
+            margin-top: 0;
         }
     }
 }

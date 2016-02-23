@@ -59,8 +59,10 @@
 	margin-top: 5px;
 }
 
+
 // Add - clickables specific to the management/search pages
 a[title="Add Engagement"],
+a[title="Add Event"],
 a[title="Add User"] {
 	@include style-button-base;
 	width: 100%;
@@ -91,12 +93,29 @@ label,
 	margin-top: 20px;
 }
 
-.form_field + .form_field {
-	margin-top: 10px;
+.form_field {
+	+ .form_field {
+		margin-top: 10px;
+	}
+
+	&.submit_registration_button {
+		display: block;
+		margin: 10px 0 5px;
+	}
 }
 
 .procedure-navigation-con {
 	padding-top: 20px;
+}
+
+.form-metric-landing-nav {
+	a {
+		@include style-button-base();
+
+		+ a {
+			margin-left: 5px;
+		}
+	}
 }
 
 @include text-like-inputs {

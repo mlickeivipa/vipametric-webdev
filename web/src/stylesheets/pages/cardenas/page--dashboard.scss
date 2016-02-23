@@ -1,0 +1,218 @@
+@import "../../config/themes/_pernod";
+@import "../../config/_base-import";
+
+@import "../_definitions/_page--dashboard";
+
+.dash-section .gauge-chart .highcharts-yaxis-title,
+.no-data {
+    color: $color--theme-accent;
+}
+
+.price-matrix-recommend-account {
+    display: table;
+    width: 100%;
+}
+
+.dash-section {
+    &.recommend-account {
+        display: inline-block;
+        width: 27.5%;
+        vertical-align: top;
+    }
+
+    &.price-matrix {
+        display: inline-block;
+        width: 70%;
+        margin-left: 2.5%;
+        height: 100%;
+    }
+}
+
+.spend-wrapper {
+    float: left;
+    margin-top: 13px;
+
+    .number-display {
+        + .number-display {
+            padding-top: 10px;
+        }
+    }
+}
+
+.number-display,
+.count-display {
+    width: 255px;
+
+    .data-label {
+        margin-top: 12px;
+        text-align: center;
+        font-family: $font-open-sans-semi-bold;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: $color-grey-77;
+    }
+
+    .data-value {
+        margin-top: 10px;
+        text-align: center;
+        font-family: $font-open-sans-semi-bold;
+        text-transform: uppercase;
+        font-size: 25px;
+        color: $color-black;
+        line-height: 1;
+    }
+
+    .percent-sign {
+        font-size: 24px;
+        vertical-align: top;
+        display: inline-block;
+        margin-top: 5px;
+    }
+
+    .data-description {
+        text-align: center;
+        font-size: 12px;
+        color: $color-grey-cc;
+        font-weight: bold;
+        margin-top: 3px;
+    }
+}
+
+.count-display {
+    display: inline-block;
+    height: 160px;
+    width: 300px;
+
+    .data-label {
+        margin-top: 20px;
+    }
+
+    .data-value {
+        font-size: 60px;
+    }
+}
+
+@include breakpoint($bp-tablets-portrait) {
+    .easy-find-case-display,
+    .was-expected-was-supportive,
+    .stacked-pies {
+        display: inline-block;
+        vertical-align: middle;
+        width: 30%;
+    }
+
+    .stacked-pies {
+        .pie-chart {
+            display: block;
+            width: 100%;
+            margin: 2.5% 0;
+        }
+    }
+}
+
+// Featured photo slides
+.active {
+    .nav_con {
+        position: relative;
+        z-index: 5000;
+
+        .navi {
+            cursor: pointer;
+
+            &.prev {
+                padding-top: 9px;
+                padding-left: 12px;
+                width: 23px;
+                height: 26px;
+                position: absolute;
+                left: -25px;
+                top: 170px;
+
+                &.inactive {
+                    cursor: auto;
+                    opacity: .25;
+                }
+
+                span {
+                    border-right: 15px solid $color--theme-accent;
+                }
+            }
+
+            &.next {
+                height: 26px;
+                width: 20px;
+                padding-top: 9px;
+                padding-left: 15px;
+                position: absolute;
+                top: 170px;
+                right: 5px;
+
+                &.inactive {
+                    cursor: auto;
+                    opacity: .25;
+                }
+
+                span {
+                    border-left: 15px solid $color--theme-accent;
+                }
+            }
+
+            span {
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 15px solid transparent;
+                border-bottom: 15px solid transparent;
+            }
+        }
+    }
+}
+
+
+.wrapper {
+    overflow-x: hidden;
+    margin: 10px 20px 0;
+}
+
+.scrollpane {
+    position: relative;
+    width: 4000px;
+    padding-bottom: 30px;
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}
+
+.featured-photos {
+    min-height: 440px;
+
+    .featured-photos-header {
+        &:before {
+            @include glyphAdd($html-entity-favorite, 18px, $color-yellow-gold);
+            vertical-align: top;
+            margin-right: 5px;
+            margin-top: 3px;
+        }
+    }
+
+    .photo {
+        width: 325px;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        transition: .5s ease all;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto;
+            opacity: .65;
+            transform: scale(.85);
+            transition: .5s ease all;
+        }
+
+        &.current img {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}

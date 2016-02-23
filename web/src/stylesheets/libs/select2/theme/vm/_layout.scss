@@ -1,16 +1,26 @@
 @import "defaults";
 @import "../../mixins/_gradients";
 
-.select2-container--vm {
+.select2-container--vm,
+.select2-container--vm-multi {
 	text-align: left;
 
 	@import "dropdown";
 }
 
+.select2-container--vm-multi {
+  min-width: 150px;
+}
+
+.select2-container--vm-multi .select2-search__field {
+  min-width: 100px;
+}
+
 @import "single";
 @import "multiple";
 
-.select2-container--vm {
+.select2-container--vm,
+.select2-container--vm-multi {
   .select2-search--dropdown {
     .select2-search__field {
       border: 1px solid $border-color;

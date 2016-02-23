@@ -1,0 +1,80 @@
+// SLIDER STYLES
+.active {
+    position: relative;
+
+    .nav_con {
+        z-index: 5000;
+
+        .navi {
+            cursor: pointer;
+            background: $color-grey-cc;
+            top: 0;
+            bottom: 0;
+            width: 35px;
+            position: absolute;
+            text-align: center;
+
+            &.prev {
+                left: 0;
+
+                &.inactive {
+                    cursor: auto;
+                    opacity: .25;
+                }
+
+                span {
+                    left: 7px;
+                    border-right: 15px solid #fff;
+                }
+            }
+
+            &.next {
+                right: 0;
+
+                &.inactive {
+                    cursor: auto;
+                    opacity: .25;
+                }
+
+                span {
+                    right: 7px;
+                    border-left: 15px solid #fff;
+                }
+            }
+
+            span {
+                display: block;
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-15px);
+                border-top: 15px solid transparent;
+                border-bottom: 15px solid transparent;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .nav_con {
+            display: block;
+        }
+    }
+}
+
+.wrapper {
+    overflow-x: hidden;
+    margin: 0 auto;
+
+    @include breakpoint($bp-tablets-portrait) {
+        max-width: 100%;
+    }
+}
+
+.scrollpane {
+    position: relative;
+    width: 4000px;
+    padding-bottom: 30px;
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}

@@ -4,7 +4,11 @@
 @include fontFace('GlyphLib', '/glyph-lib', 'glyph-font');
 
 @import "../../libs/normalize";
+@import "../../libs/jquery.fancybox";
 @import "../../libs/select2/_core";
+@import "../../libs/select2/_multiple";
+@import "../../libs/select2/_dropdown";
+@import "../../libs/stacktable";
 
 @import "template--base/_structure";
 @import "template--base/_navigation";

@@ -1,0 +1,221 @@
+@import "page--user-add";
+
+.edit-member {
+    .wrapper-header {
+        font-family: OpenSansBold, Arial, Verdana, sans-serif;
+        text-transform: uppercase;
+        font-size: 20px;
+        color: #4b93ad;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .wrapper-header,
+        .header-actions {
+            display: inline-block;
+            width: 50%;
+        }
+
+        .header-actions {
+            float: right;
+        }
+    }
+}
+
+.member-picture {
+    .col-photos {
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .default-group {
+        .props {
+            margin-bottom: 10px;
+            text-align: left;
+
+            input {
+                margin-bottom: 5px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 100%;
+
+                &.cancel {
+                    margin-top: 5px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .col-photos {
+            img {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+        }
+
+        .default-group {
+            .props {
+                text-align: center;
+
+                .btn {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 250px;
+                }
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        display: inline-block;
+        float: left;
+        width: 255px;
+        position: relative;
+        z-index: 888;
+        padding-bottom: 10px;
+    }
+}
+
+.prop-wrapper {
+    &.member-engagements {
+        .search-bar {
+            display: none;
+        }
+    }
+
+    &.member-brands {
+        .member-profile-brands {
+            margin-top: 5px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        &.principal-info {
+            margin-left: 270px;
+        }
+
+        &.upcoming-engagements {
+            clear: both;
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        &.principal-info {
+            &.prop-viewer {
+                .default-group {
+                    .props {
+                        display: table;
+                        width: 100%;
+                    }
+
+                    .prop {
+                        display: inline-block;
+                        width: 50%;
+
+                        &:nth-child(4n-1),
+                        &:nth-child(4n-2) {
+                            background-color: $color-grey-f2;
+                        }
+
+                        &.status {
+                            display: block;
+                        }
+                    }
+
+                    .label,
+                    .val {
+                        display: table-cell;
+                        padding: 5px 10px;
+                        vertical-align: middle;
+                    }
+
+                    .label {
+                        width: 200px;
+                        min-width: 200px;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.member-profile-edit {
+    .phone {
+        > .label {
+            margin-bottom: 1px;
+        }
+    }
+
+    .phone_number_form {
+        .rtb {
+            display: inline-block;
+
+            + .rtb {
+                margin-left: 10px;
+            }
+
+            label,
+            input[type=radio] {
+                display: inline-block;
+                width: auto;
+            }
+
+            label {
+                margin-left: 5px;
+                font-size: 12px;
+                font-family: $font-open-sans;
+                margin-top: 2px;
+            }
+        }
+    }
+
+
+    &.prop-editor {
+        .prop {
+            display: block;
+            margin-bottom: 10px;
+
+            &.birth-date {
+                input {
+                    width: auto;
+                }
+            }
+
+            input,
+            select {
+                width: auto;
+            }
+        }
+
+        @include breakpoint($bp-tablets-portrait) {
+            .prop {
+                &.status,
+                &.first-name,
+                &.last-name,
+                &.gender,
+                &.birth-date {
+                    display: inline-block;
+                    margin-top: 0;
+                }
+            }
+
+            .address_lines {
+                > .address_line {
+                    display: inline-block;
+
+                    + .address_line {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

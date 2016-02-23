@@ -25,6 +25,14 @@ body {
 	min-height: 100.0%;
 	background: repeat-x center bottom 50px $landing--bg-color;
 	background-image: $landing--bg-image;
+
+	.logo {
+		img {
+			max-width: 80%;
+			height: auto;
+			width: auto;
+		}
+	}
 }
 
 .e-content {

@@ -524,14 +524,14 @@ span.metric-bucket.value-component {
         }*/
     }
 
-    .InMarketSurvey {
+    /*.InMarketSurvey {
         .value-component {
             label {
                 display: inline-block;
                 margin-right: 40px;
             }
         }
-    }
+    }*/
 }
 
 // begin styles for legacy clients
@@ -727,19 +727,58 @@ span.metric-bucket.value-component {
             width: 100%;
             min-width: 200px;
         }
+    }
 
-        @include breakpoint($bp-mobile-landscape) {
+    .multipart_search > label {
+        display: none;
+    }
+
+    .metric-container {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+
+        .engagement-editor & {
+            input[type=number],
+            input[type=password],
+            input[type=text] {
+                width: auto;
+            }
+        }
+
+        .actions {
+            .btn {
+                + .btn {
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .show-form-metric-table,
+        .entity_actions {
+            margin: 10px 0;
+            text-align: right;
+        }
+
+        .search .constraints .constraint.checkbox {
+            margin-right: 3px;
+            vertical-align: middle;
+        }
+
+        .search_results {
+            width: 100%;
+        }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .string-metric {
             input[type="text"] {
                 width: auto;
                 max-width: 180px;
                 min-width: 125px;
             }
         }
-    }
-}
 
-@include breakpoint($bp-mobile-landscape) {
-    .market-intelligence {
         .EventResults,
         .EventApproval {
             .default-group {
@@ -761,7 +800,36 @@ span.metric-bucket.value-component {
             }
         }
     }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .search_bar {
+            label {
+                color: $color-grey-33;
+            }
+
+            > span {
+                display: inline-block;
+                vertical-align: bottom;
+
+                &.actions {
+                    display: block;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .search_bar {
+            > span.actions {
+                margin-top: 0;
+                display: inline-block;
+            }
+        }
+    }
 }
+
+
 
 
 // User Management
