@@ -2,8 +2,12 @@
 
 //VipaMetric Dark
 $color--theme-accent: #4b93ad;
+$color--theme-accent-alternate: #1f4557;
 
-$landing--bg-color: $color-grey-33;
-$app--table-headings-bg-color: $color-grey-33;
+$landing--bg-color: $color-white;
+$app--table-headings-bg-color: $color--theme-accent-alternate;
+$app--nav-link-color: $color--theme-accent-alternate;
+$app--nav-link-hover-color: $color--theme-accent;
+$app--nav-link-underline-color: $color--theme-accent-alternate;
 
 @import "../_default-vars";
