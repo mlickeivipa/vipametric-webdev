@@ -1,0 +1,11 @@
+.price-matrix {
+    .miwt-table {
+        tr {
+            th, td {
+                &:first-child {
+                    width: 30%;
+                }
+            }
+        }
+    }
+}
