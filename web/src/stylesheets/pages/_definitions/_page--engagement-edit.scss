@@ -673,7 +673,9 @@ span.metric-bucket.value-component {
 // END STYLES FOR NEW HTML
 
 // STYLES FOR VM-440, MEDIA SUMMARY WIDGET
-.primary-content.vipametric-wrapper {
+.primary-content.vipametric-wrapper,
+.survey-summary-container,
+.leads-summary-container {
     @include breakpoint($bp-tablets-landscape) {
         margin-right: 240px;
     }
@@ -687,7 +689,6 @@ span.metric-bucket.value-component {
 }
 
 // END STYLES FOR VM-440
-
 .default-group {
     .numeric-metric {
         display: block;
@@ -829,8 +830,13 @@ span.metric-bucket.value-component {
     }
 }
 
-
-
+// In-Market Survey only
+.consumer-link-outer-con {
+    button.btn.trigger {
+        width: auto;
+        height: auto;
+    }
+}
 
 // User Management
 .user-management {
