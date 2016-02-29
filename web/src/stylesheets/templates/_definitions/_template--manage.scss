@@ -224,10 +224,12 @@ button.btn.trigger {
 		}
 	}
 
-	button.btn.trigger {
-		position: absolute;
-		top: 7px;
-		left: 0;
+	> .miwt-collapsable {
+		> button.btn.trigger {
+			position: absolute;
+			top: 7px;
+			left: 0;
+		}
 	}
 
 	+ .sub-section {
@@ -241,9 +243,9 @@ button.btn.trigger {
 	}
 }
 
+
 @include breakpoint($bp-mobile-landscape) {
 	.section {
-
 		&-header {
 			a {
 				position: absolute;
