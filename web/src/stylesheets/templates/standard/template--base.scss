@@ -28,8 +28,8 @@
         }
 
         .account-logout-link {
-            background-color: $color-grey-55;
-            color: #ccc;
+            background-color: $color--theme-accent-alternate;
+            color: $color-white;
             font-size: 12px;
             padding: 1px 10px;
             background-position: 5px 3px;
@@ -60,6 +60,7 @@
         padding: 7px 0;
 
         img {
+            // Remove when dealing w/ AH logo
             /*height: 50px;
             width: 162px;
             margin-top: -6px;*/
@@ -76,8 +77,6 @@
                 .mi {
                     &:hover {
                         .menuitemlabel {
-                            color: $color-white;
-
                             &:after {
                                 height: 10px;
                             }
@@ -100,7 +99,7 @@
                         &:after {
                             content: "";
                             display: block;
-                            background-color: $color--theme-accent;
+                            background-color: $color--theme-accent-alternate;
                             position: absolute;
                             -webkit-transform: translate(-50%);
                             -ms-transform: translate(-50%);
@@ -122,7 +121,6 @@
                     margin-right: 20px;
 
                     .menuitemlabel {
-                        color: $color-grey-bb;
                         position: relative;
                         padding: 15px 0;
                     }
@@ -134,6 +132,12 @@
             display: inline-block;
             vertical-align: middle;
             margin-left: 30px;
+        }
+
+        .account-logout {
+            .account-username {
+                color: $color--theme-accent-alternate;
+            }
         }
     }
 }

@@ -1,6 +1,14 @@
 @import "_page--intranet/tile-flip";
 @import "_page--intranet/brand-slider";
 
+.miwt-table {
+    th.last-column {
+        button.configure {
+            float: right;
+        }
+    }
+}
+
 .section {
     &.agency-brands-editor {
         background-color: transparent;
@@ -27,6 +35,14 @@
                     transform: translate(-50%);
                 }
             }
+        }
+    }
+
+    &.agency-engagements-review-editor,
+    &.agency-engagements-active-editor,
+    &.agency-engagements-upcoming-editor {
+        .search-bar {
+            display: none;
         }
     }
 
@@ -118,6 +134,11 @@
     width: 165px;
     height: 50%;
 
+    &:hover {
+        box-shadow: 0 0 4px #444;
+        cursor: pointer;
+    }
+
     .brand-logo {
         width: 100%;
 
@@ -201,6 +222,7 @@
         }
     }
 }
+
 
 
 
