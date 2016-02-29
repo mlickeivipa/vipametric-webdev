@@ -1,54 +1,112 @@
-.section.surveys {
-	.survey-item {
-		margin: 5px 0;
-		display: inline-block;
-		vertical-align: top;
-		width: 25%;
-		padding-left: 20px;
-		border-right: 1px solid $color-grey-e7;
+.section.surveys,
+.survey-summary-container {
+	@include style-contentbox;
+	margin-top: 0;
+	padding: 0;
 
-		&:first-child {
-			padding-left: 0;
-		}
+	.section-content,
+	.survey-summary-content {
+		padding: 15px 25px;
+	}
 
-		&:nth-child(4n) {
-			border-right: 0 none;
+	.survey-summary-header {
+		@include style-h3;
+		color: $color-grey-33;
+		border-bottom: 1px solid $color-grey-e2;
+		padding: 10px 25px;
+		background-color: $color-grey-f2;
+
+		a {
+			@include style-button-base;
+			display: block;
+			width: 100%;
+			color: $color-grey-33;
+			text-align: center;
 		}
 	}
 
-	.survey-item-name {
+	.survey-item,
+	.survey-summary {
+		+ .survey-summary {
+			margin-top: 20px;
+		}
+	}
+
+	.survey-item-name,
+	.survey-link {
 		font-size: 16px;
 		font-family: $font-open-sans-semi-bold;
 		color: $color--theme-accent;
 	}
 
-	a.survey-item-name:after {
+	a.survey-item-name:after,
+	.survey-link a:after {
 		@include glyphAdd($html-entity-link);
 		vertical-align: baseline;
 		padding-left: 5px;
 		text-decoration: none;
 	}
 
-	.survey-item-data-count {
+	.survey-item-data-count,
+	.submissions-data-count {
 		font-size: 32px;
 		margin-right: 5px;
 		display: inline-block;
 		vertical-align: middle;
 	}
 
-	.survey-item-data-text {
+	.survey-item-data-text,
+	.submissions-data-text {
 		display: inline-block;
 		vertical-align: middle;
 		margin-right: 10px;
 	}
 
-	.survey-item-actions {
+	.survey-item-actions,
+	.summary-actions {
 		.btn {
 			vertical-align: middle;
 			display: inline-block;
 
+			&-download {
+				&:before {
+					margin-right: 0;
+				}
+
+				font-size: 0;
+				padding: 5px;
+			}
+
 			+ .btn {
 				margin-left: 3px;
+			}
+		}
+	}
+
+	@include breakpoint($bp-mobile-landscape) {
+		padding: 0;
+		margin-top: 0;
+	}
+
+	@include breakpoint($bp-tablets-portrait) {
+		.survey-summary {
+			margin: 5px 0;
+			display: inline-block;
+			vertical-align: top;
+			width: 25%;
+			padding-left: 20px;
+			border-right: 1px solid $color-grey-e7;
+
+			+ .survey-summary {
+				margin-top: 0;
+			}
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:nth-child(4n) {
+				border-right: 0 none;
 			}
 		}
 	}
