@@ -1,0 +1,19 @@
+@import "../_base-vars";
+
+//Cardenas
+$color--theme-accent: #0075be;
+$color--theme-accent-alternate: #023466;
+
+$landing--bg-image: none;
+$landing--bg-color: $color-white;
+
+$app--body-bg-color: $color-grey-f7;
+$app--header-bg-color: $color-white;
+$app--footer-bg-color: $color-grey-f7;
+
+$app--table-headings-bg-color: $color--theme-accent-alternate;
+$app--nav-link-color: $color--theme-accent-alternate;
+$app--nav-link-hover-color: $color--theme-accent;
+$app--nav-link-underline-color: $color--theme-accent-alternate;
+
+@import "../_default-vars";
