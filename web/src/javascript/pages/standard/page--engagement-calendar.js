@@ -4,15 +4,16 @@ $(document).ready(function() {
   var $loading = $('.engagement-calendar-loading');
   var firstRequest = true;
 
-  // Parse client id as last digit in URL using relative URL
-  // e.g. /calendar/1 => /calendar_feed/1
-  var clientIdMatch = /calendar\/(\d+)/.exec(location.href);
-  var feedURL = '../calendar_feed/'+(clientIdMatch ? clientIdMatch[1] : -1);
+  var idMatch = /(\w+)\/.*\/(\d+)/.exec(location.pathname);
+  var themeName = idMatch[1];
+  var clientId = idMatch[2];
+  var feedURL = '/ws/engagement/calendar';
 
   var $datePicker = $('<input/>', {type: 'hidden'});
   $datePicker.datepicker();
 
   $calendar.fullCalendar({
+    timezone: 'local',
     eventLimit: true,
     eventLimitClick: 'day',
     displayEventEnd: true,
@@ -35,12 +36,6 @@ $(document).ready(function() {
     loading: function(isLoading){
       $calendar.toggleClass('engagement-calendar-loading', isLoading);
       $loading.toggle(isLoading);
-    },
-    eventRender: function(ev, element) {
-      var timeZone = ev.eventTimeZone;
-      if(timeZone){
-        $(element).find('.fc-time').append(' '+timeZone);
-      }
     },
     events: {
       url: feedURL,
@@ -85,7 +80,7 @@ $(document).ready(function() {
   });
 
   function eventFilters(){
-    var filters = {};
+    var filters = {themeName: themeName, clientId: clientId};
     if(firstRequest){
       firstRequest = false;
     } else {
