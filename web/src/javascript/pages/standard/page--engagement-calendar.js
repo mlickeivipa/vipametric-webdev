@@ -49,9 +49,12 @@ $(document).ready(function() {
         loadFilters(result);
         return result.events;
       },
-      error: function(){
-        // session may have timed out or server is down
-        location.reload();
+      statusCode: {
+        401: function(){
+          // session may have timed out or user logged out
+          // refresh to login page.
+          location.reload();
+        }
       }
     }
   });
