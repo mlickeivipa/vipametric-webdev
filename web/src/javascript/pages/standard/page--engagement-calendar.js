@@ -1,21 +1,46 @@
 $(document).ready(function() {
   var $calendar = $('.engagement-calendar');
   var $filters = $('.engagement-calendar-filters');
+  var $loading = $('.engagement-calendar-loading');
   var firstRequest = true;
 
   // Parse client id as last digit in URL using relative URL
   // e.g. /calendar/1 => /calendar_feed/1
-  var clientIdMatch = /calendar\/(\d+)/.exec(window.location.href);
+  var clientIdMatch = /calendar\/(\d+)/.exec(location.href);
   var feedURL = '../calendar_feed/'+(clientIdMatch ? clientIdMatch[1] : -1);
+
+  var $datePicker = $('<input/>', {type: 'hidden'});
+  $datePicker.datepicker();
 
   $calendar.fullCalendar({
     eventLimit: true,
     eventLimitClick: 'day',
     displayEventEnd: true,
+    views: {
+      basicDay: {
+        eventLimit: false
+      }
+    },
+    customButtons: {
+      datePicker: {
+        text: 'date',
+        click: showDatePicker
+      }
+    },
     header: {
-      left: 'today prev,next',
+      left: 'today,datePicker prev,next',
       center: 'title',
       right: 'month,basicWeek,basicDay'
+    },
+    loading: function(isLoading){
+      $calendar.toggleClass('engagement-calendar-loading', isLoading);
+      $loading.toggle(isLoading);
+    },
+    eventRender: function(ev, element) {
+      var timeZone = ev.eventTimeZone;
+      if(timeZone){
+        $(element).find('.fc-time').append(' '+timeZone);
+      }
     },
     events: {
       url: feedURL,
@@ -23,6 +48,10 @@ $(document).ready(function() {
       success: function(result){
         loadFilters(result);
         return result.events;
+      },
+      error: function(){
+        // session may have timed out or server is down
+        location.reload();
       }
     }
   });
@@ -54,7 +83,6 @@ $(document).ready(function() {
 
   function eventFilters(){
     var filters = {};
-
     if(firstRequest){
       firstRequest = false;
     } else {
@@ -71,4 +99,18 @@ $(document).ready(function() {
     }
     return filters;
   }
+
+  function showDatePicker(ev){
+     var $el = $(ev.target);
+     var offset = $el.offset();
+     var date = $calendar.fullCalendar('getDate').format('YYYY-MM-DD');
+     var position = [offset.left, offset.top + $el.height()];
+     $datePicker.datepicker('dialog', date, gotoDate,
+         {dateFormat: 'yy-mm-dd'}, position);
+  }
+
+  function gotoDate(date){
+      $calendar.fullCalendar('gotoDate', moment(date));
+  }
 });
+
