@@ -31,6 +31,12 @@
 		text-decoration: none;
 	}
 
+	/* for full calendar integration */
+	&.fc-state-active {
+		background-color: $color-hover-bg;
+		text-decoration: none;
+	}
+
 	&:focus {
 		outline: none;
 	}
