@@ -26,6 +26,9 @@ function createHtmlStructure() {
     $(document.createElement("div")).addClass("gender").addClass("pie-chart").appendTo("div.consumer-demographics");
     $(document.createElement("div")).addClass("language").addClass("pie-chart").appendTo("div.consumer-demographics");
     $(document.createElement("div")).addClass("background").addClass("pie-chart").appendTo("div.consumer-demographics");
+
+    $(document.createElement("div")).addClass("dash-section").addClass("social-analytics").appendTo(".dash-container");
+    $(document.createElement("div")).addClass("dash-section-header").addClass("social-analytics-header").text("Social Analytics").appendTo("div.social-analytics");
     
     
     $(document.createElement("div")).addClass("dash-section").addClass("multi-chart-wrapper").addClass("consumer-purchase-motivators-wrapper").appendTo(".dash-container");
