@@ -26,6 +26,16 @@
 
 /* Filter styles */
 .engagement-calendar-filters {
+    margin: 0 0 20px;
+
+    &:before {
+        content:"Filter by Brand";
+        display: block;
+        font-family: $font-open-sans-bold;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
     .opt {
         display: inline-block;
         vertical-align: middle;
@@ -49,10 +59,20 @@
 
 }
 
-
 /* Loading styles */
 .engagement-calendar-loading {
-    background: $color-white;
+    @include loading-circle-spinner-nosmil;
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-60%);
+    font-size: 0;
+}
+
+.engagement-calendar.loading {
     opacity: .3;
     transition: .4s ease all;
 }

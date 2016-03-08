@@ -258,3 +258,25 @@
 	}
 
 }
+
+@mixin loading-circle-spinner() {
+	display: block;
+	background: center center transparent url('/_resources/dyn/files/2829266z8e0815ea/_fn/loading-logo.svg') no-repeat;
+}
+
+@mixin loading-circle-spinner-nosmil() {
+	@at-root {
+		@keyframes loading-circle-spin {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	}
+
+	display: block;
+	background: center center transparent url('/_resources/dyn/files/2829266z8e0815ea/_fn/loading-logo.svg') no-repeat;
+	animation: loading-circle-spin 1s infinite linear;
+}

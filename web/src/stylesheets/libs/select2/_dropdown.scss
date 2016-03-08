@@ -35,6 +35,10 @@
   &[aria-selected] {
     cursor: pointer;
   }
+
+  &[aria-selected=true] {
+    background-color: #f2f2f2;
+  }
 }
 
 .select2-container--open .select2-dropdown {
