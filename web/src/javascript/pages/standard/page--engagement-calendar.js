@@ -65,32 +65,27 @@ $(document).ready(function() {
 
     function loadFilters(result){
         $filters.empty();
-        if ($('select.filters').length) {
-            $('select.filters').select2('destroy');
-        }
-        var $select = $('<select class="filters" multiple />');
         $.each(result.brands, function(i, brand){
-            var $option = $('<option/>', {
+            var $legendItem = $('<div/>');
+            $legendItem.addClass('color-key').css('background-color', brand.color ? brand.color : '#cccccc');
+
+            var $check = $('<input/>', {
+                'type': 'checkbox',
                 'data-brand-id': +brand.id,
-                'id': +brand.id,
-                'data-brand-color': brand.color,
-                'selected': !!brand.selected,
-                'class': "opt",
-                'text': brand.name
+                'checked': !!brand.selected
             });
 
-            $select.append($option);
-        });
-        $select.appendTo($filters);
-        $('select.filters')
-            .select2({theme: 'vm-multi', multiple: true, placeholder: 'Select'})
-            .filter('[data-features~="watch"]');
+            var $filterLabel = $("<label/>").text(brand.name);
+            var $filterCon = $('<div class="opt" />');
+            $filterCon.prepend($check).prepend($legendItem).append($filterLabel);
 
-        $('select.filters').change(function (e) {
-            $calendar.fullCalendar('refetchEvents');
+            $filterCon.appendTo($filters);
         });
     }
 
+    $filters.delegate('input:checkbox').change(function(){
+        $calendar.fullCalendar('refetchEvents');
+    });
 
     function eventFilters(){
         var filters = {};
@@ -99,10 +94,10 @@ $(document).ready(function() {
         } else {
             // Filter by brand if not first request
             var brandIds = '';
-            $filters.find('option').each(function(){
-                var $option = $(this);
-                if($option.is(':selected')){
-                    brandIds += $option.data('brandId');
+            $filters.find('input:checkbox').each(function(){
+                var $check = $(this);
+                if($check.is(':checked')){
+                    brandIds += $check.data('brandId');
                     brandIds += ';';
                 }
             });

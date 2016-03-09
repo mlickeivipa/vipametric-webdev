@@ -26,7 +26,9 @@
 
 /* Filter styles */
 .engagement-calendar-filters {
+    @include style-contentbox;
     margin: 0 0 20px;
+    padding: 15px 25px;
 
     &:before {
         content:"Filter by Brand";
@@ -38,23 +40,33 @@
 
     .opt {
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: top;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        width: 150px;
 
-        + .opt {
-            margin-left: 10px;
+        > label {
+            margin: 0;
+            padding-left: 35px;
         }
 
-        > div,
-        > label {
-            display: inline-block;
-            vertical-align: middle;
+        > input[type="checkbox"] {
+            float: left;
+            margin: 3px 0 0;
         }
 
         .color-key {
             height: 1em;
             width: 1em;
             margin-right: 3px;
+            float: left;
+            margin-top: 2px;
         }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        margin: 0 0 20px;
+        padding: 15px 25px;
     }
 
 }
