@@ -10,10 +10,20 @@ jQuery(function($){
   var $checkout = $actions.find('.member-checkin-checkout');
   var $messages = $container.find('.member-checkin-messages');
 
-  enableCheckin(true);
+  disableAll();
+
   if(!navigator.geolocation){
     $messages.text('Geolocation is not supported by your browser');
+  } else {
+    $messages.text('Loading…');
+    checkStatus();
+  }
+
+  function disableAll(){
+    $checkin.toggle(true);
     $checkin.prop('disabled', true);
+    $checkout.toggle(false);
+    $checkout.prop('disabled', true);
   }
 
   function enableCheckin(isCheckin){
@@ -36,6 +46,16 @@ jQuery(function($){
     postUpdate({status: 'CheckedOut'}).then(updateStatus);
   });
 
+  function checkStatus(){
+    var data = {clientId: clientId, engagementId: engagementId};
+    return $.ajax({
+      type: 'GET',
+      url: wsURL,
+      data: data,
+      dataType: 'json'
+    }).then(updateStatus);
+  }
+
   function postUpdate(data){
     data.clientId = clientId;
     data.engagementId = engagementId;
@@ -48,12 +68,18 @@ jQuery(function($){
   }
 
   function updateStatus(data){
-    if(data.status === 'CheckedIn'){
-      $messages.text('Checked In');
+    if(data.status === 'NeverCheckedIn'){
+      $messages.text('Please Check In'); 
+      enableCheckin(true);
+    } else if(data.status === 'CheckedIn'){
+      $messages.text('Checked in '+moment(data.timestamp).fromNow()); 
       enableCheckin(false);
     } else if(data.status === 'CheckedOut'){
-      $messages.text('Checked Out');
+      $messages.text('Checked out '+moment(data.timestamp).fromNow());
       enableCheckin(true);
+    } else {
+      $messages.text('Error updating check-in');
+      disableAll();
     }
   }
 
