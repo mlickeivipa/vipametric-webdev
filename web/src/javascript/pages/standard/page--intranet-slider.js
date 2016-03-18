@@ -203,11 +203,14 @@ jQuery(function($) {
                 });
             }
 
+
             relinkMontejoLogo();
-            groupBrandTiles();
-            resizeWrapper();
-            setupSlides();
-            addResizeWatcher();
+            if ($tiles.length) {
+                groupBrandTiles();
+                resizeWrapper();
+                setupSlides();
+                addResizeWatcher();
+            }
         });
     }
 

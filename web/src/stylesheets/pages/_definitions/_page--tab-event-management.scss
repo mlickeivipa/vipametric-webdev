@@ -1,0 +1,63 @@
+a[title="Add Event"] {
+    display: none;
+}
+
+.add-engagement {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    margin-bottom: 20px;
+}
+
+.tab-container {
+    > div.tab-items {
+        border-bottom: 1px solid $color-grey-cc;
+    }
+
+    .tab-items {
+        > .tab-items {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        > li {
+            display: inline-block;
+            padding: 5px 10px;
+            cursor: pointer;
+
+            &.tab-selected {
+                background-color: white;
+                color: $color--theme-accent;
+                border: 1px solid $color-grey-cc;
+                border-bottom: 0;
+                position: relative;
+
+                &:after {
+                    height: 1px;
+                    content: '';
+                    position: absolute;
+                    bottom: -1px;
+                    left: 0;
+                    right: 0;
+                    display: block;
+                    background: $color-white;
+                }
+            }
+
+            + li {
+                border-left: none;
+            }
+        }
+    }
+
+    .tab-content {
+        padding-top: 20px;
+
+        .manage-engagements {
+            padding-top: 0;
+        }
+    }
+
+}
+

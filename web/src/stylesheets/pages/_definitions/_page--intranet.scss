@@ -65,6 +65,12 @@
         &.agency-brands {
             margin-left: 330px;
         }
+
+        &.agency-engagements-review-editor,
+        &.agency-engagements-active-editor,
+        &.agency-engagements-upcoming-editor {
+            clear: both;
+        }
     }
 }
 
@@ -141,6 +147,7 @@
 
     .brand-logo {
         width: 100%;
+        text-align: center;
 
         &-no-image {
             padding: 40px 10px;

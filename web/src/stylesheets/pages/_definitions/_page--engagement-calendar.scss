@@ -1,0 +1,90 @@
+@import "../../libs/jquery-ui";
+@import "../../libs/jquery-ui.structure";
+@import "../../libs/jquery-ui.theme";
+@import "../../libs/fullcalendar/fullcalendar";
+
+/* Button overrides */
+.fc-toolbar button,
+.fc-state-default {
+    @include style-button-base;
+    background-image: none;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.fc-state-default {
+    &.fc-corner-right,
+    &.fc-corner-left {
+        border-radius: 0;
+    }
+}
+
+.fc-state-down,
+.fc-state-active {
+    box-shadow: none;
+}
+
+/* Filter styles */
+.engagement-calendar-filters {
+    @include style-contentbox;
+    margin: 0 0 20px;
+    padding: 15px 25px;
+
+    &:before {
+        content:"Filter by Brand";
+        display: block;
+        font-family: $font-open-sans-bold;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    .opt {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        width: 150px;
+
+        > label {
+            margin: 0;
+            padding-left: 35px;
+        }
+
+        > input[type="checkbox"] {
+            float: left;
+            margin: 3px 0 0;
+        }
+
+        .color-key {
+            height: 1em;
+            width: 1em;
+            margin-right: 3px;
+            float: left;
+            margin-top: 2px;
+        }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        margin: 0 0 20px;
+        padding: 15px 25px;
+    }
+
+}
+
+/* Loading styles */
+.engagement-calendar-loading {
+    @include loading-circle-spinner-nosmil;
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-60%);
+    font-size: 0;
+}
+
+.engagement-calendar.loading {
+    opacity: .3;
+    transition: .4s ease all;
+}

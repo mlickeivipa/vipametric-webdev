@@ -162,6 +162,27 @@
   }
 }
 
+/*@include breakpoint($bp-tablets-portrait) {
+  .dash-section {
+    &.consumer-demographics,
+    &.social-analytics {
+      display: inline-block;
+      vertical-align: top;
+      width: 48.5%;
+
+      .pie-chart {
+        display: block;
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    &.social-analytics {
+      margin-left: 3%;
+    }
+  }
+}*/
+
 @include breakpoint($bp-desktop) {
   .dash-section {
     .pie-chart {
@@ -170,6 +191,14 @@
       width: 20%;
       margin: 0 2.5%;
     }
+
+    /*&.consumer-demographics {
+      .pie-chart {
+        display: inline-block;
+        width: 45%;
+        margin: 0 2.5%;
+      }
+    }*/
   }
 }
 
