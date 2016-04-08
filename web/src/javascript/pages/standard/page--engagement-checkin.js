@@ -98,6 +98,6 @@ jQuery(function($){
   }
 
   function geoError() {
-    $messages.text('Unable to retrieve your location');
+    $messages.text('Unable to retrieve your location. Please modify your device settings to allow for location sharing and try again.');
   }
 });
