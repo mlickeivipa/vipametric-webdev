@@ -1,4 +1,6 @@
 @import "_page--dashboard/price-matrix";
+@import "_page--dashboard/consumer-demographics";
+@import "_page--dashboard/social-widget";
 
 .vipametric,
 .dash-section,
@@ -162,26 +164,6 @@
   }
 }
 
-/*@include breakpoint($bp-tablets-portrait) {
-  .dash-section {
-    &.consumer-demographics,
-    &.social-analytics {
-      display: inline-block;
-      vertical-align: top;
-      width: 48.5%;
-
-      .pie-chart {
-        display: block;
-        width: 100%;
-        margin: 0;
-      }
-    }
-
-    &.social-analytics {
-      margin-left: 3%;
-    }
-  }
-}*/
 
 @include breakpoint($bp-desktop) {
   .dash-section {

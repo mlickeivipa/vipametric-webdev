@@ -261,7 +261,7 @@
 
 @mixin loading-circle-spinner() {
 	display: block;
-	background: center center transparent url('/_resources/dyn/files/2829266z8e0815ea/_fn/loading-logo.svg') no-repeat;
+	background: center center transparent url('/_design/shared/loading-logo.svg') no-repeat;
 }
 
 @mixin loading-circle-spinner-nosmil() {
@@ -277,6 +277,6 @@
 	}
 
 	display: block;
-	background: center center transparent url('/_resources/dyn/files/2829266z8e0815ea/_fn/loading-logo.svg') no-repeat;
+	background: center center transparent url('/_design/shared/loading-logo.svg') no-repeat;
 	animation: loading-circle-spin 1s infinite linear;
 }
