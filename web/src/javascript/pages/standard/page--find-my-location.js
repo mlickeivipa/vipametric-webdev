@@ -2,16 +2,14 @@ jQuery(function($){
   var idMatch = /(\w+)\/.*\/(\d+)/.exec(location.pathname);
   var themeName = idMatch[1];
   var clientId = idMatch[2];
-  var baseURL = '/ws/engagement/ambassador/search/';
-  var eventsURL = baseURL + 'events';
+  var baseURL = '/ws/engagement/site/ambassador/search/';
+  var resultsURL = baseURL + 'results';
   var constraintsURL = baseURL + 'constraints';
   var $search = $.activationhub.search; // component--search.js
 
-  $('#find-my-event').text('Loading…');
+  $('#find-my-site').text('Loading…');
 
   var initialFilters = {
-    name: '',
-    startDate: 'today',
     zip: ''
   };
 
@@ -20,7 +18,7 @@ jQuery(function($){
     advanced: false,
     filters: {},
     constraints: {},
-    events: []
+    results: []
   };
 
   function reset(filters){
@@ -35,19 +33,19 @@ jQuery(function($){
     var data = $.extend({clientId: clientId, themeName: themeName}, store.filters);
     return $.ajax({
       type: 'GET',
-      url: eventsURL,
+      url: resultsURL,
       data: data,
       dataType: 'json'
-    }).then(updateEvents);
+    }).then(updateResults);
   }
 
-  function updateEvents(data){
-    store.events = data.events;
+  function updateResults(data){
+    store.results = data.results;
   }
 
   function toggleAdvanced(){
     store.advanced = !store.advanced;
-    reset(store.advanced ? store.filters : {name: store.filters.name});
+    reset(store.advanced ? store.filters : {});
   }
 
   var template =
@@ -63,28 +61,27 @@ jQuery(function($){
     '     <button @click="reset">Reset</button>'+
     '   </div>'+
     '   <div v-if="message"><h1>{{message}}</h1></div>'+
-    '   <event-list :events="events"></event-list>'+
-    '   <div v-if="!advanced">Cannot find your event? Try the'+
+    '   <result-list :results="results"></result-list>'+
+    '   <div v-if="!advanced">Cannot find your location? Try the'+
     '   <a href="#" @click="toggleAdvanced">Advanced Search</a></div>'+
     '</div>';
 
-  var eventList = {
-    props: ['events'],
+  var resultList = {
+    props: ['results'],
     template:
-      '<div v-if="events.length">'+
+      '<div v-if="results.length">'+
       '<ul>'+
-      '  <li v-for="event in events" track-by="id">'+
-      '     <a :href="event.url"><h1>{{event.name}}</h1></a>'+
-      '     {{event.campaignName}}<br>'+
-      '     {{event.start}} - {{event.end}}<br>'+
-      '     {{event.site.address}}<br>'+
-      '     {{event.site.city}},'+
-      '     {{event.site.state}}'+
-      '     {{event.site.zip}}<br>'+
+      '  <li v-for="site in results" track-by="id">'+
+      '     <a :href="site.url">{{site.name}}</a><br>'+
+      '     {{site.address}}<br>'+
+      '     {{site.city}},'+
+      '     {{site.state}}'+
+      '     {{site.zip}}<br>'+
+      '     <a v-if="site.formLink" :href="site.formLink">Add Event</a>'+
       '  </li>'+
       '</ul>'+
       '</div>'+
-      '<div v-else>No Events Found</div>'
+      '<div v-else>No Locations Found</div>'
   };
 
   function load(){
@@ -98,8 +95,8 @@ jQuery(function($){
   }
 
   function init(data){
-    var findMyEvent = new Vue({
-      el: '#find-my-event',
+    var findMySite = new Vue({
+      el: '#find-my-site',
       template: template,
       data: store,
       methods: {
@@ -108,7 +105,7 @@ jQuery(function($){
         toggleAdvanced: toggleAdvanced
       },
       components: $.extend({
-        eventList: eventList,
+        resultList: resultList,
         advancedConstraintList: $search.createAdvancedConstraintList(store, data.constraints)
       }, $search.components),
       watch: {
@@ -117,16 +114,13 @@ jQuery(function($){
     });
 
     if(initialFilters.zip){
-      store.message = 'Events Near You Today';
-      store.filters.startDate = initialFilters.startDate;
-      store.filters.zip = initialFilters.zip;
+      store.message = 'Locations Near You';
+      store.filters.zip = initialFilters.zip+';5';
     } else {
-      store.message = 'Events Today';
-      store.filters.startDate = initialFilters.startDate;
-      store.filters.zip = initialFilters.zip;
+      store.message = '';
+      store.filters.zip = '';
     }
 
-    search();
   }
 
   $search.findCurrentZipCode().then(function(zip){
