@@ -838,6 +838,18 @@ span.metric-bucket.value-component {
     }
 }
 
+//Time in/out 
+.engagement-checkins {
+    .section-header + div {
+        padding-top: 15px;
+    }
+
+    .search-bar {
+        display: none;
+    }
+}
+
+
 // User Management
 .user-management {
     .section-header + div {
