@@ -52,12 +52,16 @@ jQuery(function($){
       }
     },
     ready: function(){
-        var parts = this.value.split(';');
-        this.zipCode = parts[0];
-        this.milesWithin = parts[1] || '5';
+        var vm = this;
+        var parts = vm.value.split(';');
+        vm.zipCode = parts[0];
+        vm.milesWithin = parts[1] || '5';
+        $('.mileswithin.val').select2(DEFAULT_SELECT_OPTIONS).on('change', function(){
+          vm.milesWithin = $(this).val();
+        });
     },
     template: '<span class="constraint zip"><span class="label">{{constraint.label}}</span><input class="val" type="text" v-model="zipCode" debounce="500"></span>'+
-      '<span class="constraint"><span class="label">Miles Within</span><select class="val" v-model="milesWithin">'+
+      '<span class="constraint"><span class="label">Miles Within</span><select class="mileswithin val" v-model="milesWithin">'+
       '  <option v-for="option in constraint.options" :value="option.optionId">'+
       '    {{option.label}}'+
       '  </option>'+
@@ -95,13 +99,18 @@ jQuery(function($){
       }
     },
     ready: function(){
-      $(this.$els.date1).datepicker();
-      $(this.$els.date2).datepicker();
+      var vm = this;
+      $(vm.$els.date1).datepicker();
+      $(vm.$els.date2).datepicker();
 
-      var parts = this.value.split(';');
-      this.operator = parts[0];
-      this.date1 = parts[1] || '';
-      this.date2 = parts[2] || '';
+      var parts = vm.value.split(';');
+      vm.operator = parts[0];
+      vm.date1 = parts[1] || '';
+      vm.date2 = parts[2] || '';
+
+      $('.datepick.val').select2(DEFAULT_SELECT_OPTIONS).on('change', function(){
+        vm.operator = $(this).val();
+      });
     },
     template: '<span class="constraint"><span class="label">{{constraint.label}}</span><select class="datepick val" v-model="operator">'+
       '  <option value="">Any</option>'+

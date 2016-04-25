@@ -1,0 +1,135 @@
+.prop {
+    &-group-title {
+        font-family: $font-open-sans-semi-bold;
+    }
+
+    &-wrapper.event-pictures {
+        position: relative;
+    }
+
+    &-header-actions {
+        margin-top: 5px;
+
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+
+            + .btn {
+                margin-top: $app--btn-spacing-between-btns;
+            }
+        }
+    }
+
+    &-body {
+        margin-top: 15px;
+    }
+
+    &-group {
+        margin-right: 15px;
+        margin-bottom: 15px;
+        display: inline-block;
+        vertical-align: top;
+        min-width: 220px;
+        max-width: 100%;
+    }
+
+    &-group.default-group {
+        display: block;
+
+        .prop {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 15px;
+        }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        &-header-actions {
+            margin-top: -5px;
+
+            .btn {
+                display: inline-block;
+                vertical-align: middle;
+                width: auto;
+
+                + .btn {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        &-group {
+            margin-right: 50px;
+            margin-bottom: 50px;
+        }
+
+        &-group.default-group {
+            margin-right: 0;
+
+            .prop {
+                margin-right: 50px;
+            }
+        }
+    }
+}
+
+//metric Feedback
+.prop-body {
+    .label-component,
+    .value-component,
+    label,
+    input {
+        font-weight: normal;
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .label-component,
+        .value-component,
+        label,
+        input {
+            display: inline-block;
+            vertical-align: middle;
+            padding-right: 5px;
+        }
+    }
+
+    .vertical-label-component,
+    .string-metric .label-component {
+        display: block;
+        width: auto;
+        margin: 5px 0;
+        font-family: $font-open-sans-semi-bold;
+    }
+
+    .value-component span {
+        color: $color-grey-77;
+    }
+
+    @include text-like-inputs {
+        width: 70px;
+    }
+
+    input[type="file"] {
+        padding-bottom: 15px;
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    .choice-metric {
+        display: inline-block;
+        vertical-align: top;
+
+        @include breakpoint($bp-mobile-landscape) {
+            margin-right: 50px;
+        }
+    }
+
+}
+
+.prop-group {
+    display: inline-block;
+    vertical-align: top;
+}

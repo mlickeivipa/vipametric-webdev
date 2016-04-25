@@ -89,7 +89,7 @@ jQuery(function($){
       '  </li>'+
       '</ul>'+
       '</div>'+
-      '<div v-else>No Events Found</div>'
+      '<div class="none-found" v-else>No Events Found</div>'
   };
 
   function load(){

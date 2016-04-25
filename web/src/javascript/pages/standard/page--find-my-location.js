@@ -49,16 +49,16 @@ jQuery(function($){
   }
 
   var template =
-    '<div> '+
+    '<div class="search"> '+
     '   <constraint-field :constraint="constraints.name" :value.sync="filters.name">'+
     '   </constraint-field>'+
-    '   <div v-if="advanced">'+
+    '   <div class="advanced" v-if="advanced">'+
     '    <advanced-constraint-list :filters.sync="filters" :constraints="constraints">'+
     '    </advanced-constraint-list>'+
     '   </div>'+
-    '   <div>'+
-    '     <button @click="search">Search</button>'+
-    '     <button @click="reset">Reset</button>'+
+    '   <div class="actions">'+
+    '     <button class="btn search" @click="search">Search</button>'+
+    '     <button class="btn reset" @click="reset">Reset</button>'+
     '   </div>'+
     '   <div v-if="message"><h1>{{message}}</h1></div>'+
     '   <result-list :results="results"></result-list>'+
@@ -69,19 +69,19 @@ jQuery(function($){
   var resultList = {
     props: ['results'],
     template:
-      '<div v-if="results.length">'+
+      '<div class="location-results" v-if="results.length">'+
       '<ul>'+
       '  <li v-for="site in results" track-by="id">'+
-      '     <a :href="site.url">{{site.name}}</a><br>'+
-      '     {{site.address}}<br>'+
-      '     {{site.city}},'+
-      '     {{site.state}}'+
-      '     {{site.zip}}<br>'+
-      '     <a v-if="site.formLink" :href="site.formLink">Add Event</a>'+
+      '     <a :href="site.url"><h1>{{site.name}}</h1></a>'+
+      '     <span class="address"{{site.address}}</span>'+
+      '     <span class="city">{{site.city}},</span>'+
+      '     <span class="state">{{site.state}}</span>'+
+      '     <span class="zip">{{site.zip}}</span>'+
+      '     <a class="btn add" v-if="site.formLink" :href="site.formLink">Add Event</a>'+
       '  </li>'+
       '</ul>'+
       '</div>'+
-      '<div v-else>No Locations Found</div>'
+      '<div class="none-found" v-else>No Locations Found</div>'
   };
 
   function load(){
