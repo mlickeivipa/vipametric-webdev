@@ -18,14 +18,10 @@ jQuery(function($){
   var constraintChoice = {
     props: ['constraint', 'value'],
     ready: function(){
-      var vm = this;
-      if(vm.constraint.options.length > 0){
-        $(vm.$els.choices).select2(DEFAULT_SELECT_OPTIONS).on('change', function(){
-          vm.value = $(this).val();
-        });
-      }
+      // must be done in ready to calculate width appropriately
+      $(this.$els.choices).select2(DEFAULT_SELECT_OPTIONS);
     },
-    template: '<span class="constraint"><span class="label">{{constraint.label}}</span><select class="val" v-model="value" v-el:choices>'+
+    template: '<span class="constraint"><span class="label">{{constraint.label}}</span><select class="val" v-select2="value" v-el:choices>'+
       '  <option value="" selected>Any</option>'+
       '  <option v-for="option in constraint.options" :value="option.optionId">'+
       '    {{option.label}}'+
@@ -56,12 +52,10 @@ jQuery(function($){
         var parts = vm.value.split(';');
         vm.zipCode = parts[0];
         vm.milesWithin = parts[1] || '5';
-        $('.mileswithin.val').select2(DEFAULT_SELECT_OPTIONS).on('change', function(){
-          vm.milesWithin = $(this).val();
-        });
+        $('.mileswithin.val').select2(DEFAULT_SELECT_OPTIONS);
     },
     template: '<span class="constraint zip"><span class="label">{{constraint.label}}</span><input class="val" type="text" v-model="zipCode" debounce="500"></span>'+
-      '<span class="constraint"><span class="label">Miles Within</span><select class="mileswithin val" v-model="milesWithin">'+
+      '<span class="constraint"><span class="label">Miles Within</span><select class="mileswithin val" v-select2="milesWithin">'+
       '  <option v-for="option in constraint.options" :value="option.optionId">'+
       '    {{option.label}}'+
       '  </option>'+
@@ -108,11 +102,9 @@ jQuery(function($){
       vm.date1 = parts[1] || '';
       vm.date2 = parts[2] || '';
 
-      $('.datepick.val').select2(DEFAULT_SELECT_OPTIONS).on('change', function(){
-        vm.operator = $(this).val();
-      });
+      $('.datepick.val').select2(DEFAULT_SELECT_OPTIONS);
     },
-    template: '<span class="constraint"><span class="label">{{constraint.label}}</span><select class="datepick val" v-model="operator">'+
+    template: '<span class="constraint"><span class="label">{{constraint.label}}</span><select class="datepick val" v-select2="operator">'+
       '  <option value="">Any</option>'+
       '  <option value="today">Today</option>'+
       '  <option value="until">Until</option>'+
@@ -211,4 +203,21 @@ jQuery(function($){
     }
     return '';
   }
+
+  Vue.directive('select2', {
+    twoWay: true,
+    bind: function () {
+      var self = this
+      $(this.el)
+        .on('change', function () {
+          self.set(this.value)
+        })
+    },
+    update: function (value) {
+      $(this.el).val(value).trigger('change')
+    },
+    unbind: function () {
+      $(this.el).off().select2('destroy')
+    }
+  })
 });
