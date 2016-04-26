@@ -51,16 +51,16 @@ jQuery(function($){
   }
 
   var template =
-    '<div> '+
+    '<div class="search"> '+
     '   <constraint-field :constraint="constraints.name" :value.sync="filters.name">'+
     '   </constraint-field>'+
-    '   <div v-if="advanced">'+
+    '   <div class="advanced" v-if="advanced">'+
     '    <advanced-constraint-list :filters.sync="filters" :constraints="constraints">'+
     '    </advanced-constraint-list>'+
     '   </div>'+
-    '   <div>'+
-    '     <button @click="search">Search</button>'+
-    '     <button @click="reset">Reset</button>'+
+    '   <div class="actions">'+
+    '     <button class="btn search" @click="search">Search</button>'+
+    '     <button class="btn reset" @click="reset">Reset</button>'+
     '   </div>'+
     '   <div v-if="message"><h1>{{message}}</h1></div>'+
     '   <event-list :events="events"></event-list>'+
@@ -70,21 +70,26 @@ jQuery(function($){
 
   var eventList = {
     props: ['events'],
+    filters: {
+      moment: function (date) {
+        return moment(date).format('MMM DD, YYYY @ h:mm a');
+      }
+    },
     template:
-      '<div v-if="events.length">'+
+      '<div class="event-results" v-if="events.length">'+
       '<ul>'+
       '  <li v-for="event in events" track-by="id">'+
       '     <a :href="event.url"><h1>{{event.name}}</h1></a>'+
-      '     {{event.campaignName}}<br>'+
-      '     {{event.start}} - {{event.end}}<br>'+
-      '     {{event.site.address}}<br>'+
-      '     {{event.site.city}},'+
-      '     {{event.site.state}}'+
-      '     {{event.site.zip}}<br>'+
+      '     <span class="campaign-name">{{event.campaignName}}</span>'+
+      '     <span class="campaign-dates">{{event.start | moment}} - {{event.end | moment}}</span>'+
+      '     <span class="campaign-address">{{event.site.address}}</span>'+
+      '     <span class="campaign-city">{{event.site.city}},</span>'+
+      '     <span class="campaign-state">{{event.site.state}}</span>'+
+      '     <span class="campaign-zip">{{event.site.zip}}</span>'+
       '  </li>'+
       '</ul>'+
       '</div>'+
-      '<div v-else>No Events Found</div>'
+      '<div class="none-found" v-else>No Events Found</div>'
   };
 
   function load(){

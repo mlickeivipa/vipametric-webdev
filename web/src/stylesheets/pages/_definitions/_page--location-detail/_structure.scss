@@ -1,0 +1,62 @@
+
+//FIXME make this better after HTML updates
+.vipametric-wrapper > .header-actions {
+	position: absolute;
+	right: 25px;
+	top: 8px;
+}
+
+//FIXME move this to basic button functionality
+.btn + .btn {
+	margin-left: $app--btn-spacing-between-btns;
+}
+
+//FIXME remove this after removing it from template-manage
+.label-component {
+	margin: 0;
+}
+
+//FIXME remove this stuff
+.sub-section {
+	padding-top: 0;
+
+	//FIXME should probably get this class to change, but need to talk with muhlin
+	.sub-section {
+		padding: 5px 0;
+	}
+
+	button.btn.trigger {
+		top: 8px;
+		//FIXME remove when other gone
+		left: auto;
+		right: 0;
+	}
+
+	+ .sub-section {
+		border-top: 1px solid $color-grey-e2;
+		margin-top: 0; //FIXME eventually remove
+		padding-top: 5px; //FIXME eventually remove
+
+		button.btn.trigger {
+			top: 8px;
+		}
+	}
+}
+
+.aside-content {
+	float: right;
+	width: 220px;
+
+	> *:first-child {
+		margin-top: 0;
+	}
+}
+
+.primary-content {
+	margin-right: 240px;
+	margin-top: 25px;
+
+	> *:first-child {
+		margin-top: 0;
+	}
+}
