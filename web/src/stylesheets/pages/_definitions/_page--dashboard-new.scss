@@ -6,17 +6,45 @@
   @include style-contentbox;
 }
 
-.dashboard-container {
+.loading-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.75);
 
-  .loading-container {
+  &.show {
+    display: block;
+  }
+
+  .loading-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .loading-message {
+      @include style-h3;
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+}
+
+.dashboard-message-container {
+  .message {
     display: none;
+    @include style-h3;
+    text-align: center;
 
     &.show {
       display: block;
     }
-
   }
-
 }
 
 .vipametric {
@@ -177,7 +205,7 @@
       display: inline-block;
       vertical-align: middle;
       width: 45%;
-      margin: 0 2.5%;
+      margin: 0 2.4%;
     }
   }
 }
@@ -188,16 +216,8 @@
       display: inline-block;
       vertical-align: middle;
       width: 20%;
-      margin: 0 2.5%;
+      margin: 0 2.4%;
     }
-
-    /*&.consumer-demographics {
-      .pie-chart {
-        display: inline-block;
-        width: 45%;
-        margin: 0 2.5%;
-      }
-    }*/
   }
 }
 
@@ -207,8 +227,17 @@
   }
 }
 
-// No-Data dashboard-styles
-.no-data {
-  @include style-h3;
-  text-align: center;
+.dashboard-section {
+  padding: 0;
+}
+
+.dashboard-section-header {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 10px 25px;
+  background-color: #f2f2f2;
+}
+
+.dashboard-section-content {
+  padding: 15px 25px;
+  position: relative;
 }

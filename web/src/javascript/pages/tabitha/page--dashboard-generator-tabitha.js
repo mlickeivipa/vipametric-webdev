@@ -33,6 +33,7 @@ jQuery(function($) {
         if(messageType == null)
         {
             hideAllMessages();
+            return;
         }
 
         switch (messageType) {

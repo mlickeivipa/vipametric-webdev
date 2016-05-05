@@ -33,6 +33,7 @@ jQuery(function($) {
         if(messageType == null)
         {
             hideAllMessages();
+            return;
         }
 
         switch (messageType) {
@@ -620,6 +621,7 @@ jQuery(function($) {
             //start our next thing after processing the data given (should be params)
             var params = JSON.parse(data);
             updateChartsAndTables(params);
+            displayMessage(null);
         }).fail(function() {
             //Welp
             //TODO move into finished listener
