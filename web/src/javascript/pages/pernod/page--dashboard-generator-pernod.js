@@ -30,8 +30,7 @@ jQuery(function($) {
      * @param messageType Message type to display.
      */
     function displayMessage(messageType) {
-        if(messageType == null)
-        {
+        if (messageType == null) {
             hideAllMessages();
             return;
         }

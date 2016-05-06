@@ -54,10 +54,14 @@
     padding: 25px;
     border-bottom: 1px solid $color-grey-e2;
 
-    button.search-button {
+    .search-params-actions {
       display: block;
       width: 100%;
       text-align: center;
+
+      .btn + .btn {
+        margin-left: 5px;
+      }
     }
   }
 
@@ -87,7 +91,7 @@
 
   @include breakpoint($bp-mobile-landscape) {
     .dashboard-params {
-      button.search-button {
+      .search-params-actions {
         display: inline-block;
         margin-top: 30px;
         margin-right: 50px;

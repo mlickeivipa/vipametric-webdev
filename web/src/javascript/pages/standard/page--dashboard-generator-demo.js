@@ -523,6 +523,7 @@ jQuery(function($) {
 
     function displayCounts(obj) {
         var $counts = obj;
+        $socialContainer.empty();
 
         $.each($counts, function(key, value){
             key = key.charAt(0).toUpperCase() + key.slice(1);

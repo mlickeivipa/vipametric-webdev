@@ -3,6 +3,10 @@
 
 @import "../_definitions/_page--dashboard-new";
 
+.social-analytics-container {
+  padding-top: 25px;
+}
+
 .social-analytics .social-analytics-hashtag {
   font-family: OpenSansItalic, Arial, Verdana, sans-serif;
   font-size: 16px;
@@ -27,7 +31,6 @@
 }
 
 .social-analytics .wrap {
-  padding: 10px 30px;
   margin-top: 10px;
 }
 
