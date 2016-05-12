@@ -1,0 +1,247 @@
+@import "_page--dashboard/price-matrix";
+
+.vipametric,
+.dashboard-section,
+.dashboard-message {
+  @include style-contentbox;
+}
+
+.loading-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+
+  &.show {
+    display: block;
+  }
+
+  .loading-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .loading-message {
+      @include style-h3;
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+}
+
+.dashboard-message-container {
+  .message {
+    display: none;
+    @include style-h3;
+    text-align: center;
+
+    &.show {
+      display: block;
+    }
+  }
+}
+
+.vipametric {
+  padding: 0;
+
+  .dashboard-params {
+    padding: 25px;
+    border-bottom: 1px solid $color-grey-e2;
+
+    .search-params-actions {
+      display: block;
+      width: 100%;
+      text-align: center;
+
+      .btn + .btn {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .param-wrapper {
+    margin-bottom: 15px;
+
+    input,
+    select {
+      width: 100%;
+    }
+  }
+
+  .reports-container {
+    padding: 25px;
+    background-color: $color-grey-f2;
+    border-top: 1px solid $color-white;
+
+    .btn {
+      display: block;
+      width: 100%;
+
+      + .btn {
+        margin-top: $app--btn-spacing-between-btns;
+      }
+    }
+  }
+
+  @include breakpoint($bp-mobile-landscape) {
+    .dashboard-params {
+      .search-params-actions {
+        display: inline-block;
+        margin-top: 30px;
+        margin-right: 50px;
+        width: auto;
+      }
+    }
+
+    .param-wrapper {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 30px;
+
+      select {
+        max-width: 300px;
+      }
+    }
+
+
+    .dashboard-params > div:first-child,
+    .dashboard-search {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .reports-container {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      text-align: right;
+
+      .btn {
+        display: inline-block;
+        width: auto;
+
+        + .btn {
+          margin-top: 0;
+          margin-left: $app--btn-spacing-between-btns;
+        }
+      }
+    }
+  }
+}
+
+.dashboard-param {
+  display: inline-block;
+  line-height: 30px;
+}
+
+.dashboard-param-label {
+  display: block;
+  font-family: OpenSansSemiBold, Arial, Verdana, sans-serif;
+  margin: 5px 0;
+}
+
+.dashboard-section {
+  .dashboard-section-content:after {
+    content: "";
+    display: table;
+    clear: both;
+    float: none;
+  }
+
+  &-header {
+    @include style-h2;
+  }
+
+  &.circular-chart-wrapper {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+      float: none;
+    }
+  }
+
+  .brand-totals {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .gauge-chart {
+    height: 200px;
+    width: 300px;
+    float: left;
+
+    .highcharts-yaxis-title {
+      @include style-h3;
+    }
+
+    div.highcharts-yaxis-labels{
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      span:nth-child(even){
+        top: 163.75px !important;
+        left: 238px !important;
+      }
+    }
+  }
+
+  .pie-chart {
+    height: 380px;
+  }
+
+  .table-wrapper {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@include breakpoint($bp-mobile-landscape) {
+  .dashboard-section {
+    .pie-chart {
+      display: inline-block;
+      vertical-align: middle;
+      width: 45%;
+      margin: 0 2.4%;
+    }
+  }
+}
+
+@include breakpoint($bp-desktop) {
+  .dashboard-section {
+    .pie-chart {
+      display: inline-block;
+      vertical-align: middle;
+      width: 20%;
+      margin: 0 2.4%;
+    }
+  }
+}
+
+.table-wrapper {
+  .legend {
+    display: none;
+  }
+}
+
+.dashboard-section {
+  padding: 0;
+}
+
+.dashboard-section-header {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 10px 25px;
+  background-color: #f2f2f2;
+}
+
+.dashboard-section-content {
+  padding: 15px 25px;
+  position: relative;
+}
