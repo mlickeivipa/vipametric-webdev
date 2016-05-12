@@ -89,6 +89,7 @@
 	}
 
 	@include breakpoint($bp-tablets-portrait) {
+		.survey-item,
 		.survey-summary {
 			margin: 5px 0;
 			display: inline-block;
@@ -97,6 +98,7 @@
 			padding-left: 20px;
 			border-right: 1px solid $color-grey-e7;
 
+			+ .survey-item,
 			+ .survey-summary {
 				margin-top: 0;
 			}

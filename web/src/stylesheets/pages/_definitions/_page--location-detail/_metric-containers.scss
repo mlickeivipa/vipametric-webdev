@@ -1,0 +1,17 @@
+.metric-container {
+	margin: $spacing-metric 0;
+	position: relative;
+
+	.metric-container-header {
+		margin: 10px 0;
+		@include clearfix;
+		font-family: $font-open-sans-semi-bold;
+		font-size: 16px;
+	}
+	.metric-container-heading {
+		float: left;
+	}
+	.metric-container-actions {
+		float: right;
+	}
+}

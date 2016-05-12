@@ -1,0 +1,28 @@
+// Engagement Overview Section styles
+.engagement-overview {
+    .sub-section-container,
+    .metric-container {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 25px;
+    }
+
+    .metric-container.string-metric {
+        input {
+            min-width: 200px;
+        }
+    }
+
+    .engagement-site .btn {
+        margin-left: $app--btn-spacing-between-btns;
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .sub-section-container,
+        .metric-container {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 50px;
+        }
+    }
+}

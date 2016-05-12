@@ -1,0 +1,63 @@
+.social-analytics {
+    .social-analytics-hashtag {
+        font-family: $font-open-sans-italic;
+        font-size: 16px;
+        background-color: $color--theme-accent;
+        color: $color-white;
+        padding: 5px 10px 6px;
+        display: inline-block;
+        position: absolute;
+        top: 15px;
+        left: 0;
+    }
+
+    .more {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+
+        &:after {
+            content: $html-entity-rarr;
+            margin-left: 5px;
+        }
+    }
+
+    .wrap {
+        padding: 10px 30px;
+        margin-top: 10px;
+    }
+
+    .social-category {
+        margin: 10px 0 20px;
+
+        .value {
+            font-family: $font-open-sans-semi-bold;
+            color: $color--theme-accent;
+            font-size: 40px;
+        }
+
+        .title {
+            font-family: $font-open-sans-semi-bold;
+            font-size: 16px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .social-category {
+            display: inline-block;
+            width: 50%;
+            padding: 0 10px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .social-category {
+            width: 25%;
+            padding: 0;
+
+            + .social-category {
+                padding-left: 15px;
+            }
+        }
+    }
+}

@@ -1,0 +1,125 @@
+@import "_page--location-detail/engagement-info";
+@import "_page--location-detail/sections";
+
+.site-key-metrics {
+    margin-top: 13px;
+
+    .prop {
+        + .prop {
+            padding-top: 10px;
+        }
+    }
+
+    .default-group .prop {
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    label {
+        margin-top: 12px;
+        text-align: center;
+        font-family: $font-open-sans-semi-bold;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: $color-grey-77;
+    }
+
+    .val {
+        margin-top: 10px;
+        text-align: center;
+        font-family: $font-open-sans-semi-bold;
+        text-transform: uppercase;
+        color: $color-black;
+        line-height: 1;
+        font-size: 25px;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .default-group .prop {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+
+.section {
+    &.site-grouped-metrics {
+        background: transparent;
+        box-shadow: 0 0 0;
+
+        .prop-header {
+            background: none;
+            padding: 0;
+            border: 0;
+
+            + div {
+                padding: 20px 0;
+            }
+        }
+    }
+
+    &.engagements {
+        .section-header + div {
+            padding: 15px 25px;
+        }
+
+        .search-bar {
+            display: none;
+        }
+    }
+}
+
+.group-metric-tile-column {
+    display: inline-block;
+    width: 175px;
+    text-align: center;
+}
+
+.group-metric {
+    @include style-contentbox;
+    display: inline-block;
+    margin: 10px auto;
+    width: 100%;
+
+    /*&:hover {
+        box-shadow: 0 0 4px #444;
+        cursor: pointer;
+    }*/
+
+    @include breakpoint($bp-mobile-landscape) {
+        margin: 10px 0;
+        width: 48.4%;
+
+        + .group-metric {
+            margin-left: 2%;
+        }
+
+        &:nth-child(2n + 1) {
+            margin-left: 0;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        width: 23.4%;
+
+        &:nth-child(2n + 1) {
+            margin-left: 2%;
+        }
+
+        &:nth-child(4n + 1) {
+            margin-left: 0;
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        width: 18.4%;
+
+        &:nth-child(4n + 1) {
+            margin-left: 2%;
+        }
+
+        &:nth-child(5n + 1) {
+            margin-left: 0;
+        }
+    }
+}

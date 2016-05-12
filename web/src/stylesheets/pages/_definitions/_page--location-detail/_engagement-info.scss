@@ -1,0 +1,387 @@
+.engagement-info {
+    position: relative;
+    margin: 20px 0;
+    min-height: 225px;
+}
+
+.engagement-name {
+    font-size: 40px;
+    font-family: $font-open-sans-bold;
+    line-height: 1.2;
+}
+
+.engagement-info-details {
+    @include breakpoint($bp-tablets-portrait) {
+        margin-right: 300px;
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        margin-right: 600px;
+    }
+}
+
+.engagement-datetime {
+    margin: 10px 0;
+
+    .engagement-end-date {
+         margin-top: 20px;
+    }
+
+    .engagement-start-date-label,
+    .engagement-end-date-label {
+        display: block;
+        font-family: $font-open-sans-semi-bold;
+        margin-bottom: 3px;
+    }
+
+    .engagement-date {
+        margin-bottom: 5px;
+        font-size: 18px;
+        line-height: 1.2;
+
+        &:before {
+            @include glyphAdd($html-entity-calendar, $size: 32px);
+            float: left;
+            margin-right: 7px;
+            margin-top: 2px;
+            color: $color--theme-accent;
+            min-height: 45px;
+        }
+    }
+
+    .engagement-time-zone {
+        display: block;
+    }
+
+
+    @include breakpoint($bp-mobile-landscape) {
+        .engagement-start-time,
+        .engagement-end-time {
+            display: inline-block;
+        }
+
+        .engagement-time-zone {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+
+
+    @include breakpoint($bp-desktop) {
+        .engagement-start-date,
+        .enagement-start-date,
+        .engagement-end-date {
+            display: inline-block;
+            vertical-align: top;
+            min-width: 250px;
+        }
+
+        .engagement-end-date {
+            margin-top: 0;
+            margin-left: 50px;
+        }
+    }
+}
+
+.engagement-time {
+    font-size: 13px;
+    color: $color-grey-77;
+
+    &:empty:before {
+        content: "--";
+        font-style: italic;
+        font-size: 12px;
+        color: $color-grey-99;
+    }
+}
+
+.engagement-time-sep {
+    margin: 0 5px;
+}
+
+.engagement-location {
+    font-size: 14px;
+    margin-top: 20px;
+
+    .engagement-map {
+        border: 1px solid $color-grey-aa;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .engagement-address {
+        white-space: normal;
+        max-width: 250px;
+        line-height: 1.2;
+        position: relative;
+        margin-left: 37px;
+        margin-top: 10px;
+
+        &:before {
+            @include glyphAdd($html-entity-location, $size: 32px);
+            float: left;
+            margin-right: 7px;
+            color: $color--theme-accent;
+            position: absolute;
+            left: -35px;
+        }
+
+        .address-city,
+        .address-region,
+        .address-postal-code {
+            display: inline-block;
+        }
+    }
+
+    .address-name {
+        font-family: $font-open-sans-semi-bold;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .address-area {
+        margin-top: 5px;
+    }
+
+    .address-region {
+        margin-right: 5px;
+
+        &:before {
+            content: ",";
+            margin-right: 5px;
+        }
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .engagement-map {
+            float: right;
+            margin-left: 10px;
+        }
+
+        .engagement-map {
+            max-width: 50%;
+        }
+
+        .engagement-address {
+            margin-right: 210px;
+            margin-top: 0;
+        }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        white-space: nowrap;
+
+        .engagement-map {
+            float: none;
+            max-width: 250px;
+        }
+
+        .engagement-address {
+            //margin-right: 260px;
+            margin-right: 0;
+            margin-top: 10px;
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+        .engagement-map {
+            max-width: none;
+            float: right;
+        }
+
+        .engagement-address {
+            margin-right: 380px;
+            margin-top: 0;
+            max-width: 170px;
+        }
+    }
+}
+
+.engagement-custom-fields {
+    clear: right;
+    position: relative;
+    z-index: 99;
+
+    .header {
+        font-family: $font-open-sans-semi-bold;
+        padding-left: 30px;
+        margin-bottom: 20px;
+    }
+
+    .metric-label {
+        font-family: $font-open-sans-semi-bold;
+    }
+
+    button.btn.trigger {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+        .metric {
+            display: inline-block;
+            vertical-align: top;
+
+            + .metric {
+                margin-left: 50px;
+                margin-top: 0;
+            }
+        }
+    }
+
+    @include breakpoint($bp-tablets-landscape) {
+
+    }
+}
+
+.engagement-assignee {
+    .engagement-assignee-label,
+    .engagement-assignee-name {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .engagement-assignee-label {
+        font-family: $font-open-sans-semi-bold;
+    }
+
+    .engagement-assignee-name {
+        margin-left: 5px;
+        color: $color--theme-accent;
+    }
+}
+
+.engagement-state {
+    @include breakpoint($bp-tablets-portrait) {
+        max-width: 600px;
+    }
+}
+
+.engagement-industry,
+.engagement-event-type,
+.engagement-submitter,
+.engagement-approver {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    margin-bottom: 10px;
+
+    .view-engagement & {
+        label {
+            margin: 0;
+        }
+
+        .val {
+            margin: 5px 0;
+        }
+    }
+}
+
+.engagement-status {
+    margin-top: 5px;
+    clear: both;
+
+    &:before {
+        @include glyphAdd($html-entity-warning, $size: 20px);
+        margin-right: 5px;
+        color: $color--theme-accent;
+    }
+
+    .engagement-status-label,
+    .engagement-status-text {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .engagement-status-label {
+        font-family: $font-open-sans-semi-bold;
+    }
+
+    .engagement-status-text {
+        margin-left: 5px;
+        color: $color--theme-accent;
+    }
+}
+
+.engagement-overview {
+    display: none;
+
+    .engagement-editor & {
+        display: block;
+    }
+
+    .sub-section-container,
+    .metric-container {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 25px;
+    }
+
+    .custom-fields .content .metric {
+        margin-bottom: 20px;
+    }
+
+    .metric-container.string-metric {
+        input {
+            min-width: 200px;
+        }
+    }
+
+    .engagement-site .btn {
+        margin-left: $app--btn-spacing-between-btns;
+    }
+
+    @include breakpoint($bp-mobile-landscape) {
+        .sub-section-container,
+        .metric-container,
+        .custom-fields .content .metric {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 50px;
+        }
+
+        .custom-fields .content .metric + .metric {
+            margin-top: 0;
+        }
+    }
+}
+
+
+.prop-body {
+    .Market {
+        //margin: 5px 0;
+
+        > div,
+        .vertical-label-component {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        .vertical-label-component {
+            margin: 0;
+            font-family: $font-open-sans-semi-bold;
+        }
+
+        .value-component {
+            margin-left: 5px;
+
+            span {
+                color: $color--theme-accent;
+            }
+        }
+    }
+
+}
+
+.engagement-editor {
+    .engagement-overview {
+        .sub-section-container {
+            margin-bottom: 20px;
+        }
+    }
+}

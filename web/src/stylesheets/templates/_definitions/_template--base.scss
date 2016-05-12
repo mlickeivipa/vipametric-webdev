@@ -1,6 +1,7 @@
 @include fontFace('OpenSans', '/OpenSans', 'opensans-regular-webfont');
 @include fontFace('OpenSansBold', '/OpenSans', 'opensans-bold-webfont');
 @include fontFace('OpenSansSemiBold', '/OpenSans', 'opensans-semibold-webfont');
+@include fontFace('OpenSansItalic', '/OpenSans', 'opensans-italic-webfont');
 @include fontFace('GlyphLib', '/glyph-lib', 'glyph-font');
 
 @import "../../libs/normalize";
