@@ -1,0 +1,32 @@
+@import "../../config/themes/_tabitha";
+@import "../../config/_base-import";
+
+@import "../_definitions/page--form-interaction";
+
+.question_response {
+    .rtb {
+        display: inline-block;
+
+        + .rtb {
+            margin-left: 10px;
+        }
+    }
+}
+
+.question_label .label {
+    font-family: $font-open-sans-bold;
+    color: $color--theme-accent-alternate;
+    font-size: 18px;
+}
+
+.form_field {
+    + .form_field {
+        margin-top: 20px;
+    }
+}
+
+.question {
+    + .question {
+        margin-top: 30px;
+    }
+}
