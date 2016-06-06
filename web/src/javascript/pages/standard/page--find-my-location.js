@@ -62,7 +62,7 @@ jQuery(function($){
     '   </div>'+
     '   <div v-if="message"><h1>{{message}}</h1></div>'+
     '   <result-list :results="results"></result-list>'+
-    '   <div v-if="!advanced">Cannot find your location? Try the'+
+    '   <div class="toggle advanced" v-if="!advanced">Cannot find your location? Try the'+
     '   <a href="#" @click="toggleAdvanced">Advanced Search</a></div>'+
     '</div>';
 

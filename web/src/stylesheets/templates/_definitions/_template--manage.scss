@@ -91,13 +91,19 @@ label,
 	margin: 0;
 }
 
-.question + .question {
-	margin-top: 20px;
+.question {
+	+ .question {
+		margin-top: 20px;
+	}
 }
 
 .form_field {
 	+ .form_field {
 		margin-top: 10px;
+
+		&.question_label {
+			margin-top: 30px;
+		}
 	}
 
 	&.submit_registration_button {

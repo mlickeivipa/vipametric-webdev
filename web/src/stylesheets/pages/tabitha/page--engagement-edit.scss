@@ -1,0 +1,52 @@
+@import "../../config/themes/_tabitha";
+@import "../../config/_base-import";
+@import "../_definitions/_page--engagement-edit";
+
+.market-intelligence {
+    .traffic-impacts {
+        .metric.string-metric {
+            display: none;
+
+            &.show {
+                display: block;
+            }
+        }
+    }
+}
+
+
+.view-engagement > .AdministrativeInformation {
+    margin-bottom: 20px;
+
+    .btn {
+        &.trigger {
+            display: none;
+        }
+    }
+
+    .metric-container-wrapper {
+        margin: 5px 0;
+    }
+
+}
+
+a[title="Take Survey"] {
+    @include style-button-base();
+}
+
+.btn-delete {
+    padding: 5px 10px;
+
+    &:before {
+        display: none;
+    }
+}
+
+.btn-edit {
+    padding: 10px;
+
+    @include breakpoint($bp-tablets-portrait) {
+        padding: 5px;
+    }
+}
+

@@ -1,0 +1,13 @@
+@import "../_base-vars";
+
+//Tabitha
+$color--theme-accent: #0067B1;
+$color--theme-accent-alternate: #004374;
+
+$landing--bg-color: $color-white;
+$app--table-headings-bg-color: $color--theme-accent-alternate;
+$app--nav-link-color: $color--theme-accent-alternate;
+$app--nav-link-hover-color: $color--theme-accent;
+$app--nav-link-underline-color: $color--theme-accent-alternate;
+
+@import "../_default-vars";

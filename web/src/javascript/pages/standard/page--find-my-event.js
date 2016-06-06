@@ -64,7 +64,7 @@ jQuery(function($){
     '   </div>'+
     '   <div v-if="message"><h1>{{message}}</h1></div>'+
     '   <event-list :events="events"></event-list>'+
-    '   <div v-if="!advanced">Cannot find your event? Try the'+
+    '   <div class="toggle advanced" v-if="!advanced">Cannot find your event? Try the'+
     '   <a href="#" @click="toggleAdvanced">Advanced Search</a></div>'+
     '</div>';
 
