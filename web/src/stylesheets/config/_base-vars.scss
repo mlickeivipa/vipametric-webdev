@@ -32,7 +32,6 @@ $color-gold-almost-white: #fdfdd3;
 $color-gold: #bdb149;
 $color-yellow-gold: #ffc800;
 
-
 $font-arial: Arial, Verdana, sans-serif;
 $font-open-sans: OpenSans, $font-arial;
 $font-open-sans-semi-bold: OpenSansSemiBold, $font-arial;
@@ -54,3 +53,5 @@ $bp-tablets-landscape: (min-width: 1024px);
 $bp-desktop: (min-width: 1280px);
 $bp-desktop-wide: (min-width: 1400px);
 $bp-desktop-widest: (min-width: 1600px);
+
+$show-goals: true;
