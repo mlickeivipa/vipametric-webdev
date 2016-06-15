@@ -160,7 +160,11 @@ jQuery(function($){
       dfd.resolve(null);
     } else {
       navigator.geolocation.getCurrentPosition(geoSuccess, geoError,
-          {enableHighAccuracy: true, timeout: 2000, maximumAge: 0});
+          {
+            enableHighAccuracy: true,
+            timeout: 2000,
+            maximumAge: 300000
+          });
     }
 
     function geoSuccess(position){
@@ -184,6 +188,7 @@ jQuery(function($){
     }
 
     function geoError(err){
+      console.log(err);
       dfd.resolve(null);
     }
     return dfd.promise();
