@@ -1,390 +1,7 @@
 jQuery(function($) {
 
-    //Class name constants
-    var CLASSNAME_SHOW = "show",
-        CLASSNAME_LOADING_CONTAINER = ".loading-container";
-
-    //Things we need
-    var $searchParamsContainer = $(".dashboard-params"),
-        $dashboardContainer = $(".dashboard-container"),
-        $messageContainer = $dashboardContainer.find(".dashboard-message-container"),
-        $dashboardSections = $dashboardContainer.find(".dashboard-section"),
-        $searchActions = $searchParamsContainer.find(".search-params-actions"),
-        $searchBtn = $searchActions.find(".search-btn"),
-        $resetBtn = $searchActions.find(".reset-btn"),
-        $loadingContainer = $dashboardContainer.find(CLASSNAME_LOADING_CONTAINER);
-
-    //Messages Constants
-    var $MESSAGE_ERROR_GENERIC = $messageContainer.find(".error-generic"),
-        $MESSAGE_ERROR_PERMISSIONS = $messageContainer.find(".error-permissions"),
-        $MESSAGE_NO_DATA = $messageContainer.find(".no-data");
-
-    //Message Type Constants
-    var MESSAGE_TYPE_ERROR_GENERIC = "GENERIC_ERROR",
-        MESSAGE_TYPE_ERROR_PERMISSIONS = "INSUFFICIENT_PERMISSIONS",
-        MESSAGE_TYPE_NO_DATA = "NO_DATA";
-
-    /**
-     * Will display a message to the user based on the message type you pass in. Will display nothing if null is passed in.
-     *
-     * @param messageType Message type to display.
-     */
-    function displayMessage(messageType) {
-        if(messageType == null)
-        {
-            hideAllMessages();
-            return;
-        }
-
-        switch (messageType) {
-            case MESSAGE_TYPE_NO_DATA:
-                $MESSAGE_NO_DATA.addClass(CLASSNAME_SHOW);
-                break;
-            case MESSAGE_TYPE_ERROR_PERMISSIONS:
-                $MESSAGE_ERROR_PERMISSIONS.addClass(CLASSNAME_SHOW);
-                break;
-            case MESSAGE_TYPE_ERROR_GENERIC:
-                $MESSAGE_ERROR_GENERIC.addClass(CLASSNAME_SHOW);
-                break;
-            default:
-                $MESSAGE_ERROR_GENERIC.addClass(CLASSNAME_SHOW);
-                break;
-        }
-    }
-
-    /**
-     * Will hide all messages in the message container.
-     *
-     */
-    function hideAllMessages() {
-        $MESSAGE_ERROR_GENERIC.removeClass(CLASSNAME_SHOW);
-        $MESSAGE_ERROR_PERMISSIONS.removeClass(CLASSNAME_SHOW);
-        $MESSAGE_NO_DATA.removeClass(CLASSNAME_SHOW);
-    }
-
-    /**
-     * Will show the loading message and add it to the target container if needed.
-     *
-     * @param $target True/false value for showing the loading message.
-     */
-    function addLoadingMessage($target) {
-        if ($target) {
-            var $loadingClone = $target.find(CLASSNAME_LOADING_CONTAINER);
-            if(!$loadingClone.length) {
-                $loadingClone = $loadingContainer.clone();
-            }
-            $target.prepend($loadingClone);
-            $loadingClone.addClass(CLASSNAME_SHOW);
-        }
-    }
-
-    /**
-     * Will hide the loading message. WONT REMOVE THE
-     *
-     * @param $target
-     */
-    function hideLoadingMessage($target) {
-        if ($target) {
-            var $loadingClone = $target.find(CLASSNAME_LOADING_CONTAINER);
-            $loadingClone.removeClass(CLASSNAME_SHOW);
-        }
-    }
-
-    /**
-     * Will friendly-fy the given number and post fix it with shorthand for the numbers size
-     *
-     * @param number Number to friendly-fy
-     * @returns {*} A friendly-fied version of the number
-     */
-    function friendlyNumberFormat(number) {
-        if (number > 1000000000000) {
-            return Math.round(number / 1000000000000) + 't';
-        } else if (number > 1000000000) {
-            return Math.round(number / 1000000000) + 'b';
-        } else if (number > 1000000) {
-            return Math.round(number / 1000000) + 'm';
-        } else if (number > 1000) {
-            return Math.round(number / 1000) + 'k';
-        } else {
-            return number;
-        }
-    }
-
-    var gaugeOptions = {
-
-        chart: {
-            type: 'solidgauge'
-        },
-
-        title: null,
-
-        pane: {
-            center: ['50%', '85%'],
-            size: '140%',
-            startAngle: -90,
-            endAngle: 90,
-            background: {
-                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-                innerRadius: '60%',
-                outerRadius: '100%',
-                shape: 'arc'
-            }
-        },
-
-        tooltip: {
-            enabled: false
-        },
-
-        // the value axis
-        yAxis: {
-            stops: [
-                [0.1, '#DF5353'], // red
-                [0.5, '#DDDF0D'], // yellow
-                [0.9, '#55BF3B'] // green
-            ],
-            tickPositioner: function () {
-                return [0, this.max];
-            },
-            lineWidth: 0,
-            minorTickInterval: null,
-            tickPixelInterval: 400,
-            tickWidth: 0,
-            title: {
-                y: -70
-            },
-            labels: {
-                y: 16,
-                useHTML: true,
-                formatter: function () {
-                    return friendlyNumberFormat(this.value);
-                }
-            }
-        },
-
-        plotOptions: {
-            solidgauge: {
-                dataLabels: {
-                    y: 5,
-                    borderWidth: 0,
-                    useHTML: true
-                }
-            }
-        }
-    };
-
-    var semiCircleDonutOptions = {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-        title: {
-            align: 'center',
-            verticalAlign: 'middle',
-            y: 50
-        },
-        tooltip: {
-            pointFormat: '<b>{point.y:.lf}</b>%'
-        },
-        plotOptions: {
-            pie: {
-                dataLabels: {
-                    enabled: false,
-                    distance: -15,
-                    style: {
-                        fontWeight: 'bold',
-                        color: 'white',
-                        textShadow: '0px 1px 2px black'
-                    }
-                },
-                showInLegend: true,
-                startAngle: -90,
-                endAngle: 90,
-                center: ['50%', '75%']
-            }
-        }
-    };
-
-    var columnOptions = {
-        chart: {
-            type: 'column'
-        },
-        yAxis: {
-            min: 0
-        },
-        xAxis: {
-            labels: {
-                enabled: false
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px"></span><table>',
-            footerFormat: '</table>',
-            shared: false,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        }
-    };
-
-    var pieWithLegendOptions = {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.y:.lf}</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        }
-    };
-
-    function renderNumeric($container, label, value, description, numericType) {
-        $container.empty();
-
-        switch (numericType) {
-            case "percentage":
-                var $label = $('<div class="data-label">'+label+'</div>'),
-                    $value = $('<div class="data-value">'+value+'<span class="percent-sign">%</span></div>'),
-                    $description = $('<div class="data-description">'+description+'</div>');
-                $container.append($label,$value,$description);
-                break;
-            default :
-                break;
-        }
-    }
-
-    function renderBrandTotals($section, data){
-
-        var $numericCont = $section.find(".conversion-rate");
-        renderNumeric($numericCont, "Conversion Rate", data.conversion_rate.value * 100, "Total Sales / Impressions", $numericCont.data("numeric-type"));
-
-        $section.find(".bottle-sales").highcharts(Highcharts.merge(gaugeOptions, {
-            yAxis: {
-                min: 0,
-                max: data.bottle_sales.goal,
-                title: {
-                    text: "Bottle Sales"
-                }
-            },
-
-            credits: {
-                enabled: false
-            },
-
-            series: [
-                {
-                    name: "Bottle Sales",
-                    data: [data.bottle_sales.value],
-                    dataLabels: {
-                        format: '<div style="text-align:center"><span style="font-size:25px;color:' + ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                            '<span style="font-size:12px;color:silver">Bottles</span></div>'
-                    },
-                    tooltip: {
-                        valueSuffix: ' Bottles'
-                    }
-                }
-            ]
-        }));
-
-        $section.find(".events-completed").highcharts(Highcharts.merge(gaugeOptions, {
-            yAxis: {
-                min: 0,
-                max: data.events_completed.goal,
-                title: {
-                    text: "Events"
-                }
-            },
-
-            credits: {
-                enabled: false
-            },
-
-            series: [
-                {
-                    name: "Completed",
-                    data: [data.events_completed.value],
-                    dataLabels: {
-                        format: '<div style="text-align:center"><span style="font-size:25px;color:' + ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                            '<span style="font-size:12px;color:silver">Completed</span></div>'
-                    },
-                    tooltip: {
-                        valueSuffix: ' Events'
-                    }
-                }
-            ]
-        }));
-
-        $section.find(".samples-given").highcharts(Highcharts.merge(gaugeOptions, {
-            yAxis: {
-                min: 0,
-                max: data.samples_given.goal,
-                title: {
-                    text: "Samples"
-                }
-            },
-
-            credits: {
-                enabled: false
-            },
-
-            series: [
-                {
-                    name: "Samples Given",
-                    data: [data.samples_given.value],
-                    dataLabels: {
-                        format: '<div style="text-align:center"><span style="font-size:25px;color:' + ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                            '<span style="font-size:12px;color:silver">Samples Given</span></div>'
-                    },
-                    tooltip: {
-                        valueSuffix: ' Samples'
-                    }
-                }
-            ]
-        }));
-
-        $section.find(".impressions").highcharts(Highcharts.merge(gaugeOptions, {
-            yAxis: {
-                min: 0,
-                max: data.impressions.goal,
-                title: {
-                    text: "Impressions"
-                }
-            },
-
-            credits: {
-                enabled: false
-            },
-
-            series: [
-                {
-                    name: "Impressions",
-                    data: [data.impressions.value],
-                    dataLabels: {
-                        format: '<div style="text-align:center"><span style="font-size:25px;color:' + ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-                            '<span style="font-size:12px;color:silver">Impressions</span></div>'
-                    },
-                    tooltip: {
-                        valueSuffix: ' Impressions'
-                    }
-                }
-            ]
-        }));
-
-    }
+    //=require ../../dashboard/dashboard--main-config.js
+    //=require ../../dashboard/dashboard--numeric-renderer.js
 
     function renderFullProgramResults($section, data) {
         $section.find(".full-program-results-container").empty();
@@ -462,7 +79,7 @@ jQuery(function($) {
     }
 
     function renderConsumerDemographics($section, data) {
-        $section.find(".age").highcharts(Highcharts.merge(semiCircleDonutOptions, {
+        $section.find(".age").highcharts(Highcharts.merge(defaultOptions.semiCircleDonutOptions, {
             title: {
                 text: "Age"
             },
@@ -479,7 +96,7 @@ jQuery(function($) {
             }
         }));
 
-        $section.find(".gender").highcharts(Highcharts.merge(semiCircleDonutOptions, {
+        $section.find(".gender").highcharts(Highcharts.merge(defaultOptions.semiCircleDonutOptions, {
             title: {
                 text: "Gender"
             },
@@ -496,7 +113,7 @@ jQuery(function($) {
             }
         }));
 
-        $section.find(".language").highcharts(Highcharts.merge(semiCircleDonutOptions, {
+        $section.find(".language").highcharts(Highcharts.merge(defaultOptions.semiCircleDonutOptions, {
             title: {
                 text: "Language"
             },
@@ -513,7 +130,7 @@ jQuery(function($) {
             }
         }));
 
-        $section.find(".background").highcharts(Highcharts.merge(semiCircleDonutOptions, {
+        $section.find(".background").highcharts(Highcharts.merge(defaultOptions.semiCircleDonutOptions, {
             title: {
                 text: "Background"
             },
@@ -534,7 +151,7 @@ jQuery(function($) {
     }
 
     function renderConsumerPurchaseMotivators($section, data) {
-        $section.find(".consumer-purchase-motivators").highcharts(Highcharts.merge(columnOptions, {
+        $section.find(".consumer-purchase-motivators").highcharts(Highcharts.merge(defaultOptions.columnOptions, {
             title: {
                 text: "Consumer Purchase Motivators"
             },
@@ -555,7 +172,7 @@ jQuery(function($) {
             series: data.consumer_purchase_motivators
         }));
 
-        $section.find(".right-account").highcharts(Highcharts.merge(pieWithLegendOptions, {
+        $section.find(".right-account").highcharts(Highcharts.merge(defaultOptions.pieWithLegendOptions, {
             title: {
                 text: 'Are we in the right accounts?'
             },
@@ -572,78 +189,249 @@ jQuery(function($) {
         }));
     }
 
+    function getPieReadyData(data)
+    {
+        var valuesArr = [];
+
+        $.each(Object.keys(data), function(idx, key)
+        {
+            var curVal = data[key];
+
+            valuesArr.push([key, curVal]);
+        });
+
+        return valuesArr;
+    }
+
+    function getColumnReadyData(data)
+    {
+        var total = 0;
+
+        var valuesArr = [];
+        $.each(Object.keys(data), function(idx, key)
+        {
+            var curVal = data[key];
+            total += curVal;
+
+            valuesArr.push(curVal);
+        });
+
+        return {
+            total: total,
+            data: [{
+                name: "This Months Scores",
+                data: valuesArr
+            }]
+        };
+    }
+
+    function renderGeneralQuestionSummaryBox(data, $section, numSelectorStr, selectorStr)
+    {
+        var excellent = data["Excellent"],
+            formattedData = getColumnReadyData(data),
+            total = formattedData.total;
+
+        var $numberCont = $section.find(numSelectorStr);
+        renderNumeric($numberCont,
+            "% Excellent",
+            (excellent/total)*100,
+            null,
+            $numberCont.data("numeric-type")
+        );
+
+        $section.find(selectorStr).highcharts(Highcharts.merge(defaultOptions.columnOptions, {
+            title: {
+                text: "Month to Date Summary"
+            },
+            yAxis: {
+                title: {
+                    text: "# of Times Selected"
+                }
+            },
+            xAxis: {
+                categories: Object.keys(data),
+                labels: {
+                    enabled: true
+                }
+            },
+            tooltip: {
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} Answers: </td><td style="padding:0"><b>{point.y:.lf}</b></td></tr>'
+            },
+            credits: {
+                enabled: false
+            },
+            series: formattedData.data
+        }));
+    }
+
+    function renderTotalInteractions($section, data)
+    {
+        var $numberCont = $section.find('.interactions-m2d');
+
+        //Month to date
+        renderNumeric($numberCont,
+            "Month to Date",
+            data["month-to-date"],
+            "Interactions",
+            $numberCont.data("numeric-type")
+        );
+
+        //Last Month
+        $numberCont = $section.find('.interactions-last-month');
+        renderNumeric($numberCont,
+            "Last Month",
+            data["last-month"],
+            "Interactions",
+            $numberCont.data("numeric-type")
+        );
+
+        //Last Quarter
+        $numberCont = $section.find('.interactions-last-quarter');
+        renderNumeric($numberCont,
+            "Last Quarter",
+            data["last-quarter"],
+            "Interactions",
+            $numberCont.data("numeric-type")
+        );
+
+        //Last Month
+        $numberCont = $section.find('.interactions-ytd');
+        renderNumeric($numberCont,
+            "Year to Date",
+            data["year-to-date"],
+            "Interactions",
+            $numberCont.data("numeric-type")
+        );
+    }
+
+    function renderOverallExcellent($section, data)
+    {
+        renderGeneralQuestionSummaryBox(
+            data,
+            $section,
+            '.overall-excellent-percent',
+            ".overall-answer-summary");
+    }
+
+    function renderReferralProcessSummary($section, data)
+    {
+        renderGeneralQuestionSummaryBox(
+            data,
+            $section,
+            '.referral-excellent-percent',
+            ".referral-answer-summary");
+    }
+
+    function renderCsReferralSummary($section, data)
+    {
+        renderGeneralQuestionSummaryBox(
+            data,
+            $section,
+            '.cs-referral-excellent-percent',
+            ".cs-referral-answer-summary");
+    }
+
+    function renderCsClientSummary($section, data)
+    {
+        renderGeneralQuestionSummaryBox(
+            data,
+            $section,
+            '.cs-client-excellent-percent',
+            ".cs-client-answer-summary");
+    }
+
+    function renderOutreachLiaisonSummary($section, data)
+    {
+        renderGeneralQuestionSummaryBox(
+            data,
+            $section,
+            '.outreach-liaison-excellent-percent',
+            ".outreach-liaison-answer-summary");
+    }
+
+    function renderRolesSummary($section, data)
+    {
+        $section.find(".interactions-roles-summary").highcharts(Highcharts.merge(defaultOptions.pieWithLegendOptions, {
+            title: {
+                text: ''
+            },
+            credits: {
+                enabled: false
+            },
+            series: [
+                {
+                    type: 'pie',
+                    name: 'Submissions Per Role',
+                    data: getPieReadyData(data)
+                }
+            ]
+        }));
+    }
+
+    function renderSuggestionsSummary($section, data)
+    {
+        $section.find(".referral-suggestions-summary").highcharts(Highcharts.merge(defaultOptions.pieWithLegendOptions, {
+            title: {
+                text: ''
+            },
+            credits: {
+                enabled: false
+            },
+            series: [
+                {
+                    type: 'pie',
+                    name: 'Suggestions',
+                    data: getPieReadyData(data)
+                }
+            ]
+        }));
+    }
+
+    /**
+     * This is the standard function that will be called when data is loaded for a section.
+     *
+     * @param $section The section we are rendering.
+     * @param collectionName The collection name for the section.
+     * @param chartData The data returned for the section.
+     */
     function populateSection($section, collectionName, chartData) {
         switch(collectionName) {
-            case "brand-totals":
-                renderBrandTotals($section, chartData.brand_totals);
+            case "total-interactions":
+                renderTotalInteractions($section, chartData[collectionName]);
                 break;
-            case "full-program-results":
-                renderFullProgramResults($section, chartData.brand_totals);
+            case "interactions-per-region":
+
                 break;
-            case "price-matrix":
-                renderPriceMatrix($section, chartData);
+            case "overall-summary":
+                renderOverallExcellent($section, chartData[collectionName]);
                 break;
-            case "consumer-demographics":
-                renderConsumerDemographics($section, chartData);
+            case "referral-process-summary":
+                renderReferralProcessSummary($section, chartData[collectionName]);
                 break;
-            case "consumer-purchase-motivators":
-                renderConsumerPurchaseMotivators($section, chartData);
+            case "cs-referral-summary":
+                renderCsReferralSummary($section, chartData[collectionName]);
+                break;
+            case "cs-client-summary":
+                renderCsClientSummary($section, chartData[collectionName]);
+                break;
+            case "outreach-liaison-summary":
+                renderOutreachLiaisonSummary($section, chartData[collectionName]);
+                break;
+            case "roles-summary":
+                renderRolesSummary($section, chartData[collectionName]);
+                break;
+            case "suggestions-summary":
+                renderSuggestionsSummary($section, chartData[collectionName]);
+                break;
+            case "regional-interactions-over-time":
+
+                break;
+            case "regional-excellent-over-time":
+
                 break;
             default :
                 break;
         }
     }
-
-    function updateChartsAndTables(params) {
-        $dashboardSections.each(function() {
-            var $section = $(this);
-
-            //Add the section we are loading as a param
-            var collectionName = $section.data("collection-name");
-            params.dataSet = collectionName;
-
-            addLoadingMessage($section.find(".dashboard-section-content"));
-            $.getJSON("/ws/dashboard-feed", params)
-                .done(function (wsData) {
-                    populateSection($section, collectionName, wsData);
-                })
-                .fail(function () {
-                    displayMessage(MESSAGE_TYPE_ERROR_GENERIC);
-                })
-                .always(function () {
-                    hideLoadingMessage($section);
-                });
-        });
-    }
-
-    function updateData() {
-        var searchParamPath = $searchParamsContainer.data("component-url");
-
-        $.ajax(searchParamPath, {
-            contentType: "application/json"
-        }).done(function(data) {
-            //start our next thing after processing the data given (should be params)
-            var params = JSON.parse(data);
-            updateChartsAndTables(params);
-        }).fail(function() {
-            //Welp
-            //TODO move into finished listener
-            addLoadingMessage(false);
-            //TODO move into error listener
-            displayMessage(MESSAGE_TYPE_ERROR_GENERIC);
-        });
-    }
-
-    function init()
-    {
-        $searchBtn.on('click', function () {
-            displayMessage(null);
-            updateData();
-        });
-
-        updateData();
-    }
-
-    init();
 
 });
