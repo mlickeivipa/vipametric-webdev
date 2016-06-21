@@ -1,3 +1,10 @@
+@if($show-goals != true)
+{
+  .view-engagement .section.goals {
+    display: none;
+  }
+}
+
 .goals {
     margin-top: 0;
 }
