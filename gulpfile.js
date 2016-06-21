@@ -6,6 +6,7 @@ var del = require('del');
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 var rename = require('gulp-rename');
+var include = require("gulp-include");
 var _ = require('lodash');
 
 gulp.task('default', ['styles', 'javascript', 'design']);
@@ -31,6 +32,8 @@ gulp.task('styles:clean', function(callback) {
 gulp.task('javascript', ['javascript:build']);
 gulp.task('javascript:build', ['javascript:clean'], function() {
 	return gulp.src('./web/src/javascript/**/*.js')
+		.pipe(include({extensions: "js"}))
+			.on('error', console.log)
 		.pipe(gulp.dest('./web/build/javascript'));
 });
 gulp.task('javascript:clean', function(callback) {
