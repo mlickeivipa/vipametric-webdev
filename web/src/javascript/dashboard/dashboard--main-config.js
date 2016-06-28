@@ -145,6 +145,26 @@ var defaultOptions = {
         }
     },
 
+    barOptions: {
+        chart: {
+            type: 'bar'
+        },
+        yAxis: {
+            min: 0
+        },
+        xAxis: {
+            labels: {
+                enabled: false
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px"></span><table>',
+            footerFormat: '</table>',
+            shared: false,
+            useHTML: true
+        }
+    },
+
     pieWithLegendOptions: {
         chart: {
             plotBackgroundColor: null,

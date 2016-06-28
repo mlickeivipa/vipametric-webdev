@@ -105,7 +105,7 @@ jQuery(function($) {
         } else if (number > 1000) {
             return Math.round(number / 1000) + 'k';
         } else {
-            return number;
+            return Math.round(number);
         }
     }
 
@@ -283,7 +283,7 @@ jQuery(function($) {
             series: [
                 {
                     name: "Bottle Sales",
-                    data: [data.bottle_sales.value],
+                    data: [Math.floor(data.bottle_sales.value)],
                     dataLabels: {
                         format: '<div style="text-align:center"><span style="font-size:25px;color:' + ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
                             '<span style="font-size:12px;color:silver">Bottles</span></div>'
@@ -311,7 +311,7 @@ jQuery(function($) {
             series: [
                 {
                     name: "Completed",
-                    data: [data.events_completed.value],
+                    data: [Math.floor(data.events_completed.value)],
                     dataLabels: {
                         format: '<div style="text-align:center"><span style="font-size:25px;color:' + ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
                             '<span style="font-size:12px;color:silver">Completed</span></div>'
