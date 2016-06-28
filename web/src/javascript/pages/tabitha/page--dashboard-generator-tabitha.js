@@ -3,190 +3,52 @@ jQuery(function($) {
     //=require ../../dashboard/dashboard--main-config.js
     //=require ../../dashboard/dashboard--numeric-renderer.js
 
-    function renderFullProgramResults($section, data) {
-        $section.find(".full-program-results-container").empty();
-        $section.find(".full-program-results-container").mrjsontable({
-            tableClass: "miwt-table full-program-results-table",
-            pageSize: 20,
-            columns: [
-                new $.fn.mrjsontablecolumn({
-                    heading: "Full Program Top Line Results",
-                    data: "total_desc",
-                    sortable: false
-                }),
-                new $.fn.mrjsontablecolumn({
-                    heading: "To Date",
-                    data: "total",
-                    type: "int",
-                    sortable: false
-                }),
-                new $.fn.mrjsontablecolumn({
-                    heading: "Total Goal",
-                    data: "goal",
-                    type: "int",
-                    sortable: false
-                }),
-                new $.fn.mrjsontablecolumn({
-                    heading: "% to Goal",
-                    data: "percent_to_goal",
-                    type: "int",
-                    sortable: false
-                })
-            ],
-            data: data.full_program_results
-        });
+    function findAverageOfData(data)
+    {
+        var averageMapping = {};
+
+        for(var dataIdx=0; dataIdx<data.length; dataIdx++)
+        {
+            var categoryData = data[dataIdx].data;
+
+            for(var categoryIdx=0; categoryIdx<categoryData.length; categoryIdx++)
+            {
+                //Init if not already done
+                if(averageMapping[categoryIdx] == null)
+                {
+                    averageMapping[categoryIdx] = 0;
+                }
+
+                averageMapping[categoryIdx] += categoryData[categoryIdx];
+
+                if(dataIdx == data.length -1)
+                {
+                    averageMapping[categoryIdx] = averageMapping[categoryIdx] / (dataIdx+1);
+                }
+            }
+        }
+
+        return averageMapping;
     }
 
-    function renderPriceMatrix($section, data) {
-        $section.find(".price-matrix-container").empty();
-        $(data.price_matrix).each(function (index, tableData) {
-            var brand = tableData[0].brand.replace(/[^\w\d\-]+/, "").toLowerCase();
-            var $matrixTable = $('<div class="price-matrix-table '+brand+' table-wrapper"></div>');
-            $matrixTable.appendTo($section.find(".price-matrix-container"));
-            $matrixTable.mrjsontable({
-                tableClass: "miwt-table price-matrix-table-" + brand,
-                pageSize: 10,
-                columns: [
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Brand(size 750ml)",
-                        data: "brand_name",
-                        sortable: false
-                    }),
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Reg Price",
-                        data: "reg_price",
-                        sortable: false
-                    }),
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Sales Price",
-                        data: "sales_price",
-                        sortable: false
-                    }),
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Reg Price Variance",
-                        data: "reg_price_variance",
-                        sortable: false
-                    }),
-                    new $.fn.mrjsontablecolumn({
-                        heading: "Sales Price Variance",
-                        data: "sale_price_variance",
-                        sortable: false
-                    })
-                ],
-                data: tableData
-            });
-        });
-    }
-
-    function renderConsumerDemographics($section, data) {
-        $section.find(".age").highcharts(Highcharts.merge(defaultOptions.semiCircleDonutOptions, {
-            title: {
-                text: "Age"
-            },
-            series: [
-                {
-                    type: 'pie',
-                    name: 'Percent of Consumers',
-                    innerSize: '50%',
-                    data: data.consumer_demographics.age
-                }
-            ],
-            credits: {
-                enabled: false
-            }
-        }));
-
-        $section.find(".gender").highcharts(Highcharts.merge(defaultOptions.semiCircleDonutOptions, {
-            title: {
-                text: "Gender"
-            },
-            series: [
-                {
-                    type: 'pie',
-                    name: 'Percent of Consumers',
-                    innerSize: '50%',
-                    data: data.consumer_demographics.gender
-                }
-            ],
-            credits: {
-                enabled: false
-            }
-        }));
-
-        $section.find(".language").highcharts(Highcharts.merge(defaultOptions.semiCircleDonutOptions, {
-            title: {
-                text: "Language"
-            },
-            series: [
-                {
-                    type: 'pie',
-                    name: 'Percent of Consumers',
-                    innerSize: '50%',
-                    data: data.consumer_demographics.language
-                }
-            ],
-            credits: {
-                enabled: false
-            }
-        }));
-
-        $section.find(".background").highcharts(Highcharts.merge(defaultOptions.semiCircleDonutOptions, {
-            title: {
-                text: "Background"
-            },
-            series: [
-                {
-                    type: 'pie',
-                    name: 'Percent of Consumers',
-                    innerSize: '50%',
-                    data: data.consumer_demographics.background
-                }
-            ],
-            credits: {
-                enabled: false
-            }
-
-        }));
-
-    }
-
-    function renderConsumerPurchaseMotivators($section, data) {
-        $section.find(".consumer-purchase-motivators").highcharts(Highcharts.merge(defaultOptions.columnOptions, {
-            title: {
-                text: "Consumer Purchase Motivators"
-            },
-            yAxis: {
-                title: {
-                    text: "Consumers"
-                }
-            },
-            xAxis: {
-                categories: ['Purchase Motivators']
-            },
-            tooltip: {
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.lf} Consumers</b></td></tr>'
-            },
-            credits: {
-                enabled: false
-            },
-            series: data.consumer_purchase_motivators
-        }));
-
-        $section.find(".right-account").highcharts(Highcharts.merge(defaultOptions.pieWithLegendOptions, {
-            title: {
-                text: 'Are we in the right accounts?'
-            },
-            credits: {
-                enabled: false
-            },
-            series: [
-                {
-                    type: 'pie',
-                    name: 'Right Account?',
-                    data: data.right_account
-                }
-            ]
-        }));
+    function reformatSuggestionName(name)
+    {
+        switch (name) {
+            case "Yes, improve communication":
+                return "Improve communication";
+            case "Yes, improve referral process":
+                return "Improve referral process";
+            case "Yes, improve customer service":
+                return "Improve customer service";
+            case "No, when we have referrals we choose Tabitha":
+                return "No, refer Tabitha";
+            case "No, our census is low/we have not had any referrals to any agency":
+                return "No, low census";
+            case "No, we prefer another agency":
+                return "No, prefer another agency";
+            default:
+                return name;
+        }
     }
 
     function getPieReadyData(data)
@@ -198,6 +60,20 @@ jQuery(function($) {
             var curVal = data[key];
 
             valuesArr.push([key, curVal]);
+        });
+
+        return valuesArr;
+    }
+
+    function getPieReadyDataWithFormattedNames(data, formatter)
+    {
+        var valuesArr = [];
+
+        $.each(Object.keys(data), function(idx, key)
+        {
+            var curVal = data[key];
+
+            valuesArr.push([formatter(key), curVal]);
         });
 
         return valuesArr;
@@ -225,16 +101,52 @@ jQuery(function($) {
         };
     }
 
-    function renderGeneralQuestionSummaryBox(data, $section, numSelectorStr, selectorStr)
+    function renderGeneralQuestionSummaryBox(data, $section, selectorStr)
     {
         var excellent = data["Excellent"],
+            good = data["Good"],
+            average = data["Average"],
+            poor = data["Poor"],
+            veryPoor = data["Very Poor"],
             formattedData = getColumnReadyData(data),
             total = formattedData.total;
 
-        var $numberCont = $section.find(numSelectorStr);
+        var $numberCont = $section.find('.excellent-percent');
         renderNumeric($numberCont,
-            "% Excellent",
+            "Excellent",
             (excellent/total)*100,
+            null,
+            $numberCont.data("numeric-type")
+        );
+
+      	$numberCont = $section.find('.good-percent');
+        renderNumeric($numberCont,
+            "Good",
+            (good/total)*100,
+            null,
+            $numberCont.data("numeric-type")
+        );
+
+        $numberCont = $section.find('.average-percent');
+        renderNumeric($numberCont,
+            "Average",
+            (average/total)*100,
+            null,
+            $numberCont.data("numeric-type")
+        );
+
+        $numberCont = $section.find('.poor-percent');
+        renderNumeric($numberCont,
+            "Poor",
+            (poor/total)*100,
+            null,
+            $numberCont.data("numeric-type")
+        );
+
+        $numberCont = $section.find('.very-poor-percent');
+        renderNumeric($numberCont,
+            "Very Poor",
+            (veryPoor/total)*100,
             null,
             $numberCont.data("numeric-type")
         );
@@ -304,12 +216,49 @@ jQuery(function($) {
         );
     }
 
+    function renderM2DInteractionsPerRegion($section, data)
+    {
+        //Month to date
+        $numberCont = $section.find('.interactions-m2d');
+        renderNumeric($numberCont,
+            "Month to Date",
+            data["month-to-date"],
+            "Interactions",
+            $numberCont.data("numeric-type")
+        );
+
+        //Render graph
+        $section.find(".m2d-interactions-per-region").highcharts(Highcharts.merge(defaultOptions.barOptions, {
+            title: {
+                text: ''
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Interactions Month To Date'
+                }
+            },
+            xAxis: {
+                categories: ["This Month"],
+                labels: {
+                    enabled: true
+                }
+            },
+            tooltip: {
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} Region Interactions: </td><td style="padding:0"><b>{point.y:.lf}</b></td></tr>'
+            },
+            credits: {
+                enabled: false
+            },
+            series: data["regions"]
+        }));
+    }
+
     function renderOverallExcellent($section, data)
     {
         renderGeneralQuestionSummaryBox(
             data,
             $section,
-            '.overall-excellent-percent',
             ".overall-answer-summary");
     }
 
@@ -318,7 +267,6 @@ jQuery(function($) {
         renderGeneralQuestionSummaryBox(
             data,
             $section,
-            '.referral-excellent-percent',
             ".referral-answer-summary");
     }
 
@@ -327,7 +275,6 @@ jQuery(function($) {
         renderGeneralQuestionSummaryBox(
             data,
             $section,
-            '.cs-referral-excellent-percent',
             ".cs-referral-answer-summary");
     }
 
@@ -336,7 +283,6 @@ jQuery(function($) {
         renderGeneralQuestionSummaryBox(
             data,
             $section,
-            '.cs-client-excellent-percent',
             ".cs-client-answer-summary");
     }
 
@@ -345,7 +291,6 @@ jQuery(function($) {
         renderGeneralQuestionSummaryBox(
             data,
             $section,
-            '.outreach-liaison-excellent-percent',
             ".outreach-liaison-answer-summary");
     }
 
@@ -354,6 +299,14 @@ jQuery(function($) {
         $section.find(".interactions-roles-summary").highcharts(Highcharts.merge(defaultOptions.pieWithLegendOptions, {
             title: {
                 text: ''
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    showInLegend: false
+                }
             },
             credits: {
                 enabled: false
@@ -374,6 +327,14 @@ jQuery(function($) {
             title: {
                 text: ''
             },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    showInLegend: false
+                }
+            },
             credits: {
                 enabled: false
             },
@@ -381,9 +342,65 @@ jQuery(function($) {
                 {
                     type: 'pie',
                     name: 'Suggestions',
-                    data: getPieReadyData(data)
+                    data: getPieReadyDataWithFormattedNames(data, reformatSuggestionName)
                 }
             ]
+        }));
+    }
+
+    function renderRegionalInteractionsOverTime($section, data)
+    {
+        var averageInteractions = findAverageOfData(data["regionalData"]);
+
+        $section.find('.regional-interactions-over-time').highcharts(Highcharts.merge(defaultOptions.columnOptions, {
+            title: {
+                text: ""
+            },
+            yAxis: {
+                title: {
+                    text: "Interactions"
+                }
+            },
+            xAxis: {
+                categories: data["month-categories"],
+                labels: {
+                    enabled: true
+                }
+            },
+            tooltip: {
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} Interactions: </td><td style="padding:0"><b>{point.y:.lf}</b></td></tr>'
+            },
+            credits: {
+                enabled: false
+            },
+            series: data["regionalData"]
+        }));
+    }
+
+    function renderRegionalExcellentOverTime($section, data)
+    {
+        $section.find('.regional-excellent-over-time').highcharts(Highcharts.merge(defaultOptions.columnOptions, {
+            title: {
+                text: ""
+            },
+            yAxis: {
+                title: {
+                    text: "# of Excellent Answers"
+                }
+            },
+            xAxis: {
+                categories: data["month-categories"],
+                labels: {
+                    enabled: true
+                }
+            },
+            tooltip: {
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} Region: </td><td style="padding:0"><b>{point.y:.lf} Excellent Answers</b></td></tr>'
+            },
+            credits: {
+                enabled: false
+            },
+            series: data["regionalData"]
         }));
     }
 
@@ -400,7 +417,7 @@ jQuery(function($) {
                 renderTotalInteractions($section, chartData[collectionName]);
                 break;
             case "interactions-per-region":
-
+                renderM2DInteractionsPerRegion($section, chartData[collectionName]);
                 break;
             case "overall-summary":
                 renderOverallExcellent($section, chartData[collectionName]);
@@ -424,10 +441,10 @@ jQuery(function($) {
                 renderSuggestionsSummary($section, chartData[collectionName]);
                 break;
             case "regional-interactions-over-time":
-
+                renderRegionalInteractionsOverTime($section, chartData[collectionName]);
                 break;
             case "regional-excellent-over-time":
-
+                renderRegionalExcellentOverTime($section, chartData[collectionName]);
                 break;
             default :
                 break;

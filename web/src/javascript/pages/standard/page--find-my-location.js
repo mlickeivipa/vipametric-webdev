@@ -59,6 +59,7 @@ jQuery(function($){
     '   <div class="actions">'+
     '     <button class="btn search" @click="search">Search</button>'+
     '     <button class="btn reset" @click="reset">Reset</button>'+
+    '     <button class="btn advanced-search" @click="toggleAdvanced">Toggle Advanced Search</button>'+
     '   </div>'+
     '   <div v-if="message"><h1>{{message}}</h1></div>'+
     '   <result-list :results="results"></result-list>'+

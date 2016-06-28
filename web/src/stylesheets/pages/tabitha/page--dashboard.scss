@@ -31,22 +31,25 @@
 
 }
 
-.question-summary-container {
+.interactions-per-region .number-display {
+    display: inline-block;
+    width: 15%;
+}
 
-    .number-display {
-        display: inline-block;
-        width: 15%;
-        vertical-align: top;
-    }
-
-    .column-chart {
+.question-summary-container .column-chart,
+.interactions-per-region .bar-chart {
         display: inline-block;
         width: 84%;
         vertical-align: top;
-    }
 }
 
-.dashboard-content-combo.question-content-combo {
+.dashboard-section.referral-process-summary,
+.dashboard-section.cs-referral-summary {
+    margin-top: 0;
+}
+
+.dashboard-content-combo.question-content-combo,
+.dashboard-content-combo.roles-suggestions-summary {
     .dashboard-section {
         display: inline-block;
         margin-bottom: 0;
@@ -55,6 +58,28 @@
 
         & + .dashboard-section {
             float: right;
+        }
+    }
+}
+
+.dashboard-content-combo.roles-suggestions-summary .pie-chart {
+    display: block;
+    vertical-align: top;
+    width: 100%;
+    margin: 0;
+}
+
+.dashboard-component-container {
+    display: inline-block;
+    width: 15%;
+    vertical-align: top;
+
+    .number-display {
+        width: auto;
+        opacity: 0.25;
+        transition: opacity .25s linear;
+        &:hover {
+            opacity: 1;
         }
     }
 }
