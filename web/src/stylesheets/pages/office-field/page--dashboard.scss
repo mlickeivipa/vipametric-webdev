@@ -1,0 +1,18 @@
+@import "../../config/themes/_tabitha";
+@import "../../config/_base-import";
+
+@import "../_definitions/_page--dashboard-new";
+
+.dashboard-section .spend-totals {
+  float: left;
+  margin-top: 13px;
+
+  .number-display {
+    opacity: 0.45;
+    transition: opacity .25s linear;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+}

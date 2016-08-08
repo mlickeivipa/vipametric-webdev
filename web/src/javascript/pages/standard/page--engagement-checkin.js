@@ -37,7 +37,11 @@ jQuery(function($){
     $checkin.prop('disabled', true);
     $messages.text('Checking in…');
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError,
-        {enableHighAccuracy: true, timeout: 2000, maximumAge: 0});
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 300000
+        });
   });
 
   $checkout.click(function(){

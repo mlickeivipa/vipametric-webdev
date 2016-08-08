@@ -1,0 +1,19 @@
+@import "../../config/themes/_standard";
+@import "../../config/_base-import";
+
+@import "../_definitions/_template--manage";
+
+@media (min-width: 480px) {
+  a[title="Add Engagement"],
+  a[title="Add User"] {
+    top: 25px;
+  }
+}
+
+.manage-engagements {
+  padding-top: 30px;
+}
+
+.manage-users {
+  padding-top: 15px;
+}

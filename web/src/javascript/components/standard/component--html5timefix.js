@@ -38,5 +38,9 @@ jQuery(function($){
         initTimeUpdates();
     }
 
+    $(window).on('vm:form-post-update', function() {
+        init();
+    });
+
     init();
 });

@@ -1,8 +1,8 @@
 jQuery(function($) {
 
     //These pull in the standard dashboard functionality that will be needed.
-    //=require ../../dashboard/dashboard--main-config.js
-    //=require ../../dashboard/dashboard--numeric-renderer.js
+    //=include config/dashboard/dashboard--main-config.js
+    //=include config/dashboard/dashboard--numeric-renderer.js
 
     //TODO implement rendering functions
     function exampleRendering1($section, data) {
@@ -27,4 +27,5 @@ jQuery(function($) {
                 break;
         }
     }
+
 });

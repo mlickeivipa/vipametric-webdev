@@ -1,14 +1,3 @@
-a[title="Add Event"] {
-    display: none;
-}
-
-.add-engagement {
-    position: absolute;
-    top: 30px;
-    right: 25px;
-    margin-bottom: 20px;
-}
-
 .tab-container {
     > div.tab-items {
         border-bottom: 1px solid $color-grey-cc;
@@ -52,11 +41,15 @@ a[title="Add Event"] {
     }
 
     .tab-content {
-        padding-top: 20px;
+        padding-top: 50px;
 
         .manage-engagements {
             padding-top: 0;
         }
+    }
+
+    a.add-engagement {
+        top: 85px;
     }
 
 }

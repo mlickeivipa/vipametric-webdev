@@ -39,8 +39,6 @@ $(document).ready(function() {
         }
     }
 
-
-
     function init() {
         $calendar = $('.engagement-calendar');
         var $filters = $('.engagement-calendar-filters');
@@ -56,21 +54,59 @@ $(document).ready(function() {
 
         function loadFilters(result){
             $filters.empty();
+
+            var $statusDropdown = $('<div class="filter status-filter"></div>').appendTo($filters),
+                $statusLabel = $('<label class="status-filter-label filter-label" for="status-selector">Event Status</label>').appendTo($statusDropdown);
+                $statusSelect = $('<select class="status-selector"></select>').appendTo($statusDropdown);
+            $.each(result.statuses, function(idx, status) {
+                var $statusOpt = $('<option/>', {
+                    'value': status.name,
+                    'text': status.displayName,
+                    'selected': status.selected
+                });
+
+                $statusSelect.append($statusOpt);
+            });
+
+            var $brands = $('<div class="filter brand-filters"></div>').appendTo($filters),
+                $brandsLabel = $('<div class="brand-filters-label filter-label">Brands</div>').appendTo($brands);
             $.each(result.brands, function(i, brand){
                 var $legendItem = $('<div/>');
                 $legendItem.addClass('color-key').css('background-color', brand.color ? brand.color : '#cccccc');
 
+                var brandId = brand.id;
                 var $check = $('<input/>', {
                     'type': 'checkbox',
-                    'data-brand-id': +brand.id,
+                    'id': 'brand-'+ brandId,
+                    'data-brand-id': +brandId,
                     'checked': !!brand.selected
                 });
 
-                var $filterLabel = $("<label/>").text(brand.name);
+                var $filterLabel = $("<label for='brand-"+ brandId+"'/>").text(brand.name);
                 var $filterCon = $('<div class="opt" />');
                 $filterCon.prepend($check).prepend($legendItem).append($filterLabel);
 
-                $filterCon.appendTo($filters);
+                $filterCon.appendTo($brands);
+            });
+
+            var $brandAmbassadors = $('<div class="filter brand-ambassador-filter member-filter"></div>').appendTo($filters),
+                $brandAmbassadorLabel = $('<div class="brand-ambassador-label filter-label">Brand Ambassadors</div>');
+            $.each(result["brand-ambassadors"], function(idx, brandAmbassador) {
+                if(brandAmbassador.first != null && brandAmbassador.last != null) {
+                    var baId = brandAmbassador.id;
+
+                    var $cb = $('<input/>', {
+                        'type': 'checkbox',
+                        'id': 'ba-'+baId,
+                        'value': baId,
+                        'checked': brandAmbassador.selected
+                    });
+
+                    var $label = $('<label for="ba-'+baId+'"/>').text(brandAmbassador.first + " " + brandAmbassador.last),
+                        $filterCon = $('<div class="opt" />');
+                    $filterCon.prepend($cb).append($label);
+                    $filterCon.appendTo($brandAmbassadors);
+                }
             });
         }
 
@@ -81,14 +117,24 @@ $(document).ready(function() {
             } else {
                 // Filter by brand if not first request
                 var brandIds = '';
-                $filters.find('input:checkbox').each(function(){
+                $filters.find('.brand-filters input:checkbox').each(function(){
                     var $check = $(this);
                     if($check.is(':checked')){
                         brandIds += $check.data('brandId');
                         brandIds += ';';
                     }
                 });
+
+                var memberIds = '';
+                $filters.find('.member-filter input:checkbox:checked').each(function() {
+                    var $this = $(this);
+                    memberIds += $this.val();
+                    memberIds += ';';
+                });
+
+                filters.status = $filters.find('.status-selector').val();
                 filters.brandIds = brandIds;
+                filters.memberIds = memberIds;
             }
             return filters;
         }

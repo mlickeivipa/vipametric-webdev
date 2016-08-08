@@ -1,7 +1,8 @@
 jQuery(function($) {
 
-    //=require ../../dashboard/dashboard--main-config.js
-    //=require ../../dashboard/dashboard--numeric-renderer.js
+    //These pull in the standard dashboard functionality that will be needed.
+    //=include config/dashboard/dashboard--main-config.js
+    //=include config/dashboard/dashboard--numeric-renderer.js
 
     function findAverageOfData(data)
     {

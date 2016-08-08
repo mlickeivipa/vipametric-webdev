@@ -1,0 +1,9 @@
+@import "../../config/themes/_standard";
+@import "../../config/_base-import";
+
+@import "../_definitions/_template--landing";
+
+.login-intro,
+.pernod-td-link-name-check {
+    color: $color--theme-accent;
+}

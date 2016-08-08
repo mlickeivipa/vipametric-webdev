@@ -44,10 +44,10 @@ jQuery(function($) {
                 $MESSAGE_ERROR_PERMISSIONS.addClass(CLASSNAME_SHOW);
                 break;
             case MESSAGE_TYPE_ERROR_GENERIC:
-                $MESSAGE_ERROR_GENERIC.addClass(CLASSNAME_SHOW);
+                //$MESSAGE_ERROR_GENERIC.addClass(CLASSNAME_SHOW);
                 break;
             default:
-                $MESSAGE_ERROR_GENERIC.addClass(CLASSNAME_SHOW);
+                //$MESSAGE_ERROR_GENERIC.addClass(CLASSNAME_SHOW);
                 break;
         }
     }

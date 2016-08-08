@@ -35,14 +35,14 @@ var renderNumeric = function($container, label, value, description, numericType)
     switch (numericType) {
         case "percentage":
             $label = $('<div class="data-label">'+label+'</div>');
-            $value = $('<div class="data-value">'+value.toFixed(2)+'<span class="percent-sign">%</span></div>');
+            $value = $('<div class="data-value">'+parseFloat(value).toFixed(2)+'<span class="percent-sign">%</span></div>');
             if(description != null)
                 $description = $('<div class="data-description">'+description+'</div>');
             break;
 
         case "monetary":
             $label = $('<div class="data-label">'+label+'</div>');
-            $value = $('<div class="data-value"><span class="monetary-sign">$</span>'+value.toFixed(2)+'</div>');
+            $value = $('<div class="data-value"><span class="monetary-sign">$</span>'+parseFloat(value).toFixed(2)+'</div>');
             if(description != null)
                 $description = $('<div class="data-description">'+description+'</div>');
             break;

@@ -30,11 +30,12 @@
     margin: 0 0 20px;
     padding: 15px 25px;
 
-    &:before {
-        content:"Filter by Brand";
-        display: block;
-        font-family: $font-open-sans-bold;
-        text-transform: uppercase;
+    .filter + .filter {
+        margin-top: 10px;
+    }
+
+    .filter-label {
+        font-family: $font-open-sans-semi-bold;
         margin-bottom: 5px;
     }
 

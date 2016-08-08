@@ -31,9 +31,13 @@ gulp.task('styles:clean', function(callback) {
 
 gulp.task('javascript', ['javascript:build']);
 gulp.task('javascript:build', ['javascript:clean'], function() {
-	return gulp.src('./web/src/javascript/**/*.js')
-		.pipe(include({extensions: "js"}))
-			.on('error', console.log)
+	return gulp.src(['./web/src/javascript/**/*.js', '!./web/src/javascript/config/**/*'])
+		.pipe(include({
+			extensions: "js",
+			includePaths: [
+				"./web/src/javascript"
+			]
+		}))
 		.pipe(gulp.dest('./web/build/javascript'));
 });
 gulp.task('javascript:clean', function(callback) {

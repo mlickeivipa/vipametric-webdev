@@ -67,7 +67,13 @@
 
             $.each(opts.columns, function (c_index, c_item) {
 
-                var $td = $("<td>").text(item[c_item.data]).attr("data-i", c_index);
+                var val = item[c_item.data];
+                if(c_item.type == 'int')
+                {
+                    val = val.toLocaleString();
+                }
+
+                var $td = $("<td>").text(val).attr("data-i", c_index);
 
                 if (c_item.starthidden) {
                     $td.hide();
@@ -155,6 +161,7 @@
                     case "string":
                         value = item.text();
                         break;
+
                     case "int":
                         value = parseInt(item.text());
                         break;
