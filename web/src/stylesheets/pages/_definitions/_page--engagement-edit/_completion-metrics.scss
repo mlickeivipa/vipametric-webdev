@@ -1,0 +1,9 @@
+.completion-metrics-container {
+  .miwt-collapsable-content .content {
+    margin: 10px 0;
+
+    .metric + .metric {
+      margin-top: 10px;
+    }
+  }
+}
