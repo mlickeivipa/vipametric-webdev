@@ -205,7 +205,7 @@ jQuery(function($) {
 
         $section.find(".likely-purchase").highcharts(Highcharts.merge(defaultOptions.pieWithLegendOptions, {
             title: {
-                text: "Likely to Purchase Montejo"
+                text: "Likely to Purchase Estrella"
             },
             credits: {
                 enabled: false

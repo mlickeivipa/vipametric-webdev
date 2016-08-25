@@ -1,0 +1,146 @@
+@import "../../config/themes/_cardenas";
+@import "../../config/_base-import";
+
+@import "../_definitions/_template--base";
+
+.logo p {
+    margin: 0;
+}
+
+.nav-plus {
+    .logout {
+        .btn.logout-url {
+            height: auto;
+            width: auto;
+            display: inline-block;
+            background-position: 5px center;
+        }
+    }
+
+    .account-logout {
+        position: absolute;
+        right: 0;
+        top: 25px;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+
+        .account-username {
+            color: $color-white;
+            padding-right: 10px;
+            font-size: 12px;
+        }
+
+        .account-logout-link {
+            background-color: $color--theme-accent-alternate;
+            color: $color-white;
+            font-size: 12px;
+            padding: 1px 10px;
+            background-position: 5px 3px;
+            background-image: url(/_resources/dyn/files/21507z2032e2af/_fn/LogOut.png);
+            background-repeat: no-repeat;
+            background-size: 13px;
+
+            &:hover {
+                background-color: $color-grey-62;
+            }
+        }
+
+        .account-logout-link-text {
+            padding-left: 13px;
+        }
+    }
+}
+
+@include breakpoint($bp-desktop) {
+    .l-header {
+        > .box-wc {
+            padding: 0 25px;
+        }
+    }
+
+    .logo {
+        height: 40px;
+        padding: 7px 0;
+
+        img {
+            max-height: 45px;
+            width: auto;
+            height: auto;
+        }
+    }
+
+    .nav-plus {
+        float: none;
+        margin-top: 0;
+        position: relative;
+
+        .menu {
+            .menu-t1 {
+                .mi {
+                    &:hover {
+                        .menuitemlabel {
+                            &:after {
+                                height: 10px;
+                            }
+                        }
+                    }
+
+                    &.mi-active {
+                        .menuitemlabel .mil {
+                            border-bottom: 0;
+                        }
+                    }
+
+                    .menuitemlabel {
+                        padding: 15px 0;
+
+                        &:hover .mil {
+                            border-bottom: 0;
+                        }
+
+                        &:after {
+                            content: "";
+                            display: block;
+                            background-color: $color--theme-accent-alternate;
+                            position: absolute;
+                            -webkit-transform: translate(-50%);
+                            -ms-transform: translate(-50%);
+                            transform: translate(-50%);
+                            height: 0;
+                            left: 50%;
+                            width: 25px;
+                            bottom: 0;
+                            z-index: 1;
+                            border-radius: 1px;
+                            -webkit-transition: all 150ms;
+                            transition: all 150ms;
+                        }
+                    }
+                }
+            }
+            ul {
+                .mi {
+                    margin-right: 20px;
+
+                    .menuitemlabel {
+                        position: relative;
+                        padding: 15px 0;
+                    }
+                }
+            }
+        }
+
+        .collapsible-shown {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 30px;
+        }
+
+        .account-logout {
+            .account-username {
+                color: $color--theme-accent-alternate;
+            }
+        }
+    }
+}
